@@ -1,0 +1,145 @@
+{
+  "protocol": "agent1-decision-representation-calculus-v1",
+  "corpus_policy": "no new corpus; exact finite mathematical fixtures only",
+  "object": {
+    "experiment": "E[y][r] = P(R=r | Y=y)",
+    "decision_problem": "D=(A,L)",
+    "bayes_value": "V(E,D,pi) = min_decoder E[L(Y,decoder(R))]"
+  },
+  "bayes_engine": {
+    "status": "EXECUTABLE",
+    "bayes_risk": "0",
+    "policy": [[false], [true]],
+    "arbitrary_loss_supported": true,
+    "exact_arithmetic": true,
+    "returns": ["posterior_by_symbol", "all_optimal_action_ties", "decoder", "Bayes risk"]
+  },
+  "blackwell": {
+    "status": "EXECUTABLE",
+    "criterion": "E1 dominates E2 iff a row-stochastic K exists with E1*K=E2",
+    "classifications": {
+      "identical": "EQUIVALENT",
+      "permuted": "EQUIVALENT",
+      "strict_garbling": "DOMINATES",
+      "useless": "DOMINATES",
+      "incomparable": "INCOMPARABLE"
+    },
+    "strict_garbling_witness": {
+      "channel": [["3/4", "1/4"], ["1/4", "3/4"]],
+      "residual_linf": "0",
+      "certificate": "row-stochastic channel; exact matrix equality"
+    },
+    "incomparable_fixture": "two experiments each distinguish a different pair of three world states"
+  },
+  "deficiency": {
+    "status": "EXECUTABLE",
+    "criterion": "delta(E1,E2)=min_K max_y TV(E1_y*K,E2_y)",
+    "symmetric_distance": "max(delta(E1,E2),delta(E2,E1))",
+    "revealing_vs_strict_garbling": {
+      "forward": "0",
+      "reverse": "1/4",
+      "Le_Cam_distance": "1/4",
+      "reverse_witness": [["1", "0"], ["0", "1"]]
+    },
+    "incomparable_pair": {
+      "forward": "1/2",
+      "reverse": "1/2",
+      "Le_Cam_distance": "1/2"
+    },
+    "certificate": "exact rational LP vertex; binary-target TV reduction used"
+  },
+  "task_sufficient_quotient": {
+    "status": "EXECUTABLE",
+    "minimum_states": 2,
+    "blocks": [[0], [1, 2]],
+    "risk_before": "1/4",
+    "risk_after": "1/4",
+    "risk_delta": "0",
+    "witness": "each block has a common Bayes-optimal action",
+    "reduction": "minimum set cover over signal sets sharing a Bayes-optimal action"
+  },
+  "multi_task": {
+    "status": "EXECUTABLE",
+    "minimum_states": 2,
+    "blocks": [[0], [1, 2]],
+    "risk_deltas": ["0", "0"],
+    "reduction": "minimum set cover over joint task-optimal action tuples",
+    "monotonicity": "adding tasks cannot decrease the minimum quotient state count"
+  },
+  "epsilon_compression": {
+    "status": "EXECUTABLE",
+    "epsilons": ["0", "1/4"],
+    "minimum_states": 2,
+    "blocks": [[0], [1, 2]],
+    "risk_deltas": ["0", "0"],
+    "optimality": "exhaustive over all canonical set partitions"
+  },
+  "decision_spectrum": [
+    {"task": "binary_classification", "minimum_states": 2, "risk_before": "1/4", "risk_after": "1/4"},
+    {"task": "asymmetric_action", "minimum_states": 1, "risk_before": "1/2", "risk_after": "1/2"}
+  ],
+  "representation_path": {
+    "steps": ["fully_revealing -> strict_garbling", "strict_garbling -> useless"],
+    "all_steps_exact_blackwell": true,
+    "deficiency_upper_bound_by_triangle": "0",
+    "meaning": "exact garbling certificates compose without recomputing the endpoint risk"
+  },
+  "identification_interface": {
+    "status": "NOT_IDENTIFIED",
+    "supplied": ["calibration_observations", "labels"],
+    "required": ["calibration_observations", "labels", "monotonicity"],
+    "missing": ["monotonicity"]
+  },
+  "complexity": {
+    "bayes_engine": {"status": "POLYNOMIAL", "time": "O(|Y||R||A|)"},
+    "blackwell": {"formulation": "LP feasibility", "implementation": "exact vertex enumeration for small dimensions"},
+    "deficiency": {"formulation": "LP with TV slack variables", "implementation": "exact vertex enumeration with binary-target reduction"},
+    "task_quotient": {"reduction": "set cover", "implementation": "O(2^|R|*|A|) bitmask DP"},
+    "multi_task": {"reduction": "joint-action set cover", "implementation": "O(2^|R|*product_i |A_i|)"},
+    "epsilon_compression": {"implementation": "canonical partition enumeration", "worst_case": "O(Bell(|R|))"}
+  },
+  "hardness_status": {
+    "blackwell": "LP formulation; no hardness claim",
+    "deficiency": "LP formulation; no hardness claim",
+    "task_quotient": "exact set-cover reduction; arbitrary-instance hardness embedding not proved",
+    "epsilon_compression": "exact finite solver; general hardness not claimed"
+  },
+  "counterexamples": {
+    "representation_quality_without_task": "DISPROVED",
+    "mutual_information_as_universal_decision_order": "DISPROVED",
+    "incomparable_representations": "CONSTRUCTED",
+    "task_dependent_minimal_structure": "CONSTRUCTED"
+  },
+  "status_summary": {
+    "PROVED": [
+      "finite Bayes engine computes exact value and all optimal-action ties",
+      "task quotient validity is equivalent to a common Bayes-optimal action per block",
+      "multi-task quotient minimum cannot be smaller than a single-task minimum",
+      "Blackwell witness implies zero deficiency in the same direction"
+    ],
+    "KNOWN_RESULT": [
+      "finite Blackwell comparison is stochastic-channel feasibility",
+      "finite deficiency is an LP over channels and TV residuals"
+    ],
+    "CONJECTURE": [],
+    "DISPROVED": ["representation quality can be summarized independently of a decision family"],
+    "UNKNOWN": [
+      "general NP-hardness of the realizable task-quotient family",
+      "scalable approximate quotients beyond exact bitmask/partition search"
+    ]
+  },
+  "references": [
+    {
+      "author": "David Blackwell",
+      "title": "Equivalent Comparisons of Experiments",
+      "year": 1953,
+      "url": "https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-24/issue-2/Equivalent-Comparisons-of-Experiments/10.1214/aoms/1177729032.full"
+    },
+    {
+      "author": "Lucien Le Cam",
+      "title": "Sufficiency and Approximate Sufficiency",
+      "year": 1964,
+      "url": "https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-35/issue-4/Sufficiency-and-Approximate-Sufficiency/10.1214/aoms/1177700372.full"
+    }
+  ]
+}
