@@ -1,0 +1,409 @@
+{
+  "adapters": {
+    "MAT-SI": {
+      "audit": {
+        "LOST": [
+          "semantic candidate labels in the neutral record",
+          "raw rule payload inside the compact envelope"
+        ],
+        "NORMALIZED": [
+          "candidate names to row slots",
+          "event label to opaque digest",
+          "rules to state digests"
+        ],
+        "PRESERVED": [
+          "before/after represented-rule boundary",
+          "recorded transformation event",
+          "instruction_count metric",
+          "source provenance"
+        ],
+        "RESIDUE": {
+          "payload_recoverable_from_source_ref": true,
+          "source_hash": "a0c8bd229ca28ef96546068fd5e2530a67034b77a4dbdbcf8e56bb27d2c10713"
+        }
+      },
+      "raw_record_count": 3,
+      "system_id": "MAT-SI",
+      "usable_record_count": 3
+    },
+    "VIBECODEINE": {
+      "audit": {
+        "LOST": [
+          "action interpretation",
+          "outcome interpretation",
+          "resource usage",
+          "semantic meaning of status fields"
+        ],
+        "NORMALIZED": [
+          "event identifiers to opaque tokens",
+          "event/observation objects to state digests"
+        ],
+        "PRESERVED": [
+          "event order",
+          "event-to-observation links",
+          "raw snapshot digests",
+          "source provenance"
+        ],
+        "RESIDUE": {
+          "semantic_effect_observable": false,
+          "source_hash": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916",
+          "unlinked_events_not_fabricated": 2
+        }
+      },
+      "raw_record_count": 42,
+      "system_id": "VIBECODEINE",
+      "unavailable_after": [
+        {
+          "event_ordinal": 40,
+          "event_token": "dd70945f10f32d4f"
+        },
+        {
+          "event_ordinal": 41,
+          "event_token": "37c752aaaf86dd8b"
+        }
+      ],
+      "usable_record_count": 40
+    }
+  },
+  "counterexamples": {
+    "mandatory_field_pairs": {
+      "after": {
+        "conclusion": "sin after, los dos casos ser\u00edan indistinguibles aunque la transici\u00f3n completa difiera",
+        "full_records_differ": true,
+        "projection_equal_without_field": true,
+        "varied_field": "after"
+      },
+      "before": {
+        "conclusion": "sin before, los dos casos ser\u00edan indistinguibles aunque la transici\u00f3n completa difiera",
+        "full_records_differ": true,
+        "projection_equal_without_field": true,
+        "varied_field": "before"
+      },
+      "intervention": {
+        "conclusion": "sin intervention, los dos casos ser\u00edan indistinguibles aunque la transici\u00f3n completa difiera",
+        "full_records_differ": true,
+        "projection_equal_without_field": true,
+        "varied_field": "intervention"
+      },
+      "provenance": {
+        "conclusion": "sin provenance, los dos casos ser\u00edan indistinguibles aunque la transici\u00f3n completa difiera",
+        "full_records_differ": true,
+        "projection_equal_without_field": true,
+        "varied_field": "provenance"
+      }
+    },
+    "pairs_are_analytical_not_historical_inputs": true,
+    "resource_vector_counterexample": {
+      "allocation_count": {
+        "status": "MEASURED",
+        "value": 2
+      },
+      "bytes_written": {
+        "status": "MEASURED",
+        "value": 1000
+      },
+      "conclusion": "las dimensiones no tienen una unidad com\u00fan justificada; un costo escalar perder\u00eda qu\u00e9 recurso cambi\u00f3",
+      "cpu_ms": {
+        "status": "MEASURED",
+        "value": 10
+      },
+      "scalar_collapsed": false
+    }
+  },
+  "exact_instrumentation_changes": {
+    "MAT-SI": "none for the existing self-application output; emit the four mandatory fields at each represented transformation boundary",
+    "VIBECODEINE": "append one hook at event finalization that records before_state_digest, opaque event token, after_state_digest when observations close, source_ref, and per-dimension measured resources if available; leave absent values absent",
+    "storage": "none; JSON/local files are transport only and do not contribute semantics"
+  },
+  "field_decisions": {
+    "rejected_or_optional": {
+      "action_label": "rejected as a semantic interpretation of intervention",
+      "context": "not mandatory; keep domain-specific context in the state snapshot or residue",
+      "cost_scalar": "rejected; independent resources remain a vector",
+      "outcome_label": "rejected; derive only from before/after under an explicit later hypothesis",
+      "resources_vector": "optional and preserved only when measured",
+      "success_progress_stuck": "rejected; labels would encode the conclusion",
+      "timestamp": "not mandatory; retain when available as provenance/order evidence"
+    },
+    "surviving": {
+      "after": "required: sin estado posterior no se observa el efecto",
+      "before": "required: sin estado inicial no se puede falsar una relaci\u00f3n condicionada por el estado",
+      "intervention": "required as an opaque boundary/event token, not as a semantic action label",
+      "provenance": "required: sin fuente/derivaci\u00f3n/p\u00e9rdida no se puede audit the evidence"
+    }
+  },
+  "gate": {
+    "decision": "A",
+    "meaning": "minimum observability identified: before, opaque intervention, after, and provenance; resources remain an independent optional vector",
+    "new_product_implementation_started": false,
+    "phase5_started": false
+  },
+  "host_represented_derived": {
+    "DERIVED": [
+      "opaque digests",
+      "before/after boundary records",
+      "item counts",
+      "field availability",
+      "loss/residue audit",
+      "no semantic success claim"
+    ],
+    "HOST": [
+      "JSON parsing",
+      "SHA-256/canonicalization",
+      "lookup by existing event_id",
+      "file/hash verification"
+    ],
+    "REPRESENTED": [
+      "source before/after payloads",
+      "MAT-SI represented rules and transformation history",
+      "VIBECODEINE recorded event-observation links",
+      "resource dimensions when present"
+    ]
+  },
+  "manifest_path": "C:\\IA\\MATH\\corpus\\phase4c-observability-manifest.json",
+  "minimal_record": {
+    "mandatory_fields": [
+      "before",
+      "intervention",
+      "after",
+      "provenance"
+    ],
+    "optional_fields": [
+      "resources"
+    ],
+    "scalar_cost_assumed": false,
+    "semantic_labels_invented": false,
+    "shape": {
+      "after": "opaque observation of the subsequent measured state/snapshot",
+      "before": "opaque observation of a measured state/snapshot",
+      "intervention": "opaque event/boundary token; no action semantics required",
+      "provenance": "source + derivation + loss + residue + provenance for each field",
+      "resources": "independent measured dimensions only; absent is valid"
+    },
+    "success_or_progress_encoded": false
+  },
+  "observability_limits": {
+    "MAT-SI": [
+      "no wall-clock/CPU/memory measurement in the frozen Phase 2 output",
+      "instruction_count is not a universal cost"
+    ],
+    "VIBECODEINE": [
+      "no semantic action field",
+      "no measured outcome distinct from status metadata",
+      "no resource vector",
+      "two events have no linked after observation"
+    ],
+    "both": [
+      "the envelope cannot infer domain meaning or success from digests",
+      "a state digest does not reveal a semantic delta without the referenced residue"
+    ]
+  },
+  "parent_commit": "6df7498",
+  "protocol": "phase4c-minimum-observability",
+  "question": "smallest domain-neutral observational record sufficient for future real cross-domain falsification",
+  "record_examples": {
+    "MAT-SI": [
+      {
+        "after": {
+          "scope": "represented_rule",
+          "source_ref": "rows[0].history.after",
+          "state_digest": "d4529ab7f794533595b66a316a2b7915168113b1b48d03b01b73c7a9168086d6"
+        },
+        "before": {
+          "scope": "represented_rule",
+          "source_ref": "rows[0].history.before",
+          "state_digest": "52f0d1d7269534e28a9478e287d60f0f2a4ecc862e42fe45d4bb21afa998c2de"
+        },
+        "intervention": {
+          "event_digest": "43dbe26b29bdf229",
+          "kind": "opaque_event_identifier"
+        },
+        "provenance": {
+          "field_audit": {
+            "after": {
+              "DERIVATION": "canonicalize represented rule and retain its digest",
+              "LOSS": "rule payload is not embedded in the neutral record",
+              "PROVENANCE": "rows[0].history",
+              "RAW_SOURCE": "rows[0].history.after",
+              "RESIDUE": {
+                "payload_digest": "d4529ab7f794533595b66a316a2b7915168113b1b48d03b01b73c7a9168086d6"
+              }
+            },
+            "before": {
+              "DERIVATION": "canonicalize represented rule and retain its digest",
+              "LOSS": "rule payload is not embedded in the neutral record",
+              "PROVENANCE": "rows[0].history",
+              "RAW_SOURCE": "rows[0].history.before",
+              "RESIDUE": {
+                "payload_digest": "52f0d1d7269534e28a9478e287d60f0f2a4ecc862e42fe45d4bb21afa998c2de"
+              }
+            },
+            "intervention": {
+              "DERIVATION": "hash the recorded event token; do not expose its semantic label",
+              "LOSS": "event wording and candidate name are masked",
+              "PROVENANCE": "rows[0].history.provenance.event",
+              "RAW_SOURCE": "rows[0].history.provenance.event",
+              "RESIDUE": {
+                "event_digest": "43dbe26b29bdf229"
+              }
+            },
+            "provenance": {
+              "DERIVATION": "attach frozen source hash, row ordinal, and represented-model origin",
+              "LOSS": "local source path and candidate label are not part of the observation value",
+              "PROVENANCE": "MAT-SI Phase 2 history",
+              "RAW_SOURCE": "phase2-self-reference-results.json",
+              "RESIDUE": {
+                "row_ordinal": 0,
+                "source_hash": "a0c8bd229ca28ef96546068fd5e2530a67034b77a4dbdbcf8e56bb27d2c10713"
+              }
+            }
+          },
+          "residue": {
+            "candidate_name_masked": true,
+            "candidate_slot": 0,
+            "represented_payloads_available_at_source_ref": true
+          },
+          "source_hash": "a0c8bd229ca28ef96546068fd5e2530a67034b77a4dbdbcf8e56bb27d2c10713",
+          "source_ref": "rows[0].history",
+          "source_system": "MAT-SI"
+        },
+        "resources": {
+          "audit": {
+            "DERIVATION": "copy existing instruction_count observation without renaming it cost",
+            "LOSS": "unavailable dimensions remain absent; no scalar aggregation",
+            "PROVENANCE": "rows[0].history.transformation.cost_observation",
+            "RAW_SOURCE": "rows[0].history.transformation.cost_observation",
+            "RESIDUE": {
+              "metric_names": [
+                "instruction_count"
+              ]
+            }
+          },
+          "dimensions": {
+            "instruction_count": {
+              "source_ref": "rows[0].history.transformation.cost_observation",
+              "status": "MEASURED",
+              "value": 7
+            }
+          },
+          "scalar_collapsed": false
+        }
+      }
+    ],
+    "VIBECODEINE": [
+      {
+        "after": {
+          "item_count": 163,
+          "scope": "raw_observation_snapshot",
+          "source_ref": "observations[event_id=event-8a7fb0a6452c0f5f]",
+          "state_digest": "2da6c9e4d3c69981a170eef9b092eee325f02979d4cfdebac8ece9c1b8721b4b"
+        },
+        "before": {
+          "scope": "raw_event_snapshot",
+          "source_ref": "events[0]",
+          "state_digest": "9a710d36e8d44f3013cf68336925b0699893b9b7e34f8de11de3c312b826b359"
+        },
+        "intervention": {
+          "event_digest": "adb958e0c6baaba7",
+          "kind": "opaque_event_identifier"
+        },
+        "provenance": {
+          "field_audit": {
+            "after": {
+              "DERIVATION": "group already recorded observations by their existing event_id",
+              "LOSS": "raw observations remain recoverable only through source_ref; no outcome label is inferred",
+              "PROVENANCE": "observations[event_id=event-8a7fb0a6452c0f5f]",
+              "RAW_SOURCE": "observations[event_id=event-8a7fb0a6452c0f5f]",
+              "RESIDUE": {
+                "observation_count": 163,
+                "payload_digest": "2da6c9e4d3c69981a170eef9b092eee325f02979d4cfdebac8ece9c1b8721b4b"
+              }
+            },
+            "before": {
+              "DERIVATION": "canonicalize the recorded event object and retain its digest",
+              "LOSS": "names, labels, and domain interpretation are not promoted",
+              "PROVENANCE": "events[0]",
+              "RAW_SOURCE": "events[0]",
+              "RESIDUE": {
+                "payload_digest": "9a710d36e8d44f3013cf68336925b0699893b9b7e34f8de11de3c312b826b359"
+              }
+            },
+            "intervention": {
+              "DERIVATION": "hash the existing event identifier as an opaque boundary token",
+              "LOSS": "event label is not interpreted as an action",
+              "PROVENANCE": "events[0].event_id",
+              "RAW_SOURCE": "events[0].event_id",
+              "RESIDUE": {
+                "event_digest": "adb958e0c6baaba7"
+              }
+            },
+            "provenance": {
+              "DERIVATION": "attach frozen source hash and JSON paths",
+              "LOSS": "private/domain labels are not part of the neutral record",
+              "PROVENANCE": "VIBECODEINE pre-existing evidence export",
+              "RAW_SOURCE": "rd_testeos_eventos_2025_evidence_2026-08-12.json",
+              "RESIDUE": {
+                "event_ordinal": 0,
+                "source_hash": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916"
+              }
+            }
+          },
+          "residue": {
+            "event_id_link_used": true,
+            "event_label_masked": true,
+            "raw_observations_available_at_source_ref": true,
+            "semantic_effect_observable": false
+          },
+          "source_hash": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916",
+          "source_ref": "events[0]",
+          "source_system": "VIBECODEINE"
+        }
+      }
+    ]
+  },
+  "self_application": {
+    "evidence": "Phase 2 already records represented before/after rules, transformation provenance, and instruction_count",
+    "existing_output_sufficient": true,
+    "new_instrumentation_required": false,
+    "records_emitted": 3,
+    "same_record_contract": true,
+    "system": "MAT-SI"
+  },
+  "source_hashes_verified": {
+    "MAT-SI": "a0c8bd229ca28ef96546068fd5e2530a67034b77a4dbdbcf8e56bb27d2c10713",
+    "VIBECODEINE": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916"
+  },
+  "storage_semantically_irrelevant": {
+    "reason": "the same contract is produced from represented JSON values; path and format occur only in provenance",
+    "result": true
+  },
+  "system_mapping": {
+    "MAT-SI": {
+      "mandatory_contract_valid_for_all_usable_records": true,
+      "raw_record_count": 3,
+      "records_emit_same_contract": true,
+      "resource_vector_available": true,
+      "scalar_cost_available": false,
+      "semantic_action_available": false,
+      "semantic_outcome_available": false,
+      "usable_record_count": 3
+    },
+    "VIBECODEINE": {
+      "mandatory_contract_valid_for_all_usable_records": true,
+      "raw_record_count": 42,
+      "records_emit_same_contract": true,
+      "resource_vector_available": false,
+      "scalar_cost_available": false,
+      "semantic_action_available": false,
+      "semantic_outcome_available": false,
+      "usable_record_count": 40
+    }
+  },
+  "validation": {
+    "all_field_audits_complete": true,
+    "all_mandatory_fields_present": true,
+    "no_success_labels": true,
+    "record_count": 43,
+    "resources_valid_vectors": true
+  }
+}

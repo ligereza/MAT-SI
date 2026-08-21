@@ -125,3 +125,16 @@ python -m matsi.real_experience_transfer --json-out results/phase4b-real-experie
 
 See `docs/phase4b-real-experience-transfer.md` for the frozen evidence manifest,
 derivation audits, missing observables, held-out contamination boundary, and gate.
+
+## Phase 4C
+
+Phase 4C attacks the observability boundary using the frozen MAT-SI and VIBECODEINE
+outputs. It identifies the smallest append-only record needed for future falsification
+without inventing action, outcome, success, or scalar cost semantics:
+
+```text
+python -m matsi.minimum_observability --json-out results/phase4c-minimum-observability-results.json
+```
+
+See `docs/phase4c-minimum-observability.md` for the falsifying pairs, source mappings,
+residue audits, instrumentation boundary, and gate decision. Phase 5 has not begun.
