@@ -64,3 +64,15 @@ python -m matsi.distillation --json-out results/phase3-distillation-results.json
 
 See `docs/phase3-distillation.md` for discovery, residue, negative-control, held-out,
 and cross-representation results.
+
+## Phase 3B
+
+The blind real-repository gate uses a frozen manifest and five exact public source
+slices; it does not ingest full repositories:
+
+```text
+python -m matsi.real_distillation --json-out results/phase3b-real-distillation-results.json
+```
+
+See `docs/phase3b-real-distillation.md` for the manifest, adapter audit, false-positive
+controls, and gate decision.

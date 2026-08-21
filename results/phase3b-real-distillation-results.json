@@ -1,0 +1,2212 @@
+{
+  "adapter_audit": {
+    "A": {
+      "loses_or_excludes": [
+        "comments",
+        "formatting",
+        "docstrings from executable body",
+        "exact lexical spelling",
+        "runtime effects"
+      ],
+      "lost_information_residue_present": true,
+      "normalizes": [
+        "identifiers to text slots",
+        "literal values to typed slots",
+        "source positions",
+        "function slice boundaries"
+      ],
+      "preserves": [
+        "AST node kinds",
+        "field nesting",
+        "sequence order",
+        "operator node kinds",
+        "literal type kinds"
+      ]
+    },
+    "B": {
+      "loses_or_excludes": [
+        "comments",
+        "formatting",
+        "docstrings from executable body",
+        "exact lexical spelling",
+        "runtime effects"
+      ],
+      "lost_information_residue_present": true,
+      "normalizes": [
+        "identifiers to text slots",
+        "literal values to typed slots",
+        "source positions",
+        "function slice boundaries"
+      ],
+      "preserves": [
+        "AST node kinds",
+        "field nesting",
+        "sequence order",
+        "operator node kinds",
+        "literal type kinds"
+      ]
+    },
+    "C": {
+      "loses_or_excludes": [
+        "comments",
+        "formatting",
+        "docstrings from executable body",
+        "exact lexical spelling",
+        "runtime effects"
+      ],
+      "lost_information_residue_present": true,
+      "normalizes": [
+        "identifiers to text slots",
+        "literal values to typed slots",
+        "source positions",
+        "function slice boundaries"
+      ],
+      "preserves": [
+        "AST node kinds",
+        "field nesting",
+        "sequence order",
+        "operator node kinds",
+        "literal type kinds"
+      ]
+    },
+    "N1": {
+      "loses_or_excludes": [
+        "comments",
+        "formatting",
+        "docstrings from executable body",
+        "exact lexical spelling",
+        "runtime effects"
+      ],
+      "lost_information_residue_present": true,
+      "normalizes": [
+        "identifiers to text slots",
+        "literal values to typed slots",
+        "source positions",
+        "function slice boundaries"
+      ],
+      "preserves": [
+        "AST node kinds",
+        "field nesting",
+        "sequence order",
+        "operator node kinds",
+        "literal type kinds"
+      ]
+    },
+    "N2": {
+      "loses_or_excludes": [
+        "comments",
+        "formatting",
+        "docstrings from executable body",
+        "exact lexical spelling",
+        "runtime effects"
+      ],
+      "lost_information_residue_present": true,
+      "normalizes": [
+        "identifiers to text slots",
+        "literal values to typed slots",
+        "source positions",
+        "function slice boundaries"
+      ],
+      "preserves": [
+        "AST node kinds",
+        "field nesting",
+        "sequence order",
+        "operator node kinds",
+        "literal type kinds"
+      ]
+    }
+  },
+  "blind_structural_pass": {
+    "G_changed_after_C": false,
+    "discovery": {
+      "all_candidates_reconstruction": true,
+      "candidate_count": 528,
+      "pareto_frontier": [
+        {
+          "compression_gain": 5,
+          "description_cost": 1933,
+          "generalization_digest": "5513c0cff443d2ae4b7c7f5d56687a6e18fe7d521666500e46b21287ed8901ca",
+          "generalization_node_count": 18,
+          "left_kind": "FunctionDef",
+          "left_ordinal": 7,
+          "provenance": {
+            "method": "neutral_ast_structural_anti_unification",
+            "source_entries": [
+              "A",
+              "B"
+            ],
+            "unit_ordinals": [
+              7,
+              2
+            ]
+          },
+          "raw_description_cost": 1938,
+          "reconstruction_left": true,
+          "reconstruction_right": true,
+          "residue_left_digest": "66073c6f5345df18047004dbc7cad4dfcffcd3ff37dfdd218b35d06eeb94f23a",
+          "residue_left_keys": [
+            "v0",
+            "v1"
+          ],
+          "residue_right_digest": "2de2ffc2d462ea5eef09a6b35c0745781280951bf5c2d265f1c902e2ed2bdf24",
+          "residue_right_keys": [
+            "v0",
+            "v1"
+          ],
+          "residue_size": 1832,
+          "right_kind": "ClassDef",
+          "right_ordinal": 2,
+          "semantic_status": "unavailable",
+          "shared_structure_nodes": 18,
+          "static_behavior_equal": false
+        },
+        {
+          "compression_gain": 184,
+          "description_cost": 2517,
+          "generalization_digest": "b41e6c3f3edeac20b133e46ff2afe0591f0732dcd73e798cbcd830dd6c5ad96f",
+          "generalization_node_count": 54,
+          "left_kind": "FunctionDef",
+          "left_ordinal": 7,
+          "provenance": {
+            "method": "neutral_ast_structural_anti_unification",
+            "source_entries": [
+              "A",
+              "B"
+            ],
+            "unit_ordinals": [
+              7,
+              3
+            ]
+          },
+          "raw_description_cost": 2701,
+          "reconstruction_left": true,
+          "reconstruction_right": true,
+          "residue_left_digest": "2fc4c3aaa3a76db0a58bda255dd058e9177dcacadeddebfcdc44338d2c4dad98",
+          "residue_left_keys": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "residue_right_digest": "fe10d46fb678d42dffc8fde24b6702651039c30a597758c876fb8221a582d974",
+          "residue_right_keys": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "residue_size": 2161,
+          "right_kind": "FunctionDef",
+          "right_ordinal": 3,
+          "semantic_status": "unavailable",
+          "shared_structure_nodes": 54,
+          "static_behavior_equal": false
+        },
+        {
+          "compression_gain": 790,
+          "description_cost": 4660,
+          "generalization_digest": "d77a67e47f3e8774ea3af90084274ce95f3d6885de9e54f23eaf2154d3a2407b",
+          "generalization_node_count": 162,
+          "left_kind": "FunctionDef",
+          "left_ordinal": 12,
+          "provenance": {
+            "method": "neutral_ast_structural_anti_unification",
+            "source_entries": [
+              "A",
+              "B"
+            ],
+            "unit_ordinals": [
+              12,
+              3
+            ]
+          },
+          "raw_description_cost": 5450,
+          "reconstruction_left": true,
+          "reconstruction_right": true,
+          "residue_left_digest": "573513e4b3759d7dbee5883db1e7d1a2ae60972f9fdd7405e3d3d62ba8063255",
+          "residue_left_keys": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "residue_right_digest": "5d14dea9798f4573292c6ade0b6f7beeeda5e95f9dc31d5f6ce63fc02102b0ac",
+          "residue_right_keys": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "residue_size": 3698,
+          "right_kind": "FunctionDef",
+          "right_ordinal": 3,
+          "semantic_status": "unavailable",
+          "shared_structure_nodes": 162,
+          "static_behavior_equal": false
+        },
+        {
+          "compression_gain": 517,
+          "description_cost": 2921,
+          "generalization_digest": "87f5612a2ae8399d7f624eb201fa815b24b5d38fffb9cfa8b88c5c5557c79d27",
+          "generalization_node_count": 106,
+          "left_kind": "FunctionDef",
+          "left_ordinal": 14,
+          "provenance": {
+            "method": "neutral_ast_structural_anti_unification",
+            "source_entries": [
+              "A",
+              "B"
+            ],
+            "unit_ordinals": [
+              14,
+              3
+            ]
+          },
+          "raw_description_cost": 3438,
+          "reconstruction_left": true,
+          "reconstruction_right": true,
+          "residue_left_digest": "94fbbeaeba2dee07c00d49a01a1c3744be5f76a9746010307bbdd8a516bbe4b5",
+          "residue_left_keys": [
+            "v0",
+            "v1",
+            "v2"
+          ],
+          "residue_right_digest": "75e1a3af777c4a98c77b0c9a62ca7efa937a5b8ee6bd92b8dbda4ee738511598",
+          "residue_right_keys": [
+            "v0",
+            "v1",
+            "v2"
+          ],
+          "residue_size": 2270,
+          "right_kind": "FunctionDef",
+          "right_ordinal": 3,
+          "semantic_status": "unavailable",
+          "shared_structure_nodes": 106,
+          "static_behavior_equal": false
+        },
+        {
+          "compression_gain": 490,
+          "description_cost": 4321,
+          "generalization_digest": "a422a35220112ab125d3f5f3e9f5ae17499be092a095bd725b80c75c11995f2c",
+          "generalization_node_count": 108,
+          "left_kind": "FunctionDef",
+          "left_ordinal": 14,
+          "provenance": {
+            "method": "neutral_ast_structural_anti_unification",
+            "source_entries": [
+              "A",
+              "B"
+            ],
+            "unit_ordinals": [
+              14,
+              6
+            ]
+          },
+          "raw_description_cost": 4811,
+          "reconstruction_left": true,
+          "reconstruction_right": true,
+          "residue_left_digest": "57b7a63c653d657d58171189e7caada1f3c30db15cf709378b067c72bd026e7f",
+          "residue_left_keys": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "residue_right_digest": "1384ad2007fb1e853832446480d82a0416e56162ec2a711fdbd337aa8216d998",
+          "residue_right_keys": [
+            "v0",
+            "v1",
+            "v2",
+            "v3"
+          ],
+          "residue_size": 3659,
+          "right_kind": "FunctionDef",
+          "right_ordinal": 6,
+          "semantic_status": "unavailable",
+          "shared_structure_nodes": 108,
+          "static_behavior_equal": false
+        },
+        {
+          "compression_gain": 416,
+          "description_cost": 6852,
+          "generalization_digest": "c707f08b04d9268dc446b5ae25b3f412e6b2972f44a04dd075e6ddbfbcc15051",
+          "generalization_node_count": 212,
+          "left_kind": "FunctionDef",
+          "left_ordinal": 15,
+          "provenance": {
+            "method": "neutral_ast_structural_anti_unification",
+            "source_entries": [
+              "A",
+              "B"
+            ],
+            "unit_ordinals": [
+              15,
+              5
+            ]
+          },
+          "raw_description_cost": 7268,
+          "reconstruction_left": true,
+          "reconstruction_right": true,
+          "residue_left_digest": "b7bec4667eea7b1b8364f266bb44df8fa6608d698a3303abf496606ae59e0de5",
+          "residue_left_keys": [
+            "v0",
+            "v1",
+            "v10",
+            "v11",
+            "v12",
+            "v13",
+            "v14",
+            "v15",
+            "v16",
+            "v17",
+            "v18",
+            "v19",
+            "v2",
+            "v3",
+            "v4",
+            "v5",
+            "v6",
+            "v7",
+            "v8",
+            "v9"
+          ],
+          "residue_right_digest": "b14d4949363ff5d0ce6ddc657fb938ce133c75179a3688ff6ffa7976f303061b",
+          "residue_right_keys": [
+            "v0",
+            "v1",
+            "v10",
+            "v11",
+            "v12",
+            "v13",
+            "v14",
+            "v15",
+            "v16",
+            "v17",
+            "v18",
+            "v19",
+            "v2",
+            "v3",
+            "v4",
+            "v5",
+            "v6",
+            "v7",
+            "v8",
+            "v9"
+          ],
+          "residue_size": 5616,
+          "right_kind": "FunctionDef",
+          "right_ordinal": 5,
+          "semantic_status": "unavailable",
+          "shared_structure_nodes": 212,
+          "static_behavior_equal": false
+        },
+        {
+          "compression_gain": 1015,
+          "description_cost": 7236,
+          "generalization_digest": "03a89a7961f82d188e3fb7978d02ae5518444cebcd678e21a530e4f619f05c0d",
+          "generalization_node_count": 255,
+          "left_kind": "FunctionDef",
+          "left_ordinal": 25,
+          "provenance": {
+            "method": "neutral_ast_structural_anti_unification",
+            "source_entries": [
+              "A",
+              "B"
+            ],
+            "unit_ordinals": [
+              25,
+              6
+            ]
+          },
+          "raw_description_cost": 8251,
+          "reconstruction_left": true,
+          "reconstruction_right": true,
+          "residue_left_digest": "6c019acf82fbb92b50791f1e9037b5ab8cb92af1aa4c9bf1f171257e3a98f396",
+          "residue_left_keys": [
+            "v0",
+            "v1",
+            "v10",
+            "v11",
+            "v2",
+            "v3",
+            "v4",
+            "v5",
+            "v6",
+            "v7",
+            "v8",
+            "v9"
+          ],
+          "residue_right_digest": "72825cab419ab18c3f70ba06ea204fe14b4b5380a2c6355378f354c6ac4bd9c6",
+          "residue_right_keys": [
+            "v0",
+            "v1",
+            "v10",
+            "v11",
+            "v2",
+            "v3",
+            "v4",
+            "v5",
+            "v6",
+            "v7",
+            "v8",
+            "v9"
+          ],
+          "residue_size": 5737,
+          "right_kind": "FunctionDef",
+          "right_ordinal": 6,
+          "semantic_status": "unavailable",
+          "shared_structure_nodes": 255,
+          "static_behavior_equal": false
+        }
+      ],
+      "pareto_frontier_count": 7,
+      "selected_G": {
+        "compression_gain": 5,
+        "description_cost": 1933,
+        "generalization_digest": "5513c0cff443d2ae4b7c7f5d56687a6e18fe7d521666500e46b21287ed8901ca",
+        "generalization_node_count": 18,
+        "left_kind": "FunctionDef",
+        "left_ordinal": 7,
+        "provenance": {
+          "method": "neutral_ast_structural_anti_unification",
+          "source_entries": [
+            "A",
+            "B"
+          ],
+          "unit_ordinals": [
+            7,
+            2
+          ]
+        },
+        "raw_description_cost": 1938,
+        "reconstruction_left": true,
+        "reconstruction_right": true,
+        "residue_left_digest": "66073c6f5345df18047004dbc7cad4dfcffcd3ff37dfdd218b35d06eeb94f23a",
+        "residue_left_keys": [
+          "v0",
+          "v1"
+        ],
+        "residue_right_digest": "2de2ffc2d462ea5eef09a6b35c0745781280951bf5c2d265f1c902e2ed2bdf24",
+        "residue_right_keys": [
+          "v0",
+          "v1"
+        ],
+        "residue_size": 1832,
+        "right_kind": "ClassDef",
+        "right_ordinal": 2,
+        "semantic_status": "unavailable",
+        "shared_structure_nodes": 18,
+        "static_behavior_equal": false
+      },
+      "selection_policy": "first source-order point on A+B structural/compression Pareto frontier; fixed before C/N1/N2"
+    },
+    "held_out_C": {
+      "G_frozen_before_evaluation": true,
+      "entry": "C",
+      "matched_units": [
+        {
+          "G_marginal_cost": 2101,
+          "description_advantage": true,
+          "generic_baseline_cost": 2143,
+          "kind": "ClassDef",
+          "ordinal": 0,
+          "provenance": {
+            "held_out_entry": "C",
+            "source": "frozen_G"
+          },
+          "reconstruction": true,
+          "residue_digest": "b6648fd279d06d0d8d314c53c5786d36704ae660fd7e61210b2d0dc0b2cf6761",
+          "residue_keys": [
+            "v0",
+            "v1"
+          ],
+          "residue_size": 2081,
+          "static_behavior": {
+            "executable_verification": false,
+            "node_kind": "ClassDef",
+            "token_count": 5,
+            "token_digest": "aa96f70c48f5c6fdd7085b1a8ceeb97d5139e5feac9cd5267475f3d3cd481a38"
+          }
+        },
+        {
+          "G_marginal_cost": 74759,
+          "description_advantage": true,
+          "generic_baseline_cost": 74801,
+          "kind": "ClassDef",
+          "ordinal": 1,
+          "provenance": {
+            "held_out_entry": "C",
+            "source": "frozen_G"
+          },
+          "reconstruction": true,
+          "residue_digest": "15a063eaf214076d322ed47171b53bedf7f6642ccd98497a2410026fcd3f85ed",
+          "residue_keys": [
+            "v0",
+            "v1"
+          ],
+          "residue_size": 74739,
+          "static_behavior": {
+            "executable_verification": false,
+            "node_kind": "ClassDef",
+            "token_count": 268,
+            "token_digest": "7ef1cfba45e324c1424d42f34f0effeb857168b6ee4bbb3e6a82cf97b7ee2932"
+          }
+        }
+      ],
+      "participated_in_discovery": false,
+      "useful_value": true
+    },
+    "negative_controls": {
+      "N1": {
+        "G_frozen_before_evaluation": true,
+        "entry": "N1",
+        "matched_units": [
+          {
+            "G_marginal_cost": 818,
+            "description_advantage": true,
+            "generic_baseline_cost": 860,
+            "kind": "FunctionDef",
+            "ordinal": 0,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "2aae63549f02e0d93260273cbf5c33ef14648ac55159021a9f3418c404581ba7",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 798,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 3,
+              "token_digest": "085ed98abcc82f3269cfc44770b299c83fa0fe67ba533d16a6238296c7df258e"
+            }
+          },
+          {
+            "G_marginal_cost": 3481,
+            "description_advantage": true,
+            "generic_baseline_cost": 3523,
+            "kind": "FunctionDef",
+            "ordinal": 1,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "604cae2c359a75cc9cad969484863ab2d70828e732c5e5290e4ee304d77cb68c",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3461,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 13,
+              "token_digest": "f96e64f1d9663105520cce0c6992ac0a28584c0c428683f9786bba84f26da0e7"
+            }
+          },
+          {
+            "G_marginal_cost": 11819,
+            "description_advantage": true,
+            "generic_baseline_cost": 11861,
+            "kind": "FunctionDef",
+            "ordinal": 2,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "d376e22533141f07973848b2ccaf6166d4498ffaa2daf984311023ba5d8edc02",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 11799,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 54,
+              "token_digest": "2b07f9f949f8bc058299ee28318cc2b5138022c7b7758a9d1a7af60d4cb2eb84"
+            }
+          },
+          {
+            "G_marginal_cost": 2146,
+            "description_advantage": true,
+            "generic_baseline_cost": 2188,
+            "kind": "FunctionDef",
+            "ordinal": 3,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "82b787b514123bf66640621becc0c874630fb648fda7689fa6586375de79e479",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2126,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 9,
+              "token_digest": "5c178dd30afef0d744599364265719d7f04954d1dd32c57f74287df6c3908d37"
+            }
+          },
+          {
+            "G_marginal_cost": 788,
+            "description_advantage": true,
+            "generic_baseline_cost": 830,
+            "kind": "FunctionDef",
+            "ordinal": 4,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "d513a709cd3a7b3e9a4401dbc934cc1a1b50f6c64c94b84843a57e9811cba068",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 768,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 2,
+              "token_digest": "c315bc44bbe17885d89cbc1f5d2dc82f1a245436e587207f9db7c08807b0879b"
+            }
+          },
+          {
+            "G_marginal_cost": 3862,
+            "description_advantage": true,
+            "generic_baseline_cost": 3904,
+            "kind": "FunctionDef",
+            "ordinal": 5,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "d3b6d93da280758b1b6605ad4565d49f463d5a8e2f16338df2929feb00fd1cf8",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3842,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 16,
+              "token_digest": "bfe74dc045b131407082ec5860f2568473428acc0f1e27e9f4296255d1da6c86"
+            }
+          },
+          {
+            "G_marginal_cost": 985,
+            "description_advantage": true,
+            "generic_baseline_cost": 1027,
+            "kind": "FunctionDef",
+            "ordinal": 6,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "ea8c2647dd8d260a4cb146c7266962d0e6ca62348793838d393f40271dd8d84a",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 965,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 1,
+              "token_digest": "b21f4fdf8cedcbb7ec0b84bdf889ff1594560175a8082949b057b7b6e5a201c3"
+            }
+          },
+          {
+            "G_marginal_cost": 1627,
+            "description_advantage": true,
+            "generic_baseline_cost": 1669,
+            "kind": "FunctionDef",
+            "ordinal": 7,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "c8f2f13f896d3abb3c1482b37329bb0cc88039e6dcf8c054250481627ba2f83d",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1607,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 4,
+              "token_digest": "34b0f623ec7e991d2f6e0ce0f13f3e4ba55eb58eff7d2d11265171c57fc104c3"
+            }
+          },
+          {
+            "G_marginal_cost": 1445,
+            "description_advantage": true,
+            "generic_baseline_cost": 1487,
+            "kind": "FunctionDef",
+            "ordinal": 8,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "2453a650bcaf175a83a19794ee8eb1bdd0b5750d462982e4d9fb889a929400b7",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1425,
+            "static_behavior": {
+              "executable_verification": true,
+              "node_kind": "FunctionDef",
+              "token_count": 4,
+              "token_digest": "468d116c2d29d0a5a56a21020d8518b6a6154b9e80816856497d7e2bee109ea4"
+            }
+          },
+          {
+            "G_marginal_cost": 9631,
+            "description_advantage": true,
+            "generic_baseline_cost": 9673,
+            "kind": "FunctionDef",
+            "ordinal": 9,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "978f7f96fa6f7b4ef5f3a55391a85d573fca48f3e76945e267ec3a7fd5a7e96d",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 9611,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 42,
+              "token_digest": "52a6ecc1e4fdec59da4eb12219752c54d01ef615b65e70ff7db1eaa8748977c3"
+            }
+          },
+          {
+            "G_marginal_cost": 1924,
+            "description_advantage": true,
+            "generic_baseline_cost": 1966,
+            "kind": "FunctionDef",
+            "ordinal": 10,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "ef5a6ef91398e85648b36a55801046f68d52a5686bf85096f42825b6261bd394",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1904,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 4,
+              "token_digest": "178a82046be0fb809588ab0c9bbf3ef69806d4f70565e237c3d73d1fb2ebfcb5"
+            }
+          },
+          {
+            "G_marginal_cost": 1835,
+            "description_advantage": true,
+            "generic_baseline_cost": 1877,
+            "kind": "FunctionDef",
+            "ordinal": 11,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "829af678a8d887cf5a21b38eb9f23c21404a707f548cb3e3fe4ddb53b7771ea3",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1815,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 4,
+              "token_digest": "178a82046be0fb809588ab0c9bbf3ef69806d4f70565e237c3d73d1fb2ebfcb5"
+            }
+          },
+          {
+            "G_marginal_cost": 857,
+            "description_advantage": true,
+            "generic_baseline_cost": 899,
+            "kind": "FunctionDef",
+            "ordinal": 12,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "df6bb0be3627c35393c8a1ea1a6497119d02de688421dcb3eb733f2ff97ea7bf",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 837,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 1,
+              "token_digest": "b21f4fdf8cedcbb7ec0b84bdf889ff1594560175a8082949b057b7b6e5a201c3"
+            }
+          },
+          {
+            "G_marginal_cost": 5523,
+            "description_advantage": true,
+            "generic_baseline_cost": 5565,
+            "kind": "FunctionDef",
+            "ordinal": 13,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "73c71f0381f2697a6b72f3248c8bc3f5b0521ad0843acd77e432c203953b3df4",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 5503,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 21,
+              "token_digest": "c8b48583c66131eff096a2e88ef4d3bcc52de5bbd68fdd761732dc561a3b1ddf"
+            }
+          },
+          {
+            "G_marginal_cost": 2745,
+            "description_advantage": true,
+            "generic_baseline_cost": 2787,
+            "kind": "FunctionDef",
+            "ordinal": 14,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "bcf19b472b86a9e6a763b98a33bef8260a88badee94353d997226a14d81d5bcb",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2725,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 11,
+              "token_digest": "6b2106741ad1e7b9be36572635e3b863fd43f7bf14d2df7fdea4d75b04f112c9"
+            }
+          },
+          {
+            "G_marginal_cost": 1328,
+            "description_advantage": true,
+            "generic_baseline_cost": 1370,
+            "kind": "FunctionDef",
+            "ordinal": 15,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "b67ef222755158b257b27f5bcf7fbec90bff36fcd5bd9c391899cb3be59c4ed1",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1308,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 4,
+              "token_digest": "9b49bc4b44771d0e79af4aad554c0dd9317edcbf835f8e9cc0a9e49c1ff208c0"
+            }
+          },
+          {
+            "G_marginal_cost": 2652,
+            "description_advantage": true,
+            "generic_baseline_cost": 2694,
+            "kind": "FunctionDef",
+            "ordinal": 16,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "adc446ff98a2e21cf1630521feea2e64d30df5440ce934fffbb48ad62c5cff7a",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2632,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 10,
+              "token_digest": "61571a113c5f64f2e6b9d2821a0e5fb1afd537b44a7326d23d98e4d4977b5322"
+            }
+          },
+          {
+            "G_marginal_cost": 3196,
+            "description_advantage": true,
+            "generic_baseline_cost": 3238,
+            "kind": "FunctionDef",
+            "ordinal": 17,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "62ed4aae2ce5b392fc25156cadd870dbf48e9dff43416c76b16cd7fc92a9abcd",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3176,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 11,
+              "token_digest": "6cc4a2111ca754d282d611228ea68bc127606cea1229fca80777c72bdf6ab755"
+            }
+          },
+          {
+            "G_marginal_cost": 2327,
+            "description_advantage": true,
+            "generic_baseline_cost": 2369,
+            "kind": "FunctionDef",
+            "ordinal": 18,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "367561278cf96eba6744c07457bd6931f53796046febea8e5d516c255337d9f9",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2307,
+            "static_behavior": {
+              "executable_verification": true,
+              "node_kind": "FunctionDef",
+              "token_count": 9,
+              "token_digest": "7db0e13a6002c37c0951d14091f6bdae05bafdb478dfb4833a544f720c477f2a"
+            }
+          },
+          {
+            "G_marginal_cost": 17908,
+            "description_advantage": true,
+            "generic_baseline_cost": 17950,
+            "kind": "FunctionDef",
+            "ordinal": 19,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "836c2dadc6f8ed64a0035815fe79ca9afdd66d63781b14c80dd2dcb572ccf44c",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 17888,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 80,
+              "token_digest": "282328e473ce605bec4e1c6c56d3d995b5c20b0e38dbcb0d53b22da20abe4d65"
+            }
+          },
+          {
+            "G_marginal_cost": 4054,
+            "description_advantage": true,
+            "generic_baseline_cost": 4096,
+            "kind": "FunctionDef",
+            "ordinal": 20,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "5a3e6eee8d5ff3c1e2ab4ac264e86cbbd921aa41efe89a0efbf2e98c57aef681",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 4034,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 15,
+              "token_digest": "dc22ed02ccad88c1b2a9d6722e9d34c6ebb179fd4f9683ac6a2ddb65ee44e283"
+            }
+          },
+          {
+            "G_marginal_cost": 1851,
+            "description_advantage": true,
+            "generic_baseline_cost": 1893,
+            "kind": "FunctionDef",
+            "ordinal": 21,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "aa828c7b2951cd938e5dcbe4e5499748a800e39ff01ad2fc22cf414f88e26e56",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1831,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 7,
+              "token_digest": "17c1e35aa7293521b42febc8aa796ea144705cd8b7e8b4e7a318d3aaa64185ff"
+            }
+          },
+          {
+            "G_marginal_cost": 934,
+            "description_advantage": true,
+            "generic_baseline_cost": 976,
+            "kind": "FunctionDef",
+            "ordinal": 22,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "003ad164adca918d924fa5475c99c4926fedf18f4b0bf8333487fea8d7f5c677",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 914,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 4,
+              "token_digest": "fc9b5390d604100bedac548378079f8586d7bc67b987720c734962d1fc01f5ec"
+            }
+          },
+          {
+            "G_marginal_cost": 10106,
+            "description_advantage": true,
+            "generic_baseline_cost": 10148,
+            "kind": "FunctionDef",
+            "ordinal": 23,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "47e165a8712978734118c3cf016037dcccdb41106f7e4fbe4abed13019358839",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 10086,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 37,
+              "token_digest": "8038a3273bb3d65248cf5f388f6a338f0ee663eeae28de0ac20409da0612a15e"
+            }
+          },
+          {
+            "G_marginal_cost": 1954,
+            "description_advantage": true,
+            "generic_baseline_cost": 1996,
+            "kind": "FunctionDef",
+            "ordinal": 24,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "3e7945a7c7f65291415c235cd8abff3bf17c03b069c547d5d0018f8aa27653f7",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1934,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 6,
+              "token_digest": "a9c199fc09a2348283535c79c45bdbc3b07bafdfeefa6db07f7fface3165f591"
+            }
+          },
+          {
+            "G_marginal_cost": 1812,
+            "description_advantage": true,
+            "generic_baseline_cost": 1854,
+            "kind": "FunctionDef",
+            "ordinal": 25,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "5ef44457949d65b6a39e5ab633c6b47e4b5947f0e184381b7f1748c72b5d06b4",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1792,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 5,
+              "token_digest": "b96b19a3cc43e96135fefa9314f1bacde1334691ccbcaa966d28ffe54771d793"
+            }
+          },
+          {
+            "G_marginal_cost": 2066,
+            "description_advantage": true,
+            "generic_baseline_cost": 2108,
+            "kind": "FunctionDef",
+            "ordinal": 26,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "2c28a4fc77098a3620f08c19e65c8631d667b0c778db04d2d2bb6304460cb4f5",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2046,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 11,
+              "token_digest": "b2a6ab393373e7462b38fbc96e7c67f548bc40d9017cf38c0446e9b5a80199aa"
+            }
+          },
+          {
+            "G_marginal_cost": 1749,
+            "description_advantage": true,
+            "generic_baseline_cost": 1791,
+            "kind": "FunctionDef",
+            "ordinal": 27,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "9fa6df5a1c760319b88f8ba254d874947ca6e9e3a86aa0a3f6c5170a8abcb911",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1729,
+            "static_behavior": {
+              "executable_verification": true,
+              "node_kind": "FunctionDef",
+              "token_count": 7,
+              "token_digest": "df4b613573edce9faac0f33160fcea70cb744025904477b0bf7576d4316ebb88"
+            }
+          },
+          {
+            "G_marginal_cost": 3660,
+            "description_advantage": true,
+            "generic_baseline_cost": 3702,
+            "kind": "FunctionDef",
+            "ordinal": 28,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "eaa3bb84de24fbb20a9516bc6fae32cd0bbb250821972e4664361b0b2bdae28b",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3640,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 13,
+              "token_digest": "767f4f5e0cb8ebc8ed32fbd3933a2497bc87bafec9192a8d689684aadd618df2"
+            }
+          },
+          {
+            "G_marginal_cost": 2260,
+            "description_advantage": true,
+            "generic_baseline_cost": 2302,
+            "kind": "FunctionDef",
+            "ordinal": 29,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "7c0549f4c4dd292ec2b2dea1e0083c6a058d65dbb57fe6b71c15948e39df5112",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2240,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 7,
+              "token_digest": "9d2a59c83597893e51a17fc980ec818c963d96bdf0edb0057b8cb5922f3a5e85"
+            }
+          },
+          {
+            "G_marginal_cost": 2450,
+            "description_advantage": true,
+            "generic_baseline_cost": 2492,
+            "kind": "FunctionDef",
+            "ordinal": 30,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "534d15cf248dec0cc80175d8d4ee1a1495fd7fe73bcf5097b4d0f77484a612d2",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2430,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 9,
+              "token_digest": "87893eb263958e7df0680f2379c5c7a54ce378e64e154534471fc32cd8310f1b"
+            }
+          },
+          {
+            "G_marginal_cost": 2346,
+            "description_advantage": true,
+            "generic_baseline_cost": 2388,
+            "kind": "FunctionDef",
+            "ordinal": 31,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "02cf2a3e43076197d6c53a9db7431568cb0e9b62da94791fecb16cc3c6eaeb8f",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2326,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 11,
+              "token_digest": "8da28903d3eea355488d35451d738a39068a69d811b882323f468c5ba2e20d25"
+            }
+          },
+          {
+            "G_marginal_cost": 1101,
+            "description_advantage": true,
+            "generic_baseline_cost": 1143,
+            "kind": "FunctionDef",
+            "ordinal": 32,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "60e5f4f7de630424038df0dd51217401b1795903d677ac04ffbd62d9873c1039",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1081,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 5,
+              "token_digest": "4608c14cdbb090e8be14de428352a49470ec704199cc2a98ec04a784ac03fc1c"
+            }
+          },
+          {
+            "G_marginal_cost": 974,
+            "description_advantage": true,
+            "generic_baseline_cost": 1016,
+            "kind": "FunctionDef",
+            "ordinal": 33,
+            "provenance": {
+              "held_out_entry": "N1",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "b7c5de5022a3ddf9f6f243bc193cae6da401565e7be726bc0eb57e6b9ecbf35c",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 954,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 3,
+              "token_digest": "19b3f2810695bbad255ba2e5a1657cd8ce1598a66cd8ba9dac9ec888a4e39262"
+            }
+          }
+        ],
+        "no_useful_abstraction": false,
+        "participated_in_discovery": false,
+        "useful_value": true
+      },
+      "N2": {
+        "G_frozen_before_evaluation": true,
+        "entry": "N2",
+        "matched_units": [
+          {
+            "G_marginal_cost": 3998,
+            "description_advantage": true,
+            "generic_baseline_cost": 4040,
+            "kind": "FunctionDef",
+            "ordinal": 0,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "6e3c62b355ee24df774ce419c90e70a9c30977076b20db4de86e4f957d29734c",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3978,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 11,
+              "token_digest": "13a7c916d4574f8d2567dcf53bf42e5cc45cbea23b0884007a6b9e1f3b69956a"
+            }
+          },
+          {
+            "G_marginal_cost": 2909,
+            "description_advantage": true,
+            "generic_baseline_cost": 2951,
+            "kind": "FunctionDef",
+            "ordinal": 1,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "f92515ee84cbcfeaed43f84d28484e8d899977c735fddae98aebefb91c4c433a",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2889,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 14,
+              "token_digest": "494569cb3a9e0322d4767c7f48b5accd548d424229c136a27c1f2313674e88c4"
+            }
+          },
+          {
+            "G_marginal_cost": 2170,
+            "description_advantage": true,
+            "generic_baseline_cost": 2212,
+            "kind": "FunctionDef",
+            "ordinal": 2,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "12730cc977888763ae3f8fdb7681206b4dc4be09b99a72342cfcd6f75791cca0",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2150,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 10,
+              "token_digest": "b3ad7a70b71049d27aa01fb866702f1352319d611d9c0650f862302156573db5"
+            }
+          },
+          {
+            "G_marginal_cost": 2442,
+            "description_advantage": true,
+            "generic_baseline_cost": 2484,
+            "kind": "FunctionDef",
+            "ordinal": 3,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "8a03cbbff191c6d8349c761f4695fbbb233c657489e75f9e23ecf382b7c69a83",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2422,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 11,
+              "token_digest": "24863f1aed82367c9035a39505d274355e5ed53fcddc6d12abd5501a253d362c"
+            }
+          },
+          {
+            "G_marginal_cost": 1600,
+            "description_advantage": true,
+            "generic_baseline_cost": 1642,
+            "kind": "FunctionDef",
+            "ordinal": 4,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "80a3a414bc3bec7936f4cef53f476887d4efe712bd25609c19b1e8ea605e659a",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1580,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 6,
+              "token_digest": "c9dd229457d4cd3ab7f1e92168a7cb29da53a543d801753617c73abc04cbed9e"
+            }
+          },
+          {
+            "G_marginal_cost": 1191,
+            "description_advantage": true,
+            "generic_baseline_cost": 1233,
+            "kind": "ClassDef",
+            "ordinal": 5,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "ebb8fe2add8b8443a12b6bcc55cc9ffe147778429e03c39e401778ae53a2b484",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1171,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "ClassDef",
+              "token_count": 0,
+              "token_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            }
+          },
+          {
+            "G_marginal_cost": 3911,
+            "description_advantage": true,
+            "generic_baseline_cost": 3953,
+            "kind": "FunctionDef",
+            "ordinal": 6,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "43121c2b30b66fb2453efe81c23752291f7ba2ebb89ae5343fd68e9ef4c1003c",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3891,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 14,
+              "token_digest": "3034175f385cf5b9e01a0400591ca3348d4750c48cbb15684cebd8b27737b3f9"
+            }
+          },
+          {
+            "G_marginal_cost": 10431,
+            "description_advantage": true,
+            "generic_baseline_cost": 10473,
+            "kind": "FunctionDef",
+            "ordinal": 7,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "40ed0068434460f90545801c23798bd092b8f46b0b714257010df522ab1d694f",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 10411,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 45,
+              "token_digest": "250fdecd56cd2e652d04ba8db469610fd04b958e6c4298254210e37d1a361ba6"
+            }
+          },
+          {
+            "G_marginal_cost": 2426,
+            "description_advantage": true,
+            "generic_baseline_cost": 2468,
+            "kind": "FunctionDef",
+            "ordinal": 8,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "9548f57ba0bb41488832977a0a220c713680e7d3fa83ed2692909c6f00c1dcfc",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2406,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 7,
+              "token_digest": "b90c41a1f3c480f167557e1eab155a407d6bac83f253eeb2b9da980215c9d4e2"
+            }
+          },
+          {
+            "G_marginal_cost": 3156,
+            "description_advantage": true,
+            "generic_baseline_cost": 3198,
+            "kind": "FunctionDef",
+            "ordinal": 9,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "001808b899bebb5d0ec76bc876d76274a74207523af91dfdb657a3d871129979",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3136,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 9,
+              "token_digest": "2e0f39c380cb4de4582c08be3cb300be2a3316372f1acb0fa800a31c3bdf4395"
+            }
+          },
+          {
+            "G_marginal_cost": 2689,
+            "description_advantage": true,
+            "generic_baseline_cost": 2731,
+            "kind": "FunctionDef",
+            "ordinal": 10,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "d7ad6a7ebe445e1f5a76d10b21d3d961a93c4310e02abdddd1c45dcc43fac4bc",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2669,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 6,
+              "token_digest": "7cd11769784ba3d78664dbafbcb91486a8243b40aaf1d9ba099de08dadcc6716"
+            }
+          },
+          {
+            "G_marginal_cost": 2534,
+            "description_advantage": true,
+            "generic_baseline_cost": 2576,
+            "kind": "FunctionDef",
+            "ordinal": 11,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "0ec5169b5dce938d47c1f5e96e03d8ad98d34804a3601ac824caa2aa7af39142",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2514,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 8,
+              "token_digest": "571cf72e48849a5ce69fe2ff4f0a39449d89519c851ad0dcabfd98d48839ff8c"
+            }
+          },
+          {
+            "G_marginal_cost": 7604,
+            "description_advantage": true,
+            "generic_baseline_cost": 7646,
+            "kind": "FunctionDef",
+            "ordinal": 12,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "10cdfdc7e8e20371c1a12431c8f75b27e30f9b455a6fc23a5009f4be1ab01031",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 7584,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 27,
+              "token_digest": "6bb0b31ef6498c4172bfa073d2a091daa4c02285b3be8e74e93af8dcb9e88632"
+            }
+          },
+          {
+            "G_marginal_cost": 11361,
+            "description_advantage": true,
+            "generic_baseline_cost": 11403,
+            "kind": "FunctionDef",
+            "ordinal": 13,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "1847da1be6e17db02a52b8dfe39b6924d9fecf4535f369919c2eca81636e6cff",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 11341,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 56,
+              "token_digest": "4282c8b9fae5f2978427d2071f4698618adf69d8ad063170c4e4c8591afd463b"
+            }
+          },
+          {
+            "G_marginal_cost": 6694,
+            "description_advantage": true,
+            "generic_baseline_cost": 6736,
+            "kind": "FunctionDef",
+            "ordinal": 14,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "c24d1bb138ebc41ff6e3b710dc625d7e4fbea8251ce2960d0555aaba5d800f2b",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 6674,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 31,
+              "token_digest": "3178a9edb7288b1715f09dba048c453dcf73f7e2e4dac487621cb3ed66a6e729"
+            }
+          },
+          {
+            "G_marginal_cost": 2474,
+            "description_advantage": true,
+            "generic_baseline_cost": 2516,
+            "kind": "FunctionDef",
+            "ordinal": 15,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "1a070d27bda9a5f54b49074f51ac4cad5fe77f62f35307a7be29a99928713548",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2454,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 6,
+              "token_digest": "466357733ac1e5e9840a455e014bde13d854b33aa0578d53263bde0fd8a7bac5"
+            }
+          },
+          {
+            "G_marginal_cost": 4560,
+            "description_advantage": true,
+            "generic_baseline_cost": 4602,
+            "kind": "FunctionDef",
+            "ordinal": 16,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "612f971efc79497c5dd51d5f195d11c4d0b61d905b76df1e1acce89912716ed5",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 4540,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 14,
+              "token_digest": "9cc162157f50f7cda95f8d7bb239acdcaa0aa3dd97593806827d70e6946b1aca"
+            }
+          },
+          {
+            "G_marginal_cost": 1390,
+            "description_advantage": true,
+            "generic_baseline_cost": 1432,
+            "kind": "FunctionDef",
+            "ordinal": 17,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "f91c6ce7f842fbb2277abce33f8676b3c55aa94154429048f785b81f283e90fd",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1370,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 4,
+              "token_digest": "a8fb2c84eff6ff1839135446d74fca985b98b94d25e49482f8433cb2d9670cba"
+            }
+          },
+          {
+            "G_marginal_cost": 4118,
+            "description_advantage": true,
+            "generic_baseline_cost": 4160,
+            "kind": "FunctionDef",
+            "ordinal": 18,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "9505d8fbb65cd8ebd54ff24bfc45093c05e6d2ec1feadd39c1732dd963a135d7",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 4098,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 10,
+              "token_digest": "673d36c560abee348aeab2b2b7a7f646fcb7c3024a6bf831377e802e2f182bcb"
+            }
+          },
+          {
+            "G_marginal_cost": 3346,
+            "description_advantage": true,
+            "generic_baseline_cost": 3388,
+            "kind": "FunctionDef",
+            "ordinal": 19,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "a5af5a34bdca4e857f11ecb3e97502da06065952d397c00d59383532521edce4",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3326,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 7,
+              "token_digest": "6b5d738fbdfb980dd571b77f901b701e7d5603a1f93955d07f2a98acc1fe887a"
+            }
+          },
+          {
+            "G_marginal_cost": 3656,
+            "description_advantage": true,
+            "generic_baseline_cost": 3698,
+            "kind": "FunctionDef",
+            "ordinal": 20,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "33ed9a377e3c060ed09840f6a570db9721687981727a3a16a572af9b3e00c4ae",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3636,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 9,
+              "token_digest": "91d2f03a0d9fda269d90afba2d065897ccb4dae61d4710a765965e263dbd768a"
+            }
+          },
+          {
+            "G_marginal_cost": 2022,
+            "description_advantage": true,
+            "generic_baseline_cost": 2064,
+            "kind": "FunctionDef",
+            "ordinal": 21,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "0354eb50d5c74544d728c5b5f2fe2992dc7e19fda9454859f632b6c5dd2de23f",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2002,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 4,
+              "token_digest": "2e855e0a7a383e2ea5004b1a06b054a6e4c998b3a05c3770c4ae7bf4bbf063ab"
+            }
+          },
+          {
+            "G_marginal_cost": 2474,
+            "description_advantage": true,
+            "generic_baseline_cost": 2516,
+            "kind": "FunctionDef",
+            "ordinal": 22,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "1a070d27bda9a5f54b49074f51ac4cad5fe77f62f35307a7be29a99928713548",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 2454,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 6,
+              "token_digest": "466357733ac1e5e9840a455e014bde13d854b33aa0578d53263bde0fd8a7bac5"
+            }
+          },
+          {
+            "G_marginal_cost": 3659,
+            "description_advantage": true,
+            "generic_baseline_cost": 3701,
+            "kind": "FunctionDef",
+            "ordinal": 23,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "19ffb7b60807aac1e7e2d5f3d9ffdbb5a64aae813c0bcef9d6babbb6dbdb25de",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3639,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 8,
+              "token_digest": "1cb3650a34f6f5ad29de13b27d97b412725eeb62ab1185d6142aac861ebb149f"
+            }
+          },
+          {
+            "G_marginal_cost": 4788,
+            "description_advantage": true,
+            "generic_baseline_cost": 4830,
+            "kind": "FunctionDef",
+            "ordinal": 24,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "facc143ae04d7a3d340f4ed944201fc4d96fc098e9fc0aa515d8690f9aaf22bc",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 4768,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 11,
+              "token_digest": "c97c6970cb32cddadf4ca62b589972b55a631bbd17fa858b7bafb99b698783eb"
+            }
+          },
+          {
+            "G_marginal_cost": 3610,
+            "description_advantage": true,
+            "generic_baseline_cost": 3652,
+            "kind": "FunctionDef",
+            "ordinal": 25,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "b9046eb3e49231dd11bdea2420acc61c193898135394e28374c213f8c65cd131",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3590,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 12,
+              "token_digest": "585760dc83ac34fb65bac3dbdeea578bed17dd38a85551d07d803f1585952ea0"
+            }
+          },
+          {
+            "G_marginal_cost": 1446,
+            "description_advantage": true,
+            "generic_baseline_cost": 1488,
+            "kind": "FunctionDef",
+            "ordinal": 26,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "3999c2c78ae203781b9a2f7f9f4f416f9cf7219e9286bac3039a226358c3773e",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 1426,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 2,
+              "token_digest": "c315bc44bbe17885d89cbc1f5d2dc82f1a245436e587207f9db7c08807b0879b"
+            }
+          },
+          {
+            "G_marginal_cost": 3186,
+            "description_advantage": true,
+            "generic_baseline_cost": 3228,
+            "kind": "FunctionDef",
+            "ordinal": 27,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "b0dfe1eab87dd66e9f70511f62dc23ce2cc4672fa8e971cf1740e28dd26d8a78",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 3166,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "FunctionDef",
+              "token_count": 10,
+              "token_digest": "2264124f752fa38bd0ec21c671078524991283102e9a8c739fb98cd981428441"
+            }
+          },
+          {
+            "G_marginal_cost": 6186,
+            "description_advantage": true,
+            "generic_baseline_cost": 6228,
+            "kind": "ClassDef",
+            "ordinal": 28,
+            "provenance": {
+              "held_out_entry": "N2",
+              "source": "frozen_G"
+            },
+            "reconstruction": true,
+            "residue_digest": "86bad50346fe69c81c1a853b2a7cd74231edf2b079f29f438324b5f1abc763d2",
+            "residue_keys": [
+              "v0",
+              "v1"
+            ],
+            "residue_size": 6166,
+            "static_behavior": {
+              "executable_verification": false,
+              "node_kind": "ClassDef",
+              "token_count": 15,
+              "token_digest": "b21c7bce3abe608718bc176d4432204a26c607b1076854ff721ee746be23aba9"
+            }
+          }
+        ],
+        "no_useful_abstraction": false,
+        "participated_in_discovery": false,
+        "useful_value": true
+      }
+    }
+  },
+  "contextual_validation": {
+    "labels_used_to_create_G": false,
+    "performed_after_blind_pass": true,
+    "semantic_verification": "static AST signature only unless constant-return subset was available"
+  },
+  "gate": {
+    "decision": "C",
+    "full_repository_ingestion_started": false,
+    "phase4_started": false,
+    "unresolved_counterexample": "Neutral AST anti-unification plus compression accepts recurring function/class skeletons in N1/N2 as useful despite unavailable semantic evidence; the controlled discovery mechanism therefore transfers false abstractions to real code."
+  },
+  "gate_answers": {
+    "alignment_is_main_bottleneck": false,
+    "held_out_C_value": true,
+    "negative_controls_rejected": false,
+    "reusable_G_from_independent_real_code": true,
+    "surprise_attributable_to_source_relations": true
+  },
+  "manifest": {
+    "blind_pass": {
+      "function_and_class_names_used_as_labels": false,
+      "normalization": "neutral AST shape with identifiers and literals retained only as residue/provenance",
+      "parser": "Python ast",
+      "readme_topics_comments_docstrings_used": false,
+      "semantic_labels_used": false
+    },
+    "entries": [
+      {
+        "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+        "assignment": "discovery_A",
+        "commit_sha": "8f8b212de8c2129d7954c6cd373762880375620a",
+        "id": "A",
+        "language": "Python",
+        "repository_url": "https://github.com/psf/requests.git",
+        "source_path": "src/requests/utils.py"
+      },
+      {
+        "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+        "assignment": "discovery_B",
+        "commit_sha": "002fcc5450870362028d3ffb3d91f05a4f1fa559",
+        "id": "B",
+        "language": "Python",
+        "repository_url": "https://github.com/pallets/werkzeug.git",
+        "source_path": "src/werkzeug/utils.py"
+      },
+      {
+        "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+        "assignment": "held_out_C",
+        "commit_sha": "52dfb19e055baacc4ebc432a2e6012b6d489e4b6",
+        "id": "C",
+        "language": "Python",
+        "repository_url": "https://github.com/urllib3/urllib3.git",
+        "source_path": "src/urllib3/util/retry.py"
+      },
+      {
+        "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+        "assignment": "negative_control_N1",
+        "commit_sha": "328c300d9d4f5fb134032200d628eafee3f43292",
+        "id": "N1",
+        "language": "Python",
+        "repository_url": "https://github.com/benoitc/gunicorn.git",
+        "source_path": "gunicorn/util.py"
+      },
+      {
+        "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+        "assignment": "negative_control_N2",
+        "commit_sha": "bc239af1d1b85bc70482804f30a0e0e587d90a08",
+        "id": "N2",
+        "language": "Python",
+        "repository_url": "https://github.com/python-hyper/hyper-h2.git",
+        "source_path": "src/h2/utilities.py"
+      }
+    ],
+    "frozen_at": "2026-08-21T00:15:28.5147606-04:00",
+    "protocol": "phase3b-real-distillation",
+    "selection_policy": "one small Python utility slice from each of five independently authored public repositories; assignments were fixed before source acquisition"
+  },
+  "manifest_commit": "4e8921c",
+  "protocol": "phase3b-real-distillation",
+  "representation_alignment": {
+    "bottleneck_test": "all entries use Python AST; cross-language or alternate-surface alignment was not claimed",
+    "discovered_directly": false,
+    "known_normalization_supplied": true,
+    "normalization": "Python AST to neutral U projection",
+    "status": "required_known_normalization"
+  },
+  "source_summaries": {
+    "A": {
+      "module_node_count": 34408,
+      "module_residue_items": 1740,
+      "unit_count": 44
+    },
+    "B": {
+      "module_node_count": 16754,
+      "module_residue_items": 925,
+      "unit_count": 12
+    },
+    "C": {
+      "module_node_count": 13713,
+      "module_residue_items": 773,
+      "unit_count": 2
+    },
+    "N1": {
+      "module_node_count": 22171,
+      "module_residue_items": 1090,
+      "unit_count": 34
+    },
+    "N2": {
+      "module_node_count": 19923,
+      "module_residue_items": 1003,
+      "unit_count": 29
+    }
+  },
+  "surprise_test": {
+    "contains_manifest_ids": false,
+    "contains_normalization_rule_labels": false,
+    "contains_source_names": false,
+    "derived_from_neutral_ast_relations": true,
+    "surprising_structure_present": true
+  }
+}
