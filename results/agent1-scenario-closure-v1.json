@@ -1,0 +1,122 @@
+{
+  "claims": [
+    {
+      "claim": "the complete generator matches the independent oracle over the declared finite mode domain",
+      "status": "PROVED"
+    },
+    {
+      "claim": "the matched finite domain has positive net gain in every scenario",
+      "status": "PROVED"
+    },
+    {
+      "claim": "a robust decision survives arbitrary omission from the declared mode domain",
+      "status": "DISPROVED"
+    },
+    {
+      "claim": "the closure guarantee is conditional on the finite domain and its rule being correct",
+      "status": "KNOWN_RESULT"
+    },
+    {
+      "claim": "an open-ended scenario generator can prove completeness beyond its declared finite domain",
+      "status": "UNKNOWN"
+    }
+  ],
+  "complete_generator": {
+    "closure_status": "CLOSURE_MATCHED_FINITE_DOMAIN",
+    "domain_modes": [
+      0,
+      1
+    ],
+    "dropped_modes": [],
+    "end_to_end_advantage": true,
+    "extra_in_generator": [],
+    "generated_count": 2,
+    "generated_decision": "ROBUST_IDENTIFY_AND_SOLVE",
+    "identification_cost_accounted": true,
+    "missing_from_generator": [],
+    "oracle_count": 2,
+    "oracle_decision": "ROBUST_IDENTIFY_AND_SOLVE",
+    "oracle_max_net_gain": "4",
+    "oracle_min_net_gain": "1",
+    "oracle_scenarios": [
+      {
+        "direct_cost": "10",
+        "downstream_cost": "6",
+        "gross_gain": "4",
+        "id": "oracle-mode-0",
+        "identification_cost": "0",
+        "net_gain": "4"
+      },
+      {
+        "direct_cost": "10",
+        "downstream_cost": "0",
+        "gross_gain": "10",
+        "id": "oracle-mode-1",
+        "identification_cost": "9",
+        "net_gain": "1"
+      }
+    ]
+  },
+  "experiment": {
+    "generator_steps": 2,
+    "oracle_steps": 2,
+    "rule": {
+      "direct": "10",
+      "downstream": "6 - 6*mode",
+      "identification": "9*mode",
+      "modes": [
+        0,
+        1
+      ]
+    }
+  },
+  "gate": "SUCCESS_WITHIN_FINITE_DECLARED_CLASS_ONLY",
+  "incomplete_negative_control": {
+    "closure_status": "CLOSURE_FALSIFIED",
+    "domain_modes": [
+      0,
+      1
+    ],
+    "dropped_modes": [
+      1
+    ],
+    "end_to_end_advantage": true,
+    "extra_in_generator": [],
+    "generated_count": 1,
+    "generated_decision": "ROBUST_IDENTIFY_AND_SOLVE",
+    "identification_cost_accounted": true,
+    "missing_from_generator": [
+      {
+        "direct_cost": "10",
+        "downstream_cost": "0",
+        "gross_gain": "10",
+        "id": "oracle-mode-1",
+        "identification_cost": "9",
+        "net_gain": "1"
+      }
+    ],
+    "oracle_count": 2,
+    "oracle_decision": "ROBUST_IDENTIFY_AND_SOLVE",
+    "oracle_max_net_gain": "4",
+    "oracle_min_net_gain": "1",
+    "oracle_scenarios": [
+      {
+        "direct_cost": "10",
+        "downstream_cost": "6",
+        "gross_gain": "4",
+        "id": "oracle-mode-0",
+        "identification_cost": "0",
+        "net_gain": "4"
+      },
+      {
+        "direct_cost": "10",
+        "downstream_cost": "0",
+        "gross_gain": "10",
+        "id": "oracle-mode-1",
+        "identification_cost": "9",
+        "net_gain": "1"
+      }
+    ]
+  },
+  "question": "Can a finite declarative scenario closure be complete and end-to-end useful?"
+}
