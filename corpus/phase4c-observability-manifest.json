@@ -1,0 +1,38 @@
+{
+  "protocol": "phase4c-minimum-observability",
+  "parent_commit": "6df7498",
+  "frozen_before_field_mapping": true,
+  "sources": [
+    {
+      "system_id": "MAT-SI",
+      "path": "C:/IA/MATH/results/phase2-self-reference-results.json",
+      "role": "existing_self_application_output",
+      "provenance": "MAT-SI Phase 2 represented self-application experiment",
+      "bytes": 42130,
+      "modified": "2026-08-21T00:04:23.7216268-04:00",
+      "sha256": "a0c8bd229ca28ef96546068fd5e2530a67034b77a4dbdbcf8e56bb27d2c10713"
+    },
+    {
+      "system_id": "VIBECODEINE",
+      "path": "C:/Users/issvk/claude_sesiones_recuperadas/rd_testeos_eventos_2025_evidence_2026-08-12.json",
+      "role": "existing_real_event_evidence_export",
+      "provenance": "pre-existing MAK/VIBECODEINE evidence export frozen in Phase 4B",
+      "bytes": 5745417,
+      "modified": "2026-08-12T00:29:04.6607937-04:00",
+      "sha256": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916"
+    }
+  ],
+  "candidate_contracts_to_attack": [
+    "before_state",
+    "intervention_event",
+    "after_state",
+    "provenance",
+    "independent_resource_vector"
+  ],
+  "constraints": {
+    "historical_values_may_not_be_fabricated": true,
+    "success_labels_may_not_be_encoded": true,
+    "scalar_cost_may_not_be_assumed": true,
+    "append_only_instrumentation_only_if_required": true
+  }
+}
