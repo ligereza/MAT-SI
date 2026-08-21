@@ -1,0 +1,48 @@
+{
+  "protocol": "phase4-cross-domain",
+  "parent_commit": "a79845a",
+  "frozen_before_discovery": true,
+  "sources": [
+    {
+      "id": "A",
+      "path": "corpus/phase4-source-a.json",
+      "sha256": "4ebfe53735db97f19682fad1ccd07600e50663b405f8ef824eb75eb83438cd02",
+      "role": "discovery"
+    },
+    {
+      "id": "B",
+      "path": "corpus/phase4-source-b.json",
+      "sha256": "5701182952e264ec712ffdcf20b24a4e49331777ddf8a6d62bf31ced803db9e4",
+      "role": "discovery"
+    },
+    {
+      "id": "C",
+      "path": "corpus/phase4-source-c.json",
+      "sha256": "8a66e3507588bf028f8a6c9b4cd467053ef9b1ca2fb0548acfe81d585659b56e",
+      "role": "held_out"
+    }
+  ],
+  "common_envelope_fields": [
+    "context",
+    "observation",
+    "action",
+    "outcome",
+    "cost",
+    "provenance"
+  ],
+  "blind_pass": {
+    "domain_names_removed": true,
+    "descriptive_labels_removed": true,
+    "filenames_and_project_names_removed": true,
+    "human_interpretation_removed": true,
+    "chronology_preserved": true,
+    "observable_transitions_preserved": true,
+    "costs_preserved": true,
+    "residue_recorded": true
+  },
+  "transfer_split": {
+    "discover_from": ["A", "B"],
+    "freeze_before_revealing": ["C"],
+    "no_G_baseline": "match_frequency and prediction frequency without using the discovered candidate"
+  }
+}

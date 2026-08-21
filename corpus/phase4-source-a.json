@@ -1,0 +1,24 @@
+{
+  "domain_label": "coding_debugging",
+  "producer": "independent_source_a",
+  "trajectories": [
+    {
+      "trajectory_label": "a1",
+      "events": [
+        {"context": {"state": "ctx_a1_0"}, "observation": {"signal": 10}, "action": {"token": "r1"}, "outcome": {"value": 0}, "cost": 1, "provenance": {"raw_id": "a1_0", "step": 0}},
+        {"context": {"state": "ctx_a1_1"}, "observation": {"signal": 10}, "action": {"token": "r1"}, "outcome": {"value": 0}, "cost": 2, "provenance": {"raw_id": "a1_1", "step": 1}},
+        {"context": {"state": "ctx_a1_2"}, "observation": {"signal": 10}, "action": {"token": "r1"}, "outcome": {"value": 0}, "cost": 3, "provenance": {"raw_id": "a1_2", "step": 2}},
+        {"context": {"state": "ctx_a1_3"}, "observation": {"signal": 10}, "action": {"token": "r1"}, "outcome": {"value": 0}, "cost": 4, "provenance": {"raw_id": "a1_3", "step": 3}}
+      ]
+    },
+    {
+      "trajectory_label": "a2",
+      "events": [
+        {"context": {"state": "ctx_a2_0"}, "observation": {"signal": 20}, "action": {"token": "r2"}, "outcome": {"value": 5}, "cost": 2, "provenance": {"raw_id": "a2_0", "step": 0}},
+        {"context": {"state": "ctx_a2_1"}, "observation": {"signal": 20}, "action": {"token": "r2"}, "outcome": {"value": 5}, "cost": 3, "provenance": {"raw_id": "a2_1", "step": 1}},
+        {"context": {"state": "ctx_a2_2"}, "observation": {"signal": 20}, "action": {"token": "r2"}, "outcome": {"value": 5}, "cost": 4, "provenance": {"raw_id": "a2_2", "step": 2}},
+        {"context": {"state": "ctx_a2_3"}, "observation": {"signal": 20}, "action": {"token": "r2"}, "outcome": {"value": 5}, "cost": 5, "provenance": {"raw_id": "a2_3", "step": 3}}
+      ]
+    }
+  ]
+}
