@@ -1,0 +1,4822 @@
+{
+  "axes": {
+    "E": [
+      "direct_evaluator",
+      "rewrite_equality",
+      "reduced_tree_rewrite"
+    ],
+    "I": [
+      "relation_path_observation",
+      "stable_id_primitive_absent"
+    ],
+    "S": [
+      "atom_pair",
+      "content_dag"
+    ]
+  },
+  "axis_experiment": {
+    "evaluators": [
+      "direct_evaluator",
+      "rewrite_equality"
+    ],
+    "experiment": "separate_S_and_E",
+    "hypothesis_test": {
+      "answer_status": "provisional",
+      "interpretation": "The experiment separates storage and rewrite costs; no architecture is selected.",
+      "question": "Does e-graph behave better as an evaluator layer over a substrate than as universal U?"
+    },
+    "operations": [
+      "reverse",
+      "double_reverse"
+    ],
+    "pareto_frontier_by_workload": [
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "double_reverse",
+        "shape": "repetition",
+        "size": 10
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "reverse",
+        "shape": "repetition",
+        "size": 10
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "double_reverse",
+        "shape": "repetition",
+        "size": 100
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "reverse",
+        "shape": "repetition",
+        "size": 100
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "double_reverse",
+        "shape": "repetition",
+        "size": 1000
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "reverse",
+        "shape": "repetition",
+        "size": 1000
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "double_reverse",
+        "shape": "shared_graph",
+        "size": 10
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "reverse",
+        "shape": "shared_graph",
+        "size": 10
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "double_reverse",
+        "shape": "shared_graph",
+        "size": 100
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "reverse",
+        "shape": "shared_graph",
+        "size": 100
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "double_reverse",
+        "shape": "shared_graph",
+        "size": 1000
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "reverse",
+        "shape": "shared_graph",
+        "size": 1000
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "double_reverse",
+        "shape": "temporal_branching",
+        "size": 10
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "reverse",
+        "shape": "temporal_branching",
+        "size": 10
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "double_reverse",
+        "shape": "temporal_branching",
+        "size": 100
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "reverse",
+        "shape": "temporal_branching",
+        "size": 100
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "double_reverse",
+        "shape": "temporal_branching",
+        "size": 1000
+      },
+      {
+        "combinations": [
+          "atom_pair+direct_evaluator",
+          "content_dag+direct_evaluator"
+        ],
+        "operation": "reverse",
+        "shape": "temporal_branching",
+        "size": 1000
+      }
+    ],
+    "rewrite_reduction": [
+      {
+        "allocation_blocks": 1041,
+        "cpu_time_ns": 7812500,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 100962,
+        "shape": "repetition",
+        "size": 10,
+        "substrate": "atom_pair",
+        "wall_time_ns": 8222150
+      },
+      {
+        "allocation_blocks": 687,
+        "cpu_time_ns": 7812500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 66926,
+        "shape": "repetition",
+        "size": 10,
+        "substrate": "atom_pair",
+        "wall_time_ns": 3264100
+      },
+      {
+        "allocation_blocks": 449,
+        "cpu_time_ns": 15625000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 54405,
+        "shape": "repetition",
+        "size": 10,
+        "substrate": "content_dag",
+        "wall_time_ns": 10385200
+      },
+      {
+        "allocation_blocks": 115,
+        "cpu_time_ns": 0,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 21469,
+        "shape": "repetition",
+        "size": 10,
+        "substrate": "content_dag",
+        "wall_time_ns": 4758300
+      },
+      {
+        "allocation_blocks": 2064,
+        "cpu_time_ns": 15625000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 120,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 243556,
+        "shape": "shared_graph",
+        "size": 10,
+        "substrate": "atom_pair",
+        "wall_time_ns": 18667150
+      },
+      {
+        "allocation_blocks": 1388,
+        "cpu_time_ns": 7812500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 136944,
+        "shape": "shared_graph",
+        "size": 10,
+        "substrate": "atom_pair",
+        "wall_time_ns": 7138000
+      },
+      {
+        "allocation_blocks": 1181,
+        "cpu_time_ns": 23437500,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 120,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 164420,
+        "shape": "shared_graph",
+        "size": 10,
+        "substrate": "content_dag",
+        "wall_time_ns": 22589650
+      },
+      {
+        "allocation_blocks": 503,
+        "cpu_time_ns": 7812500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 58312,
+        "shape": "shared_graph",
+        "size": 10,
+        "substrate": "content_dag",
+        "wall_time_ns": 9334350
+      },
+      {
+        "allocation_blocks": 1379,
+        "cpu_time_ns": 15625000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 118,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 190260,
+        "shape": "temporal_branching",
+        "size": 10,
+        "substrate": "atom_pair",
+        "wall_time_ns": 14360200
+      },
+      {
+        "allocation_blocks": 952,
+        "cpu_time_ns": 7812500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 100532,
+        "shape": "temporal_branching",
+        "size": 10,
+        "substrate": "atom_pair",
+        "wall_time_ns": 4579900
+      },
+      {
+        "allocation_blocks": 817,
+        "cpu_time_ns": 15625000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 118,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 137599,
+        "shape": "temporal_branching",
+        "size": 10,
+        "substrate": "content_dag",
+        "wall_time_ns": 14870450
+      },
+      {
+        "allocation_blocks": 389,
+        "cpu_time_ns": 7812500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 48231,
+        "shape": "temporal_branching",
+        "size": 10,
+        "substrate": "content_dag",
+        "wall_time_ns": 6209000
+      },
+      {
+        "allocation_blocks": 9055,
+        "cpu_time_ns": 78125000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 924388,
+        "shape": "repetition",
+        "size": 100,
+        "substrate": "atom_pair",
+        "wall_time_ns": 83642650
+      },
+      {
+        "allocation_blocks": 7667,
+        "cpu_time_ns": 31250000,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 777440,
+        "shape": "repetition",
+        "size": 100,
+        "substrate": "atom_pair",
+        "wall_time_ns": 34716800
+      },
+      {
+        "allocation_blocks": 2657,
+        "cpu_time_ns": 93750000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 364727,
+        "shape": "repetition",
+        "size": 100,
+        "substrate": "content_dag",
+        "wall_time_ns": 94487050
+      },
+      {
+        "allocation_blocks": 1468,
+        "cpu_time_ns": 54687500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 229291,
+        "shape": "repetition",
+        "size": 100,
+        "substrate": "content_dag",
+        "wall_time_ns": 58872800
+      },
+      {
+        "allocation_blocks": 15758,
+        "cpu_time_ns": 203125000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 840,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 2324052,
+        "shape": "shared_graph",
+        "size": 100,
+        "substrate": "atom_pair",
+        "wall_time_ns": 208050350
+      },
+      {
+        "allocation_blocks": 15745,
+        "cpu_time_ns": 70312500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 1756736,
+        "shape": "shared_graph",
+        "size": 100,
+        "substrate": "atom_pair",
+        "wall_time_ns": 81630800
+      },
+      {
+        "allocation_blocks": 7137,
+        "cpu_time_ns": 210937500,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 840,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 1517455,
+        "shape": "shared_graph",
+        "size": 100,
+        "substrate": "content_dag",
+        "wall_time_ns": 222375250
+      },
+      {
+        "allocation_blocks": 6868,
+        "cpu_time_ns": 109375000,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 922671,
+        "shape": "shared_graph",
+        "size": 100,
+        "substrate": "content_dag",
+        "wall_time_ns": 112068500
+      },
+      {
+        "allocation_blocks": 11910,
+        "cpu_time_ns": 140625000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 628,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 1713394,
+        "shape": "temporal_branching",
+        "size": 100,
+        "substrate": "atom_pair",
+        "wall_time_ns": 137216600
+      },
+      {
+        "allocation_blocks": 11355,
+        "cpu_time_ns": 54687500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 1215950,
+        "shape": "temporal_branching",
+        "size": 100,
+        "substrate": "atom_pair",
+        "wall_time_ns": 58829900
+      },
+      {
+        "allocation_blocks": 5283,
+        "cpu_time_ns": 148437500,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 628,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 1066612,
+        "shape": "temporal_branching",
+        "size": 100,
+        "substrate": "content_dag",
+        "wall_time_ns": 149726550
+      },
+      {
+        "allocation_blocks": 5284,
+        "cpu_time_ns": 78125000,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 613740,
+        "shape": "temporal_branching",
+        "size": 100,
+        "substrate": "content_dag",
+        "wall_time_ns": 72868350
+      },
+      {
+        "allocation_blocks": 71254,
+        "cpu_time_ns": 914062500,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 9729408,
+        "shape": "repetition",
+        "size": 1000,
+        "substrate": "atom_pair",
+        "wall_time_ns": 924994600
+      },
+      {
+        "allocation_blocks": 71255,
+        "cpu_time_ns": 445312500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 9451548,
+        "shape": "repetition",
+        "size": 1000,
+        "substrate": "atom_pair",
+        "wall_time_ns": 448076900
+      },
+      {
+        "allocation_blocks": 6302,
+        "cpu_time_ns": 984375000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 4045959,
+        "shape": "repetition",
+        "size": 1000,
+        "substrate": "content_dag",
+        "wall_time_ns": 1012881250
+      },
+      {
+        "allocation_blocks": 6305,
+        "cpu_time_ns": 664062500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 3924291,
+        "shape": "repetition",
+        "size": 1000,
+        "substrate": "content_dag",
+        "wall_time_ns": 686052650
+      },
+      {
+        "allocation_blocks": 135256,
+        "cpu_time_ns": 2796875000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 8040,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 24932236,
+        "shape": "shared_graph",
+        "size": 1000,
+        "substrate": "atom_pair",
+        "wall_time_ns": 2823466100
+      },
+      {
+        "allocation_blocks": 133254,
+        "cpu_time_ns": 1406250000,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 19567864,
+        "shape": "shared_graph",
+        "size": 1000,
+        "substrate": "atom_pair",
+        "wall_time_ns": 1418998850
+      },
+      {
+        "allocation_blocks": 47329,
+        "cpu_time_ns": 2687500000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 8040,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 16328247,
+        "shape": "shared_graph",
+        "size": 1000,
+        "substrate": "content_dag",
+        "wall_time_ns": 2745530200
+      },
+      {
+        "allocation_blocks": 46328,
+        "cpu_time_ns": 1296875000,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 11204203,
+        "shape": "shared_graph",
+        "size": 1000,
+        "substrate": "content_dag",
+        "wall_time_ns": 1338392000
+      },
+      {
+        "allocation_blocks": 96256,
+        "cpu_time_ns": 1437500000,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 5728,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 17907738,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "substrate": "atom_pair",
+        "wall_time_ns": 1522259500
+      },
+      {
+        "allocation_blocks": 96255,
+        "cpu_time_ns": 679687500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 14180346,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "substrate": "atom_pair",
+        "wall_time_ns": 696926100
+      },
+      {
+        "allocation_blocks": 36119,
+        "cpu_time_ns": 1914062500,
+        "fidelity": 1.0,
+        "mechanism": "rewrite_equality",
+        "mechanism_cost": 5728,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 11697682,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "substrate": "content_dag",
+        "wall_time_ns": 1948222900
+      },
+      {
+        "allocation_blocks": 35619,
+        "cpu_time_ns": 867187500,
+        "fidelity": 1.0,
+        "mechanism": "reduced_tree_rewrite",
+        "mechanism_cost": 1,
+        "operation": "double_reverse",
+        "peak_memory_bytes": 8081874,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "substrate": "content_dag",
+        "wall_time_ns": 902794600
+      }
+    ],
+    "rows": [
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 4111,
+        "evaluation_allocation_blocks": 666,
+        "evaluation_cpu_time_ns": 0,
+        "evaluation_peak_memory_bytes": 56346,
+        "evaluation_wall_time_ns": 1375400,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          9,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 73050,
+        "shape": "repetition",
+        "size": 10,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 3647,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 4111,
+        "evaluation_allocation_blocks": 664,
+        "evaluation_cpu_time_ns": 0,
+        "evaluation_peak_memory_bytes": 56078,
+        "evaluation_wall_time_ns": 1285900,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          9,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 73050,
+        "shape": "repetition",
+        "size": 10,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 3647,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 4111,
+        "evaluation_allocation_blocks": 1661,
+        "evaluation_cpu_time_ns": 15625000,
+        "evaluation_peak_memory_bytes": 155482,
+        "evaluation_wall_time_ns": 14133350,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 27,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          9,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 73050,
+        "shape": "repetition",
+        "size": 10,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 3647,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 4111,
+        "evaluation_allocation_blocks": 1025,
+        "evaluation_cpu_time_ns": 7812500,
+        "evaluation_peak_memory_bytes": 101090,
+        "evaluation_wall_time_ns": 6670200,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          9,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 73050,
+        "shape": "repetition",
+        "size": 10,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 3647,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 3658,
+        "evaluation_allocation_blocks": 75,
+        "evaluation_cpu_time_ns": 0,
+        "evaluation_peak_memory_bytes": 9341,
+        "evaluation_wall_time_ns": 2448550,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          9,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 13300,
+        "shape": "repetition",
+        "size": 10,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 3119,
+        "structural_sharing": 0.9285714285714286,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 3658,
+        "evaluation_allocation_blocks": 75,
+        "evaluation_cpu_time_ns": 0,
+        "evaluation_peak_memory_bytes": 9325,
+        "evaluation_wall_time_ns": 2539850,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          9,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 13300,
+        "shape": "repetition",
+        "size": 10,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 3119,
+        "structural_sharing": 0.9285714285714286,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 3658,
+        "evaluation_allocation_blocks": 761,
+        "evaluation_cpu_time_ns": 15625000,
+        "evaluation_peak_memory_bytes": 110612,
+        "evaluation_wall_time_ns": 14961850,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 27,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          9,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 13300,
+        "shape": "repetition",
+        "size": 10,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 3119,
+        "structural_sharing": 0.9285714285714286,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 3658,
+        "evaluation_allocation_blocks": 444,
+        "evaluation_cpu_time_ns": 7812500,
+        "evaluation_peak_memory_bytes": 54009,
+        "evaluation_wall_time_ns": 7729600,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          9,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 13300,
+        "shape": "repetition",
+        "size": 10,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 3119,
+        "structural_sharing": 0.9285714285714286,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 7516,
+        "evaluation_allocation_blocks": 1283,
+        "evaluation_cpu_time_ns": 0,
+        "evaluation_peak_memory_bytes": 108806,
+        "evaluation_wall_time_ns": 2520600,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          9,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 66750,
+        "shape": "shared_graph",
+        "size": 10,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 7037,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 7516,
+        "evaluation_allocation_blocks": 1284,
+        "evaluation_cpu_time_ns": 0,
+        "evaluation_peak_memory_bytes": 108826,
+        "evaluation_wall_time_ns": 2937800,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          9,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 66750,
+        "shape": "shared_graph",
+        "size": 10,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 7037,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 7516,
+        "evaluation_allocation_blocks": 2950,
+        "evaluation_cpu_time_ns": 31250000,
+        "evaluation_peak_memory_bytes": 377172,
+        "evaluation_wall_time_ns": 36325100,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 121,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          9,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 66750,
+        "shape": "shared_graph",
+        "size": 10,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 7037,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 7516,
+        "evaluation_allocation_blocks": 1998,
+        "evaluation_cpu_time_ns": 15625000,
+        "evaluation_peak_memory_bytes": 240720,
+        "evaluation_wall_time_ns": 14935850,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 120,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          9,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 66750,
+        "shape": "shared_graph",
+        "size": 10,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 7037,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 18953,
+        "evaluation_allocation_blocks": 291,
+        "evaluation_cpu_time_ns": 0,
+        "evaluation_peak_memory_bytes": 29994,
+        "evaluation_wall_time_ns": 5557850,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          9,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 16450,
+        "shape": "shared_graph",
+        "size": 10,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 18330,
+        "structural_sharing": 0.804093567251462,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 18953,
+        "evaluation_allocation_blocks": 274,
+        "evaluation_cpu_time_ns": 0,
+        "evaluation_peak_memory_bytes": 28402,
+        "evaluation_wall_time_ns": 5595100,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          9,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 16450,
+        "shape": "shared_graph",
+        "size": 10,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 18330,
+        "structural_sharing": 0.804093567251462,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 18953,
+        "evaluation_allocation_blocks": 2079,
+        "evaluation_cpu_time_ns": 46875000,
+        "evaluation_peak_memory_bytes": 321326,
+        "evaluation_wall_time_ns": 42422350,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 121,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          9,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 16450,
+        "shape": "shared_graph",
+        "size": 10,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 18330,
+        "structural_sharing": 0.804093567251462,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 18953,
+        "evaluation_allocation_blocks": 1063,
+        "evaluation_cpu_time_ns": 15625000,
+        "evaluation_peak_memory_bytes": 158352,
+        "evaluation_wall_time_ns": 21246150,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 120,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          9,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 16450,
+        "shape": "shared_graph",
+        "size": 10,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 18330,
+        "structural_sharing": 0.804093567251462,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 5189,
+        "evaluation_allocation_blocks": 923,
+        "evaluation_cpu_time_ns": 7812500,
+        "evaluation_peak_memory_bytes": 80715,
+        "evaluation_wall_time_ns": 2701850,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          9,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 111800,
+        "shape": "temporal_branching",
+        "size": 10,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 5045,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 5189,
+        "evaluation_allocation_blocks": 923,
+        "evaluation_cpu_time_ns": 0,
+        "evaluation_peak_memory_bytes": 80771,
+        "evaluation_wall_time_ns": 2892000,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          9,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 111800,
+        "shape": "temporal_branching",
+        "size": 10,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 5045,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 5189,
+        "evaluation_allocation_blocks": 2331,
+        "evaluation_cpu_time_ns": 31250000,
+        "evaluation_peak_memory_bytes": 309626,
+        "evaluation_wall_time_ns": 32117900,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 119,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          9,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 111800,
+        "shape": "temporal_branching",
+        "size": 10,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 5045,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 5189,
+        "evaluation_allocation_blocks": 1440,
+        "evaluation_cpu_time_ns": 7812500,
+        "evaluation_peak_memory_bytes": 192900,
+        "evaluation_wall_time_ns": 13797450,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 118,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          9,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 111800,
+        "shape": "temporal_branching",
+        "size": 10,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 5045,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 15839,
+        "evaluation_allocation_blocks": 261,
+        "evaluation_cpu_time_ns": 7812500,
+        "evaluation_peak_memory_bytes": 28389,
+        "evaluation_wall_time_ns": 4293250,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          9,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 17800,
+        "shape": "temporal_branching",
+        "size": 10,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 15286,
+        "structural_sharing": 0.7679324894514767,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 15839,
+        "evaluation_allocation_blocks": 250,
+        "evaluation_cpu_time_ns": 7812500,
+        "evaluation_peak_memory_bytes": 27242,
+        "evaluation_wall_time_ns": 4687050,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          9,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 17800,
+        "shape": "temporal_branching",
+        "size": 10,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 15286,
+        "structural_sharing": 0.7679324894514767,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 15839,
+        "evaluation_allocation_blocks": 1661,
+        "evaluation_cpu_time_ns": 31250000,
+        "evaluation_peak_memory_bytes": 291185,
+        "evaluation_wall_time_ns": 34173500,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 119,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          9,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 17800,
+        "shape": "temporal_branching",
+        "size": 10,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 15286,
+        "structural_sharing": 0.7679324894514767,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 15839,
+        "evaluation_allocation_blocks": 869,
+        "evaluation_cpu_time_ns": 15625000,
+        "evaluation_peak_memory_bytes": 139039,
+        "evaluation_wall_time_ns": 15711750,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 118,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          9,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 17800,
+        "shape": "temporal_branching",
+        "size": 10,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 15286,
+        "structural_sharing": 0.7679324894514767,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 36781,
+        "evaluation_allocation_blocks": 6517,
+        "evaluation_cpu_time_ns": 31250000,
+        "evaluation_peak_memory_bytes": 570728,
+        "evaluation_wall_time_ns": 20719600,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          99,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 192650,
+        "shape": "repetition",
+        "size": 100,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 36317,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 36781,
+        "evaluation_allocation_blocks": 6701,
+        "evaluation_cpu_time_ns": 23437500,
+        "evaluation_peak_memory_bytes": 570728,
+        "evaluation_wall_time_ns": 20069350,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          99,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 192650,
+        "shape": "repetition",
+        "size": 100,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 36317,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 36781,
+        "evaluation_allocation_blocks": 9907,
+        "evaluation_cpu_time_ns": 164062500,
+        "evaluation_peak_memory_bytes": 1276376,
+        "evaluation_wall_time_ns": 185299750,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 27,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          99,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 192650,
+        "shape": "repetition",
+        "size": 100,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 36317,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 36781,
+        "evaluation_allocation_blocks": 8960,
+        "evaluation_cpu_time_ns": 85937500,
+        "evaluation_peak_memory_bytes": 918224,
+        "evaluation_wall_time_ns": 90264650,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          99,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 192650,
+        "shape": "repetition",
+        "size": 100,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 36317,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 9688,
+        "evaluation_allocation_blocks": 219,
+        "evaluation_cpu_time_ns": 39062500,
+        "evaluation_peak_memory_bytes": 34551,
+        "evaluation_wall_time_ns": 38525550,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          99,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 21450,
+        "shape": "repetition",
+        "size": 100,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 9149,
+        "structural_sharing": 0.9919852034525277,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 9688,
+        "evaluation_allocation_blocks": 220,
+        "evaluation_cpu_time_ns": 31250000,
+        "evaluation_peak_memory_bytes": 34607,
+        "evaluation_wall_time_ns": 37954000,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          99,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 21450,
+        "shape": "repetition",
+        "size": 100,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 9149,
+        "structural_sharing": 0.9919852034525277,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 9688,
+        "evaluation_allocation_blocks": 3810,
+        "evaluation_cpu_time_ns": 171875000,
+        "evaluation_peak_memory_bytes": 902456,
+        "evaluation_wall_time_ns": 178510200,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 27,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          99,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 21450,
+        "shape": "repetition",
+        "size": 100,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 9149,
+        "structural_sharing": 0.9919852034525277,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 9688,
+        "evaluation_allocation_blocks": 2284,
+        "evaluation_cpu_time_ns": 93750000,
+        "evaluation_peak_memory_bytes": 320591,
+        "evaluation_wall_time_ns": 95099100,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          99,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 21450,
+        "shape": "repetition",
+        "size": 100,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 9149,
+        "structural_sharing": 0.9919852034525277,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 70966,
+        "evaluation_allocation_blocks": 12719,
+        "evaluation_cpu_time_ns": 31250000,
+        "evaluation_peak_memory_bytes": 1166124,
+        "evaluation_wall_time_ns": 34846050,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          99,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 198400,
+        "shape": "shared_graph",
+        "size": 100,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 70487,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 70966,
+        "evaluation_allocation_blocks": 12949,
+        "evaluation_cpu_time_ns": 31250000,
+        "evaluation_peak_memory_bytes": 1166124,
+        "evaluation_wall_time_ns": 36404650,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          99,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 198400,
+        "shape": "shared_graph",
+        "size": 100,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 70487,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 70966,
+        "evaluation_allocation_blocks": 17754,
+        "evaluation_cpu_time_ns": 421875000,
+        "evaluation_peak_memory_bytes": 3634838,
+        "evaluation_wall_time_ns": 420816950,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 841,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          99,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 198400,
+        "shape": "shared_graph",
+        "size": 100,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 70487,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 70966,
+        "evaluation_allocation_blocks": 17102,
+        "evaluation_cpu_time_ns": 234375000,
+        "evaluation_peak_memory_bytes": 2452060,
+        "evaluation_wall_time_ns": 231291900,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 840,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          99,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 198400,
+        "shape": "shared_graph",
+        "size": 100,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 70487,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 156653,
+        "evaluation_allocation_blocks": 2837,
+        "evaluation_cpu_time_ns": 101562500,
+        "evaluation_peak_memory_bytes": 312127,
+        "evaluation_wall_time_ns": 102445450,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          99,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 37450,
+        "shape": "shared_graph",
+        "size": 100,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 156030,
+        "structural_sharing": 0.8395406579764122,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 156653,
+        "evaluation_allocation_blocks": 2660,
+        "evaluation_cpu_time_ns": 78125000,
+        "evaluation_peak_memory_bytes": 292359,
+        "evaluation_wall_time_ns": 78614800,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          99,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 37450,
+        "shape": "shared_graph",
+        "size": 100,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 156030,
+        "structural_sharing": 0.8395406579764122,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 156653,
+        "evaluation_allocation_blocks": 9077,
+        "evaluation_cpu_time_ns": 476562500,
+        "evaluation_peak_memory_bytes": 3503116,
+        "evaluation_wall_time_ns": 503905550,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 841,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          99,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 37450,
+        "shape": "shared_graph",
+        "size": 100,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 156030,
+        "structural_sharing": 0.8395406579764122,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 156653,
+        "evaluation_allocation_blocks": 7137,
+        "evaluation_cpu_time_ns": 242187500,
+        "evaluation_peak_memory_bytes": 1517455,
+        "evaluation_wall_time_ns": 253758750,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 840,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          99,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 37450,
+        "shape": "shared_graph",
+        "size": 100,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 156030,
+        "structural_sharing": 0.8395406579764122,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 50730,
+        "evaluation_allocation_blocks": 9118,
+        "evaluation_cpu_time_ns": 23437500,
+        "evaluation_peak_memory_bytes": 832253,
+        "evaluation_wall_time_ns": 26812700,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          99,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 328500,
+        "shape": "temporal_branching",
+        "size": 100,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 50586,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 50730,
+        "evaluation_allocation_blocks": 9314,
+        "evaluation_cpu_time_ns": 39062500,
+        "evaluation_peak_memory_bytes": 832965,
+        "evaluation_wall_time_ns": 31833850,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          99,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 328500,
+        "shape": "temporal_branching",
+        "size": 100,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 50586,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 50730,
+        "evaluation_allocation_blocks": 13555,
+        "evaluation_cpu_time_ns": 343750000,
+        "evaluation_peak_memory_bytes": 2607919,
+        "evaluation_wall_time_ns": 358984050,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 629,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          99,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 328500,
+        "shape": "temporal_branching",
+        "size": 100,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 50586,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 50730,
+        "evaluation_allocation_blocks": 11310,
+        "evaluation_cpu_time_ns": 148437500,
+        "evaluation_peak_memory_bytes": 1686826,
+        "evaluation_wall_time_ns": 145542900,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 628,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          99,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 328500,
+        "shape": "temporal_branching",
+        "size": 100,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 50586,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 105569,
+        "evaluation_allocation_blocks": 2067,
+        "evaluation_cpu_time_ns": 54687500,
+        "evaluation_peak_memory_bytes": 219807,
+        "evaluation_wall_time_ns": 49498200,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          99,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 21050,
+        "shape": "temporal_branching",
+        "size": 100,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 105016,
+        "structural_sharing": 0.859124403987863,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 105569,
+        "evaluation_allocation_blocks": 2090,
+        "evaluation_cpu_time_ns": 54687500,
+        "evaluation_peak_memory_bytes": 219739,
+        "evaluation_wall_time_ns": 50061450,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          99,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 21050,
+        "shape": "temporal_branching",
+        "size": 100,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 105016,
+        "structural_sharing": 0.859124403987863,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 105569,
+        "evaluation_allocation_blocks": 11709,
+        "evaluation_cpu_time_ns": 343750000,
+        "evaluation_peak_memory_bytes": 2412539,
+        "evaluation_wall_time_ns": 334279950,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 629,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          99,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 21050,
+        "shape": "temporal_branching",
+        "size": 100,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 105016,
+        "structural_sharing": 0.859124403987863,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 105569,
+        "evaluation_allocation_blocks": 5912,
+        "evaluation_cpu_time_ns": 164062500,
+        "evaluation_peak_memory_bytes": 1098124,
+        "evaluation_wall_time_ns": 167505200,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 628,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          99,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 21050,
+        "shape": "temporal_branching",
+        "size": 100,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 105016,
+        "structural_sharing": 0.859124403987863,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 363481,
+        "evaluation_allocation_blocks": 65020,
+        "evaluation_cpu_time_ns": 242187500,
+        "evaluation_peak_memory_bytes": 5870740,
+        "evaluation_wall_time_ns": 246095550,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 7812500,
+        "query_path": [
+          "items",
+          999,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 1881850,
+        "shape": "repetition",
+        "size": 1000,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 363017,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 363481,
+        "evaluation_allocation_blocks": 65248,
+        "evaluation_cpu_time_ns": 187500000,
+        "evaluation_peak_memory_bytes": 5870500,
+        "evaluation_wall_time_ns": 193033250,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 7812500,
+        "query_path": [
+          "items",
+          999,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 1881850,
+        "shape": "repetition",
+        "size": 1000,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 363017,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 363481,
+        "evaluation_allocation_blocks": 72254,
+        "evaluation_cpu_time_ns": 1750000000,
+        "evaluation_peak_memory_bytes": 12640160,
+        "evaluation_wall_time_ns": 1765388150,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 27,
+        "operation": "reverse",
+        "query_cpu_time_ns": 7812500,
+        "query_path": [
+          "items",
+          999,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 1881850,
+        "shape": "repetition",
+        "size": 1000,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 363017,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 363481,
+        "evaluation_allocation_blocks": 70257,
+        "evaluation_cpu_time_ns": 921875000,
+        "evaluation_peak_memory_bytes": 9537376,
+        "evaluation_wall_time_ns": 943217950,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 7812500,
+        "query_path": [
+          "items",
+          999,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 1881850,
+        "shape": "repetition",
+        "size": 1000,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 363017,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 69988,
+        "evaluation_allocation_blocks": 1569,
+        "evaluation_cpu_time_ns": 398437500,
+        "evaluation_peak_memory_bytes": 304387,
+        "evaluation_wall_time_ns": 404381400,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          999,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 59900,
+        "shape": "repetition",
+        "size": 1000,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 69449,
+        "structural_sharing": 0.9991886156534765,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 69988,
+        "evaluation_allocation_blocks": 1570,
+        "evaluation_cpu_time_ns": 375000000,
+        "evaluation_peak_memory_bytes": 304443,
+        "evaluation_wall_time_ns": 393661600,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          999,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 59900,
+        "shape": "repetition",
+        "size": 1000,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 69449,
+        "structural_sharing": 0.9991886156534765,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 69988,
+        "evaluation_allocation_blocks": 8308,
+        "evaluation_cpu_time_ns": 1953125000,
+        "evaluation_peak_memory_bytes": 9909908,
+        "evaluation_wall_time_ns": 1984455500,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 27,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          999,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 59900,
+        "shape": "repetition",
+        "size": 1000,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 69449,
+        "structural_sharing": 0.9991886156534765,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 69988,
+        "evaluation_allocation_blocks": 7305,
+        "evaluation_cpu_time_ns": 1070312500,
+        "evaluation_peak_memory_bytes": 4119391,
+        "evaluation_wall_time_ns": 1099469000,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 26,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "items",
+          999,
+          "payload",
+          "levels",
+          2
+        ],
+        "query_wall_time_ns": 59900,
+        "shape": "repetition",
+        "size": 1000,
+        "source_path": [
+          "items"
+        ],
+        "source_representation_bytes": 69449,
+        "structural_sharing": 0.9991886156534765,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 708166,
+        "evaluation_allocation_blocks": 127027,
+        "evaluation_cpu_time_ns": 460937500,
+        "evaluation_peak_memory_bytes": 11830384,
+        "evaluation_wall_time_ns": 473974400,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          999,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 1639650,
+        "shape": "shared_graph",
+        "size": 1000,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 707687,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 708166,
+        "evaluation_allocation_blocks": 127257,
+        "evaluation_cpu_time_ns": 484375000,
+        "evaluation_peak_memory_bytes": 11830388,
+        "evaluation_wall_time_ns": 506953900,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          999,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 1639650,
+        "shape": "shared_graph",
+        "size": 1000,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 707687,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 708166,
+        "evaluation_allocation_blocks": 170664,
+        "evaluation_cpu_time_ns": 5156250000,
+        "evaluation_peak_memory_bytes": 37627020,
+        "evaluation_wall_time_ns": 5216111450,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 8041,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          999,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 1639650,
+        "shape": "shared_graph",
+        "size": 1000,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 707687,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 708166,
+        "evaluation_allocation_blocks": 135257,
+        "evaluation_cpu_time_ns": 2109375000,
+        "evaluation_peak_memory_bytes": 24547152,
+        "evaluation_wall_time_ns": 2165836850,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 8040,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          999,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 1639650,
+        "shape": "shared_graph",
+        "size": 1000,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 707687,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 1534553,
+        "evaluation_allocation_blocks": 30122,
+        "evaluation_cpu_time_ns": 960937500,
+        "evaluation_peak_memory_bytes": 3347323,
+        "evaluation_wall_time_ns": 986895200,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          999,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 32700,
+        "shape": "shared_graph",
+        "size": 1000,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 1533930,
+        "structural_sharing": 0.8433264630566486,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 1534553,
+        "evaluation_allocation_blocks": 30350,
+        "evaluation_cpu_time_ns": 1101562500,
+        "evaluation_peak_memory_bytes": 3347407,
+        "evaluation_wall_time_ns": 1140216050,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          999,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 32700,
+        "shape": "shared_graph",
+        "size": 1000,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 1533930,
+        "structural_sharing": 0.8433264630566486,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 1534553,
+        "evaluation_allocation_blocks": 83738,
+        "evaluation_cpu_time_ns": 4859375000,
+        "evaluation_peak_memory_bytes": 35614300,
+        "evaluation_wall_time_ns": 4962296000,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 8041,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          999,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 32700,
+        "shape": "shared_graph",
+        "size": 1000,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 1533930,
+        "structural_sharing": 0.8433264630566486,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 1534553,
+        "evaluation_allocation_blocks": 47328,
+        "evaluation_cpu_time_ns": 2703125000,
+        "evaluation_peak_memory_bytes": 16328147,
+        "evaluation_wall_time_ns": 2798897100,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 8040,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "nodes",
+          999,
+          "payload",
+          "properties",
+          "stable"
+        ],
+        "query_wall_time_ns": 32700,
+        "shape": "shared_graph",
+        "size": 1000,
+        "source_path": [
+          "nodes"
+        ],
+        "source_representation_bytes": 1533930,
+        "structural_sharing": 0.8433264630566486,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 508829,
+        "evaluation_allocation_blocks": 91025,
+        "evaluation_cpu_time_ns": 382812500,
+        "evaluation_peak_memory_bytes": 8511231,
+        "evaluation_wall_time_ns": 375504400,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          999,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 2985250,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 508685,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+direct_evaluator",
+        "description_bytes": 508829,
+        "evaluation_allocation_blocks": 91253,
+        "evaluation_cpu_time_ns": 304687500,
+        "evaluation_peak_memory_bytes": 8511091,
+        "evaluation_wall_time_ns": 308232900,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          999,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 2985250,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 508685,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 508829,
+        "evaluation_allocation_blocks": 121759,
+        "evaluation_cpu_time_ns": 3148437500,
+        "evaluation_peak_memory_bytes": 27103404,
+        "evaluation_wall_time_ns": 3207983300,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 5729,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          999,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 2985250,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 508685,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "atom_pair+rewrite_equality",
+        "description_bytes": 508829,
+        "evaluation_allocation_blocks": 96256,
+        "evaluation_cpu_time_ns": 1312500000,
+        "evaluation_peak_memory_bytes": 17763750,
+        "evaluation_wall_time_ns": 1337557800,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 5728,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          999,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 2985250,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 508685,
+        "structural_sharing": 0.0,
+        "substrate": "atom_pair"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 1004669,
+        "evaluation_allocation_blocks": 22124,
+        "evaluation_cpu_time_ns": 437500000,
+        "evaluation_peak_memory_bytes": 2359915,
+        "evaluation_wall_time_ns": 445303350,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 1,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          999,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 44450,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 1004116,
+        "structural_sharing": 0.8685182770461164,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+direct_evaluator",
+        "description_bytes": 1004669,
+        "evaluation_allocation_blocks": 22194,
+        "evaluation_cpu_time_ns": 429687500,
+        "evaluation_peak_memory_bytes": 2359847,
+        "evaluation_wall_time_ns": 447064950,
+        "evaluator": "direct_evaluator",
+        "fidelity": 1.0,
+        "mechanism_cost": 2,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          999,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 44450,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 1004116,
+        "structural_sharing": 0.8685182770461164,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 1004669,
+        "evaluation_allocation_blocks": 61629,
+        "evaluation_cpu_time_ns": 3140625000,
+        "evaluation_peak_memory_bytes": 26513851,
+        "evaluation_wall_time_ns": 3203478050,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 5729,
+        "operation": "reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          999,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 44450,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 1004116,
+        "structural_sharing": 0.8685182770461164,
+        "substrate": "content_dag"
+      },
+      {
+        "combination": "content_dag+rewrite_equality",
+        "description_bytes": 1004669,
+        "evaluation_allocation_blocks": 36120,
+        "evaluation_cpu_time_ns": 1414062500,
+        "evaluation_peak_memory_bytes": 11697794,
+        "evaluation_wall_time_ns": 1510750350,
+        "evaluator": "rewrite_equality",
+        "fidelity": 1.0,
+        "mechanism_cost": 5728,
+        "operation": "double_reverse",
+        "query_cpu_time_ns": 0,
+        "query_path": [
+          "snapshots",
+          999,
+          "state",
+          "mode"
+        ],
+        "query_wall_time_ns": 44450,
+        "shape": "temporal_branching",
+        "size": 1000,
+        "source_path": [
+          "snapshots"
+        ],
+        "source_representation_bytes": 1004116,
+        "structural_sharing": 0.8685182770461164,
+        "substrate": "content_dag"
+      }
+    ],
+    "substrates": [
+      "atom_pair",
+      "content_dag"
+    ]
+  },
+  "continuity_without_id": {
+    "cases": [
+      {
+        "compare": [
+          "x0",
+          "x1"
+        ],
+        "expected": {
+          "content_equal": false,
+          "continuity_claim": true,
+          "historical_path": true
+        },
+        "id": "rename_only",
+        "value": {
+          "nodes": [
+            {
+              "content": {
+                "name": "old",
+                "value": 7
+              },
+              "position": "x0"
+            },
+            {
+              "content": {
+                "name": "new",
+                "value": 7
+              },
+              "position": "x1"
+            }
+          ],
+          "relations": [
+            {
+              "from": "x0",
+              "kind": "rename",
+              "provenance": {
+                "operation": "rename",
+                "source": "x0"
+              },
+              "to": "x1",
+              "transformation": {
+                "operation": "rename"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "compare": [
+          "x0",
+          "x1"
+        ],
+        "expected": {
+          "content_equal": false,
+          "continuity_claim": true,
+          "historical_path": true
+        },
+        "id": "small_mutation",
+        "value": {
+          "nodes": [
+            {
+              "content": {
+                "flag": false,
+                "value": 7
+              },
+              "position": "x0"
+            },
+            {
+              "content": {
+                "flag": false,
+                "value": 8
+              },
+              "position": "x1"
+            }
+          ],
+          "relations": [
+            {
+              "from": "x0",
+              "kind": "mutation",
+              "provenance": {
+                "operation": "increment",
+                "source": "x0"
+              },
+              "to": "x1",
+              "transformation": {
+                "operation": "increment"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "compare": [
+          "x0",
+          "x1"
+        ],
+        "expected": {
+          "content_equal": false,
+          "continuity_claim": false,
+          "historical_path": true
+        },
+        "id": "complete_replacement",
+        "value": {
+          "nodes": [
+            {
+              "content": {
+                "kind": "old",
+                "value": 7
+              },
+              "position": "x0"
+            },
+            {
+              "content": {
+                "kind": "new",
+                "value": 99
+              },
+              "position": "x1"
+            }
+          ],
+          "relations": [
+            {
+              "from": "x0",
+              "kind": "replacement",
+              "provenance": {
+                "operation": "replace",
+                "source": "x0"
+              },
+              "to": "x1",
+              "transformation": {
+                "operation": "replace"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "compare": [
+          "x0",
+          "x1"
+        ],
+        "expected": {
+          "content_equal": false,
+          "continuity_claim": "branch",
+          "historical_path": true
+        },
+        "id": "fork",
+        "value": {
+          "nodes": [
+            {
+              "content": {
+                "value": 7
+              },
+              "position": "x0"
+            },
+            {
+              "content": {
+                "value": 8
+              },
+              "position": "x1"
+            },
+            {
+              "content": {
+                "value": 9
+              },
+              "position": "x2"
+            }
+          ],
+          "relations": [
+            {
+              "from": "x0",
+              "kind": "fork",
+              "provenance": {
+                "operation": "increment",
+                "source": "x0"
+              },
+              "to": "x1",
+              "transformation": {
+                "operation": "increment"
+              }
+            },
+            {
+              "from": "x0",
+              "kind": "fork",
+              "provenance": {
+                "operation": "increment_twice",
+                "source": "x0"
+              },
+              "to": "x2",
+              "transformation": {
+                "operation": "increment_twice"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "compare": [
+          "x0",
+          "x2"
+        ],
+        "expected": {
+          "content_equal": false,
+          "continuity_claim": "merged",
+          "historical_path": true
+        },
+        "id": "merge",
+        "value": {
+          "nodes": [
+            {
+              "content": {
+                "value": 7
+              },
+              "position": "x0"
+            },
+            {
+              "content": {
+                "value": 9
+              },
+              "position": "x1"
+            },
+            {
+              "content": {
+                "value": 8
+              },
+              "position": "x2"
+            }
+          ],
+          "relations": [
+            {
+              "from": "x0",
+              "kind": "merge",
+              "provenance": {
+                "operation": "increment",
+                "source": "x0"
+              },
+              "to": "x2",
+              "transformation": {
+                "operation": "increment"
+              }
+            },
+            {
+              "from": "x1",
+              "kind": "merge",
+              "provenance": {
+                "operation": "decrement",
+                "source": "x1"
+              },
+              "to": "x2",
+              "transformation": {
+                "operation": "decrement"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "compare": [
+          "a1",
+          "b1"
+        ],
+        "expected": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "id": "independent_convergence",
+        "value": {
+          "nodes": [
+            {
+              "content": {
+                "value": 0
+              },
+              "position": "a0"
+            },
+            {
+              "content": {
+                "value": 10
+              },
+              "position": "b0"
+            },
+            {
+              "content": {
+                "value": 5
+              },
+              "position": "a1"
+            },
+            {
+              "content": {
+                "value": 5
+              },
+              "position": "b1"
+            }
+          ],
+          "relations": [
+            {
+              "from": "a0",
+              "kind": "mutation",
+              "provenance": {
+                "operation": "add_five",
+                "source": "a0"
+              },
+              "to": "a1",
+              "transformation": {
+                "operation": "add_five"
+              }
+            },
+            {
+              "from": "b0",
+              "kind": "mutation",
+              "provenance": {
+                "operation": "subtract_five",
+                "source": "b0"
+              },
+              "to": "b1",
+              "transformation": {
+                "operation": "subtract_five"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "compare": [
+          "x0",
+          "x2"
+        ],
+        "expected": {
+          "content_equal": false,
+          "continuity_claim": "descendant",
+          "historical_path": true
+        },
+        "id": "divergence",
+        "value": {
+          "nodes": [
+            {
+              "content": {
+                "value": 1
+              },
+              "position": "x0"
+            },
+            {
+              "content": {
+                "value": 2
+              },
+              "position": "x1"
+            },
+            {
+              "content": {
+                "value": -1
+              },
+              "position": "x2"
+            }
+          ],
+          "relations": [
+            {
+              "from": "x0",
+              "kind": "divergence",
+              "provenance": {
+                "operation": "add_one",
+                "source": "x0"
+              },
+              "to": "x1",
+              "transformation": {
+                "operation": "add_one"
+              }
+            },
+            {
+              "from": "x0",
+              "kind": "divergence",
+              "provenance": {
+                "operation": "subtract_two",
+                "source": "x0"
+              },
+              "to": "x2",
+              "transformation": {
+                "operation": "subtract_two"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "compare": [
+          "x0",
+          "x1"
+        ],
+        "expected": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "id": "alias_relation",
+        "value": {
+          "nodes": [
+            {
+              "content": {
+                "value": 7
+              },
+              "position": "x0"
+            },
+            {
+              "content": {
+                "value": 7
+              },
+              "position": "x1"
+            }
+          ],
+          "relations": [
+            {
+              "from": "x0",
+              "kind": "alias",
+              "provenance": {
+                "source": "annotation-observation"
+              },
+              "to": "x1"
+            }
+          ]
+        }
+      },
+      {
+        "compare": [
+          "x0",
+          "x1"
+        ],
+        "expected": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "id": "equivalence_relation",
+        "value": {
+          "nodes": [
+            {
+              "content": {
+                "value": 7
+              },
+              "position": "x0"
+            },
+            {
+              "content": {
+                "value": 7
+              },
+              "position": "x1"
+            }
+          ],
+          "relations": [
+            {
+              "from": "x0",
+              "kind": "equivalence",
+              "provenance": {
+                "rule": "same_value",
+                "source": "rewrite-observation"
+              },
+              "to": "x1"
+            }
+          ]
+        }
+      }
+    ],
+    "conclusion": "A relation/path can carry historical evidence without a stable ID; the current candidates do not discover continuity semantics from that path.",
+    "distinctions": [
+      "content_equality",
+      "historical_continuity",
+      "aliasing",
+      "equivalence",
+      "provenance"
+    ],
+    "experiment": "continuity_without_stable_id",
+    "rows": [
+      {
+        "candidate": "atom_pair",
+        "case_id": "rename_only",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": true,
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 872,
+        "round_trip": true
+      },
+      {
+        "candidate": "atom_pair",
+        "case_id": "small_mutation",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": true,
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 880,
+        "round_trip": true
+      },
+      {
+        "candidate": "atom_pair",
+        "case_id": "complete_replacement",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": false,
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 880,
+        "round_trip": true
+      },
+      {
+        "candidate": "atom_pair",
+        "case_id": "fork",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": "branch",
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 2,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 1342,
+        "round_trip": true
+      },
+      {
+        "candidate": "atom_pair",
+        "case_id": "merge",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": "merged",
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 1332,
+        "round_trip": true
+      },
+      {
+        "candidate": "atom_pair",
+        "case_id": "independent_convergence",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": true,
+          "equivalence_relation_present": false,
+          "historical_path_available": false,
+          "outgoing_relation_count": 0,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 1493,
+        "round_trip": true
+      },
+      {
+        "candidate": "atom_pair",
+        "case_id": "divergence",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": "descendant",
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 2,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 1345,
+        "round_trip": true
+      },
+      {
+        "candidate": "atom_pair",
+        "case_id": "alias_relation",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "facts": {
+          "aliasing_relation_present": true,
+          "content_equal": true,
+          "equivalence_relation_present": false,
+          "historical_path_available": false,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 650,
+        "round_trip": true
+      },
+      {
+        "candidate": "atom_pair",
+        "case_id": "equivalence_relation",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": true,
+          "equivalence_relation_present": true,
+          "historical_path_available": false,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 705,
+        "round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "case_id": "rename_only",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": true,
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 4065,
+        "round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "case_id": "small_mutation",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": true,
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 4237,
+        "round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "case_id": "complete_replacement",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": false,
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 4405,
+        "round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "case_id": "fork",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": "branch",
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 2,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 6115,
+        "round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "case_id": "merge",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": "merged",
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 6110,
+        "round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "case_id": "independent_convergence",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": true,
+          "equivalence_relation_present": false,
+          "historical_path_available": false,
+          "outgoing_relation_count": 0,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 6647,
+        "round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "case_id": "divergence",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": "descendant",
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 2,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 6117,
+        "round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "case_id": "alias_relation",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "facts": {
+          "aliasing_relation_present": true,
+          "content_equal": true,
+          "equivalence_relation_present": false,
+          "historical_path_available": false,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 3163,
+        "round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "case_id": "equivalence_relation",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": true,
+          "equivalence_relation_present": true,
+          "historical_path_available": false,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 3416,
+        "round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "case_id": "rename_only",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": true,
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 4273,
+        "round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "case_id": "small_mutation",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": true,
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 4343,
+        "round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "case_id": "complete_replacement",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": false,
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 4416,
+        "round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "case_id": "fork",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": "branch",
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 2,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 5667,
+        "round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "case_id": "merge",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": "merged",
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 5719,
+        "round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "case_id": "independent_convergence",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": true,
+          "equivalence_relation_present": false,
+          "historical_path_available": false,
+          "outgoing_relation_count": 0,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 6170,
+        "round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "case_id": "divergence",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": false,
+          "continuity_claim": "descendant",
+          "historical_path": true
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": false,
+          "equivalence_relation_present": false,
+          "historical_path_available": true,
+          "outgoing_relation_count": 2,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 5672,
+        "round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "case_id": "alias_relation",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "facts": {
+          "aliasing_relation_present": true,
+          "content_equal": true,
+          "equivalence_relation_present": false,
+          "historical_path_available": false,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 3267,
+        "round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "case_id": "equivalence_relation",
+        "continuity_is_discovered": false,
+        "expected_harness_classification": {
+          "content_equal": true,
+          "continuity_claim": false,
+          "historical_path": false
+        },
+        "facts": {
+          "aliasing_relation_present": false,
+          "content_equal": true,
+          "equivalence_relation_present": true,
+          "historical_path_available": false,
+          "outgoing_relation_count": 1,
+          "provenance_present": true,
+          "stable_id_field_present": false
+        },
+        "finding": "relations and paths are representable; continuity semantics are not inferred by the candidate",
+        "representation_bytes": 3545,
+        "round_trip": true
+      }
+    ]
+  },
+  "egraph_verdict": {
+    "answer": "C",
+    "evidence": {
+      "axis_separates_storage_from_evaluation": true,
+      "egraph_all_fidelity": true,
+      "egraph_is_not_treated_as_universal_U": true,
+      "reduced_rewrite_all_fidelity": true,
+      "reduced_rewrite_faster_points": 18,
+      "reduced_rewrite_lower_mechanism_work_points": 18,
+      "reduction_pairs": 18,
+      "reduction_points": 36,
+      "v2_repetition_dominance": {
+        "available": true,
+        "global_strict_dominance": [],
+        "repetition_egraph_locally_dominated_at_all_points": true
+      }
+    },
+    "interpretation": "The useful mechanism is generic represented rewriting; the full e-graph remains an optional equality mechanism for equivalence workloads, not a universal substrate. No final architecture is selected.",
+    "options": {
+      "A_discard_entirely": false,
+      "B_use_only_for_equivalence_workloads": true,
+      "C_reduce_useful_mechanism_to_simpler_rewrite": true,
+      "D_claim_new_primitive": false
+    },
+    "status": "provisional_phase1_verdict"
+  },
+  "host_semantics_audit": {
+    "candidates": {
+      "atom_pair": {
+        "decode": {
+          "DERIVED": [
+            "host value projection"
+          ],
+          "HOST": [
+            "Python parser and traversal"
+          ],
+          "REPRESENTED": [
+            "tagged pair tree"
+          ]
+        },
+        "encode": {
+          "DERIVED": [
+            "binary tree shape"
+          ],
+          "HOST": [
+            "Python traversal",
+            "JSON scalar canonicalization",
+            "map key sorting"
+          ],
+          "REPRESENTED": [
+            "Atom",
+            "Pair",
+            "list/map tags"
+          ]
+        },
+        "identity": {
+          "DERIVED": [
+            "projection comparison only"
+          ],
+          "HOST": [
+            "equality of decoded values"
+          ],
+          "REPRESENTED": [
+            "content/annotation fields when supplied"
+          ]
+        },
+        "query": {
+          "DERIVED": [
+            "queried value and traversal count"
+          ],
+          "HOST": [
+            "path loop",
+            "linear scan"
+          ],
+          "REPRESENTED": [
+            "pair tree path"
+          ]
+        },
+        "transform": {
+          "DERIVED": [
+            "transformed value"
+          ],
+          "HOST": [
+            "apply_operation",
+            "decode/re-encode orchestration"
+          ],
+          "REPRESENTED": [
+            "input and output pair trees"
+          ]
+        }
+      },
+      "content_dag": {
+        "decode": {
+          "DERIVED": [
+            "reconstructed value"
+          ],
+          "HOST": [
+            "Python store lookup",
+            "memoization"
+          ],
+          "REPRESENTED": [
+            "root and links"
+          ]
+        },
+        "encode": {
+          "DERIVED": [
+            "content-addressed sharing"
+          ],
+          "HOST": [
+            "canonical serialization",
+            "SHA-256 call",
+            "Python store/index"
+          ],
+          "REPRESENTED": [
+            "immutable nodes",
+            "CID links"
+          ]
+        },
+        "identity": {
+          "DERIVED": [
+            "same-content CID observation"
+          ],
+          "HOST": [
+            "CID equality comparison in harness"
+          ],
+          "REPRESENTED": [
+            "content and annotations as ordinary nodes"
+          ]
+        },
+        "query": {
+          "DERIVED": [
+            "queried value and traversal count"
+          ],
+          "HOST": [
+            "map/list edge scan"
+          ],
+          "REPRESENTED": [
+            "CID path"
+          ]
+        },
+        "transform": {
+          "DERIVED": [
+            "new nodes and root redirect"
+          ],
+          "HOST": [
+            "apply_operation",
+            "decode/re-encode orchestration"
+          ],
+          "REPRESENTED": [
+            "old and new immutable roots"
+          ]
+        }
+      },
+      "continuity_analysis": {
+        "path_analysis": {
+          "DERIVED": [
+            "path available, content equality, alias/equivalence facts"
+          ],
+          "HOST": [
+            "reachability traversal",
+            "classification comparison"
+          ],
+          "REPRESENTED": [
+            "snapshots",
+            "relations",
+            "provenance"
+          ]
+        }
+      },
+      "represented_rule_vm": {
+        "evaluate": {
+          "DERIVED": [
+            "output U",
+            "modified rule behavior"
+          ],
+          "HOST": [
+            "fixed VM instruction loop",
+            "stack allocation"
+          ],
+          "REPRESENTED": [
+            "rule program",
+            "input U"
+          ]
+        },
+        "self_interpretation": {
+          "DERIVED": [
+            "rule_B and its output"
+          ],
+          "HOST": [
+            "same VM loop"
+          ],
+          "REPRESENTED": [
+            "rule that edits another represented rule"
+          ]
+        }
+      },
+      "rewrite_egraph": {
+        "decode": {
+          "DERIVED": [
+            "least-size representative"
+          ],
+          "HOST": [
+            "extraction algorithm",
+            "JSON projection"
+          ],
+          "REPRESENTED": [
+            "e-class alternatives"
+          ]
+        },
+        "encode": {
+          "DERIVED": [
+            "congruence classes"
+          ],
+          "HOST": [
+            "Python term construction",
+            "hash-consing data structures"
+          ],
+          "REPRESENTED": [
+            "enodes",
+            "e-classes",
+            "rule table"
+          ]
+        },
+        "identity": {
+          "DERIVED": [
+            "equivalence observation, not continuity"
+          ],
+          "HOST": [
+            "decoded-term comparison"
+          ],
+          "REPRESENTED": [
+            "terms/e-classes"
+          ]
+        },
+        "query": {
+          "DERIVED": [
+            "query result and visited classes"
+          ],
+          "HOST": [
+            "representative extraction",
+            "path loop"
+          ],
+          "REPRESENTED": [
+            "e-class graph"
+          ]
+        },
+        "transform": {
+          "DERIVED": [
+            "rewrite sequence and extracted result"
+          ],
+          "HOST": [
+            "matcher/substitution loop",
+            "apply_operation",
+            "graph rebuild"
+          ],
+          "REPRESENTED": [
+            "generic rule schemas",
+            "wrapped terms"
+          ]
+        }
+      }
+    },
+    "conclusion": "The current experiment still has substantial HOST semantics. The strongest reduction is represented-rule execution: rule data controls a fixed evaluator, but the evaluator vocabulary remains host code.",
+    "definitions": {
+      "DERIVED": "a result computed from represented data by a mechanism or harness",
+      "HOST": "semantic work executed by Python or a host library rather than read from U",
+      "REPRESENTED": "structure, rule, relation, or data explicitly carried in U"
+    }
+  },
+  "known_failures_preserved": [
+    {
+      "candidate": "rewrite_egraph",
+      "experimental_workaround": "retain the e-graph equivalence proof and use the already-rewritten representative",
+      "failure": "unioning a term with a rewritten descendant can make minimal extraction recurse through an e-class cycle",
+      "observed_in": "double_reverse equivalence layer",
+      "status": "preserved"
+    },
+    {
+      "candidate": "all",
+      "failure": "continuity is not discovered from relation paths; the analyzer only reports path, equality, alias, equivalence, and provenance facts",
+      "observed_in": "continuity_without_stable_id",
+      "status": "preserved"
+    }
+  ],
+  "objective": "decompose the kernel and test structure, evaluation, and continuity as separate experimental axes",
+  "phase1_gate": {
+    "how_things_change_evidence": "partial",
+    "open_phase2": false,
+    "reason": "Represented rules control a fixed evaluator, but continuity interpretation and substantial operation semantics remain host-defined.",
+    "what_things_are_evidence": "partial"
+  },
+  "protocol": "phase1-v3",
+  "represented_rule_execution": {
+    "all_pass": true,
+    "evaluator": "represented_rule_vm",
+    "experiment": "represented_rule_controls_execution",
+    "instruction_vocabulary": [
+      "get",
+      "const",
+      "add",
+      "mul",
+      "set",
+      "return"
+    ],
+    "no_host_branch_added_between_variants": true,
+    "rows": [
+      {
+        "candidate": "atom_pair",
+        "evaluator_source_hash": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+        "input": {
+          "value": 3
+        },
+        "modified_rule": {
+          "kind": "rule",
+          "name": "rule_B",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "output_a": 4,
+        "output_after_self_modification": 6,
+        "output_b": 6,
+        "rule_a": {
+          "kind": "rule",
+          "name": "rule_A",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "rule_a_round_trip": true,
+        "rule_b": {
+          "kind": "rule",
+          "name": "rule_B",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "rule_b_round_trip": true,
+        "rule_change_changes_behavior": true,
+        "runtime": {
+          "rule_a": {
+            "allocation_blocks": 13,
+            "cpu_time_ns": 0,
+            "peak_memory_bytes": 2428,
+            "wall_time_ns": 184800
+          },
+          "rule_b": {
+            "allocation_blocks": 13,
+            "cpu_time_ns": 0,
+            "peak_memory_bytes": 2428,
+            "wall_time_ns": 169500
+          },
+          "self_modifier": {
+            "allocation_blocks": 105,
+            "cpu_time_ns": 0,
+            "peak_memory_bytes": 10274,
+            "wall_time_ns": 570800
+          }
+        },
+        "same_evaluator_source_hash": true,
+        "self_modifier_changes_behavior": true,
+        "self_modifier_changes_rule": true
+      },
+      {
+        "candidate": "content_dag",
+        "evaluator_source_hash": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+        "input": {
+          "value": 3
+        },
+        "modified_rule": {
+          "kind": "rule",
+          "name": "rule_B",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "output_a": 4,
+        "output_after_self_modification": 6,
+        "output_b": 6,
+        "rule_a": {
+          "kind": "rule",
+          "name": "rule_A",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "rule_a_round_trip": true,
+        "rule_b": {
+          "kind": "rule",
+          "name": "rule_B",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "rule_b_round_trip": true,
+        "rule_change_changes_behavior": true,
+        "runtime": {
+          "rule_a": {
+            "allocation_blocks": 13,
+            "cpu_time_ns": 0,
+            "peak_memory_bytes": 1482,
+            "wall_time_ns": 92700
+          },
+          "rule_b": {
+            "allocation_blocks": 13,
+            "cpu_time_ns": 0,
+            "peak_memory_bytes": 1482,
+            "wall_time_ns": 92000
+          },
+          "self_modifier": {
+            "allocation_blocks": 58,
+            "cpu_time_ns": 0,
+            "peak_memory_bytes": 6712,
+            "wall_time_ns": 651500
+          }
+        },
+        "same_evaluator_source_hash": true,
+        "self_modifier_changes_behavior": true,
+        "self_modifier_changes_rule": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "evaluator_source_hash": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+        "input": {
+          "value": 3
+        },
+        "modified_rule": {
+          "kind": "rule",
+          "name": "rule_B",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "output_a": 4,
+        "output_after_self_modification": 6,
+        "output_b": 6,
+        "rule_a": {
+          "kind": "rule",
+          "name": "rule_A",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "rule_a_round_trip": true,
+        "rule_b": {
+          "kind": "rule",
+          "name": "rule_B",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "rule_b_round_trip": true,
+        "rule_change_changes_behavior": true,
+        "runtime": {
+          "rule_a": {
+            "allocation_blocks": 53,
+            "cpu_time_ns": 0,
+            "peak_memory_bytes": 8144,
+            "wall_time_ns": 831700
+          },
+          "rule_b": {
+            "allocation_blocks": 53,
+            "cpu_time_ns": 0,
+            "peak_memory_bytes": 8144,
+            "wall_time_ns": 894800
+          },
+          "self_modifier": {
+            "allocation_blocks": 241,
+            "cpu_time_ns": 0,
+            "peak_memory_bytes": 31230,
+            "wall_time_ns": 2897600
+          }
+        },
+        "same_evaluator_source_hash": true,
+        "self_modifier_changes_behavior": true,
+        "self_modifier_changes_rule": true
+      }
+    ]
+  },
+  "selection": null,
+  "semantics_still_trapped_in_host": [
+    "candidate encode/decode implementations",
+    "direct arithmetic and list/string operations",
+    "generic rewrite matcher and saturation loop",
+    "continuity reachability and interpretation",
+    "measurement, storage accounting, and provenance judgment"
+  ],
+  "smallest_surviving_concepts": [
+    "value as ordinary represented data",
+    "represented rule/program",
+    "evaluator that reads represented rules",
+    "transformation as ordinary U",
+    "composition and history as ordinary U",
+    "relation/path for continuity evidence",
+    "cost and provenance as observations/data"
+  ],
+  "transformations_as_U": {
+    "all_pass": true,
+    "experiment": "transformations_as_ordinary_U",
+    "rows": [
+      {
+        "candidate": "atom_pair",
+        "composition_bytes": 2228,
+        "composition_expected": {
+          "value": 8
+        },
+        "composition_ok": true,
+        "composition_result": {
+          "value": 8
+        },
+        "composition_round_trip": true,
+        "ordinary_data_only": true,
+        "runtime": {
+          "allocation_blocks": 23,
+          "cpu_time_ns": 0,
+          "peak_memory_bytes": 31060,
+          "wall_time_ns": 2104400
+        },
+        "universe_bytes": 8462,
+        "universe_round_trip": true
+      },
+      {
+        "candidate": "content_dag",
+        "composition_bytes": 9865,
+        "composition_expected": {
+          "value": 8
+        },
+        "composition_ok": true,
+        "composition_result": {
+          "value": 8
+        },
+        "composition_round_trip": true,
+        "ordinary_data_only": true,
+        "runtime": {
+          "allocation_blocks": 60,
+          "cpu_time_ns": 0,
+          "peak_memory_bytes": 16022,
+          "wall_time_ns": 3452000
+        },
+        "universe_bytes": 14425,
+        "universe_round_trip": true
+      },
+      {
+        "candidate": "rewrite_egraph",
+        "composition_bytes": 8137,
+        "composition_expected": {
+          "value": 8
+        },
+        "composition_ok": true,
+        "composition_result": {
+          "value": 8
+        },
+        "composition_round_trip": true,
+        "ordinary_data_only": true,
+        "runtime": {
+          "allocation_blocks": 1148,
+          "cpu_time_ns": 15625000,
+          "peak_memory_bytes": 146872,
+          "wall_time_ns": 13042000
+        },
+        "universe_bytes": 18573,
+        "universe_round_trip": true
+      }
+    ],
+    "universe": {
+      "composition": {
+        "kind": "composition",
+        "name": "double_after_add_one",
+        "provenance": {
+          "relation": "T2(T1(x))",
+          "source": "protocol-v3"
+        },
+        "steps": [
+          {
+            "kind": "transformation",
+            "name": "add_one",
+            "provenance": {
+              "operation": "add",
+              "source": "represented-rule-vm"
+            },
+            "rule": {
+              "kind": "rule",
+              "name": "add_one_record",
+              "program": [
+                {
+                  "op": "get",
+                  "path": [
+                    "value"
+                  ]
+                },
+                {
+                  "op": "const",
+                  "value": 1
+                },
+                {
+                  "op": "add"
+                },
+                {
+                  "op": "set",
+                  "path": [
+                    "value"
+                  ]
+                },
+                {
+                  "op": "return"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "transformation",
+            "name": "double",
+            "provenance": {
+              "operation": "multiply",
+              "source": "represented-rule-vm"
+            },
+            "rule": {
+              "kind": "rule",
+              "name": "double_record",
+              "program": [
+                {
+                  "op": "get",
+                  "path": [
+                    "value"
+                  ]
+                },
+                {
+                  "op": "const",
+                  "value": 2
+                },
+                {
+                  "op": "mul"
+                },
+                {
+                  "op": "set",
+                  "path": [
+                    "value"
+                  ]
+                },
+                {
+                  "op": "return"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "cost": {
+        "encode": 1,
+        "evaluate": 1,
+        "query": 1,
+        "unit": "abstract"
+      },
+      "history": [
+        {
+          "input": {
+            "value": 3
+          },
+          "output": {
+            "value": 4
+          },
+          "step": 1,
+          "transformation": {
+            "kind": "transformation",
+            "name": "add_one",
+            "provenance": {
+              "operation": "add",
+              "source": "represented-rule-vm"
+            },
+            "rule": {
+              "kind": "rule",
+              "name": "add_one_record",
+              "program": [
+                {
+                  "op": "get",
+                  "path": [
+                    "value"
+                  ]
+                },
+                {
+                  "op": "const",
+                  "value": 1
+                },
+                {
+                  "op": "add"
+                },
+                {
+                  "op": "set",
+                  "path": [
+                    "value"
+                  ]
+                },
+                {
+                  "op": "return"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "input": {
+            "value": 4
+          },
+          "output": {
+            "value": 8
+          },
+          "step": 2,
+          "transformation": {
+            "kind": "transformation",
+            "name": "double",
+            "provenance": {
+              "operation": "multiply",
+              "source": "represented-rule-vm"
+            },
+            "rule": {
+              "kind": "rule",
+              "name": "double_record",
+              "program": [
+                {
+                  "op": "get",
+                  "path": [
+                    "value"
+                  ]
+                },
+                {
+                  "op": "const",
+                  "value": 2
+                },
+                {
+                  "op": "mul"
+                },
+                {
+                  "op": "set",
+                  "path": [
+                    "value"
+                  ]
+                },
+                {
+                  "op": "return"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "provenance": {
+        "claim": "ordinary data only",
+        "source": "phase1-v3"
+      },
+      "rules": [
+        {
+          "kind": "rule",
+          "name": "add_one_record",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "set",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "name": "double_record",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "set",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "return"
+            }
+          ]
+        }
+      ],
+      "transformations": [
+        {
+          "kind": "transformation",
+          "name": "add_one",
+          "provenance": {
+            "operation": "add",
+            "source": "represented-rule-vm"
+          },
+          "rule": {
+            "kind": "rule",
+            "name": "add_one_record",
+            "program": [
+              {
+                "op": "get",
+                "path": [
+                  "value"
+                ]
+              },
+              {
+                "op": "const",
+                "value": 1
+              },
+              {
+                "op": "add"
+              },
+              {
+                "op": "set",
+                "path": [
+                  "value"
+                ]
+              },
+              {
+                "op": "return"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "transformation",
+          "name": "double",
+          "provenance": {
+            "operation": "multiply",
+            "source": "represented-rule-vm"
+          },
+          "rule": {
+            "kind": "rule",
+            "name": "double_record",
+            "program": [
+              {
+                "op": "get",
+                "path": [
+                  "value"
+                ]
+              },
+              {
+                "op": "const",
+                "value": 2
+              },
+              {
+                "op": "mul"
+              },
+              {
+                "op": "set",
+                "path": [
+                  "value"
+                ]
+              },
+              {
+                "op": "return"
+              }
+            ]
+          }
+        }
+      ],
+      "value": {
+        "value": 3
+      }
+    }
+  }
+}

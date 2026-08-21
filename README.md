@@ -16,10 +16,10 @@ The experiment compares three independent candidates on the same corpus:
 - `rewrite_egraph`: e-graph representation with a small rewrite engine.
 
 The candidates are required to represent the same objects, including a usable model of
-their own evaluator and rules. Protocol v2 adds common runtime, memory, allocation,
-stored-byte, and nodes-visited measurements; scaling curves at 10, 100, 1k, and 10k;
-identity counterexamples; storage-overhead decomposition; and Pareto frontiers without
-a weighted score.
+their own evaluator and rules. Protocol v3 experimentally decomposes structural
+substrates, evaluators, and continuity evidence; tests represented rules that control
+execution; represents transformations and histories as ordinary data; and audits
+semantic leakage into Python. It does not select a final kernel or open Phase 2.
 
 ## Run
 
@@ -28,7 +28,7 @@ The implementation uses only the Python standard library:
 ```text
 python -m venv .venv
 python -m unittest discover -s tests -v
-python -m matsi.benchmark_v2 --json-out results/phase1-v2-results.json
+python -m matsi.benchmark_v3 --json-out results/phase1-v3-results.json
 ```
 
 The module path is configured by the test runner and benchmark launcher. To invoke the
@@ -40,4 +40,5 @@ The filesystem is only a bootstrap projection. Files, directories, programming
 languages, names, and repositories are not assumed to be MAT-SI primitives.
 
 See `docs/phase1-protocol.md` for the original protocol, `docs/phase1-protocol-v2.md`
-for the scaling protocol, and `docs/phase1-v2-results.md` for the current findings.
+for the scaling protocol, `docs/phase1-protocol-v3.md` for kernel decomposition, and
+`docs/phase1-v3-results.md` for the current findings.
