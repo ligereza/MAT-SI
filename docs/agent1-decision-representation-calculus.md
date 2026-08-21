@@ -32,9 +32,9 @@ row-stochastic channel `K` exists such that
 The solver returns the requested classification set:
 
 * `DOMINATES`: a witness `K` exists from the first experiment to the second;
+* `DOMINATED_BY`: only the reverse witness exists;
 * `EQUIVALENT`: witnesses exist in both directions;
-* `INCOMPARABLE`: the first does not dominate the second; the result also
-  records whether the reverse direction does hold;
+* `INCOMPARABLE`: neither direction has a stochastic garbling witness;
 * `INVALID`: dimensions or stochastic constraints are invalid.
 
 The feasibility problem is a rational linear program. The current
@@ -64,8 +64,12 @@ The symmetric reported quantity is
 `Delta(E1,E2) = max(delta(E1,E2), delta(E2,E1))`.
 
 An exact Blackwell witness is reused as a zero-deficiency certificate. The
-chain certificate uses the triangle inequality: the directed deficiency of a
-composed path is bounded by the sum of directed step deficiencies.
+compiler reports the two directions explicitly. For a deterministic quotient,
+forward simulation loss is zero because the quotient channel is itself a
+witness; reverse reconstruction can still be positive (it is `1/18` in the
+three-signal fixture). The chain certificate uses the triangle inequality: the
+directed deficiency of a composed path is bounded by the sum of directed step
+deficiencies.
 
 ## Task-sufficient quotient
 
@@ -88,9 +92,29 @@ universe by action-compatibility sets
 `C_a = {r : a in Opt(r)}`.
 
 The solver uses bitmask dynamic programming and reconstructs a partition and
-common-action witness. This is a real combinatorial reduction. It does not
-claim an NP-hardness theorem for the restricted family induced by arbitrary
-posterior/loss pairs; that embedding remains unproved here.
+common-action witness. This is a real combinatorial reduction. The executable
+identity-experiment/loss construction reduces Set Cover in polynomial time:
+each universe element is a source symbol and each subset is an action with
+zero loss exactly on its members. A risk-zero quotient with at most `k` blocks
+exists iff the Set-Cover instance has a cover of size at most `k`. A partition
+and one common action per block is a polynomial certificate, so the decision
+problem is NP-complete.
+
+When every optimal-action hyperedge has arity at most two, the problem
+specializes to Vertex Cover. Singleton hyperedges force vertices and each
+two-action ambiguity is an edge. The exact brancher uses this structure; its
+worst case remains exponential because Vertex Cover is NP-hard.
+
+`analyze_decision_ambiguity` exposes hyperedges, action coverage, components,
+equivalent/dominated actions, and a lower bound. `adaptive_task_quotient`
+selects direct grouping, degree-2 branching, exact bitmask cover, or a bounded
+greedy fallback from that profile.
+
+A compact synthetic suite exercises unique optima, degree-2 cycles,
+decomposable components, symmetry, dense overlap, and a larger general case.
+It records symbols, actions, ambiguity, selected regime/algorithm, explored
+nodes, runtime, bounds, and whether an exact certificate was obtained. These
+are controlled mathematical fixtures, not a new corpus.
 
 ## Multi-task and decision spectrum
 
@@ -114,15 +138,33 @@ task.
 
 ## Epsilon compression
 
-For small spaces the exact solver enumerates all canonical set partitions and
-keeps the smallest partition satisfying
+For small spaces the solver traverses canonical set partitions with an
+incumbent upper bound and prunes candidates with no fewer blocks. It keeps the
+smallest partition satisfying
 
 `V(E',D_i,pi) - V(E,D_i,pi) <= epsilon_i`
 
 for every task. It returns risk deltas, quotient channel, feasibility count,
-and exhaustive optimality. The worst-case search is `O(Bell(|R|))` partitions;
-the finite solver refuses oversized instances rather than silently switching
-to an unverified heuristic.
+and lower/upper bounds. Exact runs close the gap to zero; resource-limited
+runs retain the feasible upper bound and expose the remaining gap. The
+worst-case search is `O(Bell(|R|))` partitions. The greedy fallback keeps the
+standard Set-Cover guarantee `H_|R| * OPT`; its observed upper/lower ratio is
+reported separately and is not presented as the theoretical ratio.
+
+## Separation witnesses and stochastic compression
+
+For the Blackwell-incomparable fixture, a bounded rational grid search finds a
+decision witness in each direction. This demonstrates concrete task-wise
+separation without replacing the garbling criterion; general separating-loss
+extraction remains a distinct convex-analysis problem.
+
+Deterministic and stochastic compression were compared on exact finite grids.
+For zero tolerance there is no size advantage from randomization: if a
+stochastic compressor followed by a decoder has zero excess risk, every output
+used with positive probability at a source symbol uses an action optimal there.
+Selecting one such output per source symbol yields a deterministic quotient
+with no more outputs. Positive-tolerance multi-task frontiers were only
+searched on finite grids and remain `UNKNOWN` in general.
 
 ## Transformations and identification
 
@@ -143,9 +185,11 @@ an unlabeled representation by fiat.
 | Bayes value | posterior/action minimum | polynomial arithmetic enumeration |
 | Blackwell dominance | LP feasibility for `K` | polynomial formulation; exact small LP implementation |
 | Directed deficiency | LP with TV residuals | polynomial formulation; exact small LP implementation |
-| Single-task quotient | minimum set cover over `C_a` | bitmask exact solver; no unproved hardness claim |
+| Single-task quotient | minimum set cover over `C_a` | NP-complete decision problem; exact small solver |
+| Degree-2 quotient | Vertex Cover on ambiguity graph | exact branch-and-bound; NP-hard |
 | Multi-task quotient | set cover over joint action tuples | exact bitmask solver; exponential in signals/tasks |
-| Epsilon compression | exhaustive set partitions | exact for small spaces; `Bell(m)` worst case |
+| Epsilon compression | constrained set partitions | branch-and-bound bounds; `Bell(m)` worst case; NP-hard at `epsilon=0` |
+| Stochastic compression | finite rational channel grid | no zero-tolerance size advantage; positive-epsilon multi-task case `UNKNOWN` |
 
 ## References used
 

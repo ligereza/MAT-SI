@@ -1,150 +1,6315 @@
 {
-  "protocol": "agent1-decision-representation-calculus-v1",
-  "corpus_policy": "no new corpus; exact finite mathematical fixtures only",
-  "object": {
-    "experiment": "E[y][r] = P(R=r | Y=y)",
-    "decision_problem": "D=(A,L)",
-    "bayes_value": "V(E,D,pi) = min_decoder E[L(Y,decoder(R))]"
+  "ambiguity_hypergraph": {
+    "adaptive_solver": {
+      "algorithm": "direct grouping by unique optimal action",
+      "ambiguity": {
+        "action_count": 2,
+        "action_coverage": {
+          "0": 1,
+          "1": 2
+        },
+        "action_overlap": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "actions": [
+          0,
+          1
+        ],
+        "ambiguity_cardinalities": [
+          1,
+          1,
+          1
+        ],
+        "ambiguous_symbols": [],
+        "component_indices": [
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "components": [
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "dominated_actions": [],
+        "dominated_candidates": [],
+        "equivalent_action_classes": [
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "exact_easy_reductions": [
+          "polynomial direct grouping"
+        ],
+        "hyperedges": [
+          {
+            "actions": [
+              0
+            ],
+            "arity": 1,
+            "signal": 0
+          },
+          {
+            "actions": [
+              1
+            ],
+            "arity": 1,
+            "signal": 1
+          },
+          {
+            "actions": [
+              1
+            ],
+            "arity": 1,
+            "signal": 2
+          }
+        ],
+        "interpretation": "ambiguity is a hypergraph; selector complexity is its minimum action cover",
+        "lower_bound": 2,
+        "maximum_ambiguity_arity": 1,
+        "parameters": {
+          "action_count": 2,
+          "ambiguous_symbol_count": 0,
+          "component_count": 2,
+          "maximum_action_frequency": 2,
+          "maximum_ambiguity": 1
+        },
+        "reason": "every hyperedge is a singleton, so no covering choice remains",
+        "recommended_algorithm": "direct grouping by unique optimal action",
+        "redundant_symbols": [
+          {
+            "same_optimal_set_as": 1,
+            "symbol": 2
+          }
+        ],
+        "regime": "UNIQUE_OPTIMUM",
+        "signal_count": 3,
+        "symbols": [
+          0,
+          1,
+          2
+        ],
+        "unique_optimum_symbols": [
+          0,
+          1,
+          2
+        ]
+      },
+      "blocks": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "bounds": {
+        "lower_bound": 2,
+        "optimality_gap": 0,
+        "theoretical_guarantee": "exact certificate",
+        "upper_bound": 2
+      },
+      "chosen_action_indices": [
+        0,
+        1
+      ],
+      "chosen_actions": [
+        0,
+        1
+      ],
+      "complexity_regime": "UNIQUE_OPTIMUM",
+      "nodes_explored": 1,
+      "state_count": 2,
+      "status": "EXACT",
+      "verification": {
+        "blocks": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "original_bayes_risk": "1/4",
+        "original_engine": {
+          "actions": [
+            0,
+            1
+          ],
+          "bayes_risk": "1/4",
+          "bayes_risk_float": 0.25,
+          "experiment": [
+            [
+              "1/2",
+              "1/4",
+              "1/4"
+            ],
+            [
+              "0",
+              "1/3",
+              "2/3"
+            ]
+          ],
+          "internal": {
+            "bayes_risk": "1/4",
+            "experiment": [
+              [
+                "1/2",
+                "1/4",
+                "1/4"
+              ],
+              [
+                "0",
+                "1/3",
+                "2/3"
+              ]
+            ],
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "optimal_action_indices": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ],
+            "signal_masses": [
+              "1/4",
+              "7/24",
+              "11/24"
+            ]
+          },
+          "losses": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "policy": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "posteriors": [
+            {
+              "action_risks": [
+                "0",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.0,
+                0.25
+              ],
+              "marginal": "1/4",
+              "marginal_float": 0.25,
+              "optimal_actions": [
+                0
+              ],
+              "posterior": [
+                "1",
+                "0"
+              ],
+              "posterior_float": [
+                1.0,
+                0.0
+              ],
+              "symbol": 0
+            },
+            {
+              "action_risks": [
+                "1/6",
+                "1/8"
+              ],
+              "action_risks_float": [
+                0.16666666666666666,
+                0.125
+              ],
+              "marginal": "7/24",
+              "marginal_float": 0.2916666666666667,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "3/7",
+                "4/7"
+              ],
+              "posterior_float": [
+                0.42857142857142855,
+                0.5714285714285714
+              ],
+              "symbol": 1
+            },
+            {
+              "action_risks": [
+                "1/3",
+                "1/8"
+              ],
+              "action_risks_float": [
+                0.3333333333333333,
+                0.125
+              ],
+              "marginal": "11/24",
+              "marginal_float": 0.4583333333333333,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "3/11",
+                "8/11"
+              ],
+              "posterior_float": [
+                0.2727272727272727,
+                0.7272727272727273
+              ],
+              "symbol": 2
+            }
+          ],
+          "prior": [
+            "1/2",
+            "1/2"
+          ]
+        },
+        "preserved": true,
+        "quotient_bayes_risk": "1/4",
+        "quotient_engine": {
+          "actions": [
+            0,
+            1
+          ],
+          "bayes_risk": "1/4",
+          "bayes_risk_float": 0.25,
+          "experiment": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "internal": {
+            "bayes_risk": "1/4",
+            "experiment": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "optimal_action_indices": [
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ],
+            "signal_masses": [
+              "1/4",
+              "3/4"
+            ]
+          },
+          "losses": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "policy": [
+            [
+              0
+            ],
+            [
+              1
+            ]
+          ],
+          "posteriors": [
+            {
+              "action_risks": [
+                "0",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.0,
+                0.25
+              ],
+              "marginal": "1/4",
+              "marginal_float": 0.25,
+              "optimal_actions": [
+                0
+              ],
+              "posterior": [
+                "1",
+                "0"
+              ],
+              "posterior_float": [
+                1.0,
+                0.0
+              ],
+              "symbol": 0
+            },
+            {
+              "action_risks": [
+                "1/2",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.5,
+                0.25
+              ],
+              "marginal": "3/4",
+              "marginal_float": 0.75,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "1/3",
+                "2/3"
+              ],
+              "posterior_float": [
+                0.3333333333333333,
+                0.6666666666666666
+              ],
+              "symbol": 1
+            }
+          ],
+          "prior": [
+            "1/2",
+            "1/2"
+          ]
+        },
+        "quotient_experiment": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "risk_delta": "0",
+        "witnesses": [
+          {
+            "block": [
+              0
+            ],
+            "common_optimal_actions": [
+              0
+            ]
+          },
+          {
+            "block": [
+              1,
+              2
+            ],
+            "common_optimal_actions": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "principle": "minimum quotient = minimum action cover of optimal-action hyperedges",
+    "profile": {
+      "action_count": 2,
+      "action_coverage": {
+        "0": 1,
+        "1": 2
+      },
+      "action_overlap": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "actions": [
+        0,
+        1
+      ],
+      "ambiguity_cardinalities": [
+        1,
+        1,
+        1
+      ],
+      "ambiguous_symbols": [],
+      "component_indices": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "components": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "dominated_actions": [],
+      "dominated_candidates": [],
+      "equivalent_action_classes": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "exact_easy_reductions": [
+        "polynomial direct grouping"
+      ],
+      "hyperedges": [
+        {
+          "actions": [
+            0
+          ],
+          "arity": 1,
+          "signal": 0
+        },
+        {
+          "actions": [
+            1
+          ],
+          "arity": 1,
+          "signal": 1
+        },
+        {
+          "actions": [
+            1
+          ],
+          "arity": 1,
+          "signal": 2
+        }
+      ],
+      "interpretation": "ambiguity is a hypergraph; selector complexity is its minimum action cover",
+      "lower_bound": 2,
+      "maximum_ambiguity_arity": 1,
+      "parameters": {
+        "action_count": 2,
+        "ambiguous_symbol_count": 0,
+        "component_count": 2,
+        "maximum_action_frequency": 2,
+        "maximum_ambiguity": 1
+      },
+      "reason": "every hyperedge is a singleton, so no covering choice remains",
+      "recommended_algorithm": "direct grouping by unique optimal action",
+      "redundant_symbols": [
+        {
+          "same_optimal_set_as": 1,
+          "symbol": 2
+        }
+      ],
+      "regime": "UNIQUE_OPTIMUM",
+      "signal_count": 3,
+      "symbols": [
+        0,
+        1,
+        2
+      ],
+      "unique_optimum_symbols": [
+        0,
+        1,
+        2
+      ]
+    },
+    "status": "EXECUTABLE"
   },
   "bayes_engine": {
-    "status": "EXECUTABLE",
-    "bayes_risk": "0",
-    "policy": [[false], [true]],
     "arbitrary_loss_supported": true,
-    "exact_arithmetic": true,
-    "returns": ["posterior_by_symbol", "all_optimal_action_ties", "decoder", "Bayes risk"]
+    "policy": [
+      [
+        false
+      ],
+      [
+        true
+      ]
+    ],
+    "posterior_by_symbol": [
+      {
+        "action_risks": [
+          "0",
+          "1/2"
+        ],
+        "action_risks_float": [
+          0.0,
+          0.5
+        ],
+        "marginal": "1/2",
+        "marginal_float": 0.5,
+        "optimal_actions": [
+          false
+        ],
+        "posterior": [
+          "1",
+          "0"
+        ],
+        "posterior_float": [
+          1.0,
+          0.0
+        ],
+        "symbol": 0
+      },
+      {
+        "action_risks": [
+          "1/2",
+          "0"
+        ],
+        "action_risks_float": [
+          0.5,
+          0.0
+        ],
+        "marginal": "1/2",
+        "marginal_float": 0.5,
+        "optimal_actions": [
+          true
+        ],
+        "posterior": [
+          "0",
+          "1"
+        ],
+        "posterior_float": [
+          0.0,
+          1.0
+        ],
+        "symbol": 1
+      }
+    ],
+    "risk": "0",
+    "status": "EXECUTABLE"
   },
   "blackwell": {
-    "status": "EXECUTABLE",
+    "cases": {
+      "identical": {
+        "classification": "EQUIVALENT",
+        "first_to_second": {
+          "certificate": "K is row-stochastic and source*K equals target exactly",
+          "channel": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "exists": true,
+          "internal_channel": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0"
+        },
+        "meaning": "both directions have stochastic garbling witnesses",
+        "reverse_only_dominance": false,
+        "second_to_first": {
+          "certificate": "K is row-stochastic and source*K equals target exactly",
+          "channel": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "exists": true,
+          "internal_channel": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0"
+        }
+      },
+      "incomparable": {
+        "classification": "INCOMPARABLE",
+        "first_to_second": {
+          "certificate": "no feasible stochastic channel satisfies source*K=target",
+          "channel": null,
+          "exists": false,
+          "residual": null,
+          "residual_linf": null
+        },
+        "meaning": "neither direction has a stochastic garbling witness",
+        "reverse_only_dominance": false,
+        "second_to_first": {
+          "certificate": "no feasible stochastic channel satisfies source*K=target",
+          "channel": null,
+          "exists": false,
+          "residual": null,
+          "residual_linf": null
+        }
+      },
+      "permuted": {
+        "classification": "EQUIVALENT",
+        "first_to_second": {
+          "certificate": "K is row-stochastic and source*K equals target exactly",
+          "channel": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "exists": true,
+          "internal_channel": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0"
+        },
+        "meaning": "both directions have stochastic garbling witnesses",
+        "reverse_only_dominance": false,
+        "second_to_first": {
+          "certificate": "K is row-stochastic and source*K equals target exactly",
+          "channel": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "exists": true,
+          "internal_channel": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0"
+        }
+      },
+      "reverse_only": {
+        "classification": "DOMINATED_BY",
+        "first_to_second": {
+          "certificate": "no feasible stochastic channel satisfies source*K=target",
+          "channel": null,
+          "exists": false,
+          "residual": null,
+          "residual_linf": null
+        },
+        "meaning": "the first representation is a garbling of the second",
+        "reverse_only_dominance": true,
+        "second_to_first": {
+          "certificate": "K is row-stochastic and source*K equals target exactly",
+          "channel": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "exists": true,
+          "internal_channel": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0"
+        }
+      },
+      "strict_garbling": {
+        "classification": "DOMINATES",
+        "first_to_second": {
+          "certificate": "K is row-stochastic and source*K equals target exactly",
+          "channel": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "exists": true,
+          "internal_channel": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0"
+        },
+        "meaning": "the second representation is a garbling of the first",
+        "reverse_only_dominance": false,
+        "second_to_first": {
+          "certificate": "no feasible stochastic channel satisfies source*K=target",
+          "channel": null,
+          "exists": false,
+          "residual": null,
+          "residual_linf": null
+        }
+      },
+      "useless": {
+        "classification": "DOMINATES",
+        "first_to_second": {
+          "certificate": "K is row-stochastic and source*K equals target exactly",
+          "channel": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "exists": true,
+          "internal_channel": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0"
+        },
+        "meaning": "the second representation is a garbling of the first",
+        "reverse_only_dominance": false,
+        "second_to_first": {
+          "certificate": "no feasible stochastic channel satisfies source*K=target",
+          "channel": null,
+          "exists": false,
+          "residual": null,
+          "residual_linf": null
+        }
+      }
+    },
     "criterion": "E1 dominates E2 iff a row-stochastic K exists with E1*K=E2",
-    "classifications": {
-      "identical": "EQUIVALENT",
-      "permuted": "EQUIVALENT",
-      "strict_garbling": "DOMINATES",
-      "useless": "DOMINATES",
-      "incomparable": "INCOMPARABLE"
+    "invalid_state": "INVALID",
+    "status": "EXECUTABLE"
+  },
+  "blackwell_separation": {
+    "complete": false,
+    "examined": 409,
+    "first_better": {
+      "first_risk": "0",
+      "losses": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "prior": [
+        "0",
+        "1/4",
+        "3/4"
+      ],
+      "second_risk": "1/4"
     },
-    "strict_garbling_witness": {
-      "channel": [["3/4", "1/4"], ["1/4", "3/4"]],
-      "residual_linf": "0",
-      "certificate": "row-stochastic channel; exact matrix equality"
+    "grid": {
+      "loss_values": [
+        0,
+        1
+      ],
+      "prior_denominator": 4
     },
-    "incomparable_fixture": "two experiments each distinguish a different pair of three world states"
-  },
-  "deficiency": {
-    "status": "EXECUTABLE",
-    "criterion": "delta(E1,E2)=min_K max_y TV(E1_y*K,E2_y)",
-    "symmetric_distance": "max(delta(E1,E2),delta(E2,E1))",
-    "revealing_vs_strict_garbling": {
-      "forward": "0",
-      "reverse": "1/4",
-      "Le_Cam_distance": "1/4",
-      "reverse_witness": [["1", "0"], ["0", "1"]]
+    "meaning": "finite witnesses show neither experiment uniformly dominates the other",
+    "second_better": {
+      "first_risk": "1/4",
+      "losses": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "prior": [
+        "1/4",
+        "1/4",
+        "1/2"
+      ],
+      "second_risk": "0"
     },
-    "incomparable_pair": {
-      "forward": "1/2",
-      "reverse": "1/2",
-      "Le_Cam_distance": "1/2"
-    },
-    "certificate": "exact rational LP vertex; binary-target TV reduction used"
-  },
-  "task_sufficient_quotient": {
-    "status": "EXECUTABLE",
-    "minimum_states": 2,
-    "blocks": [[0], [1, 2]],
-    "risk_before": "1/4",
-    "risk_after": "1/4",
-    "risk_delta": "0",
-    "witness": "each block has a common Bayes-optimal action",
-    "reduction": "minimum set cover over signal sets sharing a Bayes-optimal action"
-  },
-  "multi_task": {
-    "status": "EXECUTABLE",
-    "minimum_states": 2,
-    "blocks": [[0], [1, 2]],
-    "risk_deltas": ["0", "0"],
-    "reduction": "minimum set cover over joint task-optimal action tuples",
-    "monotonicity": "adding tasks cannot decrease the minimum quotient state count"
-  },
-  "epsilon_compression": {
-    "status": "EXECUTABLE",
-    "epsilons": ["0", "1/4"],
-    "minimum_states": 2,
-    "blocks": [[0], [1, 2]],
-    "risk_deltas": ["0", "0"],
-    "optimality": "exhaustive over all canonical set partitions"
-  },
-  "decision_spectrum": [
-    {"task": "binary_classification", "minimum_states": 2, "risk_before": "1/4", "risk_after": "1/4"},
-    {"task": "asymmetric_action", "minimum_states": 1, "risk_before": "1/2", "risk_after": "1/2"}
-  ],
-  "representation_path": {
-    "steps": ["fully_revealing -> strict_garbling", "strict_garbling -> useless"],
-    "all_steps_exact_blackwell": true,
-    "deficiency_upper_bound_by_triangle": "0",
-    "meaning": "exact garbling certificates compose without recomputing the endpoint risk"
-  },
-  "identification_interface": {
-    "status": "NOT_IDENTIFIED",
-    "supplied": ["calibration_observations", "labels"],
-    "required": ["calibration_observations", "labels", "monotonicity"],
-    "missing": ["monotonicity"]
+    "status": "SEPARATED"
   },
   "complexity": {
-    "bayes_engine": {"status": "POLYNOMIAL", "time": "O(|Y||R||A|)"},
-    "blackwell": {"formulation": "LP feasibility", "implementation": "exact vertex enumeration for small dimensions"},
-    "deficiency": {"formulation": "LP with TV slack variables", "implementation": "exact vertex enumeration with binary-target reduction"},
-    "task_quotient": {"reduction": "set cover", "implementation": "O(2^|R|*|A|) bitmask DP"},
-    "multi_task": {"reduction": "joint-action set cover", "implementation": "O(2^|R|*product_i |A_i|)"},
-    "epsilon_compression": {"implementation": "canonical partition enumeration", "worst_case": "O(Bell(|R|))"}
-  },
-  "hardness_status": {
-    "blackwell": "LP formulation; no hardness claim",
-    "deficiency": "LP formulation; no hardness claim",
-    "task_quotient": "exact set-cover reduction; arbitrary-instance hardness embedding not proved",
-    "epsilon_compression": "exact finite solver; general hardness not claimed"
-  },
-  "counterexamples": {
-    "representation_quality_without_task": "DISPROVED",
-    "mutual_information_as_universal_decision_order": {
-      "status": "CONSTRUCTED",
-      "higher_mi_experiment": {"mutual_information_bits": 0.9182958340544893, "bayes_risk": "1/3"},
-      "lower_mi_task_targeted_experiment": {"mutual_information_bits": 0.4790826500046241, "bayes_risk": "1/10"},
-      "finding": "The higher-MI experiment has worse task Bayes risk; MI and decision usefulness do not induce the same order."
+    "bayes_engine": {
+      "algorithm": "posterior enumeration and minimum over actions",
+      "decision_version": "is V(E,D,pi) <= q?",
+      "status": "POLYNOMIAL",
+      "worst_case": "O(|Y||R||A|) arithmetic operations"
     },
-    "incomparable_representations": "CONSTRUCTED",
-    "task_dependent_minimal_structure": "CONSTRUCTED"
+    "blackwell": {
+      "decision_version": "does a row-stochastic K satisfy E1*K=E2?",
+      "hardness_status": "no hardness claim; LP formulation is explicit",
+      "search_version": "return K",
+      "standard_algorithm": "linear-program feasibility",
+      "this_implementation": "exact rational vertex enumeration for small dimensions"
+    },
+    "deficiency": {
+      "decision_version": "is delta(E1,E2) <= epsilon?",
+      "hardness_status": "no hardness claim; LP formulation is explicit",
+      "search_version": "return approximately optimal K",
+      "standard_algorithm": "linear program with absolute-residual slack variables",
+      "this_implementation": "exact rational LP vertices for small dimensions"
+    },
+    "epsilon_compression": {
+      "algorithm": "branch-and-bound over canonical set partitions with rational risk checks",
+      "bounds": "lower_bound <= optimum <= feasible upper_bound; exact runs close the gap",
+      "hardness_status": "NP-hard already at epsilon=0 via the task-quotient reduction",
+      "worst_case": "O(Bell(|R|)*sum_i decision_engine_i)"
+    },
+    "multi_task_quotient": {
+      "hardness_status": "NP-hard degree-2 specialization by Vertex-Cover reduction",
+      "reduction": "set cover over joint optimal-action tuples",
+      "worst_case": "O(2^|R|*product_i |A_i|)"
+    },
+    "stochastic_compression": {
+      "exact_epsilon_zero": "randomization cannot reduce the number of output symbols for a fixed task",
+      "positive_epsilon": "finite grid search only; general multi-task question remains UNKNOWN"
+    },
+    "task_quotient": {
+      "decision_version": "does a partition with <=q blocks preserve Bayes risk?",
+      "hardness_status": "NP-complete decision problem by explicit Set-Cover reduction",
+      "reduction": "minimum set cover over Bayes-optimal action incidence",
+      "search_version": "return minimum partition",
+      "this_implementation": "bitmask dynamic programming",
+      "worst_case": "O(2^|R|*|A|) after optimal-action computation"
+    }
   },
-  "status_summary": {
-    "PROVED": [
-      "finite Bayes engine computes exact value and all optimal-action ties",
-      "task quotient validity is equivalent to a common Bayes-optimal action per block",
-      "multi-task quotient minimum cannot be smaller than a single-task minimum",
-      "Blackwell witness implies zero deficiency in the same direction"
+  "complexity_experiment_suite": [
+    {
+      "actions": 4,
+      "algorithm": "direct grouping by unique optimal action",
+      "ambiguous_symbols": [],
+      "case": "unique_optimum",
+      "certificate": "partition + common optimal actions",
+      "components": 4,
+      "lower_bound": 4,
+      "maximum_ambiguity": 1,
+      "observed_upper_over_lower": 1.0,
+      "optimality_gap": 0,
+      "optimum": 4,
+      "regime": "UNIQUE_OPTIMUM",
+      "runtime_seconds": 0.0015486999982385896,
+      "states_explored": 1,
+      "status": "EXACT",
+      "symbols": 4,
+      "theoretical_guarantee": "exact certificate",
+      "upper_bound": 4
+    },
+    {
+      "actions": 4,
+      "algorithm": "exact Vertex-Cover branching on degree-2 ambiguity hypergraph",
+      "ambiguous_symbols": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "case": "degree_2_cycle",
+      "certificate": "partition + common optimal actions",
+      "components": 1,
+      "lower_bound": 2,
+      "maximum_ambiguity": 2,
+      "observed_upper_over_lower": 1.0,
+      "optimality_gap": 0,
+      "optimum": 2,
+      "regime": "DEGREE_2_AMBIGUITY",
+      "runtime_seconds": 0.0011697000009007752,
+      "states_explored": 9,
+      "status": "EXACT",
+      "symbols": 4,
+      "theoretical_guarantee": "exact certificate",
+      "upper_bound": 2
+    },
+    {
+      "actions": 6,
+      "algorithm": "component-wise exact set-cover dynamic programming",
+      "ambiguous_symbols": [
+        0,
+        2
+      ],
+      "case": "decomposable",
+      "certificate": "partition + common optimal actions",
+      "components": 2,
+      "lower_bound": 2,
+      "maximum_ambiguity": 3,
+      "observed_upper_over_lower": 1.0,
+      "optimality_gap": 0,
+      "optimum": 2,
+      "regime": "DECOMPOSABLE_HYPERGRAPH",
+      "runtime_seconds": 0.0013810000018565916,
+      "states_explored": 2,
+      "status": "EXACT",
+      "symbols": 4,
+      "theoretical_guarantee": "exact certificate",
+      "upper_bound": 2
+    },
+    {
+      "actions": 2,
+      "algorithm": "exact Vertex-Cover branching on degree-2 ambiguity hypergraph",
+      "ambiguous_symbols": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "case": "high_symmetry",
+      "certificate": "partition + common optimal actions",
+      "components": 1,
+      "lower_bound": 1,
+      "maximum_ambiguity": 2,
+      "observed_upper_over_lower": 1.0,
+      "optimality_gap": 0,
+      "optimum": 1,
+      "regime": "DEGREE_2_AMBIGUITY",
+      "runtime_seconds": 0.0008345000023837201,
+      "states_explored": 3,
+      "status": "EXACT",
+      "symbols": 4,
+      "theoretical_guarantee": "exact certificate",
+      "upper_bound": 1
+    },
+    {
+      "actions": 4,
+      "algorithm": "exact bitmask set-cover dynamic programming",
+      "ambiguous_symbols": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "case": "dense_general",
+      "certificate": "partition + common optimal actions",
+      "components": 1,
+      "lower_bound": 2,
+      "maximum_ambiguity": 4,
+      "observed_upper_over_lower": 1.0,
+      "optimality_gap": 0,
+      "optimum": 2,
+      "regime": "GENERAL_SET_COVER",
+      "runtime_seconds": 0.0011986999961663969,
+      "states_explored": null,
+      "status": "EXACT",
+      "symbols": 5,
+      "theoretical_guarantee": "exact certificate",
+      "upper_bound": 2
+    },
+    {
+      "actions": 11,
+      "algorithm": "greedy set-cover fallback under exact resource limit",
+      "ambiguous_symbols": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "case": "large_general_bounded",
+      "certificate": "partition + common optimal actions",
+      "components": 1,
+      "lower_bound": 4,
+      "maximum_ambiguity": 3,
+      "observed_upper_over_lower": 1.25,
+      "optimality_gap": 1,
+      "optimum": null,
+      "regime": "GENERAL_SET_COVER",
+      "runtime_seconds": 0.0286638999969,
+      "states_explored": null,
+      "status": "BOUNDED_APPROXIMATION",
+      "symbols": 23,
+      "theoretical_guarantee": "greedy cover cardinality <= H_23 * optimum",
+      "upper_bound": 5
+    }
+  ],
+  "complexity_reductions": {
+    "claims": {
+      "degree_2_ambiguity_decision": "NP-HARD by explicit Vertex-Cover reduction",
+      "minimum_task_quotient_decision": "NP-COMPLETE by explicit polynomial Set-Cover reduction",
+      "unique_optimum": "polynomial direct grouping"
+    },
+    "set_cover": {
+      "cover": [
+        0,
+        2
+      ],
+      "cover_size": 2,
+      "k": 2,
+      "minimum_cover_certificate": {
+        "algorithm": "exact Vertex-Cover branching on degree-2 ambiguity hypergraph",
+        "ambiguity": {
+          "action_count": 4,
+          "action_coverage": {
+            "0": 2,
+            "1": 2,
+            "2": 2,
+            "3": 2
+          },
+          "action_overlap": [
+            [
+              2,
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              2,
+              1
+            ],
+            [
+              1,
+              0,
+              1,
+              2
+            ]
+          ],
+          "actions": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "ambiguity_cardinalities": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "ambiguous_symbols": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "component_indices": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "components": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "dominated_actions": [],
+          "dominated_candidates": [],
+          "equivalent_action_classes": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "exact_easy_reductions": [
+            "Vertex-Cover-equivalent degree-2 solver",
+            "forced singleton kernelization"
+          ],
+          "hyperedges": [
+            {
+              "actions": [
+                0,
+                3
+              ],
+              "arity": 2,
+              "signal": 0
+            },
+            {
+              "actions": [
+                0,
+                1
+              ],
+              "arity": 2,
+              "signal": 1
+            },
+            {
+              "actions": [
+                1,
+                2
+              ],
+              "arity": 2,
+              "signal": 2
+            },
+            {
+              "actions": [
+                2,
+                3
+              ],
+              "arity": 2,
+              "signal": 3
+            }
+          ],
+          "interpretation": "ambiguity is a hypergraph; selector complexity is its minimum action cover",
+          "lower_bound": 2,
+          "maximum_ambiguity_arity": 2,
+          "parameters": {
+            "action_count": 4,
+            "ambiguous_symbol_count": 4,
+            "component_count": 1,
+            "maximum_action_frequency": 2,
+            "maximum_ambiguity": 2
+          },
+          "reason": "every ambiguity hyperedge is an edge or forced singleton",
+          "recommended_algorithm": "exact Vertex-Cover branching",
+          "redundant_symbols": [],
+          "regime": "DEGREE_2_AMBIGUITY",
+          "signal_count": 4,
+          "symbols": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "unique_optimum_symbols": []
+        },
+        "blocks": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "bounds": {
+          "lower_bound": 2,
+          "optimality_gap": 0,
+          "theoretical_guarantee": "exact certificate",
+          "upper_bound": 2
+        },
+        "chosen_action_indices": [
+          0,
+          2
+        ],
+        "chosen_actions": [
+          0,
+          2
+        ],
+        "complexity_regime": "DEGREE_2_AMBIGUITY",
+        "nodes_explored": 9,
+        "state_count": 2,
+        "status": "EXACT",
+        "verification": {
+          "blocks": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "original_bayes_risk": "0",
+          "original_engine": {
+            "actions": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "bayes_risk": "0",
+            "bayes_risk_float": 0.0,
+            "experiment": [
+              [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "0",
+              "experiment": [
+                [
+                  "1",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "0",
+                  "1"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "1",
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "1"
+                ],
+                [
+                  "1",
+                  "0",
+                  "0",
+                  "1"
+                ],
+                [
+                  "1",
+                  "1",
+                  "0",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ]
+              ],
+              "prior": [
+                "1/4",
+                "1/4",
+                "1/4",
+                "1/4"
+              ],
+              "signal_masses": [
+                "1/4",
+                "1/4",
+                "1/4",
+                "1/4"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "1",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "1"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "1",
+                "0",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/4",
+                  "1/4",
+                  "0"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.25,
+                  0.25,
+                  0.0
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  0,
+                  3
+                ],
+                "posterior": [
+                  "1",
+                  "0",
+                  "0",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "0",
+                  "0",
+                  "1/4",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.0,
+                  0.25,
+                  0.25
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  0,
+                  1
+                ],
+                "posterior": [
+                  "0",
+                  "1",
+                  "0",
+                  "0"
+                ],
+                "posterior_float": [
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "symbol": 1
+              },
+              {
+                "action_risks": [
+                  "1/4",
+                  "0",
+                  "0",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.25,
+                  0.0,
+                  0.0,
+                  0.25
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  1,
+                  2
+                ],
+                "posterior": [
+                  "0",
+                  "0",
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "symbol": 2
+              },
+              {
+                "action_risks": [
+                  "1/4",
+                  "1/4",
+                  "0",
+                  "0"
+                ],
+                "action_risks_float": [
+                  0.25,
+                  0.25,
+                  0.0,
+                  0.0
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  2,
+                  3
+                ],
+                "posterior": [
+                  "0",
+                  "0",
+                  "0",
+                  "1"
+                ],
+                "posterior_float": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "symbol": 3
+              }
+            ],
+            "prior": [
+              "1/4",
+              "1/4",
+              "1/4",
+              "1/4"
+            ]
+          },
+          "preserved": true,
+          "quotient_bayes_risk": "0",
+          "quotient_engine": {
+            "actions": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "bayes_risk": "0",
+            "bayes_risk_float": 0.0,
+            "experiment": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "0",
+              "experiment": [
+                [
+                  "1",
+                  "0"
+                ],
+                [
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1"
+                ],
+                [
+                  "0",
+                  "1"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "1",
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "1"
+                ],
+                [
+                  "1",
+                  "0",
+                  "0",
+                  "1"
+                ],
+                [
+                  "1",
+                  "1",
+                  "0",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  2
+                ]
+              ],
+              "prior": [
+                "1/4",
+                "1/4",
+                "1/4",
+                "1/4"
+              ],
+              "signal_masses": [
+                "1/2",
+                "1/2"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "1",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "1"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "1",
+                "0",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                0
+              ],
+              [
+                2
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/4",
+                  "1/2",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.25,
+                  0.5,
+                  0.25
+                ],
+                "marginal": "1/2",
+                "marginal_float": 0.5,
+                "optimal_actions": [
+                  0
+                ],
+                "posterior": [
+                  "1/2",
+                  "1/2",
+                  "0",
+                  "0"
+                ],
+                "posterior_float": [
+                  0.5,
+                  0.5,
+                  0.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/2",
+                  "1/4",
+                  "0",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.5,
+                  0.25,
+                  0.0,
+                  0.25
+                ],
+                "marginal": "1/2",
+                "marginal_float": 0.5,
+                "optimal_actions": [
+                  2
+                ],
+                "posterior": [
+                  "0",
+                  "0",
+                  "1/2",
+                  "1/2"
+                ],
+                "posterior_float": [
+                  0.0,
+                  0.0,
+                  0.5,
+                  0.5
+                ],
+                "symbol": 1
+              }
+            ],
+            "prior": [
+              "1/4",
+              "1/4",
+              "1/4",
+              "1/4"
+            ]
+          },
+          "quotient_experiment": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "risk_delta": "0",
+          "witnesses": [
+            {
+              "block": [
+                0,
+                1
+              ],
+              "common_optimal_actions": [
+                0
+              ]
+            },
+            {
+              "block": [
+                2,
+                3
+              ],
+              "common_optimal_actions": [
+                2
+              ]
+            }
+          ]
+        }
+      },
+      "quotient_blocks": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "quotient_yes": true,
+      "risk_zero": true,
+      "theorem_status": "PROVED_FOR_REDUCTION"
+    },
+    "vertex_cover_degree_2": {
+      "chosen_vertices": [
+        "a",
+        "c"
+      ],
+      "cover_size": 2,
+      "k": 2,
+      "quotient_blocks": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "quotient_yes": true,
+      "risk_zero": true,
+      "solver": {
+        "algorithm": "exact Vertex-Cover branching on degree-2 ambiguity hypergraph",
+        "ambiguity": {
+          "action_count": 4,
+          "action_coverage": {
+            "a": 1,
+            "b": 2,
+            "c": 2,
+            "d": 1
+          },
+          "action_overlap": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              2,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "actions": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "ambiguity_cardinalities": [
+            2,
+            2,
+            2
+          ],
+          "ambiguous_symbols": [
+            0,
+            1,
+            2
+          ],
+          "component_indices": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "components": [
+            [
+              "a",
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "dominated_actions": [
+            {
+              "by": "b",
+              "dominated": "a"
+            },
+            {
+              "by": "c",
+              "dominated": "d"
+            }
+          ],
+          "dominated_candidates": [
+            {
+              "by": "b",
+              "dominated": "a"
+            },
+            {
+              "by": "c",
+              "dominated": "d"
+            }
+          ],
+          "equivalent_action_classes": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "exact_easy_reductions": [
+            "Vertex-Cover-equivalent degree-2 solver",
+            "forced singleton kernelization"
+          ],
+          "hyperedges": [
+            {
+              "actions": [
+                "a",
+                "b"
+              ],
+              "arity": 2,
+              "signal": 0
+            },
+            {
+              "actions": [
+                "b",
+                "c"
+              ],
+              "arity": 2,
+              "signal": 1
+            },
+            {
+              "actions": [
+                "c",
+                "d"
+              ],
+              "arity": 2,
+              "signal": 2
+            }
+          ],
+          "interpretation": "ambiguity is a hypergraph; selector complexity is its minimum action cover",
+          "lower_bound": 2,
+          "maximum_ambiguity_arity": 2,
+          "parameters": {
+            "action_count": 4,
+            "ambiguous_symbol_count": 3,
+            "component_count": 1,
+            "maximum_action_frequency": 2,
+            "maximum_ambiguity": 2
+          },
+          "reason": "every ambiguity hyperedge is an edge or forced singleton",
+          "recommended_algorithm": "exact Vertex-Cover branching",
+          "redundant_symbols": [],
+          "regime": "DEGREE_2_AMBIGUITY",
+          "signal_count": 3,
+          "symbols": [
+            0,
+            1,
+            2
+          ],
+          "unique_optimum_symbols": []
+        },
+        "blocks": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "bounds": {
+          "lower_bound": 2,
+          "optimality_gap": 0,
+          "theoretical_guarantee": "exact certificate",
+          "upper_bound": 2
+        },
+        "chosen_action_indices": [
+          0,
+          2
+        ],
+        "chosen_actions": [
+          "a",
+          "c"
+        ],
+        "complexity_regime": "DEGREE_2_AMBIGUITY",
+        "nodes_explored": 9,
+        "state_count": 2,
+        "status": "EXACT",
+        "verification": {
+          "blocks": [
+            [
+              0
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "original_bayes_risk": "0",
+          "original_engine": {
+            "actions": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "bayes_risk": "0",
+            "bayes_risk_float": 0.0,
+            "experiment": [
+              [
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "0",
+              "experiment": [
+                [
+                  "1",
+                  "0",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "0",
+                  "1"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "1"
+                ],
+                [
+                  "1",
+                  "0",
+                  "0",
+                  "1"
+                ],
+                [
+                  "1",
+                  "1",
+                  "0",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ]
+              ],
+              "prior": [
+                "1/3",
+                "1/3",
+                "1/3"
+              ],
+              "signal_masses": [
+                "1/3",
+                "1/3",
+                "1/3"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "0",
+                "1",
+                "1"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "1",
+                "0",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "0",
+                  "1/3",
+                  "1/3"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.0,
+                  0.3333333333333333,
+                  0.3333333333333333
+                ],
+                "marginal": "1/3",
+                "marginal_float": 0.3333333333333333,
+                "optimal_actions": [
+                  0,
+                  1
+                ],
+                "posterior": [
+                  "1",
+                  "0",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/3",
+                  "0",
+                  "0",
+                  "1/3"
+                ],
+                "action_risks_float": [
+                  0.3333333333333333,
+                  0.0,
+                  0.0,
+                  0.3333333333333333
+                ],
+                "marginal": "1/3",
+                "marginal_float": 0.3333333333333333,
+                "optimal_actions": [
+                  1,
+                  2
+                ],
+                "posterior": [
+                  "0",
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "symbol": 1
+              },
+              {
+                "action_risks": [
+                  "1/3",
+                  "1/3",
+                  "0",
+                  "0"
+                ],
+                "action_risks_float": [
+                  0.3333333333333333,
+                  0.3333333333333333,
+                  0.0,
+                  0.0
+                ],
+                "marginal": "1/3",
+                "marginal_float": 0.3333333333333333,
+                "optimal_actions": [
+                  2,
+                  3
+                ],
+                "posterior": [
+                  "0",
+                  "0",
+                  "1"
+                ],
+                "posterior_float": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "symbol": 2
+              }
+            ],
+            "prior": [
+              "1/3",
+              "1/3",
+              "1/3"
+            ]
+          },
+          "preserved": true,
+          "quotient_bayes_risk": "0",
+          "quotient_engine": {
+            "actions": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "bayes_risk": "0",
+            "bayes_risk_float": 0.0,
+            "experiment": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "0",
+              "experiment": [
+                [
+                  "1",
+                  "0"
+                ],
+                [
+                  "0",
+                  "1"
+                ],
+                [
+                  "0",
+                  "1"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "0",
+                  "1",
+                  "1"
+                ],
+                [
+                  "1",
+                  "0",
+                  "0",
+                  "1"
+                ],
+                [
+                  "1",
+                  "1",
+                  "0",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  2
+                ]
+              ],
+              "prior": [
+                "1/3",
+                "1/3",
+                "1/3"
+              ],
+              "signal_masses": [
+                "1/3",
+                "2/3"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "0",
+                "1",
+                "1"
+              ],
+              [
+                "1",
+                "0",
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "1",
+                "0",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                0,
+                1
+              ],
+              [
+                2
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "0",
+                  "1/3",
+                  "1/3"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.0,
+                  0.3333333333333333,
+                  0.3333333333333333
+                ],
+                "marginal": "1/3",
+                "marginal_float": 0.3333333333333333,
+                "optimal_actions": [
+                  0,
+                  1
+                ],
+                "posterior": [
+                  "1",
+                  "0",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "2/3",
+                  "1/3",
+                  "0",
+                  "1/3"
+                ],
+                "action_risks_float": [
+                  0.6666666666666666,
+                  0.3333333333333333,
+                  0.0,
+                  0.3333333333333333
+                ],
+                "marginal": "2/3",
+                "marginal_float": 0.6666666666666666,
+                "optimal_actions": [
+                  2
+                ],
+                "posterior": [
+                  "0",
+                  "1/2",
+                  "1/2"
+                ],
+                "posterior_float": [
+                  0.0,
+                  0.5,
+                  0.5
+                ],
+                "symbol": 1
+              }
+            ],
+            "prior": [
+              "1/3",
+              "1/3",
+              "1/3"
+            ]
+          },
+          "quotient_experiment": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "risk_delta": "0",
+          "witnesses": [
+            {
+              "block": [
+                0
+              ],
+              "common_optimal_actions": [
+                0,
+                1
+              ]
+            },
+            {
+              "block": [
+                1,
+                2
+              ],
+              "common_optimal_actions": [
+                2
+              ]
+            }
+          ]
+        }
+      },
+      "theorem_status": "PROVED_FOR_DEGREE_2_REDUCTION"
+    }
+  },
+  "corpus_policy": "no new corpus; exact finite mathematical fixtures only",
+  "counterexamples": {
+    "finite_blackwell_separation_witnesses": {
+      "fixture": {
+        "complete": false,
+        "examined": 409,
+        "first_better": {
+          "first_risk": "0",
+          "losses": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "prior": [
+            "0",
+            "1/4",
+            "3/4"
+          ],
+          "second_risk": "1/4"
+        },
+        "grid": {
+          "loss_values": [
+            0,
+            1
+          ],
+          "prior_denominator": 4
+        },
+        "meaning": "finite witnesses show neither experiment uniformly dominates the other",
+        "second_better": {
+          "first_risk": "1/4",
+          "losses": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "prior": [
+            "1/4",
+            "1/4",
+            "1/2"
+          ],
+          "second_risk": "0"
+        },
+        "status": "SEPARATED"
+      },
+      "statement": "The incomparable fixture has bounded rational decision witnesses in both directions; this is a witness search, not a replacement for the Blackwell theorem.",
+      "status": "SEPARATED"
+    },
+    "incomparable_representations": {
+      "statement": "Each experiment separates a different pair of three world states; neither can garble to the other.",
+      "status": "CONSTRUCTED"
+    },
+    "mutual_information_not_decision_order": {
+      "fixture": {
+        "finding": "The higher-MI experiment has worse task Bayes risk; MI and decision usefulness do not induce the same order.",
+        "irrelevant_information": {
+          "bayes_risk": "1/3",
+          "experiment": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "mutual_information_bits": 0.9182958340544893
+        },
+        "prior": [
+          "1/3",
+          "1/3",
+          "1/3"
+        ],
+        "status": "CONSTRUCTED",
+        "task": "action 0 is correct only for state 0; action 1 is correct for states 1 and 2",
+        "task_targeted_information": {
+          "bayes_risk": "1/10",
+          "experiment": [
+            [
+              "9/10",
+              "1/10"
+            ],
+            [
+              "1/10",
+              "9/10"
+            ],
+            [
+              "1/10",
+              "9/10"
+            ]
+          ],
+          "mutual_information_bits": 0.4790826500046241
+        }
+      },
+      "statement": "The higher-MI experiment has worse task Bayes risk; MI and decision usefulness do not induce the same order.",
+      "status": "CONSTRUCTED"
+    },
+    "stochastic_no_advantage_at_zero_tolerance": {
+      "statement": "For epsilon=0, every action used with positive probability after a stochastic compressor must be optimal at the source signal; selecting one supported output gives a deterministic quotient with no more output symbols.",
+      "status": "PROVED"
+    },
+    "task_dependence": {
+      "statement": "The minimum quotient is computed per task and can change when a second loss matrix is added.",
+      "status": "CONSTRUCTED"
+    }
+  },
+  "decision_spectrum": [
+    {
+      "minimum_states": 2,
+      "posterior_action_structure": [
+        {
+          "block": [
+            0
+          ],
+          "common_optimal_actions": [
+            0
+          ]
+        },
+        {
+          "block": [
+            1,
+            2
+          ],
+          "common_optimal_actions": [
+            1
+          ]
+        }
+      ],
+      "risk_after": "1/4",
+      "risk_before": "1/4",
+      "task": "binary_classification"
+    },
+    {
+      "minimum_states": 2,
+      "posterior_action_structure": [
+        {
+          "block": [
+            0,
+            1
+          ],
+          "common_optimal_actions": [
+            0
+          ]
+        },
+        {
+          "block": [
+            2
+          ],
+          "common_optimal_actions": [
+            1
+          ]
+        }
+      ],
+      "risk_after": "5/12",
+      "risk_before": "5/12",
+      "task": "asymmetric_action"
+    }
+  ],
+  "deficiency": {
+    "cases": {
+      "exact_garbling": {
+        "forward": {
+          "certificate": "Blackwell garbling witness; deficiency is exactly zero",
+          "channel": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "deficiency": "0",
+          "deficiency_float": 0.0,
+          "direction": "source_to_target",
+          "internal_channel": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0",
+          "simulated_target": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "status": "EXACT"
+        },
+        "le_cam_distance": "1/4",
+        "le_cam_distance_float": 0.25,
+        "meaning": "max of directed deficiencies; symmetric pseudometric on finite experiments",
+        "reverse": {
+          "certificate": "binary-target reduction: TV equals the absolute first-cell residual",
+          "channel": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "deficiency": "1/4",
+          "deficiency_float": 0.25,
+          "direction": "source_to_target",
+          "internal_channel": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "residual": [
+            [
+              "-1/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "-1/4"
+            ]
+          ],
+          "residual_linf": "1/4",
+          "simulated_target": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "status": "EXACT"
+        },
+        "status": "EXACT"
+      },
+      "incomparable_pair": {
+        "forward": {
+          "certificate": "binary-target reduction: TV equals the absolute first-cell residual",
+          "channel": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "deficiency": "1/2",
+          "deficiency_float": 0.5,
+          "direction": "source_to_target",
+          "internal_channel": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "residual": [
+            [
+              "-1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "-1/2"
+            ],
+            [
+              "1/2",
+              "-1/2"
+            ]
+          ],
+          "residual_linf": "1/2",
+          "simulated_target": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "status": "EXACT"
+        },
+        "le_cam_distance": "1/2",
+        "le_cam_distance_float": 0.5,
+        "meaning": "max of directed deficiencies; symmetric pseudometric on finite experiments",
+        "reverse": {
+          "certificate": "binary-target reduction: TV equals the absolute first-cell residual",
+          "channel": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "deficiency": "1/2",
+          "deficiency_float": 0.5,
+          "direction": "source_to_target",
+          "internal_channel": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "residual": [
+            [
+              "-1/2",
+              "1/2"
+            ],
+            [
+              "-1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "-1/2"
+            ]
+          ],
+          "residual_linf": "1/2",
+          "simulated_target": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "status": "EXACT"
+        },
+        "status": "EXACT"
+      }
+    },
+    "criterion": "delta(E1,E2)=min_K max_y TV(E1_y*K,E2_y)",
+    "status": "EXECUTABLE",
+    "symmetric": "max(delta(E1,E2),delta(E2,E1))"
+  },
+  "epsilon_compression": {
+    "criterion": "per-task quotient Bayes-risk increase <= epsilon_i",
+    "result": {
+      "complexity": "branch-and-bound over canonical partitions; Bell(m) worst case",
+      "epsilons": [
+        "0",
+        "1/4"
+      ],
+      "feasible_partition_count": 1,
+      "lower_bound": 2,
+      "minimum": {
+        "blocks": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "quotient_engines": [
+          {
+            "actions": [
+              false,
+              true
+            ],
+            "bayes_risk": "1/4",
+            "bayes_risk_float": 0.25,
+            "experiment": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "1/4",
+              "experiment": [
+                [
+                  "1/2",
+                  "1/2"
+                ],
+                [
+                  "0",
+                  "1"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "1"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  1
+                ]
+              ],
+              "prior": [
+                "1/2",
+                "1/2"
+              ],
+              "signal_masses": [
+                "1/4",
+                "3/4"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                false
+              ],
+              [
+                true
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.25
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  false
+                ],
+                "posterior": [
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/2",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.5,
+                  0.25
+                ],
+                "marginal": "3/4",
+                "marginal_float": 0.75,
+                "optimal_actions": [
+                  true
+                ],
+                "posterior": [
+                  "1/3",
+                  "2/3"
+                ],
+                "posterior_float": [
+                  0.3333333333333333,
+                  0.6666666666666666
+                ],
+                "symbol": 1
+              }
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ]
+          },
+          {
+            "actions": [
+              "safe",
+              "risky"
+            ],
+            "bayes_risk": "1/2",
+            "bayes_risk_float": 0.5,
+            "experiment": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "1/2",
+              "experiment": [
+                [
+                  "1/2",
+                  "1/2"
+                ],
+                [
+                  "0",
+                  "1"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "2"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "prior": [
+                "1/2",
+                "1/2"
+              ],
+              "signal_masses": [
+                "1/4",
+                "3/4"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "2"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                "safe"
+              ],
+              [
+                "safe",
+                "risky"
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/2"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.5
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  "safe"
+                ],
+                "posterior": [
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/2",
+                  "1/2"
+                ],
+                "action_risks_float": [
+                  0.5,
+                  0.5
+                ],
+                "marginal": "3/4",
+                "marginal_float": 0.75,
+                "optimal_actions": [
+                  "safe",
+                  "risky"
+                ],
+                "posterior": [
+                  "1/3",
+                  "2/3"
+                ],
+                "posterior_float": [
+                  0.3333333333333333,
+                  0.6666666666666666
+                ],
+                "symbol": 1
+              }
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ]
+          }
+        ],
+        "quotient_experiment": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "risk_deltas": [
+          "0",
+          "1/12"
+        ],
+        "risk_deltas_float": [
+          0.0,
+          0.08333333333333333
+        ],
+        "state_count": 2
+      },
+      "optimality": "lower bound equals feasible upper bound after all smaller partitions are ruled out",
+      "optimality_gap": 0,
+      "partitions_checked": 5,
+      "pruned": 1,
+      "status": "EXACT",
+      "upper_bound": 2
+    },
+    "status": "EXECUTABLE"
+  },
+  "identification_interface": {
+    "identified": false,
+    "missing": [
+      "monotonicity"
     ],
-    "KNOWN_RESULT": [
-      "finite Blackwell comparison is stochastic-channel feasibility",
-      "finite deficiency is an LP over channels and TV residuals"
+    "required": [
+      "calibration_observations",
+      "labels",
+      "monotonicity"
     ],
-    "CONJECTURE": [],
-    "DISPROVED": ["representation quality can be summarized independently of a decision family"],
-    "UNKNOWN": [
-      "general NP-hardness of the realizable task-quotient family",
-      "scalable approximate quotients beyond exact bitmask/partition search"
+    "status": "NOT_IDENTIFIED",
+    "supplied": [
+      "calibration_observations",
+      "labels"
     ]
   },
-  "references": [
+  "literature": [
     {
       "author": "David Blackwell",
       "title": "Equivalent Comparisons of Experiments",
-      "year": 1953,
-      "url": "https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-24/issue-2/Equivalent-Comparisons-of-Experiments/10.1214/aoms/1177729032.full"
+      "url": "https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-24/issue-2/Equivalent-Comparisons-of-Experiments/10.1214/aoms/1177729032.full",
+      "used_for": "Blackwell comparison and garbling criterion",
+      "year": 1953
     },
     {
       "author": "Lucien Le Cam",
       "title": "Sufficiency and Approximate Sufficiency",
-      "year": 1964,
-      "url": "https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-35/issue-4/Sufficiency-and-Approximate-Sufficiency/10.1214/aoms/1177700372.full"
+      "url": "https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-35/issue-4/Sufficiency-and-Approximate-Sufficiency/10.1214/aoms/1177700372.full",
+      "used_for": "deficiency and approximate experiment simulation",
+      "year": 1964
     }
-  ]
+  ],
+  "multi_task": {
+    "monotonicity": "minimum multi-task quotient size is at least each single-task minimum",
+    "result": {
+      "blocks": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "chosen_action_tuple_cover": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "complexity": "O(2^m * product_i |A_i|) dynamic programming",
+      "minimum_quotient_states": 3,
+      "monotonicity": "adding tasks can only preserve or increase the minimum quotient state count",
+      "reduction": "minimum set cover over joint task-optimal action tuples",
+      "status": "EXACT",
+      "task_count": 2,
+      "verification": [
+        {
+          "blocks": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ]
+          ],
+          "original_bayes_risk": "1/4",
+          "original_engine": {
+            "actions": [
+              0,
+              1
+            ],
+            "bayes_risk": "1/4",
+            "bayes_risk_float": 0.25,
+            "experiment": [
+              [
+                "1/2",
+                "1/4",
+                "1/4"
+              ],
+              [
+                "0",
+                "1/3",
+                "2/3"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "1/4",
+              "experiment": [
+                [
+                  "1/2",
+                  "1/4",
+                  "1/4"
+                ],
+                [
+                  "0",
+                  "1/3",
+                  "2/3"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "1"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  1
+                ],
+                [
+                  1
+                ]
+              ],
+              "prior": [
+                "1/2",
+                "1/2"
+              ],
+              "signal_masses": [
+                "1/4",
+                "7/24",
+                "11/24"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.25
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  0
+                ],
+                "posterior": [
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/6",
+                  "1/8"
+                ],
+                "action_risks_float": [
+                  0.16666666666666666,
+                  0.125
+                ],
+                "marginal": "7/24",
+                "marginal_float": 0.2916666666666667,
+                "optimal_actions": [
+                  1
+                ],
+                "posterior": [
+                  "3/7",
+                  "4/7"
+                ],
+                "posterior_float": [
+                  0.42857142857142855,
+                  0.5714285714285714
+                ],
+                "symbol": 1
+              },
+              {
+                "action_risks": [
+                  "1/3",
+                  "1/8"
+                ],
+                "action_risks_float": [
+                  0.3333333333333333,
+                  0.125
+                ],
+                "marginal": "11/24",
+                "marginal_float": 0.4583333333333333,
+                "optimal_actions": [
+                  1
+                ],
+                "posterior": [
+                  "3/11",
+                  "8/11"
+                ],
+                "posterior_float": [
+                  0.2727272727272727,
+                  0.7272727272727273
+                ],
+                "symbol": 2
+              }
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ]
+          },
+          "preserved": true,
+          "quotient_bayes_risk": "1/4",
+          "quotient_engine": {
+            "actions": [
+              0,
+              1
+            ],
+            "bayes_risk": "1/4",
+            "bayes_risk_float": 0.25,
+            "experiment": [
+              [
+                "1/2",
+                "1/4",
+                "1/4"
+              ],
+              [
+                "0",
+                "1/3",
+                "2/3"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "1/4",
+              "experiment": [
+                [
+                  "1/2",
+                  "1/4",
+                  "1/4"
+                ],
+                [
+                  "0",
+                  "1/3",
+                  "2/3"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "1"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  1
+                ],
+                [
+                  1
+                ]
+              ],
+              "prior": [
+                "1/2",
+                "1/2"
+              ],
+              "signal_masses": [
+                "1/4",
+                "7/24",
+                "11/24"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.25
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  0
+                ],
+                "posterior": [
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/6",
+                  "1/8"
+                ],
+                "action_risks_float": [
+                  0.16666666666666666,
+                  0.125
+                ],
+                "marginal": "7/24",
+                "marginal_float": 0.2916666666666667,
+                "optimal_actions": [
+                  1
+                ],
+                "posterior": [
+                  "3/7",
+                  "4/7"
+                ],
+                "posterior_float": [
+                  0.42857142857142855,
+                  0.5714285714285714
+                ],
+                "symbol": 1
+              },
+              {
+                "action_risks": [
+                  "1/3",
+                  "1/8"
+                ],
+                "action_risks_float": [
+                  0.3333333333333333,
+                  0.125
+                ],
+                "marginal": "11/24",
+                "marginal_float": 0.4583333333333333,
+                "optimal_actions": [
+                  1
+                ],
+                "posterior": [
+                  "3/11",
+                  "8/11"
+                ],
+                "posterior_float": [
+                  0.2727272727272727,
+                  0.7272727272727273
+                ],
+                "symbol": 2
+              }
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ]
+          },
+          "quotient_experiment": [
+            [
+              "1/2",
+              "1/4",
+              "1/4"
+            ],
+            [
+              "0",
+              "1/3",
+              "2/3"
+            ]
+          ],
+          "risk_delta": "0",
+          "witnesses": [
+            {
+              "block": [
+                0
+              ],
+              "common_optimal_actions": [
+                0
+              ]
+            },
+            {
+              "block": [
+                1
+              ],
+              "common_optimal_actions": [
+                1
+              ]
+            },
+            {
+              "block": [
+                2
+              ],
+              "common_optimal_actions": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ]
+          ],
+          "original_bayes_risk": "5/12",
+          "original_engine": {
+            "actions": [
+              0,
+              1
+            ],
+            "bayes_risk": "5/12",
+            "bayes_risk_float": 0.4166666666666667,
+            "experiment": [
+              [
+                "1/2",
+                "1/4",
+                "1/4"
+              ],
+              [
+                "0",
+                "1/3",
+                "2/3"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "5/12",
+              "experiment": [
+                [
+                  "1/2",
+                  "1/4",
+                  "1/4"
+                ],
+                [
+                  "0",
+                  "1/3",
+                  "2/3"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "2"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  1
+                ]
+              ],
+              "prior": [
+                "1/2",
+                "1/2"
+              ],
+              "signal_masses": [
+                "1/4",
+                "7/24",
+                "11/24"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "2"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/2"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.5
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  0
+                ],
+                "posterior": [
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/6",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.16666666666666666,
+                  0.25
+                ],
+                "marginal": "7/24",
+                "marginal_float": 0.2916666666666667,
+                "optimal_actions": [
+                  0
+                ],
+                "posterior": [
+                  "3/7",
+                  "4/7"
+                ],
+                "posterior_float": [
+                  0.42857142857142855,
+                  0.5714285714285714
+                ],
+                "symbol": 1
+              },
+              {
+                "action_risks": [
+                  "1/3",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.3333333333333333,
+                  0.25
+                ],
+                "marginal": "11/24",
+                "marginal_float": 0.4583333333333333,
+                "optimal_actions": [
+                  1
+                ],
+                "posterior": [
+                  "3/11",
+                  "8/11"
+                ],
+                "posterior_float": [
+                  0.2727272727272727,
+                  0.7272727272727273
+                ],
+                "symbol": 2
+              }
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ]
+          },
+          "preserved": true,
+          "quotient_bayes_risk": "5/12",
+          "quotient_engine": {
+            "actions": [
+              0,
+              1
+            ],
+            "bayes_risk": "5/12",
+            "bayes_risk_float": 0.4166666666666667,
+            "experiment": [
+              [
+                "1/2",
+                "1/4",
+                "1/4"
+              ],
+              [
+                "0",
+                "1/3",
+                "2/3"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "5/12",
+              "experiment": [
+                [
+                  "1/2",
+                  "1/4",
+                  "1/4"
+                ],
+                [
+                  "0",
+                  "1/3",
+                  "2/3"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "2"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  1
+                ]
+              ],
+              "prior": [
+                "1/2",
+                "1/2"
+              ],
+              "signal_masses": [
+                "1/4",
+                "7/24",
+                "11/24"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "2"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/2"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.5
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  0
+                ],
+                "posterior": [
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/6",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.16666666666666666,
+                  0.25
+                ],
+                "marginal": "7/24",
+                "marginal_float": 0.2916666666666667,
+                "optimal_actions": [
+                  0
+                ],
+                "posterior": [
+                  "3/7",
+                  "4/7"
+                ],
+                "posterior_float": [
+                  0.42857142857142855,
+                  0.5714285714285714
+                ],
+                "symbol": 1
+              },
+              {
+                "action_risks": [
+                  "1/3",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.3333333333333333,
+                  0.25
+                ],
+                "marginal": "11/24",
+                "marginal_float": 0.4583333333333333,
+                "optimal_actions": [
+                  1
+                ],
+                "posterior": [
+                  "3/11",
+                  "8/11"
+                ],
+                "posterior_float": [
+                  0.2727272727272727,
+                  0.7272727272727273
+                ],
+                "symbol": 2
+              }
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ]
+          },
+          "quotient_experiment": [
+            [
+              "1/2",
+              "1/4",
+              "1/4"
+            ],
+            [
+              "0",
+              "1/3",
+              "2/3"
+            ]
+          ],
+          "risk_delta": "0",
+          "witnesses": [
+            {
+              "block": [
+                0
+              ],
+              "common_optimal_actions": [
+                0
+              ]
+            },
+            {
+              "block": [
+                1
+              ],
+              "common_optimal_actions": [
+                0
+              ]
+            },
+            {
+              "block": [
+                2
+              ],
+              "common_optimal_actions": [
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "status": "EXECUTABLE"
+  },
+  "object": {
+    "bayes_value": "V(E,D,pi) = min_decoder E[L(Y,decoder(R))]",
+    "decision_problem": "D=(A,L)",
+    "experiment": "E[y][r] = P(R=r | Y=y)"
+  },
+  "protocol": "agent1-decision-representation-calculus-v1",
+  "representation_compiler": {
+    "blackwell_original_to_compressed": {
+      "certificate": "K is row-stochastic and source*K equals target exactly",
+      "channel": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "exists": true,
+      "internal_channel": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "residual_linf": "0"
+    },
+    "blackwell_relation": {
+      "classification": "DOMINATES",
+      "first_to_second": {
+        "certificate": "K is row-stochastic and source*K equals target exactly",
+        "channel": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "exists": true,
+        "internal_channel": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "residual": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "residual_linf": "0"
+      },
+      "meaning": "the second representation is a garbling of the first",
+      "reverse_only_dominance": false,
+      "second_to_first": {
+        "certificate": "no feasible stochastic channel satisfies source*K=target",
+        "channel": null,
+        "exists": false,
+        "residual": null,
+        "residual_linf": null
+      }
+    },
+    "complexity_certificate": {
+      "direction_convention": "forward source->compressed is simulation loss; reverse compressed->source is reconstruction deficiency",
+      "garbling_check": "finite rational LP; this implementation uses exact vertices",
+      "quotient_search": "branch-and-bound over canonical partitions; Bell(m) worst case"
+    },
+    "compressed_experiment": [
+      [
+        "1/2",
+        "1/2"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "compression": {
+      "complexity": "branch-and-bound over canonical partitions; Bell(m) worst case",
+      "epsilons": [
+        "0",
+        "1/4"
+      ],
+      "feasible_partition_count": 1,
+      "lower_bound": 2,
+      "minimum": {
+        "blocks": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "quotient_engines": [
+          {
+            "actions": [
+              false,
+              true
+            ],
+            "bayes_risk": "1/4",
+            "bayes_risk_float": 0.25,
+            "experiment": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "1/4",
+              "experiment": [
+                [
+                  "1/2",
+                  "1/2"
+                ],
+                [
+                  "0",
+                  "1"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "1"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  1
+                ]
+              ],
+              "prior": [
+                "1/2",
+                "1/2"
+              ],
+              "signal_masses": [
+                "1/4",
+                "3/4"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                false
+              ],
+              [
+                true
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.25
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  false
+                ],
+                "posterior": [
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/2",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.5,
+                  0.25
+                ],
+                "marginal": "3/4",
+                "marginal_float": 0.75,
+                "optimal_actions": [
+                  true
+                ],
+                "posterior": [
+                  "1/3",
+                  "2/3"
+                ],
+                "posterior_float": [
+                  0.3333333333333333,
+                  0.6666666666666666
+                ],
+                "symbol": 1
+              }
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ]
+          },
+          {
+            "actions": [
+              "safe",
+              "risky"
+            ],
+            "bayes_risk": "1/2",
+            "bayes_risk_float": 0.5,
+            "experiment": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "1/2",
+              "experiment": [
+                [
+                  "1/2",
+                  "1/2"
+                ],
+                [
+                  "0",
+                  "1"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "2"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "prior": [
+                "1/2",
+                "1/2"
+              ],
+              "signal_masses": [
+                "1/4",
+                "3/4"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "2"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                "safe"
+              ],
+              [
+                "safe",
+                "risky"
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/2"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.5
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  "safe"
+                ],
+                "posterior": [
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/2",
+                  "1/2"
+                ],
+                "action_risks_float": [
+                  0.5,
+                  0.5
+                ],
+                "marginal": "3/4",
+                "marginal_float": 0.75,
+                "optimal_actions": [
+                  "safe",
+                  "risky"
+                ],
+                "posterior": [
+                  "1/3",
+                  "2/3"
+                ],
+                "posterior_float": [
+                  0.3333333333333333,
+                  0.6666666666666666
+                ],
+                "symbol": 1
+              }
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ]
+          }
+        ],
+        "quotient_experiment": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "risk_deltas": [
+          "0",
+          "1/12"
+        ],
+        "risk_deltas_float": [
+          0.0,
+          0.08333333333333333
+        ],
+        "state_count": 2
+      },
+      "optimality": "lower bound equals feasible upper bound after all smaller partitions are ruled out",
+      "optimality_gap": 0,
+      "partitions_checked": 5,
+      "pruned": 1,
+      "status": "EXACT",
+      "upper_bound": 2
+    },
+    "deficiency_original_to_compressed": {
+      "certificate": "Blackwell garbling witness; deficiency is exactly zero",
+      "channel": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "deficiency": "0",
+      "deficiency_float": 0.0,
+      "direction": "source_to_target",
+      "internal_channel": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "residual_linf": "0",
+      "simulated_target": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "status": "EXACT"
+    },
+    "forward_simulation_loss": {
+      "certificate": "Blackwell garbling witness; deficiency is exactly zero",
+      "channel": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "deficiency": "0",
+      "deficiency_float": 0.0,
+      "direction": "source_to_target",
+      "internal_channel": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "residual": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "residual_linf": "0",
+      "simulated_target": [
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "status": "EXACT"
+    },
+    "lost_tasks": [
+      "asymmetric_action"
+    ],
+    "original_experiment": [
+      [
+        "1/2",
+        "1/4",
+        "1/4"
+      ],
+      [
+        "0",
+        "1/3",
+        "2/3"
+      ]
+    ],
+    "preserved_tasks": [
+      "binary_classification"
+    ],
+    "quotient_blocks": [
+      [
+        0
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "reverse_reconstruction_deficiency": {
+      "certificate": "reduced exact LP: final channel columns eliminated and residual signs enumerated",
+      "channel": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "7/18",
+          "11/18"
+        ]
+      ],
+      "deficiency": "1/18",
+      "deficiency_float": 0.05555555555555555,
+      "direction": "source_to_target",
+      "internal_channel": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "7/18",
+          "11/18"
+        ]
+      ],
+      "residual": [
+        [
+          "0",
+          "-1/18",
+          "1/18"
+        ],
+        [
+          "0",
+          "1/18",
+          "-1/18"
+        ]
+      ],
+      "residual_linf": "1/18",
+      "simulated_target": [
+        [
+          "1/2",
+          "7/36",
+          "11/36"
+        ],
+        [
+          "0",
+          "7/18",
+          "11/18"
+        ]
+      ],
+      "status": "EXACT"
+    },
+    "status": "COMPILED",
+    "symmetric_decision_distance": {
+      "meaning": "max(forward simulation loss, reverse reconstruction deficiency)",
+      "status": "EXACT",
+      "value": "1/18",
+      "value_float": 0.05555555555555555
+    },
+    "task_checks": [
+      {
+        "blocks": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "original_bayes_risk": "1/4",
+        "original_engine": {
+          "actions": [
+            0,
+            1
+          ],
+          "bayes_risk": "1/4",
+          "bayes_risk_float": 0.25,
+          "experiment": [
+            [
+              "1/2",
+              "1/4",
+              "1/4"
+            ],
+            [
+              "0",
+              "1/3",
+              "2/3"
+            ]
+          ],
+          "internal": {
+            "bayes_risk": "1/4",
+            "experiment": [
+              [
+                "1/2",
+                "1/4",
+                "1/4"
+              ],
+              [
+                "0",
+                "1/3",
+                "2/3"
+              ]
+            ],
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "optimal_action_indices": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ],
+            "signal_masses": [
+              "1/4",
+              "7/24",
+              "11/24"
+            ]
+          },
+          "losses": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "policy": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "posteriors": [
+            {
+              "action_risks": [
+                "0",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.0,
+                0.25
+              ],
+              "marginal": "1/4",
+              "marginal_float": 0.25,
+              "optimal_actions": [
+                0
+              ],
+              "posterior": [
+                "1",
+                "0"
+              ],
+              "posterior_float": [
+                1.0,
+                0.0
+              ],
+              "symbol": 0
+            },
+            {
+              "action_risks": [
+                "1/6",
+                "1/8"
+              ],
+              "action_risks_float": [
+                0.16666666666666666,
+                0.125
+              ],
+              "marginal": "7/24",
+              "marginal_float": 0.2916666666666667,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "3/7",
+                "4/7"
+              ],
+              "posterior_float": [
+                0.42857142857142855,
+                0.5714285714285714
+              ],
+              "symbol": 1
+            },
+            {
+              "action_risks": [
+                "1/3",
+                "1/8"
+              ],
+              "action_risks_float": [
+                0.3333333333333333,
+                0.125
+              ],
+              "marginal": "11/24",
+              "marginal_float": 0.4583333333333333,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "3/11",
+                "8/11"
+              ],
+              "posterior_float": [
+                0.2727272727272727,
+                0.7272727272727273
+              ],
+              "symbol": 2
+            }
+          ],
+          "prior": [
+            "1/2",
+            "1/2"
+          ]
+        },
+        "preserved": true,
+        "quotient_bayes_risk": "1/4",
+        "quotient_engine": {
+          "actions": [
+            0,
+            1
+          ],
+          "bayes_risk": "1/4",
+          "bayes_risk_float": 0.25,
+          "experiment": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "internal": {
+            "bayes_risk": "1/4",
+            "experiment": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "optimal_action_indices": [
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ],
+            "signal_masses": [
+              "1/4",
+              "3/4"
+            ]
+          },
+          "losses": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "policy": [
+            [
+              0
+            ],
+            [
+              1
+            ]
+          ],
+          "posteriors": [
+            {
+              "action_risks": [
+                "0",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.0,
+                0.25
+              ],
+              "marginal": "1/4",
+              "marginal_float": 0.25,
+              "optimal_actions": [
+                0
+              ],
+              "posterior": [
+                "1",
+                "0"
+              ],
+              "posterior_float": [
+                1.0,
+                0.0
+              ],
+              "symbol": 0
+            },
+            {
+              "action_risks": [
+                "1/2",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.5,
+                0.25
+              ],
+              "marginal": "3/4",
+              "marginal_float": 0.75,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "1/3",
+                "2/3"
+              ],
+              "posterior_float": [
+                0.3333333333333333,
+                0.6666666666666666
+              ],
+              "symbol": 1
+            }
+          ],
+          "prior": [
+            "1/2",
+            "1/2"
+          ]
+        },
+        "quotient_experiment": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "risk_delta": "0",
+        "witnesses": [
+          {
+            "block": [
+              0
+            ],
+            "common_optimal_actions": [
+              0
+            ]
+          },
+          {
+            "block": [
+              1,
+              2
+            ],
+            "common_optimal_actions": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "blocks": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "original_bayes_risk": "5/12",
+        "original_engine": {
+          "actions": [
+            0,
+            1
+          ],
+          "bayes_risk": "5/12",
+          "bayes_risk_float": 0.4166666666666667,
+          "experiment": [
+            [
+              "1/2",
+              "1/4",
+              "1/4"
+            ],
+            [
+              "0",
+              "1/3",
+              "2/3"
+            ]
+          ],
+          "internal": {
+            "bayes_risk": "5/12",
+            "experiment": [
+              [
+                "1/2",
+                "1/4",
+                "1/4"
+              ],
+              [
+                "0",
+                "1/3",
+                "2/3"
+              ]
+            ],
+            "losses": [
+              [
+                "0",
+                "2"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "optimal_action_indices": [
+              [
+                0
+              ],
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ],
+            "signal_masses": [
+              "1/4",
+              "7/24",
+              "11/24"
+            ]
+          },
+          "losses": [
+            [
+              "0",
+              "2"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "policy": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              1
+            ]
+          ],
+          "posteriors": [
+            {
+              "action_risks": [
+                "0",
+                "1/2"
+              ],
+              "action_risks_float": [
+                0.0,
+                0.5
+              ],
+              "marginal": "1/4",
+              "marginal_float": 0.25,
+              "optimal_actions": [
+                0
+              ],
+              "posterior": [
+                "1",
+                "0"
+              ],
+              "posterior_float": [
+                1.0,
+                0.0
+              ],
+              "symbol": 0
+            },
+            {
+              "action_risks": [
+                "1/6",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.16666666666666666,
+                0.25
+              ],
+              "marginal": "7/24",
+              "marginal_float": 0.2916666666666667,
+              "optimal_actions": [
+                0
+              ],
+              "posterior": [
+                "3/7",
+                "4/7"
+              ],
+              "posterior_float": [
+                0.42857142857142855,
+                0.5714285714285714
+              ],
+              "symbol": 1
+            },
+            {
+              "action_risks": [
+                "1/3",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.3333333333333333,
+                0.25
+              ],
+              "marginal": "11/24",
+              "marginal_float": 0.4583333333333333,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "3/11",
+                "8/11"
+              ],
+              "posterior_float": [
+                0.2727272727272727,
+                0.7272727272727273
+              ],
+              "symbol": 2
+            }
+          ],
+          "prior": [
+            "1/2",
+            "1/2"
+          ]
+        },
+        "preserved": false,
+        "quotient_bayes_risk": "1/2",
+        "quotient_engine": {
+          "actions": [
+            0,
+            1
+          ],
+          "bayes_risk": "1/2",
+          "bayes_risk_float": 0.5,
+          "experiment": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "internal": {
+            "bayes_risk": "1/2",
+            "experiment": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "losses": [
+              [
+                "0",
+                "2"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "optimal_action_indices": [
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ],
+            "signal_masses": [
+              "1/4",
+              "3/4"
+            ]
+          },
+          "losses": [
+            [
+              "0",
+              "2"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "policy": [
+            [
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "posteriors": [
+            {
+              "action_risks": [
+                "0",
+                "1/2"
+              ],
+              "action_risks_float": [
+                0.0,
+                0.5
+              ],
+              "marginal": "1/4",
+              "marginal_float": 0.25,
+              "optimal_actions": [
+                0
+              ],
+              "posterior": [
+                "1",
+                "0"
+              ],
+              "posterior_float": [
+                1.0,
+                0.0
+              ],
+              "symbol": 0
+            },
+            {
+              "action_risks": [
+                "1/2",
+                "1/2"
+              ],
+              "action_risks_float": [
+                0.5,
+                0.5
+              ],
+              "marginal": "3/4",
+              "marginal_float": 0.75,
+              "optimal_actions": [
+                0,
+                1
+              ],
+              "posterior": [
+                "1/3",
+                "2/3"
+              ],
+              "posterior_float": [
+                0.3333333333333333,
+                0.6666666666666666
+              ],
+              "symbol": 1
+            }
+          ],
+          "prior": [
+            "1/2",
+            "1/2"
+          ]
+        },
+        "quotient_experiment": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "risk_delta": "1/12",
+        "witnesses": [
+          {
+            "block": [
+              0
+            ],
+            "common_optimal_actions": [
+              0
+            ]
+          },
+          {
+            "block": [
+              1,
+              2
+            ],
+            "common_optimal_actions": []
+          }
+        ]
+      }
+    ]
+  },
+  "representation_path": {
+    "all_steps_exact_blackwell": true,
+    "bound_meaning": "directed deficiency of the composite path is at most the sum of step deficiencies",
+    "deficiency_upper_bound_by_triangle": "0",
+    "steps": [
+      {
+        "blackwell": {
+          "classification": "DOMINATES",
+          "first_to_second": {
+            "certificate": "K is row-stochastic and source*K equals target exactly",
+            "channel": [
+              [
+                "3/4",
+                "1/4"
+              ],
+              [
+                "1/4",
+                "3/4"
+              ]
+            ],
+            "exists": true,
+            "internal_channel": [
+              [
+                "3/4",
+                "1/4"
+              ],
+              [
+                "1/4",
+                "3/4"
+              ]
+            ],
+            "residual": [
+              [
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0"
+              ]
+            ],
+            "residual_linf": "0"
+          },
+          "meaning": "the second representation is a garbling of the first",
+          "reverse_only_dominance": false,
+          "second_to_first": {
+            "certificate": "no feasible stochastic channel satisfies source*K=target",
+            "channel": null,
+            "exists": false,
+            "residual": null,
+            "residual_linf": null
+          }
+        },
+        "decisions_changed": [
+          "binary_classification"
+        ],
+        "decisions_preserved": [],
+        "deficiency": {
+          "certificate": "Blackwell garbling witness; deficiency is exactly zero",
+          "channel": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "deficiency": "0",
+          "deficiency_float": 0.0,
+          "direction": "source_to_target",
+          "internal_channel": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0",
+          "simulated_target": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "status": "EXACT"
+        },
+        "task_changes": [
+          {
+            "preserved": false,
+            "risk_after": "1/4",
+            "risk_before": "0",
+            "risk_delta": "1/4",
+            "task": "binary_classification"
+          }
+        ],
+        "transformation": "T1"
+      },
+      {
+        "blackwell": {
+          "classification": "DOMINATES",
+          "first_to_second": {
+            "certificate": "K is row-stochastic and source*K equals target exactly",
+            "channel": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "1/2",
+                "1/2"
+              ]
+            ],
+            "exists": true,
+            "internal_channel": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "1/2",
+                "1/2"
+              ]
+            ],
+            "residual": [
+              [
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0"
+              ]
+            ],
+            "residual_linf": "0"
+          },
+          "meaning": "the second representation is a garbling of the first",
+          "reverse_only_dominance": false,
+          "second_to_first": {
+            "certificate": "no feasible stochastic channel satisfies source*K=target",
+            "channel": null,
+            "exists": false,
+            "residual": null,
+            "residual_linf": null
+          }
+        },
+        "decisions_changed": [
+          "binary_classification"
+        ],
+        "decisions_preserved": [],
+        "deficiency": {
+          "certificate": "Blackwell garbling witness; deficiency is exactly zero",
+          "channel": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "deficiency": "0",
+          "deficiency_float": 0.0,
+          "direction": "source_to_target",
+          "internal_channel": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "residual": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "residual_linf": "0",
+          "simulated_target": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "1/2"
+            ]
+          ],
+          "status": "EXACT"
+        },
+        "task_changes": [
+          {
+            "preserved": false,
+            "risk_after": "1/2",
+            "risk_before": "1/4",
+            "risk_delta": "1/4",
+            "task": "binary_classification"
+          }
+        ],
+        "transformation": "T2"
+      }
+    ]
+  },
+  "status_summary": {
+    "CONJECTURE": [],
+    "DISPROVED": [
+      "representation quality can be summarized independently of a decision family"
+    ],
+    "KNOWN_RESULT": [
+      "finite Blackwell comparison is a stochastic-channel feasibility problem",
+      "finite deficiency is an LP over channel and TV slack variables"
+    ],
+    "PROVED": [
+      "finite Bayes engine computes exact value and all optimal-action ties",
+      "task quotient validity is equivalent to a common Bayes-optimal action per block",
+      "multi-task quotient minimum cannot be smaller than a single-task quotient",
+      "Blackwell witness implies zero deficiency in the same direction",
+      "Set-Cover reduces to minimum risk-zero task quotient",
+      "Vertex-Cover reduces to degree-2 ambiguity quotient",
+      "forward simulation loss is zero for a deterministic quotient; reverse reconstruction deficiency can be positive",
+      "exact-zero stochastic compression has no representation-size advantage over deterministic compression"
+    ],
+    "UNKNOWN": [
+      "whether stochastic compression can improve a multi-task positive-epsilon frontier outside the searched finite grid",
+      "scalable approximation guarantees for epsilon compression beyond the reported bounds"
+    ]
+  },
+  "stochastic_compression": {
+    "channels_examined": 1,
+    "denominator": 2,
+    "deterministic_feasible": false,
+    "deterministic_result": {
+      "complexity": "branch-and-bound over canonical partitions; Bell(m) worst case",
+      "epsilons": [
+        "0"
+      ],
+      "feasible_partition_count": 1,
+      "lower_bound": 2,
+      "minimum": {
+        "blocks": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "quotient_engines": [
+          {
+            "actions": [
+              false,
+              true
+            ],
+            "bayes_risk": "1/4",
+            "bayes_risk_float": 0.25,
+            "experiment": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "internal": {
+              "bayes_risk": "1/4",
+              "experiment": [
+                [
+                  "1/2",
+                  "1/2"
+                ],
+                [
+                  "0",
+                  "1"
+                ]
+              ],
+              "losses": [
+                [
+                  "0",
+                  "1"
+                ],
+                [
+                  "1",
+                  "0"
+                ]
+              ],
+              "optimal_action_indices": [
+                [
+                  0
+                ],
+                [
+                  1
+                ]
+              ],
+              "prior": [
+                "1/2",
+                "1/2"
+              ],
+              "signal_masses": [
+                "1/4",
+                "3/4"
+              ]
+            },
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "policy": [
+              [
+                false
+              ],
+              [
+                true
+              ]
+            ],
+            "posteriors": [
+              {
+                "action_risks": [
+                  "0",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.0,
+                  0.25
+                ],
+                "marginal": "1/4",
+                "marginal_float": 0.25,
+                "optimal_actions": [
+                  false
+                ],
+                "posterior": [
+                  "1",
+                  "0"
+                ],
+                "posterior_float": [
+                  1.0,
+                  0.0
+                ],
+                "symbol": 0
+              },
+              {
+                "action_risks": [
+                  "1/2",
+                  "1/4"
+                ],
+                "action_risks_float": [
+                  0.5,
+                  0.25
+                ],
+                "marginal": "3/4",
+                "marginal_float": 0.75,
+                "optimal_actions": [
+                  true
+                ],
+                "posterior": [
+                  "1/3",
+                  "2/3"
+                ],
+                "posterior_float": [
+                  0.3333333333333333,
+                  0.6666666666666666
+                ],
+                "symbol": 1
+              }
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ]
+          }
+        ],
+        "quotient_experiment": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "risk_deltas": [
+          "0"
+        ],
+        "risk_deltas_float": [
+          0.0
+        ],
+        "state_count": 2
+      },
+      "optimality": "lower bound equals feasible upper bound after all smaller partitions are ruled out",
+      "optimality_gap": 0,
+      "partitions_checked": 5,
+      "pruned": 1,
+      "status": "EXACT",
+      "upper_bound": 2
+    },
+    "exact_zero_theorem": "For epsilon=0, a stochastic decoder's supported actions are optimal at every source symbol; choosing one supported output per symbol gives a deterministic quotient with no more symbols.",
+    "general_epsilon_status": "PROVED_NO_ADVANTAGE",
+    "status": "SEARCHED",
+    "stochastic_feasible": null,
+    "strict_stochastic_advantage_found": false,
+    "target_symbols": 1
+  },
+  "task_sufficient_quotient": {
+    "criterion": "a block is valid iff its symbols share at least one Bayes-optimal action",
+    "result": {
+      "blocks": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "chosen_action_cover": [
+        0,
+        1
+      ],
+      "complexity": "O(2^m * k) dynamic programming for m signals and k actions",
+      "minimum_quotient_states": 2,
+      "reduction": "minimum set cover over signal sets sharing a Bayes-optimal action",
+      "status": "EXACT",
+      "verification": {
+        "blocks": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "original_bayes_risk": "1/4",
+        "original_engine": {
+          "actions": [
+            0,
+            1
+          ],
+          "bayes_risk": "1/4",
+          "bayes_risk_float": 0.25,
+          "experiment": [
+            [
+              "1/2",
+              "1/4",
+              "1/4"
+            ],
+            [
+              "0",
+              "1/3",
+              "2/3"
+            ]
+          ],
+          "internal": {
+            "bayes_risk": "1/4",
+            "experiment": [
+              [
+                "1/2",
+                "1/4",
+                "1/4"
+              ],
+              [
+                "0",
+                "1/3",
+                "2/3"
+              ]
+            ],
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "optimal_action_indices": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                1
+              ]
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ],
+            "signal_masses": [
+              "1/4",
+              "7/24",
+              "11/24"
+            ]
+          },
+          "losses": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "policy": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "posteriors": [
+            {
+              "action_risks": [
+                "0",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.0,
+                0.25
+              ],
+              "marginal": "1/4",
+              "marginal_float": 0.25,
+              "optimal_actions": [
+                0
+              ],
+              "posterior": [
+                "1",
+                "0"
+              ],
+              "posterior_float": [
+                1.0,
+                0.0
+              ],
+              "symbol": 0
+            },
+            {
+              "action_risks": [
+                "1/6",
+                "1/8"
+              ],
+              "action_risks_float": [
+                0.16666666666666666,
+                0.125
+              ],
+              "marginal": "7/24",
+              "marginal_float": 0.2916666666666667,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "3/7",
+                "4/7"
+              ],
+              "posterior_float": [
+                0.42857142857142855,
+                0.5714285714285714
+              ],
+              "symbol": 1
+            },
+            {
+              "action_risks": [
+                "1/3",
+                "1/8"
+              ],
+              "action_risks_float": [
+                0.3333333333333333,
+                0.125
+              ],
+              "marginal": "11/24",
+              "marginal_float": 0.4583333333333333,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "3/11",
+                "8/11"
+              ],
+              "posterior_float": [
+                0.2727272727272727,
+                0.7272727272727273
+              ],
+              "symbol": 2
+            }
+          ],
+          "prior": [
+            "1/2",
+            "1/2"
+          ]
+        },
+        "preserved": true,
+        "quotient_bayes_risk": "1/4",
+        "quotient_engine": {
+          "actions": [
+            0,
+            1
+          ],
+          "bayes_risk": "1/4",
+          "bayes_risk_float": 0.25,
+          "experiment": [
+            [
+              "1/2",
+              "1/2"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "internal": {
+            "bayes_risk": "1/4",
+            "experiment": [
+              [
+                "1/2",
+                "1/2"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "losses": [
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "optimal_action_indices": [
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ],
+            "prior": [
+              "1/2",
+              "1/2"
+            ],
+            "signal_masses": [
+              "1/4",
+              "3/4"
+            ]
+          },
+          "losses": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "0"
+            ]
+          ],
+          "policy": [
+            [
+              0
+            ],
+            [
+              1
+            ]
+          ],
+          "posteriors": [
+            {
+              "action_risks": [
+                "0",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.0,
+                0.25
+              ],
+              "marginal": "1/4",
+              "marginal_float": 0.25,
+              "optimal_actions": [
+                0
+              ],
+              "posterior": [
+                "1",
+                "0"
+              ],
+              "posterior_float": [
+                1.0,
+                0.0
+              ],
+              "symbol": 0
+            },
+            {
+              "action_risks": [
+                "1/2",
+                "1/4"
+              ],
+              "action_risks_float": [
+                0.5,
+                0.25
+              ],
+              "marginal": "3/4",
+              "marginal_float": 0.75,
+              "optimal_actions": [
+                1
+              ],
+              "posterior": [
+                "1/3",
+                "2/3"
+              ],
+              "posterior_float": [
+                0.3333333333333333,
+                0.6666666666666666
+              ],
+              "symbol": 1
+            }
+          ],
+          "prior": [
+            "1/2",
+            "1/2"
+          ]
+        },
+        "quotient_experiment": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "risk_delta": "0",
+        "witnesses": [
+          {
+            "block": [
+              0
+            ],
+            "common_optimal_actions": [
+              0
+            ]
+          },
+          {
+            "block": [
+              1,
+              2
+            ],
+            "common_optimal_actions": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "status": "EXECUTABLE"
+  }
 }

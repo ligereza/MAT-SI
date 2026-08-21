@@ -2,18 +2,27 @@ import unittest
 from fractions import Fraction
 
 from matsi.decision_calculus import (
+    adaptive_task_quotient,
+    analyze_decision_ambiguity,
     bayes_decision_engine,
     compare_blackwell,
+    complexity_experiment_suite,
     compose_garblings,
     directed_deficiency,
     epsilon_sufficient_compression,
+    find_separation_witnesses,
     identify_decision,
     le_cam_distance,
     mutual_information,
     multi_task_sufficient_quotient,
     representation_compiler,
     representation_path,
+    set_cover_reduction_instance,
+    stochastic_compression_search,
     task_sufficient_quotient,
+    verify_set_cover_reduction,
+    vertex_cover_reduction_certificate,
+    vertex_cover_reduction_instance,
 )
 
 
@@ -47,6 +56,7 @@ class DecisionCalculusTests(unittest.TestCase):
 
         self.assertEqual(compare_blackwell(self.identity, [[0, 1], [1, 0]])["classification"], "EQUIVALENT")
         self.assertEqual(compare_blackwell(self.identity, self.useless)["classification"], "DOMINATES")
+        self.assertEqual(compare_blackwell(self.strict, self.identity)["classification"], "DOMINATED_BY")
 
         left = [[1, 0], [1, 0], [0, 1]]
         right = [[1, 0], [0, 1], [0, 1]]
@@ -63,6 +73,18 @@ class DecisionCalculusTests(unittest.TestCase):
         self.assertEqual(reverse["deficiency"], "1/4")
         distance = le_cam_distance(self.identity, self.strict)
         self.assertEqual(distance["le_cam_distance"], "1/4")
+
+    def test_compiler_distinguishes_forward_loss_from_reverse_deficiency(self):
+        experiment = [[Fraction(1, 2), Fraction(1, 4), Fraction(1, 4)], [0, Fraction(1, 3), Fraction(2, 3)]]
+        compiled = representation_compiler(
+            experiment,
+            self.prior,
+            [{"id": "classification", "losses": self.loss, "actions": [0, 1]}],
+            [0],
+        )
+        self.assertEqual(compiled["forward_simulation_loss"]["deficiency"], "0")
+        self.assertGreater(Fraction(compiled["reverse_reconstruction_deficiency"]["deficiency"]), 0)
+        self.assertEqual(compiled["symmetric_decision_distance"]["value"], "1/18")
 
     def test_task_quotient_is_verified_by_common_optimal_action(self):
         experiment = [[Fraction(1, 2), Fraction(1, 4), Fraction(1, 4)], [0, Fraction(1, 2), Fraction(1, 2)]]
@@ -127,6 +149,59 @@ class DecisionCalculusTests(unittest.TestCase):
         targeted_engine = bayes_decision_engine(prior, targeted, loss)
         self.assertGreater(mutual_information(prior, irrelevant), mutual_information(prior, targeted))
         self.assertGreater(Fraction(irrelevant_engine["bayes_risk"]), Fraction(targeted_engine["bayes_risk"]))
+
+    def test_set_cover_and_degree_two_reductions_are_executable(self):
+        instance = set_cover_reduction_instance(
+            ["u1", "u2", "u3"], [["u1", "u2"], ["u2", "u3"], ["u3"]], 2
+        )
+        certificate = verify_set_cover_reduction(instance)
+        self.assertTrue(certificate["quotient_yes"])
+        vertex_instance = vertex_cover_reduction_instance(
+            ["a", "b", "c"], [("a", "b"), ("b", "c")], 1
+        )
+        vertex_certificate = vertex_cover_reduction_certificate(vertex_instance)
+        self.assertEqual(vertex_certificate["chosen_vertices"], ["b"])
+        self.assertTrue(vertex_certificate["quotient_yes"])
+
+    def test_ambiguity_profile_selects_degree_two_solver(self):
+        instance = vertex_cover_reduction_instance(
+            ["a", "b", "c"], [("a", "b"), ("b", "c")], 1
+        )
+        profile = analyze_decision_ambiguity(
+            instance["experiment"], instance["prior"], instance["losses"], instance["actions"]
+        )
+        self.assertEqual(profile["regime"], "DEGREE_2_AMBIGUITY")
+        solved = adaptive_task_quotient(instance["experiment"], instance["prior"], instance["losses"])
+        self.assertIn("Vertex-Cover", solved["algorithm"])
+        self.assertEqual(solved["bounds"]["optimality_gap"], 0)
+
+    def test_incomparable_pair_has_bounded_decision_witnesses(self):
+        witnesses = find_separation_witnesses(
+            [[1, 0], [1, 0], [0, 1]], [[1, 0], [0, 1], [0, 1]], prior_denominator=4
+        )
+        self.assertEqual(witnesses["status"], "SEPARATED")
+        self.assertIsNotNone(witnesses["first_better"])
+        self.assertIsNotNone(witnesses["second_better"])
+
+    def test_stochastic_compression_zero_tolerance_has_no_grid_advantage(self):
+        result = stochastic_compression_search(
+            self.identity,
+            self.prior,
+            [{"losses": self.loss}],
+            [0],
+            target_symbols=1,
+            denominator=2,
+        )
+        self.assertFalse(result["strict_stochastic_advantage_found"])
+        self.assertEqual(result["general_epsilon_status"], "PROVED_NO_ADVANTAGE")
+
+    def test_controlled_complexity_suite_changes_algorithm_by_structure(self):
+        rows = {row["case"]: row for row in complexity_experiment_suite()}
+        self.assertEqual(rows["unique_optimum"]["algorithm"], "direct grouping by unique optimal action")
+        self.assertIn("Vertex-Cover", rows["degree_2_cycle"]["algorithm"])
+        self.assertIn("component-wise", rows["decomposable"]["algorithm"])
+        self.assertEqual(rows["large_general_bounded"]["status"], "BOUNDED_APPROXIMATION")
+        self.assertGreater(rows["large_general_bounded"]["optimality_gap"], 0)
 
 
 if __name__ == "__main__":

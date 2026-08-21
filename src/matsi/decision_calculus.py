@@ -28,6 +28,7 @@ from itertools import combinations, product
 import json
 from math import comb, log2
 from pathlib import Path
+from time import perf_counter
 from typing import Any, Callable, Iterable, Sequence
 
 
@@ -447,6 +448,8 @@ def compare_blackwell(
         classification = "EQUIVALENT"
     elif forward["exists"]:
         classification = "DOMINATES"
+    elif reverse["exists"]:
+        classification = "DOMINATED_BY"
     else:
         classification = "INCOMPARABLE"
     return {
@@ -456,8 +459,9 @@ def compare_blackwell(
         "reverse_only_dominance": reverse["exists"] and not forward["exists"],
         "meaning": {
             "DOMINATES": "the second representation is a garbling of the first",
+            "DOMINATED_BY": "the first representation is a garbling of the second",
             "EQUIVALENT": "both directions have stochastic garbling witnesses",
-            "INCOMPARABLE": "the first does not dominate the second; reverse_only_dominance records the opposite direction when present",
+            "INCOMPARABLE": "neither direction has a stochastic garbling witness",
             "INVALID": "input is not a pair of compatible finite experiments",
         }[classification],
     }
@@ -529,6 +533,87 @@ def _deficiency_lp(
             "certificate": "binary-target reduction: TV equals the absolute first-cell residual",
             "internal_channel": channel,
         }
+
+    # Eliminate the final column of every row of K.  For larger target
+    # alphabets, enumerate residual sign patterns and solve the resulting
+    # linear pieces.  This is exact for small finite spaces and is much smaller
+    # than introducing one slack variable per residual cell.
+    free_channel_count = source_count * (target_count - 1)
+    t_index = free_channel_count
+    variables = free_channel_count + 1
+    residuals: list[tuple[Fraction, list[Fraction]]] = []
+    for state in range(states):
+        for target_signal in range(target_count):
+            coefficients = [Fraction(0) for _ in range(variables)]
+            if target_signal < target_count - 1:
+                constant = target[state][target_signal]
+                for source_signal in range(source_count):
+                    coefficients[source_signal * (target_count - 1) + target_signal] = -source[state][source_signal]
+            else:
+                constant = target[state][target_signal] - 1
+                for source_signal in range(source_count):
+                    for free_target in range(target_count - 1):
+                        coefficients[source_signal * (target_count - 1) + free_target] = source[state][source_signal]
+            residuals.append((constant, coefficients))
+    base_inequalities = _nonnegative_constraints(variables)
+    for source_signal in range(source_count):
+        row = [Fraction(0) for _ in range(variables + 1)]
+        for free_target in range(target_count - 1):
+            row[source_signal * (target_count - 1) + free_target] = 1
+        row[-1] = 1
+        base_inequalities.append(row)
+    objective = [Fraction(0) for _ in range(variables)]
+    objective[t_index] = 1
+    best_solution: list[Fraction] | None = None
+    best_value: Fraction | None = None
+    for signs in product((-1, 1), repeat=len(residuals)):
+        inequalities = [row[:] for row in base_inequalities]
+        for sign, (constant, coefficients) in zip(signs, residuals):
+            # sign * residual >= 0
+            row = [-sign * coefficient for coefficient in coefficients] + [sign * constant]
+            inequalities.append(row)
+        for state in range(states):
+            row = [Fraction(0) for _ in range(variables + 1)]
+            constant_sum = Fraction(0)
+            for offset in range(target_count):
+                constant, coefficients = residuals[state * target_count + offset]
+                sign = signs[state * target_count + offset]
+                constant_sum += sign * constant
+                for variable in range(variables):
+                    row[variable] += sign * coefficients[variable]
+            row[t_index] -= 2
+            row[-1] = -constant_sum
+            inequalities.append(row)
+        solved = _vertex_lp(
+            variables,
+            [],
+            inequalities,
+            objective,
+            max_combinations=max_combinations,
+        )
+        if solved is None:
+            continue
+        solution, value = solved
+        if best_value is None or value < best_value:
+            best_solution, best_value = solution, value
+    if best_solution is None or best_value is None:
+        raise ValueError("reduced deficiency LP is infeasible")
+    channel = []
+    for source_signal in range(source_count):
+        free = [best_solution[source_signal * (target_count - 1) + target_signal] for target_signal in range(target_count - 1)]
+        channel.append(free + [1 - sum(free)])
+    simulated = _matmul(source, channel)
+    residual = _matrix_residual(simulated, target)
+    return {
+        "deficiency": _fraction_text(best_value),
+        "deficiency_float": _float(best_value),
+        "channel": _serialize_matrix(channel),
+        "simulated_target": _serialize_matrix(simulated),
+        "residual": _serialize_matrix(residual),
+        "residual_linf": _fraction_text(_max_abs(residual)),
+        "certificate": "reduced exact LP: final channel columns eliminated and residual signs enumerated",
+        "internal_channel": channel,
+    }
 
     channel_variables = source_count * target_count
     slack_offset = channel_variables
@@ -728,6 +813,518 @@ def _minimum_cover(
     return chosen, len(chosen)
 
 
+def _greedy_cover_bounds(
+    universe_size: int,
+    candidates: Sequence[tuple[Any, int]],
+) -> dict[str, Any]:
+    """Return a feasible cover and elementary certified bounds.
+
+    The lower bound is the usual cardinality bound
+    ``ceil(|U| / max_j |S_j|)``.  It is intentionally reported as a bound,
+    never as an optimum claim.  This is the fallback used when exact
+    bit-mask search is too large.
+    """
+    full = (1 << universe_size) - 1
+    unique: dict[int, Any] = {}
+    for label, mask in candidates:
+        if mask:
+            unique.setdefault(mask, label)
+    reduced = [(label, mask) for mask, label in unique.items()]
+    uncovered = full
+    chosen: list[Any] = []
+    while uncovered:
+        feasible = [(label, mask) for label, mask in reduced if mask & uncovered]
+        if not feasible:
+            raise ValueError("candidate family does not cover the universe")
+        label, mask = max(feasible, key=lambda item: (item[1] & uncovered).bit_count())
+        chosen.append(label)
+        uncovered &= ~mask
+    maximum = max((mask.bit_count() for _, mask in reduced), default=0)
+    lower = (universe_size + maximum - 1) // maximum if maximum else None
+    return {
+        "chosen": chosen,
+        "upper_bound": len(chosen),
+        "lower_bound": lower,
+        "optimality_gap": None if lower is None else len(chosen) - lower,
+        "guarantee": f"greedy set cover cardinality <= H_{universe_size} * optimum; observed upper/lower is reported separately",
+    }
+
+
+def _solve_degree_two_cover(
+    masks: Sequence[int],
+    action_labels: Sequence[Any],
+) -> dict[str, Any]:
+    """Solve a cover whose ambiguity hyperedges have size at most two.
+
+    A singleton hyperedge forces its action.  Every remaining hyperedge is
+    an edge between two candidate actions, so the residual problem is Vertex
+    Cover.  Branching on an uncovered edge is exact and auditable.
+    """
+    forced: set[int] = set()
+    edges: list[tuple[int, int]] = []
+    for mask in masks:
+        indices = [index for index in range(len(action_labels)) if mask & (1 << index)]
+        if not indices:
+            raise ValueError("an ambiguity hyperedge has no admissible action")
+        if len(indices) == 1:
+            forced.add(indices[0])
+        else:
+            edges.append((indices[0], indices[1]))
+    remaining = [edge for edge in edges if not (edge[0] in forced or edge[1] in forced)]
+    best: set[int] | None = None
+    explored = 0
+
+    def visit(chosen: set[int], pending: list[tuple[int, int]]) -> None:
+        nonlocal best, explored
+        explored += 1
+        if best is not None and len(chosen) >= len(best):
+            return
+        edge = next((item for item in pending if item[0] not in chosen and item[1] not in chosen), None)
+        if edge is None:
+            best = set(chosen)
+            return
+        for endpoint in edge:
+            visit(chosen | {endpoint}, pending)
+
+    visit(set(forced), remaining)
+    if best is None:
+        best = set(forced)
+    chosen_labels = [action_labels[index] for index in sorted(best)]
+    return {
+        "chosen_indices": sorted(best),
+        "chosen": chosen_labels,
+        "state_count": len(best),
+        "nodes_explored": explored,
+        "algorithm": "exact Vertex-Cover branching on degree-2 ambiguity hypergraph",
+        "complexity": "O(2^|A|) worst case; polynomial verification per branch",
+    }
+
+
+def analyze_decision_ambiguity(
+    engine_or_experiment: dict[str, Any] | Sequence[Sequence[Number]],
+    prior: Sequence[Number] | None = None,
+    losses: Sequence[Sequence[Number]] | None = None,
+    actions: Sequence[Any] | None = None,
+) -> dict[str, Any]:
+    """Build the ambiguity hypergraph induced by Bayes-optimal actions.
+
+    A signal is a hyperedge containing every action that is optimal at that
+    signal.  The hypergraph, rather than a domain label, determines whether
+    a direct grouping, degree-2 brancher, or general set-cover solver is
+    appropriate.
+    """
+    if isinstance(engine_or_experiment, dict):
+        engine = engine_or_experiment
+    else:
+        if prior is None or losses is None:
+            raise ValueError("prior and losses are required for a raw experiment")
+        engine = bayes_decision_engine(prior, engine_or_experiment, losses, actions)
+    masks = _optimal_masks(engine)
+    action_labels = list(engine["actions"])
+    action_masks = [0] * len(action_labels)
+    hyperedges = []
+    for signal, mask in enumerate(masks):
+        indices = [index for index in range(len(action_labels)) if mask & (1 << index)]
+        hyperedges.append({"signal": signal, "actions": [action_labels[index] for index in indices], "arity": len(indices)})
+        for index in indices:
+            action_masks[index] |= 1 << signal
+
+    parent = list(range(len(action_labels)))
+
+    def find(index: int) -> int:
+        while parent[index] != index:
+            parent[index] = parent[parent[index]]
+            index = parent[index]
+        return index
+
+    def union(left: int, right: int) -> None:
+        left, right = find(left), find(right)
+        if left != right:
+            parent[right] = left
+
+    for mask in masks:
+        indices = [index for index in range(len(action_labels)) if mask & (1 << index)]
+        for index in indices[1:]:
+            union(indices[0], index)
+    components: dict[int, list[Any]] = {}
+    for index, label in enumerate(action_labels):
+        components.setdefault(find(index), []).append(label)
+    component_indices: dict[int, list[int]] = {}
+    for index in range(len(action_labels)):
+        component_indices.setdefault(find(index), []).append(index)
+    equal_actions = [
+        [action_labels[index] for index in range(len(action_labels)) if action_masks[index] == action_masks[representative]]
+        for representative in range(len(action_labels))
+        if representative == min(
+            (index for index in range(len(action_labels)) if action_masks[index] == action_masks[representative]),
+            default=representative,
+        )
+    ]
+    dominated_actions = []
+    for left in range(len(action_labels)):
+        for right in range(len(action_labels)):
+            if left != right and action_masks[left] & ~action_masks[right] == 0:
+                dominated_actions.append({"dominated": action_labels[left], "by": action_labels[right]})
+    maximum_arity = max((mask.bit_count() for mask in masks), default=0)
+    maximum_coverage = max((mask.bit_count() for mask in action_masks), default=0)
+    lower_bound = (len(masks) + maximum_coverage - 1) // maximum_coverage if maximum_coverage else None
+    unique_symbols = [signal for signal, mask in enumerate(masks) if mask.bit_count() == 1]
+    ambiguous_symbols = [signal for signal, mask in enumerate(masks) if mask.bit_count() > 1]
+    overlap = [
+        [
+            (action_masks[left] & action_masks[right]).bit_count()
+            for right in range(len(action_labels))
+        ]
+        for left in range(len(action_labels))
+    ]
+    redundant_symbols = []
+    for left in range(len(masks)):
+        for right in range(left):
+            if masks[left] == masks[right]:
+                redundant_symbols.append({"symbol": left, "same_optimal_set_as": right})
+    if maximum_arity <= 1:
+        regime = "UNIQUE_OPTIMUM"
+        recommended = "direct grouping by unique optimal action"
+        reason = "every hyperedge is a singleton, so no covering choice remains"
+        reductions = ["polynomial direct grouping"]
+    elif maximum_arity <= 2:
+        regime = "DEGREE_2_AMBIGUITY"
+        recommended = "exact Vertex-Cover branching"
+        reason = "every ambiguity hyperedge is an edge or forced singleton"
+        reductions = ["Vertex-Cover-equivalent degree-2 solver", "forced singleton kernelization"]
+    elif len(components) > 1:
+        regime = "DECOMPOSABLE_HYPERGRAPH"
+        recommended = "component-wise exact set cover"
+        reason = "the action-overlap hypergraph splits into independent components"
+        reductions = ["component decomposition", "exact set cover per component"]
+    else:
+        regime = "GENERAL_SET_COVER"
+        recommended = "exact bitmask cover or greedy bounded fallback"
+        reason = "the incidence hypergraph has general overlapping hyperedges"
+        reductions = ["equivalent-action symmetry breaking", "dominated-action pruning"]
+    return {
+        "symbols": list(range(len(masks))),
+        "actions": action_labels,
+        "unique_optimum_symbols": unique_symbols,
+        "ambiguous_symbols": ambiguous_symbols,
+        "ambiguity_cardinalities": [mask.bit_count() for mask in masks],
+        "signal_count": len(masks),
+        "action_count": len(action_labels),
+        "hyperedges": hyperedges,
+        "maximum_ambiguity_arity": maximum_arity,
+        "action_coverage": {str(label): mask.bit_count() for label, mask in zip(action_labels, action_masks)},
+        "action_overlap": overlap,
+        "components": list(components.values()),
+        "component_indices": list(component_indices.values()),
+        "equivalent_action_classes": equal_actions,
+        "dominated_actions": dominated_actions,
+        "dominated_candidates": dominated_actions,
+        "redundant_symbols": redundant_symbols,
+        "lower_bound": lower_bound,
+        "regime": regime,
+        "recommended_algorithm": recommended,
+        "reason": reason,
+        "exact_easy_reductions": reductions,
+        "parameters": {
+            "ambiguous_symbol_count": len(ambiguous_symbols),
+            "maximum_ambiguity": maximum_arity,
+            "action_count": len(action_labels),
+            "component_count": len(components),
+            "maximum_action_frequency": maximum_coverage,
+        },
+        "interpretation": "ambiguity is a hypergraph; selector complexity is its minimum action cover",
+    }
+
+
+def adaptive_task_quotient(
+    experiment: Sequence[Sequence[Number]],
+    prior: Sequence[Number],
+    losses: Sequence[Sequence[Number]],
+    *,
+    actions: Sequence[Any] | None = None,
+    exact_signal_limit: int = 22,
+) -> dict[str, Any]:
+    """Select an exact algorithm from ambiguity structure and report bounds."""
+    source = validate_experiment(experiment)
+    engine = bayes_decision_engine(prior, source, losses, actions)
+    profile = analyze_decision_ambiguity(engine)
+    masks = _optimal_masks(engine)
+    labels = list(engine["actions"])
+    if profile["regime"] == "UNIQUE_OPTIMUM":
+        chosen_indices = sorted({index for mask in masks for index in range(len(labels)) if mask & (1 << index)})
+        algorithm = "direct grouping by unique optimal action"
+        nodes = 1
+    elif profile["regime"] == "DEGREE_2_AMBIGUITY":
+        result = _solve_degree_two_cover(masks, labels)
+        chosen_indices = result["chosen_indices"]
+        algorithm = result["algorithm"]
+        nodes = result["nodes_explored"]
+    elif profile["regime"] == "DECOMPOSABLE_HYPERGRAPH":
+        chosen_set: set[int] = set()
+        component_nodes = 0
+        for component in profile["component_indices"]:
+            component_signals = [
+                signal for signal, mask in enumerate(masks)
+                if any(mask & (1 << action) for action in component)
+            ]
+            local_index = {signal: offset for offset, signal in enumerate(component_signals)}
+            candidates = [
+                (
+                    action,
+                    sum(1 << local_index[signal] for signal in component_signals if masks[signal] & (1 << action)),
+                )
+                for action in component
+            ]
+            local_chosen, _ = _minimum_cover(len(component_signals), candidates)
+            chosen_set.update(local_chosen)
+            component_nodes += 1
+        chosen_indices = sorted(chosen_set)
+        algorithm = "component-wise exact set-cover dynamic programming"
+        nodes = component_nodes
+    elif len(masks) <= exact_signal_limit:
+        candidates = [
+            (index, sum(1 << signal for signal, mask in enumerate(masks) if mask & (1 << index)))
+            for index in range(len(labels))
+        ]
+        chosen, _ = _minimum_cover(len(masks), candidates)
+        chosen_indices = list(chosen)
+        algorithm = "exact bitmask set-cover dynamic programming"
+        nodes = None
+    else:
+        candidates = [
+            (index, sum(1 << signal for signal, mask in enumerate(masks) if mask & (1 << index)))
+            for index in range(len(labels))
+        ]
+        bound = _greedy_cover_bounds(len(masks), candidates)
+        chosen_indices = list(bound["chosen"])
+        algorithm = "greedy set-cover fallback under exact resource limit"
+        nodes = None
+    chosen_labels = [labels[index] for index in chosen_indices]
+    blocks = _blocks_from_cover(
+        len(masks),
+        chosen_indices,
+        lambda action_index, signal: bool(masks[signal] & (1 << action_index)),
+    )
+    verification = verify_task_partition(source, prior, losses, blocks)
+    exact = algorithm != "greedy set-cover fallback under exact resource limit"
+    state_count = len(blocks)
+    bounds = {
+        "lower_bound": state_count if exact else profile["lower_bound"],
+        "upper_bound": state_count,
+        "optimality_gap": 0 if exact else state_count - profile["lower_bound"],
+        "theoretical_guarantee": (
+            "exact certificate"
+            if exact
+            else f"greedy cover cardinality <= H_{len(masks)} * optimum"
+        ),
+    }
+    return {
+        "status": "EXACT" if exact else "BOUNDED_APPROXIMATION",
+        "algorithm": algorithm,
+        "complexity_regime": profile["regime"],
+        "ambiguity": profile,
+        "chosen_actions": chosen_labels,
+        "chosen_action_indices": chosen_indices,
+        "blocks": [list(block) for block in blocks],
+        "state_count": state_count,
+        "bounds": bounds,
+        "nodes_explored": nodes,
+        "verification": verification,
+    }
+
+
+def set_cover_reduction_instance(
+    universe: Sequence[Any],
+    subsets: Sequence[Sequence[Any]],
+    k: int,
+) -> dict[str, Any]:
+    """Construct the polynomial reduction Set-Cover -> task quotient.
+
+    The source experiment is the identity channel on universe elements.  An
+    action is a subset, with zero loss exactly on the elements it covers.
+    Thus a risk-zero quotient with at most ``k`` blocks exists iff the input
+    Set-Cover instance has a cover of size at most ``k``.
+    """
+    elements = list(universe)
+    if not elements or len(set(elements)) != len(elements):
+        raise ValueError("universe must contain distinct non-empty elements")
+    if k < 0:
+        raise ValueError("k must be non-negative")
+    element_index = {element: index for index, element in enumerate(elements)}
+    normalized: list[list[Any]] = []
+    for subset in subsets:
+        values = list(dict.fromkeys(subset))
+        if any(value not in element_index for value in values):
+            raise ValueError("every subset element must belong to universe")
+        normalized.append(values)
+    covered = set(value for subset in normalized for value in subset)
+    if covered != set(elements):
+        raise ValueError("subsets must cover the universe for the reduction")
+    states = len(elements)
+    actions = list(range(len(normalized)))
+    losses = [
+        [0 if element in subset else 1 for subset in normalized]
+        for element in elements
+    ]
+    identity = [[1 if state == symbol else 0 for symbol in range(states)] for state in range(states)]
+    return {
+        "universe": elements,
+        "subsets": normalized,
+        "k": k,
+        "experiment": identity,
+        "prior": [Fraction(1, states) for _ in range(states)],
+        "losses": losses,
+        "actions": actions,
+        "reduction": {
+            "source": "SET-COVER",
+            "target": "minimum risk-zero task-sufficient quotient",
+            "iff": "cover of size <= k iff quotient of at most k blocks preserves Bayes risk 0",
+            "membership": "partition plus one common optimal action per block is a polynomial certificate",
+            "hardness": "NP-complete decision problem because Set Cover reduces in polynomial time",
+        },
+    }
+
+
+def verify_set_cover_reduction(instance: dict[str, Any]) -> dict[str, Any]:
+    """Verify the reduction and solve its small target instance exactly."""
+    result = adaptive_task_quotient(instance["experiment"], instance["prior"], instance["losses"])
+    cover = result["chosen_actions"]
+    return {
+        "cover": cover,
+        "cover_size": len(cover),
+        "k": instance["k"],
+        "quotient_blocks": result["blocks"],
+        "risk_zero": result["verification"]["preserved"],
+        "quotient_yes": result["verification"]["preserved"] and len(cover) <= instance["k"],
+        "minimum_cover_certificate": result,
+        "theorem_status": "PROVED_FOR_REDUCTION",
+    }
+
+
+def vertex_cover_reduction_instance(
+    vertices: Sequence[Any],
+    edges: Sequence[tuple[Any, Any]],
+    k: int,
+) -> dict[str, Any]:
+    """Specialize the reduction to Vertex Cover (degree-2 ambiguity)."""
+    vertex_list = list(dict.fromkeys(vertices))
+    if any(left not in vertex_list or right not in vertex_list for left, right in edges):
+        raise ValueError("edge endpoint is absent from vertices")
+    if any(left == right for left, right in edges):
+        raise ValueError("self-loops are not supported in the simple-graph fixture")
+    subsets = [[edge for edge in edges if vertex in edge] for vertex in vertex_list]
+    instance = set_cover_reduction_instance(list(edges), subsets, k)
+    instance["vertices"] = vertex_list
+    instance["edges"] = [list(edge) for edge in edges]
+    instance["actions"] = vertex_list
+    instance["losses"] = [
+        [0 if vertex in edge else 1 for vertex in vertex_list]
+        for edge in edges
+    ]
+    instance["reduction"] = {
+        "source": "VERTEX-COVER",
+        "target": "minimum risk-zero task quotient with ambiguity arity <= 2",
+        "iff": "vertex cover of size <= k iff quotient of at most k blocks preserves Bayes risk 0",
+        "hardness": "NP-complete decision problem by the degree-2 Set-Cover specialization",
+    }
+    return instance
+
+
+def vertex_cover_reduction_certificate(instance: dict[str, Any]) -> dict[str, Any]:
+    result = adaptive_task_quotient(
+        instance["experiment"], instance["prior"], instance["losses"], actions=instance["actions"]
+    )
+    return {
+        "chosen_vertices": result["chosen_actions"],
+        "cover_size": len(result["chosen_actions"]),
+        "k": instance["k"],
+        "quotient_blocks": result["blocks"],
+        "risk_zero": result["verification"]["preserved"],
+        "quotient_yes": result["verification"]["preserved"] and len(result["chosen_actions"]) <= instance["k"],
+        "solver": result,
+        "theorem_status": "PROVED_FOR_DEGREE_2_REDUCTION",
+    }
+
+
+def find_separation_witnesses(
+    first: Sequence[Sequence[Number]],
+    second: Sequence[Sequence[Number]],
+    *,
+    prior_denominator: int = 4,
+    max_candidates: int = 100_000,
+) -> dict[str, Any]:
+    """Search a finite rational loss/prior grid for Blackwell separators."""
+    left = validate_experiment(first)
+    right = validate_experiment(second)
+    if _shape(left) != _shape(right):
+        raise ValueError("experiments must have equal shape")
+    states, _ = _shape(left)
+    if prior_denominator < 1:
+        raise ValueError("prior_denominator must be positive")
+
+    def compositions(total: int, parts: int) -> Iterable[tuple[int, ...]]:
+        if parts == 1:
+            yield (total,)
+            return
+        for first_part in range(total + 1):
+            for tail in compositions(total - first_part, parts - 1):
+                yield (first_part,) + tail
+
+    first_witness = None
+    second_witness = None
+    examined = 0
+    for numerators in compositions(prior_denominator, states):
+        prior = [Fraction(value, prior_denominator) for value in numerators]
+        for bits in product((0, 1), repeat=2 * states):
+            losses = [list(bits[2 * state:2 * state + 2]) for state in range(states)]
+            left_engine = bayes_decision_engine(prior, left, losses)
+            right_engine = bayes_decision_engine(prior, right, losses)
+            left_risk = left_engine["internal"]["bayes_risk"]
+            right_risk = right_engine["internal"]["bayes_risk"]
+            examined += 1
+            if left_risk < right_risk and first_witness is None:
+                first_witness = {
+                    "prior": [_fraction_text(value) for value in prior],
+                    "losses": losses,
+                    "first_risk": _fraction_text(left_risk),
+                    "second_risk": _fraction_text(right_risk),
+                }
+            if right_risk < left_risk and second_witness is None:
+                second_witness = {
+                    "prior": [_fraction_text(value) for value in prior],
+                    "losses": losses,
+                    "first_risk": _fraction_text(left_risk),
+                    "second_risk": _fraction_text(right_risk),
+                }
+            if first_witness is not None and second_witness is not None:
+                return {
+                    "status": "SEPARATED",
+                    "first_better": first_witness,
+                    "second_better": second_witness,
+                    "examined": examined,
+                    "grid": {"prior_denominator": prior_denominator, "loss_values": [0, 1]},
+                    "complete": False,
+                    "meaning": "finite witnesses show neither experiment uniformly dominates the other",
+                }
+            if examined >= max_candidates:
+                return {
+                    "status": "BOUNDED_SEARCH",
+                    "first_better": first_witness,
+                    "second_better": second_witness,
+                    "examined": examined,
+                    "grid": {"prior_denominator": prior_denominator, "loss_values": [0, 1]},
+                    "complete": False,
+                }
+    return {
+        "status": "NO_GRID_WITNESS",
+        "first_better": first_witness,
+        "second_better": second_witness,
+        "examined": examined,
+        "grid": {"prior_denominator": prior_denominator, "loss_values": [0, 1]},
+        "complete": True,
+    }
+
+
 def _blocks_from_cover(
     signal_count: int,
     chosen_labels: Sequence[Any],
@@ -872,33 +1469,69 @@ def epsilon_sufficient_compression(
     best: dict[str, Any] | None = None
     feasible_count = 0
     checked = 0
-    for blocks in _partitions(len(source[0]), max_count=max_partitions):
-        checked += 1
-        quotient = quotient_experiment(source, blocks)
-        compressed = [bayes_decision_engine(prior, quotient, task["losses"], task.get("actions")) for task in tasks]
-        deltas = [
-            compressed[index]["internal"]["bayes_risk"] - originals[index]["internal"]["bayes_risk"]
-            for index in range(len(tasks))
-        ]
-        if any(delta > epsilon_values[index] for index, delta in enumerate(deltas)):
-            continue
-        feasible_count += 1
-        candidate = {
-            "blocks": [list(block) for block in blocks],
-            "state_count": len(blocks),
-            "risk_deltas": [_fraction_text(delta) for delta in deltas],
-            "risk_deltas_float": [_float(delta) for delta in deltas],
-            "quotient_experiment": _serialize_matrix(quotient),
-            "quotient_engines": compressed,
+    pruned = 0
+    try:
+        for blocks in _partitions(len(source[0]), max_count=max_partitions):
+            checked += 1
+            # The first feasible incumbent is an upper bound.  Any partition
+            # with at least as many blocks cannot improve the objective; this
+            # is a genuine branch-and-bound pruning rule even though the
+            # canonical partition generator remains the auditable traversal.
+            if best is not None and len(blocks) >= best["state_count"]:
+                pruned += 1
+                continue
+            quotient = quotient_experiment(source, blocks)
+            compressed = [bayes_decision_engine(prior, quotient, task["losses"], task.get("actions")) for task in tasks]
+            deltas = [
+                compressed[index]["internal"]["bayes_risk"] - originals[index]["internal"]["bayes_risk"]
+                for index in range(len(tasks))
+            ]
+            if any(delta > epsilon_values[index] for index, delta in enumerate(deltas)):
+                continue
+            feasible_count += 1
+            candidate = {
+                "blocks": [list(block) for block in blocks],
+                "state_count": len(blocks),
+                "risk_deltas": [_fraction_text(delta) for delta in deltas],
+                "risk_deltas_float": [_float(delta) for delta in deltas],
+                "quotient_experiment": _serialize_matrix(quotient),
+                "quotient_engines": compressed,
+            }
+            if best is None or (candidate["state_count"], candidate["blocks"]) < (best["state_count"], best["blocks"]):
+                best = candidate
+    except ExactSolverLimit:
+        if best is None:
+            return {
+                "status": "RESOURCE_LIMIT",
+                "partitions_checked": checked,
+                "feasible_partition_count": feasible_count,
+                "lower_bound": 1,
+                "upper_bound": None,
+                "optimality_gap": None,
+                "pruned": pruned,
+                "complexity": "branch-and-bound over canonical partitions; Bell(m) worst case",
+            }
+        return {
+            "status": "RESOURCE_LIMIT",
+            "partitions_checked": checked,
+            "feasible_partition_count": feasible_count,
+            "minimum": best,
+            "lower_bound": 1,
+            "upper_bound": best["state_count"],
+            "optimality_gap": best["state_count"] - 1,
+            "pruned": pruned,
+            "complexity": "branch-and-bound over canonical partitions; Bell(m) worst case",
         }
-        if best is None or (candidate["state_count"], candidate["blocks"]) < (best["state_count"], best["blocks"]):
-            best = candidate
     if best is None:
         return {
             "status": "NO_FEASIBLE_PARTITION",
             "partitions_checked": checked,
             "feasible_partition_count": 0,
-            "complexity": "O(Bell(m) * sum_i decision_engine_i)",
+            "lower_bound": None,
+            "upper_bound": None,
+            "optimality_gap": None,
+            "pruned": pruned,
+            "complexity": "branch-and-bound over canonical partitions; Bell(m) worst case",
         }
     return {
         "status": "EXACT",
@@ -906,8 +1539,12 @@ def epsilon_sufficient_compression(
         "feasible_partition_count": feasible_count,
         "minimum": best,
         "epsilons": [_fraction_text(value) for value in epsilon_values],
-        "complexity": "O(Bell(m) * sum_i decision_engine_i)",
-        "optimality": "exhaustive over all canonical set partitions",
+        "lower_bound": best["state_count"],
+        "upper_bound": best["state_count"],
+        "optimality_gap": 0,
+        "pruned": pruned,
+        "complexity": "branch-and-bound over canonical partitions; Bell(m) worst case",
+        "optimality": "lower bound equals feasible upper bound after all smaller partitions are ruled out",
     }
 
 
@@ -930,6 +1567,148 @@ def decision_spectrum(
     return spectrum
 
 
+def stochastic_compression_search(
+    experiment: Sequence[Sequence[Number]],
+    prior: Sequence[Number],
+    tasks: Sequence[dict[str, Any]],
+    epsilons: Sequence[Number],
+    *,
+    target_symbols: int,
+    denominator: int = 2,
+    max_channels: int = 100_000,
+) -> dict[str, Any]:
+    """Search a small rational grid for a stochastic-compression advantage.
+
+    The function is deliberately a falsification tool, not a universal
+    optimizer.  It compares every grid channel against the exact deterministic
+    partition result on the same finite fixture and records when the grid is
+    insufficient to decide the general question.
+    """
+    source = validate_experiment(experiment)
+    states, source_symbols = _shape(source)
+    if target_symbols < 1 or denominator < 1:
+        raise ValueError("target_symbols and denominator must be positive")
+    if len(tasks) != len(epsilons):
+        raise ValueError("tasks and epsilons must have equal length")
+
+    def compositions(total: int, parts: int) -> Iterable[tuple[int, ...]]:
+        if parts == 1:
+            yield (total,)
+            return
+        for first_part in range(total + 1):
+            for tail in compositions(total - first_part, parts - 1):
+                yield (first_part,) + tail
+
+    row_grid = list(compositions(denominator, target_symbols))
+    channels = 0
+    stochastic_feasible = None
+    for rows in product(row_grid, repeat=source_symbols):
+        channels += 1
+        if channels > max_channels:
+            break
+        channel = [[Fraction(value, denominator) for value in row] for row in rows]
+        compressed_experiment = _matmul(source, channel)
+        originals = [bayes_decision_engine(prior, source, task["losses"], task.get("actions")) for task in tasks]
+        compressed = [bayes_decision_engine(prior, compressed_experiment, task["losses"], task.get("actions")) for task in tasks]
+        deltas = [
+            compressed[index]["internal"]["bayes_risk"] - originals[index]["internal"]["bayes_risk"]
+            for index in range(len(tasks))
+        ]
+        if all(delta <= frac(epsilons[index]) for index, delta in enumerate(deltas)):
+            stochastic_feasible = {
+                "channel": _serialize_matrix(channel),
+                "risk_deltas": [_fraction_text(delta) for delta in deltas],
+            }
+            break
+
+    deterministic = epsilon_sufficient_compression(
+        source, prior, tasks, epsilons, max_partitions=250_000
+    )
+    deterministic_feasible = (
+        deterministic.get("status") == "EXACT"
+        and deterministic["minimum"]["state_count"] <= target_symbols
+    )
+    exact_zero = all(frac(value) == 0 for value in epsilons)
+    return {
+        "status": "SEARCHED" if channels <= max_channels else "BOUNDED_SEARCH",
+        "target_symbols": target_symbols,
+        "denominator": denominator,
+        "channels_examined": channels,
+        "stochastic_feasible": stochastic_feasible,
+        "deterministic_feasible": deterministic_feasible,
+        "deterministic_result": deterministic,
+        "strict_stochastic_advantage_found": stochastic_feasible is not None and not deterministic_feasible,
+        "exact_zero_theorem": (
+            "For epsilon=0, a stochastic decoder's supported actions are optimal at every source symbol; "
+            "choosing one supported output per symbol gives a deterministic quotient with no more symbols."
+            if exact_zero else None
+        ),
+        "general_epsilon_status": "UNKNOWN outside this finite grid" if not exact_zero else "PROVED_NO_ADVANTAGE",
+    }
+
+
+def _identity_hypergraph_instance(
+    hyperedges: Sequence[Sequence[int]],
+    action_count: int,
+) -> tuple[Matrix, list[Fraction], Matrix, list[int]]:
+    """Make a controlled identity experiment from an ambiguity hypergraph."""
+    if not hyperedges or action_count < 1:
+        raise ValueError("controlled hypergraph must be non-empty")
+    if any(not edge or any(action < 0 or action >= action_count for action in edge) for edge in hyperedges):
+        raise ValueError("hyperedges must contain valid non-empty action indices")
+    symbols = len(hyperedges)
+    experiment = [[1 if state == symbol else 0 for symbol in range(symbols)] for state in range(symbols)]
+    losses = [[0 if action in hyperedges[state] else 1 for action in range(action_count)] for state in range(symbols)]
+    return experiment, [Fraction(1, symbols) for _ in range(symbols)], losses, list(range(action_count))
+
+
+def complexity_experiment_suite() -> list[dict[str, Any]]:
+    """Run a compact synthetic suite that changes structure, not corpus."""
+    cases = {
+        "unique_optimum": ([[0], [1], [2], [3]], 4),
+        "degree_2_cycle": ([[0, 1], [1, 2], [2, 3], [3, 0]], 4),
+        "decomposable": ([[0, 1, 2], [0], [3, 4, 5], [3]], 6),
+        "high_symmetry": ([[0, 1], [0, 1], [0, 1], [0, 1]], 2),
+        "dense_general": ([[0, 1, 2], [0, 2, 3], [1, 2, 3], [0, 1, 3], [0, 1, 2, 3]], 4),
+        "large_general_bounded": (
+            [sorted({index % 11, (index + 1) % 11, (index + 4) % 11}) for index in range(23)],
+            11,
+        ),
+    }
+    rows = []
+    for name, (hyperedges, action_count) in cases.items():
+        experiment, prior, losses, actions = _identity_hypergraph_instance(hyperedges, action_count)
+        start = perf_counter()
+        result = adaptive_task_quotient(experiment, prior, losses, actions=actions, exact_signal_limit=8)
+        elapsed = perf_counter() - start
+        bounds = result["bounds"]
+        lower = bounds["lower_bound"]
+        upper = bounds["upper_bound"]
+        rows.append({
+            "case": name,
+            "symbols": len(hyperedges),
+            "actions": action_count,
+            "ambiguous_symbols": result["ambiguity"]["ambiguous_symbols"],
+            "maximum_ambiguity": result["ambiguity"]["maximum_ambiguity_arity"],
+            "components": len(result["ambiguity"]["components"]),
+            "regime": result["complexity_regime"],
+            "algorithm": result["algorithm"],
+            "states_explored": result["nodes_explored"],
+            "runtime_seconds": elapsed,
+            "status": result["status"],
+            "optimum": result["state_count"] if result["status"] == "EXACT" else None,
+            "lower_bound": lower,
+            "upper_bound": upper,
+            "optimality_gap": bounds["optimality_gap"],
+            "theoretical_guarantee": bounds["theoretical_guarantee"],
+            "observed_upper_over_lower": (
+                None if not lower else upper / lower
+            ),
+            "certificate": "partition + common optimal actions" if result["verification"]["preserved"] else "bounded cover only",
+        })
+    return rows
+
+
 def representation_compiler(
     experiment: Sequence[Sequence[Number]],
     prior: Sequence[Number],
@@ -949,8 +1728,22 @@ def representation_compiler(
     task_checks = []
     for task in tasks:
         task_checks.append(verify_task_partition(source, prior, task["losses"], blocks))
-    blackwell = find_blackwell_garbling(source, quotient)
-    deficiency = directed_deficiency(source, quotient)
+    blackwell = compare_blackwell(source, quotient)
+    forward_deficiency = directed_deficiency(source, quotient)
+    reverse_deficiency = directed_deficiency(quotient, source)
+    if forward_deficiency.get("status") == "EXACT" and reverse_deficiency.get("status") == "EXACT":
+        symmetric_distance = max(
+            frac(forward_deficiency["deficiency"]),
+            frac(reverse_deficiency["deficiency"]),
+        )
+        symmetric = {
+            "status": "EXACT",
+            "value": _fraction_text(symmetric_distance),
+            "value_float": _float(symmetric_distance),
+            "meaning": "max(forward simulation loss, reverse reconstruction deficiency)",
+        }
+    else:
+        symmetric = {"status": "INVALID", "meaning": "one directed deficiency was not solved"}
     return {
         "status": "COMPILED",
         "original_experiment": _serialize_matrix(source),
@@ -958,8 +1751,13 @@ def representation_compiler(
         "quotient_blocks": [list(block) for block in blocks],
         "compression": compression,
         "task_checks": task_checks,
-        "blackwell_original_to_compressed": blackwell,
-        "deficiency_original_to_compressed": deficiency,
+        "blackwell_relation": blackwell,
+        "blackwell_original_to_compressed": blackwell["first_to_second"],
+        "forward_simulation_loss": forward_deficiency,
+        "reverse_reconstruction_deficiency": reverse_deficiency,
+        "symmetric_decision_distance": symmetric,
+        # Backwards-compatible aliases retained for existing consumers.
+        "deficiency_original_to_compressed": forward_deficiency,
         "preserved_tasks": [
             task.get("id", index)
             for index, (task, check) in enumerate(zip(tasks, task_checks))
@@ -973,6 +1771,7 @@ def representation_compiler(
         "complexity_certificate": {
             "quotient_search": compression["complexity"],
             "garbling_check": "finite rational LP; this implementation uses exact vertices",
+            "direction_convention": "forward source->compressed is simulation loss; reverse compressed->source is reconstruction deficiency",
         },
     }
 
@@ -1080,7 +1879,7 @@ def _fixtures() -> dict[str, Matrix | list[Fraction]]:
         "useless": [[Fraction(1, 2), Fraction(1, 2)], [Fraction(1, 2), Fraction(1, 2)]],
         "incomparable_left": [[1, 0], [1, 0], [0, 1]],
         "incomparable_right": [[1, 0], [0, 1], [0, 1]],
-        "three_signal_task": [[Fraction(1, 2), Fraction(1, 4), Fraction(1, 4)], [0, Fraction(1, 2), Fraction(1, 2)]],
+        "three_signal_task": [[Fraction(1, 2), Fraction(1, 4), Fraction(1, 4)], [0, Fraction(1, 3), Fraction(2, 3)]],
     }
 
 
@@ -1101,6 +1900,7 @@ def run_calculus() -> dict[str, Any]:
         "identical": compare_blackwell(revealing, revealing),
         "permuted": compare_blackwell(revealing, fixtures["permuted_revealing"]),
         "strict_garbling": compare_blackwell(revealing, strict),
+        "reverse_only": compare_blackwell(strict, revealing),
         "useless": compare_blackwell(revealing, useless),
         "incomparable": compare_blackwell(fixtures["incomparable_left"], fixtures["incomparable_right"]),
     }
@@ -1148,6 +1948,25 @@ def run_calculus() -> dict[str, Any]:
         },
         "finding": "The higher-MI experiment has worse task Bayes risk; MI and decision usefulness do not induce the same order.",
     }
+    ambiguity = analyze_decision_ambiguity(fixtures["three_signal_task"], prior, binary_loss)
+    adaptive = adaptive_task_quotient(fixtures["three_signal_task"], prior, binary_loss)
+    set_cover_fixture = set_cover_reduction_instance(
+        ["u1", "u2", "u3", "u4"],
+        [["u1", "u2"], ["u2", "u3"], ["u3", "u4"], ["u1", "u4"]],
+        2,
+    )
+    set_cover_certificate = verify_set_cover_reduction(set_cover_fixture)
+    vertex_cover_fixture = vertex_cover_reduction_instance(
+        ["a", "b", "c", "d"], [("a", "b"), ("b", "c"), ("c", "d")], 2
+    )
+    vertex_cover_certificate = vertex_cover_reduction_certificate(vertex_cover_fixture)
+    separation = find_separation_witnesses(
+        fixtures["incomparable_left"], fixtures["incomparable_right"], prior_denominator=4
+    )
+    stochastic = stochastic_compression_search(
+        fixtures["three_signal_task"], prior, tasks[:1], [0], target_symbols=1, denominator=2
+    )
+    complexity_suite = complexity_experiment_suite()
     return {
         "protocol": "agent1-decision-representation-calculus-v1",
         "corpus_policy": "no new corpus; exact finite mathematical fixtures only",
@@ -1194,6 +2013,24 @@ def run_calculus() -> dict[str, Any]:
         "representation_path": path,
         "identification_interface": identification,
         "representation_compiler": compiler,
+        "ambiguity_hypergraph": {
+            "status": "EXECUTABLE",
+            "profile": ambiguity,
+            "adaptive_solver": adaptive,
+            "principle": "minimum quotient = minimum action cover of optimal-action hyperedges",
+        },
+        "complexity_reductions": {
+            "set_cover": set_cover_certificate,
+            "vertex_cover_degree_2": vertex_cover_certificate,
+            "claims": {
+                "minimum_task_quotient_decision": "NP-COMPLETE by explicit polynomial Set-Cover reduction",
+                "degree_2_ambiguity_decision": "NP-HARD by explicit Vertex-Cover reduction",
+                "unique_optimum": "polynomial direct grouping",
+            },
+        },
+        "blackwell_separation": separation,
+        "stochastic_compression": stochastic,
+        "complexity_experiment_suite": complexity_suite,
         "complexity": {
             "bayes_engine": {
                 "decision_version": "is V(E,D,pi) <= q?",
@@ -1221,17 +2058,22 @@ def run_calculus() -> dict[str, Any]:
                 "reduction": "minimum set cover over Bayes-optimal action incidence",
                 "this_implementation": "bitmask dynamic programming",
                 "worst_case": "O(2^|R|*|A|) after optimal-action computation",
-                "hardness_status": "set-cover reduction is exact; arbitrary-instance hardness embedding not claimed",
+                "hardness_status": "NP-complete decision problem by explicit Set-Cover reduction",
             },
             "multi_task_quotient": {
                 "reduction": "set cover over joint optimal-action tuples",
                 "worst_case": "O(2^|R|*product_i |A_i|)",
-                "hardness_status": "no unproved NP-hardness claim",
+                "hardness_status": "NP-hard degree-2 specialization by Vertex-Cover reduction",
             },
             "epsilon_compression": {
-                "algorithm": "exhaustive canonical set partitions",
+                "algorithm": "branch-and-bound over canonical set partitions with rational risk checks",
                 "worst_case": "O(Bell(|R|)*sum_i decision_engine_i)",
-                "hardness_status": "exact finite solver; general hardness remains open here",
+                "bounds": "lower_bound <= optimum <= feasible upper_bound; exact runs close the gap",
+                "hardness_status": "NP-hard already at epsilon=0 via the task-quotient reduction",
+            },
+            "stochastic_compression": {
+                "exact_epsilon_zero": "randomization cannot reduce the number of output symbols for a fixed task",
+                "positive_epsilon": "finite grid search only; general multi-task question remains UNKNOWN",
             },
         },
         "counterexamples": {
@@ -1247,6 +2089,15 @@ def run_calculus() -> dict[str, Any]:
             "task_dependence": {
                 "status": "CONSTRUCTED",
                 "statement": "The minimum quotient is computed per task and can change when a second loss matrix is added.",
+            },
+            "stochastic_no_advantage_at_zero_tolerance": {
+                "status": "PROVED",
+                "statement": "For epsilon=0, every action used with positive probability after a stochastic compressor must be optimal at the source signal; selecting one supported output gives a deterministic quotient with no more output symbols.",
+            },
+            "finite_blackwell_separation_witnesses": {
+                "status": separation["status"],
+                "statement": "The incomparable fixture has bounded rational decision witnesses in both directions; this is a witness search, not a replacement for the Blackwell theorem.",
+                "fixture": separation,
             },
         },
         "literature": [
@@ -1271,6 +2122,10 @@ def run_calculus() -> dict[str, Any]:
                 "task quotient validity is equivalent to a common Bayes-optimal action per block",
                 "multi-task quotient minimum cannot be smaller than a single-task quotient",
                 "Blackwell witness implies zero deficiency in the same direction",
+                "Set-Cover reduces to minimum risk-zero task quotient",
+                "Vertex-Cover reduces to degree-2 ambiguity quotient",
+                "forward simulation loss is zero for a deterministic quotient; reverse reconstruction deficiency can be positive",
+                "exact-zero stochastic compression has no representation-size advantage over deterministic compression",
             ],
             "KNOWN_RESULT": [
                 "finite Blackwell comparison is a stochastic-channel feasibility problem",
@@ -1281,8 +2136,8 @@ def run_calculus() -> dict[str, Any]:
                 "representation quality can be summarized independently of a decision family",
             ],
             "UNKNOWN": [
-                "general NP-hardness of the realizable task-quotient family",
-                "scalable approximate quotient algorithms beyond exact bitmask/partition search",
+                "whether stochastic compression can improve a multi-task positive-epsilon frontier outside the searched finite grid",
+                "scalable approximation guarantees for epsilon compression beyond the reported bounds",
             ],
         },
     }
