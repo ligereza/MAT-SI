@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from dataclasses import dataclass
 from fractions import Fraction
 from pathlib import Path
 from typing import Any, Sequence
@@ -37,6 +38,30 @@ def _validate_cost(value: Number, name: str) -> Fraction:
     if result < 0:
         raise ValueError(f"{name} must be non-negative")
     return result
+
+
+@dataclass(frozen=True)
+class CostInterval:
+    """A non-negative interval for an identification cost.
+
+    ``upper=None`` means that no finite upper bound is certified.  The
+    interval is evidence about cost, not a probability distribution, so no
+    expected value is inferred from it.
+    """
+
+    lower: Number
+    upper: Number | None = None
+
+    def __post_init__(self) -> None:
+        low = _validate_cost(self.lower, "identification_cost_lower")
+        high = None if self.upper is None else _validate_cost(self.upper, "identification_cost_upper")
+        if high is not None and high < low:
+            raise ValueError("identification cost upper bound must be >= lower bound")
+        object.__setattr__(self, "lower", low)
+        object.__setattr__(self, "upper", high)
+
+    def as_dict(self) -> dict[str, str | None]:
+        return {"lower": str(self.lower), "upper": None if self.upper is None else str(self.upper)}
 
 
 def evaluate_identification_economics(
@@ -118,6 +143,80 @@ def identification_adjusted_break_even_count(
     return quotient.numerator // quotient.denominator + 1
 
 
+def evaluate_bounded_identification_economics(
+    observation: MetaProblemObservation,
+    direct_cost: Number,
+    identification_cost_lower: Number,
+    identification_cost_upper: Number | None,
+) -> dict[str, Any]:
+    """Make a robust decision when identification cost is interval-valued.
+
+    For an exact downstream gain ``G = C0-C*``:
+
+    * ``I_max < G`` certifies identification for every admissible cost;
+    * ``I_min >= G`` certifies direct solving;
+    * otherwise the evidence cannot certify either strict comparison.
+
+    The last case returns ``ABSTAIN_COST_UNCERTAIN`` and names direct solving
+    as a safe fallback without silently treating it as a proven optimum.
+    """
+
+    direct = _validate_cost(direct_cost, "direct_cost")
+    interval = CostInterval(identification_cost_lower, identification_cost_upper)
+    classification = classify_meta_problem(observation)
+    if classification.status == "ABSTAIN":
+        return {
+            "status": "ABSTAIN",
+            "reason": "regime was not identified with a supported certificate",
+            "classification": classification.as_dict(),
+        }
+    if classification.regime != "KNOWN_HORIZON_AFFINE":
+        return {
+            "status": "ABSTAIN",
+            "reason": "no exact downstream solver is implemented for this regime",
+            "classification": classification.as_dict(),
+        }
+
+    solved = solve_known_horizon_affine(observation.routes, int(observation.horizon_value))
+    best = frac(solved["optimal_cost"])
+    gain = direct - best
+    if gain <= 0:
+        decision = "DIRECT_CERTIFIED"
+        reason = "the exact downstream route has no strict gross advantage"
+        status = "ROBUST_DECISION"
+        fallback = None
+    elif interval.upper is not None and interval.upper < gain:
+        decision = "ROBUST_IDENTIFY_AND_SOLVE"
+        reason = "the certified upper cost remains below the gross advantage"
+        status = "ROBUST_DECISION"
+        fallback = None
+    elif interval.lower >= gain:
+        decision = "DIRECT_CERTIFIED"
+        reason = "even the certified lower cost consumes the gross advantage"
+        status = "ROBUST_DECISION"
+        fallback = None
+    else:
+        decision = "ABSTAIN_COST_UNCERTAIN"
+        reason = "the cost interval crosses the strict break-even boundary"
+        status = "ABSTAIN"
+        fallback = "SOLVE_DIRECT"
+    return {
+        "status": status,
+        "decision": decision,
+        "classification": classification.as_dict(),
+        "downstream_solution": solved,
+        "costs": {
+            "direct": str(direct),
+            "downstream_exact": str(best),
+            "gross_gain": str(gain),
+            "identification_interval": interval.as_dict(),
+        },
+        "reason": reason,
+        "safe_fallback": fallback,
+        "certificate": "robust interval comparison without an expected-cost assumption",
+    }
+
+
 def run_regime_economics_suite() -> dict[str, Any]:
     """Run the smallest exact counterexample suite for identification cost."""
 
@@ -144,6 +243,11 @@ def run_regime_economics_suite() -> dict[str, Any]:
         identification_cost=0,
     )
 
+    bounded_identify = evaluate_bounded_identification_economics(observation, 10, 0, 4)
+    bounded_direct = evaluate_bounded_identification_economics(observation, 10, 5, 8)
+    bounded_abstain = evaluate_bounded_identification_economics(observation, 10, 4, 6)
+    unbounded = evaluate_bounded_identification_economics(observation, 10, 0, None)
+
     return {
         "question": "When does regime identification pay for itself?",
         "model": {
@@ -155,6 +259,12 @@ def run_regime_economics_suite() -> dict[str, Any]:
         "identification_cost_exceeds_gain": too_expensive,
         "equality_is_not_strict_improvement": equality,
         "unsupported_regime_stays_abstain": unsupported,
+        "bounded_cost": {
+            "robust_identify": bounded_identify,
+            "robust_direct": bounded_direct,
+            "crossing_interval_abstains": bounded_abstain,
+            "unbounded_interval_abstains": unbounded,
+        },
         "break_even": {
             "setup": "3",
             "direct_rate": "10",
@@ -184,6 +294,14 @@ def run_regime_economics_suite() -> dict[str, Any]:
                 "status": "UNKNOWN",
                 "claim": "a learned/partial classifier can estimate I tightly enough without hiding its own cost",
             },
+            {
+                "status": "PROVED",
+                "claim": "for an exact downstream gain, interval bounds yield a robust identify/direct/abstain trichotomy",
+            },
+            {
+                "status": "DISPROVED",
+                "claim": "an interval crossing the break-even boundary can certify a strict choice without extra evidence",
+            },
         ],
         "phase_boundary": "No new corpus; no new product; no merge to main.",
     }
@@ -204,4 +322,3 @@ def main(argv: Sequence[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

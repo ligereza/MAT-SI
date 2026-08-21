@@ -1,0 +1,470 @@
+{
+  "bounded_cost": {
+    "crossing_interval_abstains": {
+      "certificate": "robust interval comparison without an expected-cost assumption",
+      "classification": {
+        "observed": {
+          "candidate_values_known": true,
+          "direct_rate_known": false,
+          "horizon": "KNOWN",
+          "horizon_value": 1,
+          "inspection_cost_count": 0,
+          "objective_dimensions": 1,
+          "route_count": 2,
+          "route_graph_complete": false,
+          "route_ids": [
+            "direct",
+            "compiled"
+          ],
+          "transition_generators_complete": false
+        },
+        "reasons": [
+          "finite reusable routes expose setup and per-use costs",
+          "the reuse horizon is observed"
+        ],
+        "regime": "KNOWN_HORIZON_AFFINE",
+        "solver_family": "EXACT_LOWER_ENVELOPE",
+        "status": "CLASSIFIED"
+      },
+      "costs": {
+        "direct": "10",
+        "downstream_exact": "5",
+        "gross_gain": "5",
+        "identification_interval": {
+          "lower": "4",
+          "upper": "6"
+        }
+      },
+      "decision": "ABSTAIN_COST_UNCERTAIN",
+      "downstream_solution": {
+        "certificate": "minimum over all explicitly supplied affine route costs",
+        "complexity": {
+          "space": "O(m)",
+          "time": "O(m)"
+        },
+        "costs": {
+          "compiled": "5",
+          "direct": "10"
+        },
+        "optimal_cost": "5",
+        "status": "EXACT",
+        "ties": [
+          "compiled"
+        ],
+        "winner": "compiled"
+      },
+      "reason": "the cost interval crosses the strict break-even boundary",
+      "safe_fallback": "SOLVE_DIRECT",
+      "status": "ABSTAIN"
+    },
+    "robust_direct": {
+      "certificate": "robust interval comparison without an expected-cost assumption",
+      "classification": {
+        "observed": {
+          "candidate_values_known": true,
+          "direct_rate_known": false,
+          "horizon": "KNOWN",
+          "horizon_value": 1,
+          "inspection_cost_count": 0,
+          "objective_dimensions": 1,
+          "route_count": 2,
+          "route_graph_complete": false,
+          "route_ids": [
+            "direct",
+            "compiled"
+          ],
+          "transition_generators_complete": false
+        },
+        "reasons": [
+          "finite reusable routes expose setup and per-use costs",
+          "the reuse horizon is observed"
+        ],
+        "regime": "KNOWN_HORIZON_AFFINE",
+        "solver_family": "EXACT_LOWER_ENVELOPE",
+        "status": "CLASSIFIED"
+      },
+      "costs": {
+        "direct": "10",
+        "downstream_exact": "5",
+        "gross_gain": "5",
+        "identification_interval": {
+          "lower": "5",
+          "upper": "8"
+        }
+      },
+      "decision": "DIRECT_CERTIFIED",
+      "downstream_solution": {
+        "certificate": "minimum over all explicitly supplied affine route costs",
+        "complexity": {
+          "space": "O(m)",
+          "time": "O(m)"
+        },
+        "costs": {
+          "compiled": "5",
+          "direct": "10"
+        },
+        "optimal_cost": "5",
+        "status": "EXACT",
+        "ties": [
+          "compiled"
+        ],
+        "winner": "compiled"
+      },
+      "reason": "even the certified lower cost consumes the gross advantage",
+      "safe_fallback": null,
+      "status": "ROBUST_DECISION"
+    },
+    "robust_identify": {
+      "certificate": "robust interval comparison without an expected-cost assumption",
+      "classification": {
+        "observed": {
+          "candidate_values_known": true,
+          "direct_rate_known": false,
+          "horizon": "KNOWN",
+          "horizon_value": 1,
+          "inspection_cost_count": 0,
+          "objective_dimensions": 1,
+          "route_count": 2,
+          "route_graph_complete": false,
+          "route_ids": [
+            "direct",
+            "compiled"
+          ],
+          "transition_generators_complete": false
+        },
+        "reasons": [
+          "finite reusable routes expose setup and per-use costs",
+          "the reuse horizon is observed"
+        ],
+        "regime": "KNOWN_HORIZON_AFFINE",
+        "solver_family": "EXACT_LOWER_ENVELOPE",
+        "status": "CLASSIFIED"
+      },
+      "costs": {
+        "direct": "10",
+        "downstream_exact": "5",
+        "gross_gain": "5",
+        "identification_interval": {
+          "lower": "0",
+          "upper": "4"
+        }
+      },
+      "decision": "ROBUST_IDENTIFY_AND_SOLVE",
+      "downstream_solution": {
+        "certificate": "minimum over all explicitly supplied affine route costs",
+        "complexity": {
+          "space": "O(m)",
+          "time": "O(m)"
+        },
+        "costs": {
+          "compiled": "5",
+          "direct": "10"
+        },
+        "optimal_cost": "5",
+        "status": "EXACT",
+        "ties": [
+          "compiled"
+        ],
+        "winner": "compiled"
+      },
+      "reason": "the certified upper cost remains below the gross advantage",
+      "safe_fallback": null,
+      "status": "ROBUST_DECISION"
+    },
+    "unbounded_interval_abstains": {
+      "certificate": "robust interval comparison without an expected-cost assumption",
+      "classification": {
+        "observed": {
+          "candidate_values_known": true,
+          "direct_rate_known": false,
+          "horizon": "KNOWN",
+          "horizon_value": 1,
+          "inspection_cost_count": 0,
+          "objective_dimensions": 1,
+          "route_count": 2,
+          "route_graph_complete": false,
+          "route_ids": [
+            "direct",
+            "compiled"
+          ],
+          "transition_generators_complete": false
+        },
+        "reasons": [
+          "finite reusable routes expose setup and per-use costs",
+          "the reuse horizon is observed"
+        ],
+        "regime": "KNOWN_HORIZON_AFFINE",
+        "solver_family": "EXACT_LOWER_ENVELOPE",
+        "status": "CLASSIFIED"
+      },
+      "costs": {
+        "direct": "10",
+        "downstream_exact": "5",
+        "gross_gain": "5",
+        "identification_interval": {
+          "lower": "0",
+          "upper": null
+        }
+      },
+      "decision": "ABSTAIN_COST_UNCERTAIN",
+      "downstream_solution": {
+        "certificate": "minimum over all explicitly supplied affine route costs",
+        "complexity": {
+          "space": "O(m)",
+          "time": "O(m)"
+        },
+        "costs": {
+          "compiled": "5",
+          "direct": "10"
+        },
+        "optimal_cost": "5",
+        "status": "EXACT",
+        "ties": [
+          "compiled"
+        ],
+        "winner": "compiled"
+      },
+      "reason": "the cost interval crosses the strict break-even boundary",
+      "safe_fallback": "SOLVE_DIRECT",
+      "status": "ABSTAIN"
+    }
+  },
+  "break_even": {
+    "direct_rate": "10",
+    "setup": "3",
+    "transformed_rate": "2",
+    "with_identification_cost_2": 1,
+    "with_identification_cost_6": 2,
+    "without_identification_cost": 1
+  },
+  "claims": [
+    {
+      "claim": "for an exact known-horizon downstream solver, identify iff I < C0 - C*",
+      "status": "PROVED"
+    },
+    {
+      "claim": "adding identification cost shifts affine break-even from D/g to (D+I)/g",
+      "status": "PROVED"
+    },
+    {
+      "claim": "a sound regime classification is automatically worth executing",
+      "status": "DISPROVED"
+    },
+    {
+      "claim": "this is an exact finite metareasoning cost comparison, not a novelty claim by itself",
+      "status": "KNOWN_RESULT"
+    },
+    {
+      "claim": "a learned/partial classifier can estimate I tightly enough without hiding its own cost",
+      "status": "UNKNOWN"
+    },
+    {
+      "claim": "for an exact downstream gain, interval bounds yield a robust identify/direct/abstain trichotomy",
+      "status": "PROVED"
+    },
+    {
+      "claim": "an interval crossing the break-even boundary can certify a strict choice without extra evidence",
+      "status": "DISPROVED"
+    }
+  ],
+  "equality_is_not_strict_improvement": {
+    "certificate": "identification_cost >= direct_cost - exact_downstream_cost",
+    "classification": {
+      "observed": {
+        "candidate_values_known": true,
+        "direct_rate_known": false,
+        "horizon": "KNOWN",
+        "horizon_value": 1,
+        "inspection_cost_count": 0,
+        "objective_dimensions": 1,
+        "route_count": 2,
+        "route_graph_complete": false,
+        "route_ids": [
+          "direct",
+          "compiled"
+        ],
+        "transition_generators_complete": false
+      },
+      "reasons": [
+        "finite reusable routes expose setup and per-use costs",
+        "the reuse horizon is observed"
+      ],
+      "regime": "KNOWN_HORIZON_AFFINE",
+      "solver_family": "EXACT_LOWER_ENVELOPE",
+      "status": "CLASSIFIED"
+    },
+    "costs": {
+      "direct": "10",
+      "downstream_exact": "5",
+      "gross_gain_before_identification": "5",
+      "identification": "5",
+      "identify_total": "10",
+      "net_gain_after_identification": "0",
+      "strictly_allowed_identification_cost": "5"
+    },
+    "decision": "SOLVE_DIRECT",
+    "downstream_solution": {
+      "certificate": "minimum over all explicitly supplied affine route costs",
+      "complexity": {
+        "space": "O(m)",
+        "time": "O(m)"
+      },
+      "costs": {
+        "compiled": "5",
+        "direct": "10"
+      },
+      "optimal_cost": "5",
+      "status": "EXACT",
+      "ties": [
+        "compiled"
+      ],
+      "winner": "compiled"
+    },
+    "status": "EXACT_META_DECISION"
+  },
+  "identification_cost_exceeds_gain": {
+    "certificate": "identification_cost >= direct_cost - exact_downstream_cost",
+    "classification": {
+      "observed": {
+        "candidate_values_known": true,
+        "direct_rate_known": false,
+        "horizon": "KNOWN",
+        "horizon_value": 1,
+        "inspection_cost_count": 0,
+        "objective_dimensions": 1,
+        "route_count": 2,
+        "route_graph_complete": false,
+        "route_ids": [
+          "direct",
+          "compiled"
+        ],
+        "transition_generators_complete": false
+      },
+      "reasons": [
+        "finite reusable routes expose setup and per-use costs",
+        "the reuse horizon is observed"
+      ],
+      "regime": "KNOWN_HORIZON_AFFINE",
+      "solver_family": "EXACT_LOWER_ENVELOPE",
+      "status": "CLASSIFIED"
+    },
+    "costs": {
+      "direct": "10",
+      "downstream_exact": "5",
+      "gross_gain_before_identification": "5",
+      "identification": "6",
+      "identify_total": "11",
+      "net_gain_after_identification": "-1",
+      "strictly_allowed_identification_cost": "5"
+    },
+    "decision": "SOLVE_DIRECT",
+    "downstream_solution": {
+      "certificate": "minimum over all explicitly supplied affine route costs",
+      "complexity": {
+        "space": "O(m)",
+        "time": "O(m)"
+      },
+      "costs": {
+        "compiled": "5",
+        "direct": "10"
+      },
+      "optimal_cost": "5",
+      "status": "EXACT",
+      "ties": [
+        "compiled"
+      ],
+      "winner": "compiled"
+    },
+    "status": "EXACT_META_DECISION"
+  },
+  "model": {
+    "direct": "C0",
+    "identify_and_solve": "I + C*",
+    "strict_condition": "I < C0 - C*"
+  },
+  "phase_boundary": "No new corpus; no new product; no merge to main.",
+  "question": "When does regime identification pay for itself?",
+  "unsupported_regime_stays_abstain": {
+    "classification": {
+      "observed": {
+        "candidate_values_known": true,
+        "direct_rate_known": true,
+        "horizon": "UNKNOWN",
+        "horizon_value": null,
+        "inspection_cost_count": 0,
+        "objective_dimensions": 1,
+        "route_count": 2,
+        "route_graph_complete": false,
+        "route_ids": [
+          "a",
+          "b"
+        ],
+        "transition_generators_complete": false
+      },
+      "reasons": [
+        "the observed invariants do not identify a supported regime",
+        "no solver guarantee is exported for this case"
+      ],
+      "regime": "UNSUPPORTED_OR_UNOBSERVED",
+      "solver_family": null,
+      "status": "ABSTAIN"
+    },
+    "reason": "regime was not identified with a supported certificate",
+    "status": "ABSTAIN"
+  },
+  "useful_identification": {
+    "certificate": "identification_cost < direct_cost - exact_downstream_cost",
+    "classification": {
+      "observed": {
+        "candidate_values_known": true,
+        "direct_rate_known": false,
+        "horizon": "KNOWN",
+        "horizon_value": 1,
+        "inspection_cost_count": 0,
+        "objective_dimensions": 1,
+        "route_count": 2,
+        "route_graph_complete": false,
+        "route_ids": [
+          "direct",
+          "compiled"
+        ],
+        "transition_generators_complete": false
+      },
+      "reasons": [
+        "finite reusable routes expose setup and per-use costs",
+        "the reuse horizon is observed"
+      ],
+      "regime": "KNOWN_HORIZON_AFFINE",
+      "solver_family": "EXACT_LOWER_ENVELOPE",
+      "status": "CLASSIFIED"
+    },
+    "costs": {
+      "direct": "10",
+      "downstream_exact": "5",
+      "gross_gain_before_identification": "5",
+      "identification": "1",
+      "identify_total": "6",
+      "net_gain_after_identification": "4",
+      "strictly_allowed_identification_cost": "5"
+    },
+    "decision": "IDENTIFY_AND_SOLVE",
+    "downstream_solution": {
+      "certificate": "minimum over all explicitly supplied affine route costs",
+      "complexity": {
+        "space": "O(m)",
+        "time": "O(m)"
+      },
+      "costs": {
+        "compiled": "5",
+        "direct": "10"
+      },
+      "optimal_cost": "5",
+      "status": "EXACT",
+      "ties": [
+        "compiled"
+      ],
+      "winner": "compiled"
+    },
+    "status": "EXACT_META_DECISION"
+  }
+}
