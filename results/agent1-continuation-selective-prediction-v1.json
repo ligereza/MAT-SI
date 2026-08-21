@@ -1,0 +1,117 @@
+{
+  "protocol": "agent1-continuation-selective-prediction-v1",
+  "corpus_policy": "no new corpus; existing Phase 4A four-row observation plus finite controlled masks",
+  "formal_definitions": {
+    "selector": "s: X -> {0,1}; chooses a subset and emits no label",
+    "predictor": "f: X -> Y; emits one label for every x",
+    "selective_predictor": "(s,f), equivalently g: X -> Y union {bottom}",
+    "nonconstant_condition": "|f({x: s(x)=1})| >= 2",
+    "decoder_condition": "|d(R(X_selected))| >= 2"
+  },
+  "theorems": {
+    "selector_cannot_predict_alone": "PROVED",
+    "image_characterization": "PROVED",
+    "selection_only_bound": "PROVED",
+    "risk_decomposition": "PROVED",
+    "conditional_risk_improvement": "PROVED",
+    "abstention_cost_boundary": "PROVED",
+    "policy_dominance": "PROVED"
+  },
+  "conditions": {
+    "phase4_g": {
+      "kind": "selective_predictor",
+      "coverage": 0.75,
+      "prediction_image": [true],
+      "prediction_image_size": 1,
+      "prediction_varies": false
+    },
+    "decoder_with_two_states": {
+      "representations": ["same", "different", null, "same"],
+      "predictions": [false, true, null, false],
+      "prediction_image": [false, true],
+      "prediction_image_size": 2,
+      "prediction_varies": true,
+      "decoder_uses_outcome": false
+    }
+  },
+  "phase4a_known_result": {
+    "status": "KNOWN_RESULT",
+    "coverage": 0.75,
+    "conditional_accuracy": 0.6666666666666666,
+    "same_opportunity_gain": 0.0,
+    "selection_only": true,
+    "finding": "G selects windows and repeats one label; it does not establish predictive transfer."
+  },
+  "exact_solver": {
+    "problem": "enumerate all accept/reject masks for a fixed total predictor",
+    "complexity": "O(2^n*n) time and O(2^n) output space",
+    "constant_predictor_frontier": [
+      {"mask": "0101", "coverage": 0.5, "selective_risk": 0.0, "rejected_risk": 1.0},
+      {"mask": "0111", "coverage": 0.75, "selective_risk": 0.3333333333333333, "rejected_risk": 1.0},
+      {"mask": "1101", "coverage": 0.75, "selective_risk": 0.3333333333333333, "rejected_risk": 1.0},
+      {"mask": "1111", "coverage": 1.0, "selective_risk": 0.5, "rejected_risk": null}
+    ],
+    "varying_predictor_feasible_count": 14,
+    "varying_predictor_frontier_with_max_rejected_risk_0_5": [
+      {"mask": "0011", "coverage": 0.5, "selective_risk": 0.0, "rejected_risk": 0.5},
+      {"mask": "0101", "coverage": 0.5, "selective_risk": 0.0, "rejected_risk": 0.5},
+      {"mask": "0110", "coverage": 0.5, "selective_risk": 0.0, "rejected_risk": 0.5},
+      {"mask": "1111", "coverage": 1.0, "selective_risk": 0.25, "rejected_risk": null}
+    ],
+    "constraints_are_not_weights": true
+  },
+  "counterexamples": {
+    "precision_can_worsen_global_system": {
+      "status": "DISPROVED",
+      "full_constant": {"coverage": 1.0, "selective_risk": 0.5, "action_risk_at_abstention_cost_1": 0.5},
+      "sparse_perfect": {"coverage": 0.25, "selective_risk": 0.0, "action_risk_at_abstention_cost_1": 0.75},
+      "finding": "Higher conditional precision can produce worse global action risk."
+    },
+    "risk_improvement_can_hide_errors": {
+      "status": "KNOWN_RESULT",
+      "coverage": 0.75,
+      "selective_risk": 0.3333333333333333,
+      "full_risk": 0.5,
+      "rejected_risk": 1.0,
+      "finding": "Lower accepted risk can be caused entirely by concentrating errors in abstentions."
+    }
+  },
+  "calibration": {
+    "status": "KNOWN_RESULT",
+    "groups": [
+      {"confidence": 0.0, "count": 2, "empirical_accuracy": 0.0, "calibration_gap": 0.0},
+      {"confidence": 1.0, "count": 2, "empirical_accuracy": 1.0, "calibration_gap": 0.0}
+    ],
+    "threshold_curve": [
+      {"threshold": 0.0, "coverage": 1.0, "selective_risk": 0.5},
+      {"threshold": 0.5, "coverage": 0.5, "selective_risk": 0.0},
+      {"threshold": 1.0, "coverage": 0.5, "selective_risk": 0.0},
+      {"threshold": 1.1, "coverage": 0.0, "selective_risk": null}
+    ],
+    "interpretation": "Calibration relates confidence to risk but does not choose a coverage target."
+  },
+  "connections_after_formulation": {
+    "selective_classification": "same partial-map object with coverage and conditional risk",
+    "reject_option": "bottom receives an externally specified action loss",
+    "conformal_prediction": "coverage guarantees do not replace the decoder condition or held-out predictive evaluation"
+  },
+  "status_summary": {
+    "PROVED": [
+      "formal type distinction",
+      "image condition for variable predictions",
+      "selection-only non-positive gain",
+      "risk decomposition and abstention boundary",
+      "Pareto policy dominance"
+    ],
+    "KNOWN_RESULT": [
+      "Phase 4A G is selection-only",
+      "calibration and risk-coverage are distinct"
+    ],
+    "DISPROVED": ["higher conditional precision implies better global system"],
+    "CONJECTURE": [],
+    "UNKNOWN": [
+      "whether a future MAT-SI decoder can produce calibrated variable predictions without label leakage",
+      "whether these finite conditions survive a larger held-out domain"
+    ]
+  }
+}
