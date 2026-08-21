@@ -76,3 +76,16 @@ python -m matsi.real_distillation --json-out results/phase3b-real-distillation-r
 
 See `docs/phase3b-real-distillation.md` for the manifest, adapter audit, false-positive
 controls, and gate decision.
+
+## Phase 3C
+
+Phase 3C freezes the Phase 3B structural candidate and tests whether observable
+behavior can falsify it. It uses two independent public `clamp` implementations, a
+comparable negative control, provenance, and a small restricted oracle adapter:
+
+```text
+python -m matsi.semantic_falsification --json-out results/phase3c-semantic-falsification-results.json
+```
+
+See `docs/phase3c-semantic-falsification.md` for the held-out `UNKNOWN` results,
+host/represented/derived audit, and the Phase 3 gate decision. Phase 4 has not begun.

@@ -1,0 +1,2802 @@
+{
+  "closure": {
+    "domain_opcode_added": false,
+    "embeddings_or_llm_used": false,
+    "full_execution_platform_built": false,
+    "semantic_ast_introduced": false,
+    "universal_ir_introduced": false
+  },
+  "frozen_inputs": {
+    "control_manifest": "corpus/phase3c-semantic-control-manifest.json",
+    "phase3b_commit": "e9d018e",
+    "phase3b_result": "results/phase3b-real-distillation-results.json",
+    "phase3b_semantic_core_modified": false
+  },
+  "frozen_real_repository_evidence": {
+    "G_digest_matches_phase3b_result": true,
+    "G_recomputed_without_C_N1_N2": true,
+    "conclusion": "C/N1/N2 remain structurally matched but behaviorally UNKNOWN; G is descriptive, not predictive, on these slices",
+    "frozen_manifest_commit": "4e8921c",
+    "frozen_phase3b_commit": "e9d018e",
+    "selected_G_summary": {
+      "compression_gain": 5,
+      "generalization_digest": "5513c0cff443d2ae4b7c7f5d56687a6e18fe7d521666500e46b21287ed8901ca",
+      "shared_structure_nodes": 18,
+      "source_pair": [
+        "A",
+        "B"
+      ]
+    },
+    "targets": {
+      "C": {
+        "matched_units": [
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "846dde97125b072b595396663201573107b3b6188049e0b305da0436bff1d1be"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "ClassDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "C",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/urllib3/util/retry.py",
+              "unit_ordinal": 0
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 0
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "5122c2082dc6fe2c04d6512efa1aecbb7404db336f9a1f3c93ca774d177d8e33"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "ClassDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "C",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/urllib3/util/retry.py",
+              "unit_ordinal": 1
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 1
+          }
+        ],
+        "participated_in_G": false,
+        "phase3b_structural_false_positive": true,
+        "semantic_evidence": "UNKNOWN"
+      },
+      "N1": {
+        "matched_units": [
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "73fe17ee60d755058f5fe42effbd20de97a5b343fe36a7e766254f043303588d"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 0
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 0
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "556d46fed361ad5472c8931ee0c5cee8e831da2ef8bd1c97a6d2359b067efa08"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 1
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 1
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "8159793d3a629ddc70d0fe113519b42e71e00eb20eb6a4066b810325ae32ebee"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 2
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 2
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "c933bf71c3af56d9bf5074ccec64ad251ccd2a4424e90b559dd733eb5a1ab389"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 3
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 3
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "fb338f0e022d61d42a37e75c94d673cc16b0591894b716fe1b316342a0db0ff4"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 4
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 4
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "d047db98de722ef13de047160664e7d0dd6125bcb1194deaf312a32cdfdf21c1"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 5
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 5
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "9f7dcad9bc6708ee2384c0ca9ca992c5bbaf940fc5663ceaf7e93f6ca1dd5ddd"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 6
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 6
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "82f7e1e6e50617398c6dbadeabacffbc4a7639517001851509e4cd410aa51f3b"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 7
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 7
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "0a756c024be378cf93c7eac872fcf2e3e9ba3726cdc71d8c8d0e226e0a83731b"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 8
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 8
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "ae84a32957fcb90673901aadf4d99021507ff2c993a7d504b449d73c3b26997a"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 9
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 9
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "0cbd6513c51e63464f9b200e23a6f79089ad1cec5a50fc3fc13f2f97d947b0bf"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 10
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 10
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "322982be573d96da6fe29dbb0daa854d4a61cad54d4a80fdf94941017889c595"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 11
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 11
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "d1fbcc3a46f3408b177db264af8a4f9d96f970a4d18900f59465407f0dcb288a"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 12
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 12
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "8ef90339e3761a635bf5ef7035817ac78cf5edfebdc7703a9a2a74a7f5223404"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 13
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 13
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "d9ce9d7f0bd559a81117ef29f8509a3f3282638f20684ba4d6f30012db904ee2"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 14
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 14
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "8922e754c3a7fb8558e7f5f15568afeeae70fcfd2091b47becd2ad5244836dad"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 15
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 15
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "5a6bc9360531b226ac02f47aabb440b8b610e07b804970d9995d592df9d95135"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 16
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 16
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "bf5f98a896f4d22e202158c018c1247680ced7cfcff88bcfa2a8db2459f2d135"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 17
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 17
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "d487a8413649fa8d73bd9d472651866c856955e6246cbe5fa7c9ee8ef1df3686"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 18
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 18
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "26ad75a1417ee13ef019c61a5f09681bf55cda93f41a820f7bebf14cd344de8e"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 19
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 19
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "c3e89643009f1086cb80975596c8053367c8eca524a833664227f64fdbe12763"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 20
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 20
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "50584e7ef7af5a30bab7d40d665bb1115e0e95c740f0b9c6d6a2dd7ed3417897"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 21
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 21
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "773a634007f56ef5d6998d4960ff5af1a9d9f92b676b20390009ff4c1715e020"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 22
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 22
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "13b7529cc2456a0d81ace1ef649104baa2dc5c2bc708ef93709142945930c2e8"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 23
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 23
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "ba65e9685adc0732d7b53cfd70e742ced69e0e09b3eaffbd8989038a175447a6"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 24
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 24
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "70e4e70d3427254e1c6ea867ad10acb1ebea72ec25fb39a02364f366fc3f90bf"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 25
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 25
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "b5d751cd37c19e2e122f0c57f92de7d04d2fc7e7a0015f3c1e4634cf377fad61"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 26
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 26
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "e010ddc719a8be79ce37d9b3ec6cff33fc1c808812d8d20bf509d0a26a5cae43"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 27
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 27
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "cac1d40cc9ee4ae0cd1d22e860594e71bd6e0a30656d68224075e2984a5485a5"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 28
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 28
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "606f0e6946f72c8f85e5211368480f9366ffe29849cb18e2ba8727ad0d419127"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 29
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 29
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "302869a22ba8a103a729e8dd3fc08ee6e4ef3b7e83dd0742bd5c4d08478188ee"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 30
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 30
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "5499ce9c255ed7b827199f19018f808d2cef95f59bf1440e5df5dd771353c8ae"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 31
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 31
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "6925ac5215c40ca56853d63838bd5362169c14d655478207637b35d30d6cbed9"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 32
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 32
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "b54fae4c5ff81c0aa92816466aca8d57facd664598bf126e1c05feb6b919401d"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N1",
+              "manifest_commit": "4e8921c",
+              "source_path": "gunicorn/util.py",
+              "unit_ordinal": 33
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 33
+          }
+        ],
+        "participated_in_G": false,
+        "phase3b_structural_false_positive": true,
+        "semantic_evidence": "UNKNOWN"
+      },
+      "N2": {
+        "matched_units": [
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "05808d0cb8381d58fa6e39694306855c08d9c7ddfe82d98fc8f04dcd0d1456d6"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 0
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 0
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "14864f741f18ec4d63503c779c481c01333729fedfc4e733b36fa1d6eccb4b25"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 1
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 1
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "3d9c80c54b478b146f2c794bb2b9902d4693bca4fe4fad1dacb4473233c59eb0"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 2
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 2
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "b3afb863230884687514fc8a82e755dd32b07f3ec2f4f5edf7287033d775f9d4"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 3
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 3
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "5f955f3f0a754266cf7e0b45479b737f47240438f9f6fe2334752f78b2101dc4"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 4
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 4
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "5b222e54131629f1708a71c2b2d56117a249d07b07b26ec3ce248c9bcec78855"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "ClassDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 5
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 5
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "a3492076ddf1862eaf221077b5d93b4231a0500b9b2d52c3cbd9fd3f1f197cce"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 6
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 6
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "6d04ed0898e23e6f75c516a3dc00020bd0e06057eae5ff535a21160801e0a8d4"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 7
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 7
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "3b6a46249ed3ae18cb5a485eb665f22b58541f8339089e88b4055f43ac1e102e"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 8
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 8
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "6b2997c44f89db8db711d71526869e2583f295614981c8a3d5bb6ee2bb30fbff"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 9
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 9
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "7f38d736b23e6c3a5ac6613d8831b5bc52ffe61b7f38fa35975909a8c7d9135c"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 10
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 10
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "f0e8ff6d7a385d0f3ecfce45018f73c5983a7bb7036ecc29b5227e0ea02c8693"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 11
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 11
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "4eb7a6fe39ee34a9614cad988d71c3d144ec6d2d861648ccda7c1076615d6d0b"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 12
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 12
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "80437154effb60566a4d2ff406160f22c9e2d31e564050cd8d0279ea776d6bcf"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 13
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 13
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "5d528c134a4a92059d45354e1c2cc2074c9a3a3864428e03d89b5a8366d0d4cc"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 14
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 14
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "7eb90f4fb8e952474041c5002bfaf09d5086622d2d036cb6e15904d06ed8e872"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 15
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 15
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "a98af6a0e900eceac1eef16f736bc8322b6cf3ed3051bd858bd04aaabf6f8810"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 16
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 16
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "17bce2eacf2a8deffb81167d1155c2fcc9e868a7f06b0a915d1d698cbaa45d38"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 17
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 17
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "c0483b9f988d0600addcd4fe644376fa52bd4f37214994c660aca2a26d0bc937"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 18
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 18
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "94fc2d3db05ec5015e7ef66bc22bc16a630c2ff1608c8c168c42dd45bb98f03e"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 19
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 19
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "69128a97fdfb12802c1840906a5c8da2f2c83b817f6cf6cc93a4f778158dadc1"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 20
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 20
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "d58c27e25674453df39c859e3f945dc4d801e8efcc06c0a6de6f956826920d63"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 21
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 21
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "7eb90f4fb8e952474041c5002bfaf09d5086622d2d036cb6e15904d06ed8e872"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 22
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 22
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "fe2379c8cf3704f9b7b958bbbfcee8f931c03db0a54b17bb39324df59abc69b4"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 23
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 23
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "b89cf172bee7372bf6ec7a072d7fd12378f5a7c57044f0f47e242ecd7ba15bfc"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 24
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 24
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "c5be85193cd44fa62fa980ad95720e2fd6d802ec25e077ab31a315355d08bffc"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 25
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 25
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "5d152bbb2af128dcb4fa8debf7401c5cec05871f6e3ad793379709118a467307"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 26
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 26
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "5e019cad38492b06301537011fd888280db5dbdbc69b5a4d6a4eb8c08a55dbba"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "FunctionDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 27
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 27
+          },
+          {
+            "intervention": {
+              "after": {
+                "match": false,
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "before": {
+                "match": true,
+                "representation_digest": "852ca0f88dc91d6762112a5cbf11cb9e56e0d129324e8935c96fd1936f00da84"
+              },
+              "delta": {
+                "behavior": "UNKNOWN",
+                "structural_match": "True -> False"
+              },
+              "intervention": {
+                "operation": "replace_first_shared_node_with_unseen_node_kind",
+                "path": [],
+                "representation_digest": "af74153c3793cc323287f5d7f704a1c148805b552c1ed4c0c0251b2ff5180fa9"
+              },
+              "provenance": {
+                "source": "frozen_G",
+                "unit": "unknown"
+              },
+              "reusable_relation": "a structural mutation changes matchability; G supplies no behavioral prediction",
+              "status": "UNKNOWN"
+            },
+            "kind": "ClassDef",
+            "phase3b_useful_value": true,
+            "provenance": {
+              "entry_id": "N2",
+              "manifest_commit": "4e8921c",
+              "source_path": "src/h2/utilities.py",
+              "unit_ordinal": 28
+            },
+            "semantic_reason": "frozen real-repository slices were not executed; AST recurrence is not a behavioral oracle",
+            "semantic_status": "UNKNOWN",
+            "structural_match": true,
+            "unit_ordinal": 28
+          }
+        ],
+        "participated_in_G": false,
+        "phase3b_structural_false_positive": true,
+        "semantic_evidence": "UNKNOWN"
+      }
+    }
+  },
+  "gate": {
+    "decision": "A",
+    "meaning": "behavioral falsification distinguishes a reusable abstraction from misleading structural similarity",
+    "phase4_started": false,
+    "unresolved": "The Phase 3B real-repository G remains behaviorally UNKNOWN on C/N1/N2; this is not converted into a positive claim."
+  },
+  "host_represented_derived": {
+    "DERIVED": [
+      "structural matchability and reconstruction",
+      "output equality with the oracle",
+      "behavioral rejection of the comparable negative control",
+      "UNKNOWN when no safe behavioral oracle is available"
+    ],
+    "HOST": [
+      "Python parsing and restricted control-function execution",
+      "network/file acquisition and SHA-256 verification",
+      "comparison of observed outputs with the external oracle"
+    ],
+    "REPRESENTED": [
+      "neutral AST U and frozen G",
+      "generic structural match and provenance-bearing observations",
+      "input interventions and the clamp relation as ordinary data"
+    ]
+  },
+  "positive_control_evidence": {
+    "candidate": {
+      "generalization_digest": "1034b89a49dbe3e824a4d408d833d37a72e322d4075b09cc1d6d8b260f4b00f2",
+      "reconstruction": true,
+      "shared_structure_nodes": 81,
+      "source_pair": [
+        "positive_a",
+        "positive_b"
+      ]
+    },
+    "corpus_manifest": "corpus/phase3c-semantic-control-manifest.json",
+    "distinguishes_reusable_behavior": true,
+    "labels_used_to_discover_G": false,
+    "negative_control": {
+      "behaviorally_rejected_by_oracle": true,
+      "structural_match_to_positive_G": true
+    },
+    "observations": {
+      "negative_local": {
+        "expected_outputs": [
+          0,
+          0.5,
+          1
+        ],
+        "inputs": [
+          [
+            -2,
+            0,
+            1
+          ],
+          [
+            0.5,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            1
+          ]
+        ],
+        "matches_oracle": false,
+        "outputs": [
+          1,
+          1,
+          2
+        ],
+        "provenance": {
+          "function_name": "clamp",
+          "source_id": "negative_local"
+        },
+        "status": "OBSERVED"
+      },
+      "positive_a": {
+        "expected_outputs": [
+          0,
+          0.5,
+          1
+        ],
+        "inputs": [
+          [
+            -2,
+            0,
+            1
+          ],
+          [
+            0.5,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            1
+          ]
+        ],
+        "matches_oracle": true,
+        "outputs": [
+          0,
+          0.5,
+          1
+        ],
+        "provenance": {
+          "function_name": "clamp",
+          "source_id": "positive_a"
+        },
+        "status": "OBSERVED"
+      },
+      "positive_b": {
+        "expected_outputs": [
+          0,
+          0.5,
+          1
+        ],
+        "inputs": [
+          [
+            -2,
+            0,
+            1
+          ],
+          [
+            0.5,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            1
+          ]
+        ],
+        "matches_oracle": true,
+        "outputs": [
+          0,
+          0.5,
+          1
+        ],
+        "provenance": {
+          "function_name": "Clamp",
+          "source_id": "positive_b"
+        },
+        "status": "OBSERVED"
+      }
+    },
+    "represented_evidence": {
+      "hypothesis": {
+        "relation": "both implementations satisfy the frozen clamp oracle"
+      },
+      "interventions": [
+        {
+          "delta": "both positive implementations return the lower bound",
+          "input": [
+            -2,
+            0,
+            1
+          ],
+          "name": "low_boundary",
+          "provenance": {
+            "oracle": "represented_test_vector_frozen_with_the_corpus",
+            "source_ids": [
+              "positive_a",
+              "positive_b"
+            ]
+          }
+        },
+        {
+          "delta": "both positive implementations preserve the interior value",
+          "input": [
+            0.5,
+            0,
+            1
+          ],
+          "name": "interior_value",
+          "provenance": {
+            "oracle": "represented_test_vector_frozen_with_the_corpus",
+            "source_ids": [
+              "positive_a",
+              "positive_b"
+            ]
+          }
+        },
+        {
+          "delta": "both positive implementations return the upper bound",
+          "input": [
+            2,
+            0,
+            1
+          ],
+          "name": "high_boundary",
+          "provenance": {
+            "oracle": "represented_test_vector_frozen_with_the_corpus",
+            "source_ids": [
+              "positive_a",
+              "positive_b"
+            ]
+          }
+        }
+      ],
+      "provenance": {
+        "oracle": "represented_test_vector_frozen_with_the_corpus",
+        "source_ids": [
+          "positive_a",
+          "positive_b",
+          "negative_local"
+        ]
+      }
+    }
+  },
+  "protocol": "phase3c-semantic-falsification"
+}
