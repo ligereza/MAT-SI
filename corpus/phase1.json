@@ -1,0 +1,123 @@
+[
+  {
+    "id": "small_algorithm",
+    "value": {
+      "kind": "algorithm",
+      "name": "increment",
+      "input": "n",
+      "steps": [
+        {"op": "add", "value": 1}
+      ],
+      "output": "n_plus_one"
+    },
+    "query_path": ["steps", 0, "value"],
+    "transform": {"operation": "reverse", "source_path": ["steps"]}
+  },
+  {
+    "id": "stateful_program",
+    "value": {
+      "kind": "program",
+      "initial": {"counter": 0, "enabled": false},
+      "actions": [
+        {"name": "enable", "updates": {"enabled": true}},
+        {"name": "tick", "updates": {"counter": 1}}
+      ],
+      "final": {"counter": 1, "enabled": true}
+    },
+    "query_path": ["initial", "counter"],
+    "transform": {"operation": "identity", "source_path": ["actions"]}
+  },
+  {
+    "id": "repeated_structure",
+    "value": {
+      "kind": "repeated",
+      "unit": {"kind": "leaf", "value": "x", "weight": 1},
+      "items": [
+        {"kind": "leaf", "value": "x", "weight": 1},
+        {"kind": "leaf", "value": "x", "weight": 1},
+        {"kind": "leaf", "value": "x", "weight": 1},
+        {"kind": "leaf", "value": "x", "weight": 1}
+      ]
+    },
+    "query_path": ["items", 3, "value"],
+    "transform": {"operation": "identity", "source_path": ["items"]}
+  },
+  {
+    "id": "temporal_sequence",
+    "value": {
+      "kind": "timeline",
+      "events": [
+        {"at": 0, "state": "cold"},
+        {"at": 1, "state": "warm"},
+        {"at": 2, "state": "hot"},
+        {"at": 3, "state": "cooling"}
+      ]
+    },
+    "query_path": ["events", 2, "state"],
+    "transform": {"operation": "reverse", "source_path": ["events"]}
+  },
+  {
+    "id": "reversible_transformation",
+    "value": {
+      "kind": "reversible",
+      "source": [1, 2, 3, 4],
+      "operation": "reverse",
+      "result": [4, 3, 2, 1],
+      "inverse": "reverse"
+    },
+    "query_path": ["result", 2],
+    "transform": {"operation": "reverse", "source_path": ["source"]}
+  },
+  {
+    "id": "lossy_transformation",
+    "value": {
+      "kind": "lossy",
+      "source": "AbC-123",
+      "operation": "lowercase",
+      "result": "abc-123",
+      "residue": {"case_positions": [0, 2]}
+    },
+    "query_path": ["residue", "case_positions", 1],
+    "transform": {"operation": "lowercase", "source_path": ["source"]}
+  },
+  {
+    "id": "text_object",
+    "value": {
+      "kind": "text",
+      "language": "en",
+      "value": "MAT-SI studies representation before implementation."
+    },
+    "query_path": ["value"],
+    "transform": {"operation": "lowercase", "source_path": ["value"]}
+  },
+  {
+    "id": "everyday_state_actions",
+    "value": {
+      "kind": "desktop",
+      "states": ["linux", "windows"],
+      "actions": ["move_left", "move_right", "copy", "paste"],
+      "transitions": [
+        {"state": "linux", "action": "move_right", "next": "windows"},
+        {"state": "windows", "action": "move_left", "next": "linux"}
+      ]
+    },
+    "query_path": ["transitions", 1, "next"],
+    "transform": {"operation": "identity", "source_path": ["transitions"]}
+  },
+  {
+    "id": "self_model_request",
+    "value": {
+      "kind": "self_model_request",
+      "required_fields": [
+        "primitives",
+        "identity",
+        "transformations",
+        "costs",
+        "history"
+      ],
+      "exception_budget": 0
+    },
+    "query_path": ["required_fields", 2],
+    "transform": {"operation": "identity", "source_path": ["required_fields"]}
+  }
+]

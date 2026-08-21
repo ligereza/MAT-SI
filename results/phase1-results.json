@@ -1,0 +1,334 @@
+{
+  "aggregate": {
+    "atom_pair": {
+      "cross_domain_generality": 1.0,
+      "description_size": 538.2222222222222,
+      "query_cost": 9.555555555555555,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 1.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 82
+    },
+    "content_dag": {
+      "cross_domain_generality": 1.0,
+      "description_size": 1384.111111111111,
+      "query_cost": 9.555555555555555,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 1.0,
+      "structural_sharing": 0.4930371964304067,
+      "transformation_cost": 13.333333333333334
+    },
+    "rewrite_egraph": {
+      "cross_domain_generality": 1.0,
+      "description_size": 1169.6666666666667,
+      "query_cost": 3.4444444444444446,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 1.0,
+      "structural_sharing": 0.06233062330623307,
+      "transformation_cost": 15.11111111111111
+    }
+  },
+  "corpus_cases": 9,
+  "measurements": [
+    {
+      "candidate": "atom_pair",
+      "case_id": "small_algorithm",
+      "cross_domain_generality": 1.0,
+      "description_size": 358,
+      "query_cost": 12,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 38
+    },
+    {
+      "candidate": "atom_pair",
+      "case_id": "stateful_program",
+      "cross_domain_generality": 1.0,
+      "description_size": 662,
+      "query_cost": 7,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 94
+    },
+    {
+      "candidate": "atom_pair",
+      "case_id": "repeated_structure",
+      "cross_domain_generality": 1.0,
+      "description_size": 883,
+      "query_cost": 11,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 182
+    },
+    {
+      "candidate": "atom_pair",
+      "case_id": "temporal_sequence",
+      "cross_domain_generality": 1.0,
+      "description_size": 530,
+      "query_cost": 10,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 134
+    },
+    {
+      "candidate": "atom_pair",
+      "case_id": "reversible_transformation",
+      "cross_domain_generality": 1.0,
+      "description_size": 458,
+      "query_cost": 10,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 38
+    },
+    {
+      "candidate": "atom_pair",
+      "case_id": "lossy_transformation",
+      "cross_domain_generality": 1.0,
+      "description_size": 357,
+      "query_cost": 10,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 6
+    },
+    {
+      "candidate": "atom_pair",
+      "case_id": "text_object",
+      "cross_domain_generality": 1.0,
+      "description_size": 205,
+      "query_cost": 5,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 6
+    },
+    {
+      "candidate": "atom_pair",
+      "case_id": "everyday_state_actions",
+      "cross_domain_generality": 1.0,
+      "description_size": 728,
+      "query_cost": 12,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 94
+    },
+    {
+      "candidate": "atom_pair",
+      "case_id": "self_model_request",
+      "cross_domain_generality": 1.0,
+      "description_size": 663,
+      "query_cost": 9,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 1.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 146
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "small_algorithm",
+      "cross_domain_generality": 1.0,
+      "description_size": 1055,
+      "query_cost": 12,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.4375,
+      "transformation_cost": 8
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "stateful_program",
+      "cross_domain_generality": 1.0,
+      "description_size": 1836,
+      "query_cost": 7,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.5161290322580645,
+      "transformation_cost": 18
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "repeated_structure",
+      "cross_domain_generality": 1.0,
+      "description_size": 1066,
+      "query_cost": 11,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.8292682926829268,
+      "transformation_cost": 10
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "temporal_sequence",
+      "cross_domain_generality": 1.0,
+      "description_size": 1683,
+      "query_cost": 10,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.4,
+      "transformation_cost": 26
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "reversible_transformation",
+      "cross_domain_generality": 1.0,
+      "description_size": 1364,
+      "query_cost": 10,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.5263157894736843,
+      "transformation_cost": 10
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "lossy_transformation",
+      "cross_domain_generality": 1.0,
+      "description_size": 1060,
+      "query_cost": 10,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.4,
+      "transformation_cost": 2
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "text_object",
+      "cross_domain_generality": 1.0,
+      "description_size": 522,
+      "query_cost": 5,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.4285714285714286,
+      "transformation_cost": 2
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "everyday_state_actions",
+      "cross_domain_generality": 1.0,
+      "description_size": 1902,
+      "query_cost": 12,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.5517241379310345,
+      "transformation_cost": 14
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "self_model_request",
+      "cross_domain_generality": 1.0,
+      "description_size": 1969,
+      "query_cost": 9,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 1.0,
+      "structural_sharing": 0.34782608695652173,
+      "transformation_cost": 30
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "small_algorithm",
+      "cross_domain_generality": 1.0,
+      "description_size": 1101,
+      "query_cost": 4,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 11
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "stateful_program",
+      "cross_domain_generality": 1.0,
+      "description_size": 1637,
+      "query_cost": 3,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 21
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "repeated_structure",
+      "cross_domain_generality": 1.0,
+      "description_size": 861,
+      "query_cost": 4,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.5609756097560976,
+      "transformation_cost": 13
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "temporal_sequence",
+      "cross_domain_generality": 1.0,
+      "description_size": 1342,
+      "query_cost": 4,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 26
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "reversible_transformation",
+      "cross_domain_generality": 1.0,
+      "description_size": 912,
+      "query_cost": 3,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 8
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "lossy_transformation",
+      "cross_domain_generality": 1.0,
+      "description_size": 1019,
+      "query_cost": 4,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 3
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "text_object",
+      "cross_domain_generality": 1.0,
+      "description_size": 533,
+      "query_cost": 2,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 3
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "everyday_state_actions",
+      "cross_domain_generality": 1.0,
+      "description_size": 1462,
+      "query_cost": 4,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 0.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 18
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "self_model_request",
+      "cross_domain_generality": 1.0,
+      "description_size": 1660,
+      "query_cost": 3,
+      "reconstruction_fidelity": 1.0,
+      "self_modeling": 1.0,
+      "structural_sharing": 0.0,
+      "transformation_cost": 33
+    }
+  ],
+  "protocol": "phase1-v1",
+  "selection": null,
+  "selection_reason": "No candidate is selected before comparison and counterexample review."
+}
