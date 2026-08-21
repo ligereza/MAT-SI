@@ -106,7 +106,12 @@
   },
   "counterexamples": {
     "representation_quality_without_task": "DISPROVED",
-    "mutual_information_as_universal_decision_order": "DISPROVED",
+    "mutual_information_as_universal_decision_order": {
+      "status": "CONSTRUCTED",
+      "higher_mi_experiment": {"mutual_information_bits": 0.9182958340544893, "bayes_risk": "1/3"},
+      "lower_mi_task_targeted_experiment": {"mutual_information_bits": 0.4790826500046241, "bayes_risk": "1/10"},
+      "finding": "The higher-MI experiment has worse task Bayes risk; MI and decision usefulness do not induce the same order."
+    },
     "incomparable_representations": "CONSTRUCTED",
     "task_dependent_minimal_structure": "CONSTRUCTED"
   },

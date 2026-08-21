@@ -104,6 +104,14 @@ each task. In the finite fixture, binary classification requires two symbols,
 while an asymmetric loss can be preserved with one symbol. The same experiment
 therefore has task-dependent structural complexity.
 
+Mutual information does not replace this analysis. With three equiprobable
+world states and a binary action task (action `0` correct only for state `0`),
+one experiment has `I(Y;R)=0.9183` bits but Bayes risk `1/3`; a task-targeted
+experiment has only `0.4791` bits but Bayes risk `1/10`. The higher-information
+experiment is worse for the specified decision. This is a constructed finite
+counterexample, not a claim about mutual information being useless in every
+task.
+
 ## Epsilon compression
 
 For small spaces the exact solver enumerates all canonical set partitions and

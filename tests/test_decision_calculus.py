@@ -9,6 +9,7 @@ from matsi.decision_calculus import (
     epsilon_sufficient_compression,
     identify_decision,
     le_cam_distance,
+    mutual_information,
     multi_task_sufficient_quotient,
     representation_compiler,
     representation_path,
@@ -112,6 +113,20 @@ class DecisionCalculusTests(unittest.TestCase):
         composed = compose_garblings(first, second)
         self.assertEqual(composed, second)
         self.assertTrue(all(sum(row) == 1 for row in composed))
+
+    def test_mutual_information_and_task_risk_can_order_experiments_differently(self):
+        prior = [Fraction(1, 3)] * 3
+        irrelevant = [[1, 0], [0, 1], [1, 0]]
+        targeted = [
+            [Fraction(9, 10), Fraction(1, 10)],
+            [Fraction(1, 10), Fraction(9, 10)],
+            [Fraction(1, 10), Fraction(9, 10)],
+        ]
+        loss = [[0, 1], [1, 0], [1, 0]]
+        irrelevant_engine = bayes_decision_engine(prior, irrelevant, loss)
+        targeted_engine = bayes_decision_engine(prior, targeted, loss)
+        self.assertGreater(mutual_information(prior, irrelevant), mutual_information(prior, targeted))
+        self.assertGreater(Fraction(irrelevant_engine["bayes_risk"]), Fraction(targeted_engine["bayes_risk"]))
 
 
 if __name__ == "__main__":

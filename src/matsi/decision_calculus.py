@@ -26,7 +26,7 @@ import argparse
 from fractions import Fraction
 from itertools import combinations, product
 import json
-from math import comb
+from math import comb, log2
 from pathlib import Path
 from typing import Any, Callable, Iterable, Sequence
 
@@ -200,6 +200,29 @@ def bayes_decision_engine(
             "bayes_risk": bayes_risk,
         },
     }
+
+
+def mutual_information(
+    prior: Sequence[Number], experiment: Sequence[Sequence[Number]]
+) -> float:
+    """Compute I(Y;R) for a finite experiment in bits.
+
+    This quantity is reported only as a contrast.  It is not used to replace
+    task-specific Bayes risk or Blackwell comparison.
+    """
+    pi = _validate_distribution(prior, "prior")
+    channel = validate_experiment(experiment)
+    states, symbols = _shape(channel)
+    if len(pi) != states:
+        raise ValueError("prior length must match experiment states")
+    masses = [sum(pi[y] * channel[y][r] for y in range(states)) for r in range(symbols)]
+    information = 0.0
+    for y in range(states):
+        for r in range(symbols):
+            joint = pi[y] * channel[y][r]
+            if joint and masses[r]:
+                information += float(joint) * log2(float(joint / (pi[y] * masses[r])))
+    return information
 
 
 def _rref_solve(equations: list[list[Fraction]], variables: int) -> tuple[list[Fraction], int] | None:
@@ -1099,6 +1122,32 @@ def run_calculus() -> dict[str, Any]:
         ["labels", "calibration_observations"],
         ["labels", "calibration_observations", "monotonicity"],
     )
+    information_prior = [Fraction(1, 3)] * 3
+    irrelevant_information = [[1, 0], [0, 1], [1, 0]]
+    task_targeted_information = [
+        [Fraction(9, 10), Fraction(1, 10)],
+        [Fraction(1, 10), Fraction(9, 10)],
+        [Fraction(1, 10), Fraction(9, 10)],
+    ]
+    target_loss = [[0, 1], [1, 0], [1, 0]]
+    irrelevant_engine = bayes_decision_engine(information_prior, irrelevant_information, target_loss)
+    targeted_engine = bayes_decision_engine(information_prior, task_targeted_information, target_loss)
+    mutual_information_case = {
+        "status": "CONSTRUCTED",
+        "prior": ["1/3", "1/3", "1/3"],
+        "task": "action 0 is correct only for state 0; action 1 is correct for states 1 and 2",
+        "irrelevant_information": {
+            "mutual_information_bits": mutual_information(information_prior, irrelevant_information),
+            "bayes_risk": irrelevant_engine["bayes_risk"],
+            "experiment": _serialize_matrix(validate_experiment(irrelevant_information)),
+        },
+        "task_targeted_information": {
+            "mutual_information_bits": mutual_information(information_prior, task_targeted_information),
+            "bayes_risk": targeted_engine["bayes_risk"],
+            "experiment": _serialize_matrix(validate_experiment(task_targeted_information)),
+        },
+        "finding": "The higher-MI experiment has worse task Bayes risk; MI and decision usefulness do not induce the same order.",
+    }
     return {
         "protocol": "agent1-decision-representation-calculus-v1",
         "corpus_policy": "no new corpus; exact finite mathematical fixtures only",
@@ -1188,8 +1237,8 @@ def run_calculus() -> dict[str, Any]:
         "counterexamples": {
             "mutual_information_not_decision_order": {
                 "status": "CONSTRUCTED",
-                "statement": "Blackwell order is task-universal; a single mutual-information ordering is not used as a substitute for decision comparison.",
-                "fixture": "revealing, strict_garbling, useless",
+                "statement": mutual_information_case["finding"],
+                "fixture": mutual_information_case,
             },
             "incomparable_representations": {
                 "status": "CONSTRUCTED",
