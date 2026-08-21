@@ -1,3 +1,3 @@
-from .benchmark_v3 import main
+from .benchmark_v4 import main
 
 raise SystemExit(main())

@@ -1,0 +1,986 @@
+{
+  "branches": {
+    "continuity_as_policy_claim": {
+      "claims_coexist_over_same_evidence": true,
+      "claims_preserve_provenance": true,
+      "conclusion": "Continuity is a derived claim over represented evidence and represented policy; it is not required as a primitive of U.",
+      "experiment": "continuity_policy_over_raw_provenance",
+      "policies": [
+        {
+          "name": "replacement_breaks_continuity",
+          "rules": {
+            "replacement": "breaks"
+          }
+        },
+        {
+          "name": "replacement_preserves_lineage",
+          "rules": {
+            "replacement": "preserves"
+          }
+        }
+      ],
+      "raw_history": {
+        "events": [
+          {
+            "from_position": 0,
+            "kind": "replacement",
+            "provenance": {
+              "event_index": 0,
+              "source": "raw-history"
+            },
+            "to_position": 1,
+            "transformation": {
+              "operation": "replace"
+            }
+          }
+        ],
+        "nodes": [
+          {
+            "content": {
+              "kind": "document",
+              "value": "old"
+            },
+            "position": 0
+          },
+          {
+            "content": {
+              "kind": "document",
+              "value": "new"
+            },
+            "position": 1
+          }
+        ],
+        "reference_semantics": "observation_position_only"
+      },
+      "rows": [
+        {
+          "candidate": "atom_pair",
+          "claim": {
+            "claim": "lineage_continuity",
+            "evidence": {
+              "event_kind": "replacement",
+              "transformation": {
+                "operation": "replace"
+              }
+            },
+            "from_position": 0,
+            "kind": "derived_claim",
+            "policy": "replacement_breaks_continuity",
+            "provenance": {
+              "derived_by": "evidence_plus_policy",
+              "history_digest": "a6971b43009e92962575dd97bd449cee5c4e93f8c5e7dd30d29e3e8f1134cb88",
+              "policy_digest": "5d886e69663fe76a7656393365c88db6b39bef48b736d488b18d40c6262388e8"
+            },
+            "to_position": 1,
+            "value": false
+          },
+          "claim_round_trip": true,
+          "claim_value": false,
+          "history_round_trip": true,
+          "policy": "replacement_breaks_continuity",
+          "stable_id_fields": []
+        },
+        {
+          "candidate": "atom_pair",
+          "claim": {
+            "claim": "lineage_continuity",
+            "evidence": {
+              "event_kind": "replacement",
+              "transformation": {
+                "operation": "replace"
+              }
+            },
+            "from_position": 0,
+            "kind": "derived_claim",
+            "policy": "replacement_preserves_lineage",
+            "provenance": {
+              "derived_by": "evidence_plus_policy",
+              "history_digest": "a6971b43009e92962575dd97bd449cee5c4e93f8c5e7dd30d29e3e8f1134cb88",
+              "policy_digest": "cbfbc3d4d181785b11446f97b7dacae7720675ade9f18a21d0c02d773c1d74d3"
+            },
+            "to_position": 1,
+            "value": true
+          },
+          "claim_round_trip": true,
+          "claim_value": true,
+          "history_round_trip": true,
+          "policy": "replacement_preserves_lineage",
+          "stable_id_fields": []
+        },
+        {
+          "candidate": "content_dag",
+          "claim": {
+            "claim": "lineage_continuity",
+            "evidence": {
+              "event_kind": "replacement",
+              "transformation": {
+                "operation": "replace"
+              }
+            },
+            "from_position": 0,
+            "kind": "derived_claim",
+            "policy": "replacement_breaks_continuity",
+            "provenance": {
+              "derived_by": "evidence_plus_policy",
+              "history_digest": "a6971b43009e92962575dd97bd449cee5c4e93f8c5e7dd30d29e3e8f1134cb88",
+              "policy_digest": "5d886e69663fe76a7656393365c88db6b39bef48b736d488b18d40c6262388e8"
+            },
+            "to_position": 1,
+            "value": false
+          },
+          "claim_round_trip": true,
+          "claim_value": false,
+          "history_round_trip": true,
+          "policy": "replacement_breaks_continuity",
+          "stable_id_fields": []
+        },
+        {
+          "candidate": "content_dag",
+          "claim": {
+            "claim": "lineage_continuity",
+            "evidence": {
+              "event_kind": "replacement",
+              "transformation": {
+                "operation": "replace"
+              }
+            },
+            "from_position": 0,
+            "kind": "derived_claim",
+            "policy": "replacement_preserves_lineage",
+            "provenance": {
+              "derived_by": "evidence_plus_policy",
+              "history_digest": "a6971b43009e92962575dd97bd449cee5c4e93f8c5e7dd30d29e3e8f1134cb88",
+              "policy_digest": "cbfbc3d4d181785b11446f97b7dacae7720675ade9f18a21d0c02d773c1d74d3"
+            },
+            "to_position": 1,
+            "value": true
+          },
+          "claim_round_trip": true,
+          "claim_value": true,
+          "history_round_trip": true,
+          "policy": "replacement_preserves_lineage",
+          "stable_id_fields": []
+        },
+        {
+          "candidate": "rewrite_egraph",
+          "claim": {
+            "claim": "lineage_continuity",
+            "evidence": {
+              "event_kind": "replacement",
+              "transformation": {
+                "operation": "replace"
+              }
+            },
+            "from_position": 0,
+            "kind": "derived_claim",
+            "policy": "replacement_breaks_continuity",
+            "provenance": {
+              "derived_by": "evidence_plus_policy",
+              "history_digest": "a6971b43009e92962575dd97bd449cee5c4e93f8c5e7dd30d29e3e8f1134cb88",
+              "policy_digest": "5d886e69663fe76a7656393365c88db6b39bef48b736d488b18d40c6262388e8"
+            },
+            "to_position": 1,
+            "value": false
+          },
+          "claim_round_trip": true,
+          "claim_value": false,
+          "history_round_trip": true,
+          "policy": "replacement_breaks_continuity",
+          "stable_id_fields": []
+        },
+        {
+          "candidate": "rewrite_egraph",
+          "claim": {
+            "claim": "lineage_continuity",
+            "evidence": {
+              "event_kind": "replacement",
+              "transformation": {
+                "operation": "replace"
+              }
+            },
+            "from_position": 0,
+            "kind": "derived_claim",
+            "policy": "replacement_preserves_lineage",
+            "provenance": {
+              "derived_by": "evidence_plus_policy",
+              "history_digest": "a6971b43009e92962575dd97bd449cee5c4e93f8c5e7dd30d29e3e8f1134cb88",
+              "policy_digest": "cbfbc3d4d181785b11446f97b7dacae7720675ade9f18a21d0c02d773c1d74d3"
+            },
+            "to_position": 1,
+            "value": true
+          },
+          "claim_round_trip": true,
+          "claim_value": true,
+          "history_round_trip": true,
+          "policy": "replacement_preserves_lineage",
+          "stable_id_fields": []
+        }
+      ],
+      "same_history_under_both_policies": true,
+      "stable_identity_primitive_used": false
+    },
+    "fair_egraph_trial": {
+      "conclusion": "The e-graph retains a shared equivalence class and recovers the lowest-cost form independent of equality orientation; the reduced tree normalizer is order-sensitive on this adversarial diamond.",
+      "costs": {
+        "A": 4,
+        "B": 3,
+        "C": 3,
+        "D": 10,
+        "E": 1
+      },
+      "egraph_has_structural_advantage": true,
+      "egraph_order_invariant": true,
+      "experiment": "fair_egraph_diamond",
+      "rows": [
+        {
+          "egraph_alternatives_retained": 5,
+          "egraph_cost": 1,
+          "egraph_expanded_exploration": 20,
+          "egraph_extracted_classes": 2,
+          "egraph_recovers_lowest_cost": true,
+          "egraph_representation_growth": 6,
+          "egraph_result": [
+            "E",
+            [
+              [
+                "atom",
+                [
+                  "payload"
+                ]
+              ]
+            ]
+          ],
+          "egraph_result_operation": "E",
+          "egraph_unique_terms_explored": 5,
+          "lowest_cost_expected_operation": "E",
+          "orientation": "D_to_E",
+          "tree_exhaustive_work": {
+            "expanded_exploration": 25,
+            "unique_terms": 5
+          },
+          "tree_order_sensitive": false,
+          "tree_representation_growth": 5,
+          "tree_result": [
+            "E",
+            [
+              [
+                "atom",
+                [
+                  "payload"
+                ]
+              ]
+            ]
+          ],
+          "tree_result_operation": "E",
+          "tree_work": {
+            "expanded_exploration": 14,
+            "rewrites_applied": 3,
+            "unique_terms": 4
+          }
+        },
+        {
+          "egraph_alternatives_retained": 5,
+          "egraph_cost": 1,
+          "egraph_expanded_exploration": 20,
+          "egraph_extracted_classes": 2,
+          "egraph_recovers_lowest_cost": true,
+          "egraph_representation_growth": 6,
+          "egraph_result": [
+            "E",
+            [
+              [
+                "atom",
+                [
+                  "payload"
+                ]
+              ]
+            ]
+          ],
+          "egraph_result_operation": "E",
+          "egraph_unique_terms_explored": 5,
+          "lowest_cost_expected_operation": "E",
+          "orientation": "E_to_D",
+          "tree_exhaustive_work": {
+            "expanded_exploration": 25,
+            "unique_terms": 5
+          },
+          "tree_order_sensitive": true,
+          "tree_representation_growth": 5,
+          "tree_result": [
+            "D",
+            [
+              [
+                "atom",
+                [
+                  "payload"
+                ]
+              ]
+            ]
+          ],
+          "tree_result_operation": "D",
+          "tree_work": {
+            "expanded_exploration": 9,
+            "rewrites_applied": 2,
+            "unique_terms": 3
+          }
+        }
+      ],
+      "term_graph": {
+        "A_to_B": true,
+        "A_to_C": true,
+        "B_to_D": true,
+        "C_to_E": true,
+        "D_equivalent_E": true
+      },
+      "tree_order_changes_result": true
+    },
+    "frozen_held_out_evaluation": {
+      "case_ids": [
+        "software_release_counter",
+        "human_process_queue",
+        "symbolic_subtraction",
+        "unfamiliar_weaving_process"
+      ],
+      "conclusion": "The frozen core represents every held-out payload and rule, but execution fails exactly where a held-out rule asks for an operation outside the six-op vocabulary.",
+      "evaluation_passes_without_new_primitives": true,
+      "experiment": "frozen_held_out_corpus",
+      "frozen_core_hashes": [
+        "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b"
+      ],
+      "preserved_counterexamples": [
+        "symbolic_subtraction",
+        "unfamiliar_weaving_process",
+        "symbolic_subtraction",
+        "unfamiliar_weaving_process",
+        "symbolic_subtraction",
+        "unfamiliar_weaving_process"
+      ],
+      "representation_survives": true,
+      "rows": [
+        {
+          "actual": 42,
+          "candidate": "atom_pair",
+          "case_id": "software_release_counter",
+          "domain": "software",
+          "error": null,
+          "evaluation_status": "pass",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": 6,
+          "candidate": "atom_pair",
+          "case_id": "human_process_queue",
+          "domain": "human_action_process",
+          "error": null,
+          "evaluation_status": "pass",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": null,
+          "candidate": "atom_pair",
+          "case_id": "symbolic_subtraction",
+          "domain": "symbolic_transformation",
+          "error": "unknown represented instruction: sub",
+          "evaluation_status": "expected_failure",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": null,
+          "candidate": "atom_pair",
+          "case_id": "unfamiliar_weaving_process",
+          "domain": "unfamiliar_domain",
+          "error": "unknown represented instruction: rotate",
+          "evaluation_status": "expected_failure",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": 42,
+          "candidate": "content_dag",
+          "case_id": "software_release_counter",
+          "domain": "software",
+          "error": null,
+          "evaluation_status": "pass",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": 6,
+          "candidate": "content_dag",
+          "case_id": "human_process_queue",
+          "domain": "human_action_process",
+          "error": null,
+          "evaluation_status": "pass",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": null,
+          "candidate": "content_dag",
+          "case_id": "symbolic_subtraction",
+          "domain": "symbolic_transformation",
+          "error": "unknown represented instruction: sub",
+          "evaluation_status": "expected_failure",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": null,
+          "candidate": "content_dag",
+          "case_id": "unfamiliar_weaving_process",
+          "domain": "unfamiliar_domain",
+          "error": "unknown represented instruction: rotate",
+          "evaluation_status": "expected_failure",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": 42,
+          "candidate": "rewrite_egraph",
+          "case_id": "software_release_counter",
+          "domain": "software",
+          "error": null,
+          "evaluation_status": "pass",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": 6,
+          "candidate": "rewrite_egraph",
+          "case_id": "human_process_queue",
+          "domain": "human_action_process",
+          "error": null,
+          "evaluation_status": "pass",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": null,
+          "candidate": "rewrite_egraph",
+          "case_id": "symbolic_subtraction",
+          "domain": "symbolic_transformation",
+          "error": "unknown represented instruction: sub",
+          "evaluation_status": "expected_failure",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        },
+        {
+          "actual": null,
+          "candidate": "rewrite_egraph",
+          "case_id": "unfamiliar_weaving_process",
+          "domain": "unfamiliar_domain",
+          "error": "unknown represented instruction: rotate",
+          "evaluation_status": "expected_failure",
+          "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "input_round_trip": true,
+          "payload_round_trip": true,
+          "rule_round_trip": true,
+          "semantic_core_modified": false
+        }
+      ],
+      "semantic_core_modified": false,
+      "unexpected_evaluation_failures": []
+    },
+    "minimum_trusted_semantic_boundary": {
+      "all_pass": true,
+      "behavior_specific_python_branches": 0,
+      "core": [
+        "atom equality",
+        "generic match",
+        "generic substitute",
+        "generic rewrite"
+      ],
+      "decision": "stop_branch_and_preserve_six_op_vm_for_open_arithmetic",
+      "experiment": "minimum_trusted_semantic_core",
+      "legacy_vm_opcode_count": 6,
+      "open_arithmetic_limit": "literal arithmetic instances rewrite successfully; open-ended numeric arithmetic still needs host semantics or an expanding represented rule set",
+      "represented_rules": [
+        {
+          "name": "rule_A_increment_literal",
+          "pattern": {
+            "left": 3,
+            "op": "add",
+            "right": 1
+          },
+          "replacement": 4
+        },
+        {
+          "name": "rule_B_double_literal",
+          "pattern": {
+            "left": 3,
+            "op": "mul",
+            "right": 2
+          },
+          "replacement": 6
+        },
+        {
+          "name": "rename_structural_field",
+          "pattern": {
+            "name": "old",
+            "value": {
+              "$var": "x"
+            }
+          },
+          "replacement": {
+            "name": "new",
+            "value": {
+              "$var": "x"
+            }
+          }
+        }
+      ],
+      "rows": [
+        {
+          "candidate": "atom_pair",
+          "case_id": "rule_A_increment_literal",
+          "core_source_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "expected": 4,
+          "fidelity": true,
+          "input_round_trip": true,
+          "output": 4,
+          "rule_round_trip": true
+        },
+        {
+          "candidate": "atom_pair",
+          "case_id": "rule_B_double_literal",
+          "core_source_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "expected": 6,
+          "fidelity": true,
+          "input_round_trip": true,
+          "output": 6,
+          "rule_round_trip": true
+        },
+        {
+          "candidate": "atom_pair",
+          "case_id": "rename_structural_field",
+          "core_source_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "expected": {
+            "name": "new",
+            "value": "payload"
+          },
+          "fidelity": true,
+          "input_round_trip": true,
+          "output": {
+            "name": "new",
+            "value": "payload"
+          },
+          "rule_round_trip": true
+        },
+        {
+          "candidate": "content_dag",
+          "case_id": "rule_A_increment_literal",
+          "core_source_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "expected": 4,
+          "fidelity": true,
+          "input_round_trip": true,
+          "output": 4,
+          "rule_round_trip": true
+        },
+        {
+          "candidate": "content_dag",
+          "case_id": "rule_B_double_literal",
+          "core_source_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "expected": 6,
+          "fidelity": true,
+          "input_round_trip": true,
+          "output": 6,
+          "rule_round_trip": true
+        },
+        {
+          "candidate": "content_dag",
+          "case_id": "rename_structural_field",
+          "core_source_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "expected": {
+            "name": "new",
+            "value": "payload"
+          },
+          "fidelity": true,
+          "input_round_trip": true,
+          "output": {
+            "name": "new",
+            "value": "payload"
+          },
+          "rule_round_trip": true
+        },
+        {
+          "candidate": "rewrite_egraph",
+          "case_id": "rule_A_increment_literal",
+          "core_source_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "expected": 4,
+          "fidelity": true,
+          "input_round_trip": true,
+          "output": 4,
+          "rule_round_trip": true
+        },
+        {
+          "candidate": "rewrite_egraph",
+          "case_id": "rule_B_double_literal",
+          "core_source_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "expected": 6,
+          "fidelity": true,
+          "input_round_trip": true,
+          "output": 6,
+          "rule_round_trip": true
+        },
+        {
+          "candidate": "rewrite_egraph",
+          "case_id": "rename_structural_field",
+          "core_source_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "expected": {
+            "name": "new",
+            "value": "payload"
+          },
+          "fidelity": true,
+          "input_round_trip": true,
+          "output": {
+            "name": "new",
+            "value": "payload"
+          },
+          "rule_round_trip": true
+        }
+      ],
+      "same_core_source_hash": true
+    }
+  },
+  "gate_answers": {
+    "continuity": {
+      "answer": "derived claim over provenance evidence plus represented policy",
+      "primitive_required": false,
+      "same_evidence_two_claims": true
+    },
+    "egraph": {
+      "answer": "useful transformation/equivalence layer, not a universal representation kernel",
+      "fair_trial_advantage": true,
+      "irreducible_property_observed": "shared equivalence classes retain simultaneously valid alternatives and allow cost-based extraction independent of equality orientation",
+      "phase1_core_role": "leave the full e-graph out of the semantic core while preserving this property as an optional/reference mechanism",
+      "whole_implementation_required": false
+    },
+    "frozen_held_out_survival": {
+      "full_behavior_without_new_primitives": false,
+      "preserved_counterexample_class": "a held-out transformation requiring an operation absent from the six-op VM",
+      "reason": "The frozen system executes the software and human-process cases, but symbolic subtraction and unfamiliar rotation remain outside the fixed represented-rule vocabulary.",
+      "representation": true
+    },
+    "minimum_trusted_semantic_core": {
+      "answer": "generic pattern matching, substitution, rewriting, and atom equality; retain the six-op represented-rule VM as the current boundary for open arithmetic",
+      "host_defined": [
+        "the pattern/match/substitute/rewrite mechanism",
+        "the six-op VM dispatch and stack semantics",
+        "arithmetic and other domain operations not present in U rules",
+        "encoding, decoding, storage, measurement, and claim evaluation"
+      ],
+      "represented": [
+        "values and structural patterns",
+        "bindings and substitutions",
+        "rewrite rules",
+        "rule programs, transformations, history, cost, and provenance",
+        "continuity policies and derived claims"
+      ],
+      "why_not_smaller": "The generic rewrite mechanism expresses multiple structural behaviors with zero behavior-specific branches, but open-ended arithmetic still needs either host semantics or a larger represented arithmetic system. Removing the six-op boundary would add machinery before removing a demonstrated requirement."
+    },
+    "represented_rules_control_execution": true,
+    "storage_semantically_irrelevant": {
+      "answer": "yes for decoded semantic value; no for operational cost",
+      "reason": "All three substrates round-trip the same values, rules, evidence, and claims. Their stores, hashes, indexes, and e-classes still change bytes, sharing, and work."
+    },
+    "transformations_live_inside_U": true
+  },
+  "host_semantics_audit": {
+    "candidates": {
+      "atom_pair": {
+        "decode": {
+          "DERIVED": [
+            "host value projection"
+          ],
+          "HOST": [
+            "Python parser and traversal"
+          ],
+          "REPRESENTED": [
+            "tagged pair tree"
+          ]
+        },
+        "encode": {
+          "DERIVED": [
+            "binary tree shape"
+          ],
+          "HOST": [
+            "Python traversal",
+            "JSON scalar canonicalization",
+            "map key sorting"
+          ],
+          "REPRESENTED": [
+            "Atom",
+            "Pair",
+            "list/map tags"
+          ]
+        },
+        "identity": {
+          "DERIVED": [
+            "projection comparison only"
+          ],
+          "HOST": [
+            "equality of decoded values"
+          ],
+          "REPRESENTED": [
+            "content/annotation fields when supplied"
+          ]
+        },
+        "query": {
+          "DERIVED": [
+            "queried value and traversal count"
+          ],
+          "HOST": [
+            "path loop",
+            "linear scan"
+          ],
+          "REPRESENTED": [
+            "pair tree path"
+          ]
+        },
+        "transform": {
+          "DERIVED": [
+            "transformed value"
+          ],
+          "HOST": [
+            "apply_operation",
+            "decode/re-encode orchestration"
+          ],
+          "REPRESENTED": [
+            "input and output pair trees"
+          ]
+        }
+      },
+      "content_dag": {
+        "decode": {
+          "DERIVED": [
+            "reconstructed value"
+          ],
+          "HOST": [
+            "Python store lookup",
+            "memoization"
+          ],
+          "REPRESENTED": [
+            "root and links"
+          ]
+        },
+        "encode": {
+          "DERIVED": [
+            "content-addressed sharing"
+          ],
+          "HOST": [
+            "canonical serialization",
+            "SHA-256 call",
+            "Python store/index"
+          ],
+          "REPRESENTED": [
+            "immutable nodes",
+            "CID links"
+          ]
+        },
+        "identity": {
+          "DERIVED": [
+            "same-content CID observation"
+          ],
+          "HOST": [
+            "CID equality comparison in harness"
+          ],
+          "REPRESENTED": [
+            "content and annotations as ordinary nodes"
+          ]
+        },
+        "query": {
+          "DERIVED": [
+            "queried value and traversal count"
+          ],
+          "HOST": [
+            "map/list edge scan"
+          ],
+          "REPRESENTED": [
+            "CID path"
+          ]
+        },
+        "transform": {
+          "DERIVED": [
+            "new nodes and root redirect"
+          ],
+          "HOST": [
+            "apply_operation",
+            "decode/re-encode orchestration"
+          ],
+          "REPRESENTED": [
+            "old and new immutable roots"
+          ]
+        }
+      },
+      "continuity_analysis": {
+        "path_analysis": {
+          "DERIVED": [
+            "path available, content equality, alias/equivalence facts"
+          ],
+          "HOST": [
+            "reachability traversal",
+            "classification comparison"
+          ],
+          "REPRESENTED": [
+            "snapshots",
+            "relations",
+            "provenance"
+          ]
+        }
+      },
+      "represented_rule_vm": {
+        "evaluate": {
+          "DERIVED": [
+            "output U",
+            "modified rule behavior"
+          ],
+          "HOST": [
+            "fixed VM instruction loop",
+            "stack allocation"
+          ],
+          "REPRESENTED": [
+            "rule program",
+            "input U"
+          ]
+        },
+        "self_interpretation": {
+          "DERIVED": [
+            "rule_B and its output"
+          ],
+          "HOST": [
+            "same VM loop"
+          ],
+          "REPRESENTED": [
+            "rule that edits another represented rule"
+          ]
+        }
+      },
+      "rewrite_egraph": {
+        "decode": {
+          "DERIVED": [
+            "least-size representative"
+          ],
+          "HOST": [
+            "extraction algorithm",
+            "JSON projection"
+          ],
+          "REPRESENTED": [
+            "e-class alternatives"
+          ]
+        },
+        "encode": {
+          "DERIVED": [
+            "congruence classes"
+          ],
+          "HOST": [
+            "Python term construction",
+            "hash-consing data structures"
+          ],
+          "REPRESENTED": [
+            "enodes",
+            "e-classes",
+            "rule table"
+          ]
+        },
+        "identity": {
+          "DERIVED": [
+            "equivalence observation, not continuity"
+          ],
+          "HOST": [
+            "decoded-term comparison"
+          ],
+          "REPRESENTED": [
+            "terms/e-classes"
+          ]
+        },
+        "query": {
+          "DERIVED": [
+            "query result and visited classes"
+          ],
+          "HOST": [
+            "representative extraction",
+            "path loop"
+          ],
+          "REPRESENTED": [
+            "e-class graph"
+          ]
+        },
+        "transform": {
+          "DERIVED": [
+            "rewrite sequence and extracted result"
+          ],
+          "HOST": [
+            "matcher/substitution loop",
+            "apply_operation",
+            "graph rebuild"
+          ],
+          "REPRESENTED": [
+            "generic rule schemas",
+            "wrapped terms"
+          ]
+        }
+      }
+    },
+    "conclusion": "The current experiment still has substantial HOST semantics. The strongest reduction is represented-rule execution: rule data controls a fixed evaluator, but the evaluator vocabulary remains host code.",
+    "definitions": {
+      "DERIVED": "a result computed from represented data by a mechanism or harness",
+      "HOST": "semantic work executed by Python or a host library rather than read from U",
+      "REPRESENTED": "structure, rule, relation, or data explicitly carried in U"
+    }
+  },
+  "objective": "attack the Phase 1 gate with the smallest falsification experiments",
+  "phase1_gate": {
+    "decision": "B",
+    "how_things_change": "evidence established for represented rewrite and fixed-VM execution; not closed for operations outside the VM vocabulary",
+    "open_phase2": false,
+    "unresolved_counterexample": "The frozen semantic core round-trips held-out symbolic and unfamiliar structures, but cannot execute represented rules whose operation is subtract or rotate without adding a new host opcode or a new represented arithmetic/operation mechanism.",
+    "what_things_are": "evidence established for ordinary represented values, rules, transformations, histories, costs, provenance, and policies"
+  },
+  "protocol": "phase1-v4",
+  "selection": null,
+  "smallest_surviving_concepts": [
+    "ordinary represented value",
+    "generic pattern, binding, substitution, and rewrite",
+    "represented rule/program read by a fixed evaluator",
+    "transformation and composition as ordinary U",
+    "history/provenance evidence",
+    "policy-derived continuity claim",
+    "cost as an observation used by extraction or measurement"
+  ]
+}
