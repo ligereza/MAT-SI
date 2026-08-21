@@ -1,0 +1,71 @@
+{
+  "protocol": "agent1-continuation-coverage-prediction-v1",
+  "question": "When a relation selects only some observations, what evidence separates coverage from predictive content?",
+  "proposition": {
+    "statement": "If every covered row receives the same prediction, its accuracy cannot exceed the modal constant predictor on that covered population.",
+    "proof": "The predictor's correct count is the count of its one label. The modal constant chooses the larger of that count and its complement, so the difference is non-positive.",
+    "consequence": "selection_only => same_opportunity_gain <= 0"
+  },
+  "controlled_counterexamples": {
+    "selection_only": {
+      "rows": [
+        {"outcome": true, "prediction": true},
+        {"outcome": false, "prediction": true},
+        {"outcome": true, "prediction": true},
+        {"outcome": false, "prediction": null}
+      ],
+      "coverage": 0.75,
+      "conditional_accuracy": 0.6666666666666666,
+      "same_opportunity_gain": 0.0,
+      "selection_only": true,
+      "exact_null": {
+        "distinct_cases": 6,
+        "gain_distribution": {"-1/3": 3, "0/3": 3},
+        "p_value_gain_at_least_observed": 0.5
+      }
+    },
+    "varying_prediction": {
+      "rows": [
+        {"outcome": true, "prediction": true},
+        {"outcome": false, "prediction": false},
+        {"outcome": true, "prediction": true},
+        {"outcome": false, "prediction": null}
+      ],
+      "coverage": 0.75,
+      "conditional_accuracy": 1.0,
+      "same_opportunity_gain": 0.3333333333333333,
+      "selection_only": false,
+      "exact_null": {
+        "distinct_cases": 6,
+        "gain_distribution": {"-1/3": 2, "-2/3": 1, "0/3": 2, "1/3": 1},
+        "p_value_gain_at_least_observed": 0.16666666666666666
+      }
+    }
+  },
+  "pareto": {
+    "frontier": ["varying_prediction", "full_constant"],
+    "dominated": ["selection_only", "sparse_perfect"],
+    "meaning": "Coverage and conditional accuracy remain separate axes; no weighted score chooses between the frontier points."
+  },
+  "phase4a_reanalysis": {
+    "source": "existing held-out C evaluations; no Phase 4 source was changed",
+    "rows": [
+      {"outcome": true, "prediction": true},
+      {"outcome": false, "prediction": true},
+      {"outcome": true, "prediction": true},
+      {"outcome": false, "prediction": null}
+    ],
+    "coverage": 0.75,
+    "conditional_accuracy": 0.6666666666666666,
+    "same_opportunity_gain": 0.0,
+    "selection_only": true,
+    "conclusion": "G is a selector with a repeated label, not evidence of predictive transfer."
+  },
+  "complexity": {
+    "evaluate": "O(n) time, O(n) normalized-row space",
+    "pareto_frontier": "O(k^2) comparisons",
+    "exact_binary_null": "O(C(n,t) * n) time; finite-sample only"
+  },
+  "causal_status": "No causal conclusion: the null rearranges outcomes while holding predictions and abstentions fixed.",
+  "minimum_missing_relation": "A future transfer test needs varying represented predictions within the covered population, plus a precommitted treatment of abstention."
+}
