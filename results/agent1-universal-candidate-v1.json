@@ -1,0 +1,89 @@
+{
+  "candidate_theorem": {
+    "finite_implementation": {
+      "certificate": "exact finite instance of the universal trichotomy",
+      "decision": "ROBUST_IDENTIFY_AND_SOLVE",
+      "inf_net_gain_finite": "1",
+      "scenario_count": 2,
+      "sup_net_gain_finite": "4"
+    },
+    "for_nonempty_Omega": "identify iff inf Delta > 0; direct iff sup Delta <= 0; otherwise abstain"
+  },
+  "claims": [
+    {
+      "claim": "the trichotomy is sound and complete once the exact feasible set Omega is supplied",
+      "status": "PROVED"
+    },
+    {
+      "claim": "exact closure makes the finite instance an instance of the universal theorem",
+      "status": "PROVED"
+    },
+    {
+      "claim": "a partial observed subset alone can support a universal decision for all compatible supersets",
+      "status": "DISPROVED"
+    },
+    {
+      "claim": "the theorem is a general robust-set decision rule, not evidence of a new universal solver",
+      "status": "KNOWN_RESULT"
+    },
+    {
+      "claim": "an open-ended representation generator can provide exact closure without an external completeness axiom",
+      "status": "UNKNOWN"
+    }
+  ],
+  "exact_closure": {
+    "certificate": "exact only relative to the explicitly supplied finite universe",
+    "exact_closure": true,
+    "extra_count": 0,
+    "missing_count": 0,
+    "universe_decision": "ROBUST_IDENTIFY_AND_SOLVE"
+  },
+  "gate": "UNIVERSALITY_REQUIRES_VERIFIABLE_CLOSURE",
+  "incomplete_closure": {
+    "certificate": "exact only relative to the explicitly supplied finite universe",
+    "exact_closure": false,
+    "extra_count": 0,
+    "missing_count": 1,
+    "universe_decision": "ROBUST_IDENTIFY_AND_SOLVE"
+  },
+  "partial_observation_attack": {
+    "certificate": "any rule seeing only the observed subset returns the same output in both worlds",
+    "possible_world_observed_only": {
+      "certificate": "exact finite instance of the universal trichotomy",
+      "decision": "ROBUST_IDENTIFY_AND_SOLVE",
+      "inf_net_gain_finite": "4",
+      "scenario_count": 1,
+      "sup_net_gain_finite": "4"
+    },
+    "possible_world_with_omitted": {
+      "omitted": {
+        "direct_cost": "10",
+        "downstream_cost": "9",
+        "gross_gain": "1",
+        "id": "omitted-counterexample",
+        "identification_cost": "2",
+        "net_gain": "-1"
+      },
+      "result": {
+        "certificate": "exact finite instance of the universal trichotomy",
+        "decision": "ABSTAIN_JOINT_UNCERTAIN",
+        "inf_net_gain_finite": "-1",
+        "scenario_count": 2,
+        "sup_net_gain_finite": "4"
+      }
+    },
+    "same_observation": [
+      {
+        "direct_cost": "10",
+        "downstream_cost": "6",
+        "gross_gain": "4",
+        "id": "observed",
+        "identification_cost": "0",
+        "net_gain": "4"
+      }
+    ],
+    "status": "IMPOSSIBILITY_WITNESS",
+    "universal_observation_only_rule_possible": false
+  },
+  "question": "Can a universal robust-decision theorem avoid an exact closure assumption?"
+}
