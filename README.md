@@ -138,3 +138,21 @@ python -m matsi.minimum_observability --json-out results/phase4c-minimum-observa
 
 See `docs/phase4c-minimum-observability.md` for the falsifying pairs, source mappings,
 residue audits, instrumentation boundary, and gate decision. Phase 5 has not begun.
+
+## CODEINE v0
+
+CODEINE v0 is the first local product using the Phase 4C observation contract. It
+captures auditable Git checkpoints and emits only `CONTINUE`, `SWITCH`, `STOP`, or
+`UNKNOWN` from one explicit persistence hypothesis:
+
+```text
+$env:PYTHONPATH="src"
+python -m codeine start --test-command "python -m unittest discover -s tests -v"
+python -m codeine checkpoint
+python -m codeine assess
+python -m codeine finish
+```
+
+See `docs/codeine-v0.md` for the contract, detector, and real-session gate. No
+dashboard, daemon, IDE integration, LLM integration, or additional product has been
+started.
