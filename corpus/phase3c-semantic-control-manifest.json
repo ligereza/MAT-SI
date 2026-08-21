@@ -1,0 +1,42 @@
+{
+  "protocol": "phase3c-semantic-falsification",
+  "corpus_role": "frozen_positive_control_and_comparable_negative_control",
+  "frozen_before_analysis": true,
+  "frozen_at": "2026-08-21T00:00:00-04:00",
+  "positive_controls": [
+    {
+      "id": "positive_a",
+      "origin": "public_gist",
+      "source_url": "https://gist.githubusercontent.com/TedAlden/1a30101620d2152ab84e9e26b80e8384/raw/clamp.py",
+      "source_sha256": "ec76b6e639dfce56303c940e99680093c098b9e9b2f55af83932fadb200b8ddd",
+      "function_name": "clamp",
+      "oracle_relation": "clamp a number to the closed interval [a,b]"
+    },
+    {
+      "id": "positive_b",
+      "origin": "public_gist",
+      "source_url": "https://gist.githubusercontent.com/chriscamacho/63a9427deca505634f162e882e369172/raw/raymath.py",
+      "source_sha256": "221ca0c8ba2fb058c35bae6ba54411f7b5b748b803e11c5cccbf41b829ea8aa2",
+      "function_name": "Clamp",
+      "oracle_relation": "clamp a number to the closed interval [minv,maxv]"
+    }
+  ],
+  "negative_control": {
+    "id": "negative_local",
+    "origin": "harness_authored_comparable_surface_control",
+    "source_path": "corpus/phase3c-negative-control.py",
+    "source_sha256": "8257e22dac1e63bd9f151ce01fab2aa3d7cb343701f95c7257ed8db53753d801",
+    "function_name": "clamp",
+    "oracle_relation": "must not satisfy the clamp relation"
+  },
+  "oracle": {
+    "inputs": [
+      [-2, 0, 1],
+      [0.5, 0, 1],
+      [2, 0, 1]
+    ],
+    "expected_outputs": [0, 0.5, 1],
+    "source": "represented_test_vector_frozen_with_the_corpus",
+    "labels_were_not_used_to_discover_G": true
+  }
+}
