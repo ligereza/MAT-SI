@@ -42,4 +42,14 @@ languages, names, and repositories are not assumed to be MAT-SI primitives.
 See `docs/phase1-protocol.md` for the original protocol, `docs/phase1-protocol-v2.md`
 for the scaling protocol, `docs/phase1-protocol-v3.md` for kernel decomposition, and
 `docs/phase1-protocol-v4.md` and `docs/phase1-v4-results.md` for the gate attack and
-current findings.
+current findings. Phase 2 self-reference results are in
+`docs/phase2-self-reference.md`.
+
+## Phase 2
+
+Run the minimal self-reference/self-observation experiment without modifying the
+frozen Phase 1 evaluator:
+
+```text
+python -m matsi.self_reference --json-out results/phase2-self-reference-results.json
+```

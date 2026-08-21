@@ -1,0 +1,1502 @@
+{
+  "all_required_evidence": true,
+  "criteria": {
+    "complete_history_preserved": true,
+    "external_mechanisms_inspect_self_model": true,
+    "false_claim_detected_not_absorbed": true,
+    "represented_transformation_modifies_self_rule": true,
+    "same_mechanism_external_and_self": true,
+    "self_claims_checked_against_actual": true,
+    "self_evaluation_selects_claim": true,
+    "self_model_is_executable_slice": true,
+    "unchanged_evaluator_executes_modified_rule": true
+  },
+  "gate": {
+    "decision": "A",
+    "phase1_assumption_broke": false,
+    "phase3_started": false,
+    "unresolved_gap": null
+  },
+  "phase1_frozen": {
+    "egraph_role": "optional/reference transformation machinery",
+    "semantic_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+    "vm_operations": [
+      "get",
+      "const",
+      "add",
+      "mul",
+      "set",
+      "return"
+    ]
+  },
+  "protocol": "phase2-self-reference",
+  "rows": [
+    {
+      "behavior_after": 6,
+      "behavior_before": 4,
+      "behavior_changed": true,
+      "candidate": "atom_pair",
+      "correspondence": {
+        "evaluator_source_hash": {
+          "actual_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "fact": "evaluator_source_hash",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "evaluator_source_hash",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "evaluator_source_hash",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "status": "consistent"
+        },
+        "evaluator_vocabulary": {
+          "actual_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "set",
+            "return"
+          ],
+          "fact": "evaluator_vocabulary",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "set",
+            "return"
+          ],
+          "status": "consistent"
+        },
+        "phase": {
+          "actual_value": "phase2-self-reference",
+          "fact": "phase",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "phase",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "phase",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "phase2-self-reference",
+          "status": "consistent"
+        },
+        "semantic_core_hash": {
+          "actual_value": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "fact": "semantic_core_hash",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "semantic_core_hash",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "semantic_core_hash",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "status": "consistent"
+        }
+      },
+      "correspondence_baseline_consistent": true,
+      "cost_preserved": true,
+      "evaluator_source_unchanged": true,
+      "external_output": 4,
+      "failure_attacks": {
+        "all_failures_preserved": true,
+        "claim_unsupported_by_provenance": {
+          "claim": {
+            "actual_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+            "fact": "evaluator_source_hash",
+            "kind": "correspondence_claim",
+            "provenance": {
+              "actual_source": {
+                "fact": "evaluator_source_hash",
+                "source": "phase2-runtime-observation"
+              },
+              "represented_source": {
+                "source": "fabricated"
+              }
+            },
+            "represented_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+            "status": "inconsistent"
+          },
+          "repaired": false,
+          "status": "unsupported"
+        },
+        "corrupted_represented_rule": {
+          "error": "unknown represented instruction: xor",
+          "repaired": false,
+          "status": "unknown"
+        },
+        "false_represented_cost": {
+          "kind": "cost_correspondence_claim",
+          "measured_cost": 4,
+          "provenance": {
+            "actual_source": {
+              "metric": "instruction_count",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "rule": "R1",
+              "source": "represented-self-model"
+            }
+          },
+          "reported_cost": 999,
+          "rule": "rule_R1",
+          "status": "inconsistent"
+        },
+        "self_model_missing_host_capability": {
+          "actual_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "set",
+            "return"
+          ],
+          "fact": "evaluator_vocabulary",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "return"
+          ],
+          "status": "inconsistent"
+        },
+        "stale_self_description": {
+          "actual_value": "phase2-self-reference",
+          "fact": "phase",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "phase",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "phase",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "phase1",
+          "status": "inconsistent"
+        }
+      },
+      "history": {
+        "after": {
+          "kind": "rule",
+          "name": "R2",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "before": {
+          "kind": "rule",
+          "name": "R1",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "kind": "self_transformation_history",
+        "observed_cost": {
+          "after": 4,
+          "before": 4,
+          "transformation": 7
+        },
+        "provenance": {
+          "event": "R1_to_R2",
+          "source": "represented-self-model"
+        },
+        "transformation": {
+          "cost_observation": {
+            "metric": "instruction_count",
+            "value": 7
+          },
+          "kind": "transformation",
+          "name": "R1_to_R2",
+          "provenance": {
+            "reason": "change represented rule behavior",
+            "source": "represented-self-model"
+          },
+          "rule": {
+            "kind": "rule",
+            "name": "transform_self_model_rule",
+            "program": [
+              {
+                "op": "const",
+                "value": 2
+              },
+              {
+                "op": "set",
+                "path": [
+                  "executable_representation",
+                  "rule",
+                  "program",
+                  1,
+                  "value"
+                ]
+              },
+              {
+                "op": "const",
+                "value": "mul"
+              },
+              {
+                "op": "set",
+                "path": [
+                  "executable_representation",
+                  "rule",
+                  "program",
+                  2,
+                  "op"
+                ]
+              },
+              {
+                "op": "const",
+                "value": "R2"
+              },
+              {
+                "op": "set",
+                "path": [
+                  "executable_representation",
+                  "rule",
+                  "name"
+                ]
+              },
+              {
+                "op": "return"
+              }
+            ]
+          },
+          "target_path": [
+            "executable_representation",
+            "rule"
+          ]
+        }
+      },
+      "history_round_trip": true,
+      "inspection": {
+        "cost": {
+          "metric": "instruction_count",
+          "provenance": {
+            "rule": "R1",
+            "source": "represented-self-model"
+          },
+          "value": 4
+        },
+        "provenance": {
+          "semantic_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "source": "phase1-final-state"
+        },
+        "reconstructed": {
+          "cost": {
+            "metric": "instruction_count",
+            "provenance": {
+              "rule": "R1",
+              "source": "represented-self-model"
+            },
+            "value": 4
+          },
+          "provenance": {
+            "semantic_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+            "source": "phase1-final-state"
+          },
+          "rule": {
+            "kind": "rule",
+            "name": "R1",
+            "program": [
+              {
+                "op": "get",
+                "path": [
+                  "value"
+                ]
+              },
+              {
+                "op": "const",
+                "value": 1
+              },
+              {
+                "op": "add"
+              },
+              {
+                "op": "return"
+              }
+            ]
+          }
+        },
+        "reconstructs_exactly": true,
+        "rule": {
+          "kind": "rule",
+          "name": "R1",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        }
+      },
+      "new_rule_preserved": true,
+      "previous_rule_preserved": true,
+      "provenance_preserved": true,
+      "same_external_self_mechanism": true,
+      "self_evaluation": {
+        "alternatives": [
+          {
+            "acceptable": true,
+            "observed_cost": 4,
+            "output": 4,
+            "rule": "R1"
+          },
+          {
+            "acceptable": true,
+            "observed_cost": 2,
+            "output": 4,
+            "rule": "R_short"
+          }
+        ],
+        "claim_round_trip": true,
+        "policy": {
+          "direction": "minimize",
+          "metric": "instruction_count",
+          "provenance": {
+            "reason": "prefer lower observed cost",
+            "source": "represented-policy"
+          }
+        },
+        "selection_claim": {
+          "evidence": [
+            {
+              "acceptable": true,
+              "observed_cost": 4,
+              "output": 4,
+              "rule": "R1"
+            },
+            {
+              "acceptable": true,
+              "observed_cost": 2,
+              "output": 4,
+              "rule": "R_short"
+            }
+          ],
+          "kind": "selection_claim",
+          "policy": {
+            "direction": "minimize",
+            "metric": "instruction_count",
+            "provenance": {
+              "reason": "prefer lower observed cost",
+              "source": "represented-policy"
+            }
+          },
+          "provenance": {
+            "source": "represented-alternatives-and-costs"
+          },
+          "selected_rule": "R_short"
+        },
+        "selects_lowest_cost": true,
+        "source_mutated": false
+      },
+      "self_input_output": 4,
+      "self_model_distinguishes_description_and_executable": true,
+      "self_model_round_trip": true,
+      "self_rule_after": {
+        "kind": "rule",
+        "name": "R2",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 2
+          },
+          {
+            "op": "mul"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      },
+      "self_rule_before": {
+        "kind": "rule",
+        "name": "R1",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      },
+      "transformation_round_trip": true
+    },
+    {
+      "behavior_after": 6,
+      "behavior_before": 4,
+      "behavior_changed": true,
+      "candidate": "content_dag",
+      "correspondence": {
+        "evaluator_source_hash": {
+          "actual_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "fact": "evaluator_source_hash",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "evaluator_source_hash",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "evaluator_source_hash",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "status": "consistent"
+        },
+        "evaluator_vocabulary": {
+          "actual_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "set",
+            "return"
+          ],
+          "fact": "evaluator_vocabulary",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "set",
+            "return"
+          ],
+          "status": "consistent"
+        },
+        "phase": {
+          "actual_value": "phase2-self-reference",
+          "fact": "phase",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "phase",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "phase",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "phase2-self-reference",
+          "status": "consistent"
+        },
+        "semantic_core_hash": {
+          "actual_value": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "fact": "semantic_core_hash",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "semantic_core_hash",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "semantic_core_hash",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "status": "consistent"
+        }
+      },
+      "correspondence_baseline_consistent": true,
+      "cost_preserved": true,
+      "evaluator_source_unchanged": true,
+      "external_output": 4,
+      "failure_attacks": {
+        "all_failures_preserved": true,
+        "claim_unsupported_by_provenance": {
+          "claim": {
+            "actual_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+            "fact": "evaluator_source_hash",
+            "kind": "correspondence_claim",
+            "provenance": {
+              "actual_source": {
+                "fact": "evaluator_source_hash",
+                "source": "phase2-runtime-observation"
+              },
+              "represented_source": {
+                "source": "fabricated"
+              }
+            },
+            "represented_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+            "status": "inconsistent"
+          },
+          "repaired": false,
+          "status": "unsupported"
+        },
+        "corrupted_represented_rule": {
+          "error": "unknown represented instruction: xor",
+          "repaired": false,
+          "status": "unknown"
+        },
+        "false_represented_cost": {
+          "kind": "cost_correspondence_claim",
+          "measured_cost": 4,
+          "provenance": {
+            "actual_source": {
+              "metric": "instruction_count",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "rule": "R1",
+              "source": "represented-self-model"
+            }
+          },
+          "reported_cost": 999,
+          "rule": "rule_R1",
+          "status": "inconsistent"
+        },
+        "self_model_missing_host_capability": {
+          "actual_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "set",
+            "return"
+          ],
+          "fact": "evaluator_vocabulary",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "return"
+          ],
+          "status": "inconsistent"
+        },
+        "stale_self_description": {
+          "actual_value": "phase2-self-reference",
+          "fact": "phase",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "phase",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "phase",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "phase1",
+          "status": "inconsistent"
+        }
+      },
+      "history": {
+        "after": {
+          "kind": "rule",
+          "name": "R2",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "before": {
+          "kind": "rule",
+          "name": "R1",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "kind": "self_transformation_history",
+        "observed_cost": {
+          "after": 4,
+          "before": 4,
+          "transformation": 7
+        },
+        "provenance": {
+          "event": "R1_to_R2",
+          "source": "represented-self-model"
+        },
+        "transformation": {
+          "cost_observation": {
+            "metric": "instruction_count",
+            "value": 7
+          },
+          "kind": "transformation",
+          "name": "R1_to_R2",
+          "provenance": {
+            "reason": "change represented rule behavior",
+            "source": "represented-self-model"
+          },
+          "rule": {
+            "kind": "rule",
+            "name": "transform_self_model_rule",
+            "program": [
+              {
+                "op": "const",
+                "value": 2
+              },
+              {
+                "op": "set",
+                "path": [
+                  "executable_representation",
+                  "rule",
+                  "program",
+                  1,
+                  "value"
+                ]
+              },
+              {
+                "op": "const",
+                "value": "mul"
+              },
+              {
+                "op": "set",
+                "path": [
+                  "executable_representation",
+                  "rule",
+                  "program",
+                  2,
+                  "op"
+                ]
+              },
+              {
+                "op": "const",
+                "value": "R2"
+              },
+              {
+                "op": "set",
+                "path": [
+                  "executable_representation",
+                  "rule",
+                  "name"
+                ]
+              },
+              {
+                "op": "return"
+              }
+            ]
+          },
+          "target_path": [
+            "executable_representation",
+            "rule"
+          ]
+        }
+      },
+      "history_round_trip": true,
+      "inspection": {
+        "cost": {
+          "metric": "instruction_count",
+          "provenance": {
+            "rule": "R1",
+            "source": "represented-self-model"
+          },
+          "value": 4
+        },
+        "provenance": {
+          "semantic_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "source": "phase1-final-state"
+        },
+        "reconstructed": {
+          "cost": {
+            "metric": "instruction_count",
+            "provenance": {
+              "rule": "R1",
+              "source": "represented-self-model"
+            },
+            "value": 4
+          },
+          "provenance": {
+            "semantic_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+            "source": "phase1-final-state"
+          },
+          "rule": {
+            "kind": "rule",
+            "name": "R1",
+            "program": [
+              {
+                "op": "get",
+                "path": [
+                  "value"
+                ]
+              },
+              {
+                "op": "const",
+                "value": 1
+              },
+              {
+                "op": "add"
+              },
+              {
+                "op": "return"
+              }
+            ]
+          }
+        },
+        "reconstructs_exactly": true,
+        "rule": {
+          "kind": "rule",
+          "name": "R1",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        }
+      },
+      "new_rule_preserved": true,
+      "previous_rule_preserved": true,
+      "provenance_preserved": true,
+      "same_external_self_mechanism": true,
+      "self_evaluation": {
+        "alternatives": [
+          {
+            "acceptable": true,
+            "observed_cost": 4,
+            "output": 4,
+            "rule": "R1"
+          },
+          {
+            "acceptable": true,
+            "observed_cost": 2,
+            "output": 4,
+            "rule": "R_short"
+          }
+        ],
+        "claim_round_trip": true,
+        "policy": {
+          "direction": "minimize",
+          "metric": "instruction_count",
+          "provenance": {
+            "reason": "prefer lower observed cost",
+            "source": "represented-policy"
+          }
+        },
+        "selection_claim": {
+          "evidence": [
+            {
+              "acceptable": true,
+              "observed_cost": 4,
+              "output": 4,
+              "rule": "R1"
+            },
+            {
+              "acceptable": true,
+              "observed_cost": 2,
+              "output": 4,
+              "rule": "R_short"
+            }
+          ],
+          "kind": "selection_claim",
+          "policy": {
+            "direction": "minimize",
+            "metric": "instruction_count",
+            "provenance": {
+              "reason": "prefer lower observed cost",
+              "source": "represented-policy"
+            }
+          },
+          "provenance": {
+            "source": "represented-alternatives-and-costs"
+          },
+          "selected_rule": "R_short"
+        },
+        "selects_lowest_cost": true,
+        "source_mutated": false
+      },
+      "self_input_output": 4,
+      "self_model_distinguishes_description_and_executable": true,
+      "self_model_round_trip": true,
+      "self_rule_after": {
+        "kind": "rule",
+        "name": "R2",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 2
+          },
+          {
+            "op": "mul"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      },
+      "self_rule_before": {
+        "kind": "rule",
+        "name": "R1",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      },
+      "transformation_round_trip": true
+    },
+    {
+      "behavior_after": 6,
+      "behavior_before": 4,
+      "behavior_changed": true,
+      "candidate": "rewrite_egraph",
+      "correspondence": {
+        "evaluator_source_hash": {
+          "actual_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "fact": "evaluator_source_hash",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "evaluator_source_hash",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "evaluator_source_hash",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+          "status": "consistent"
+        },
+        "evaluator_vocabulary": {
+          "actual_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "set",
+            "return"
+          ],
+          "fact": "evaluator_vocabulary",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "set",
+            "return"
+          ],
+          "status": "consistent"
+        },
+        "phase": {
+          "actual_value": "phase2-self-reference",
+          "fact": "phase",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "phase",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "phase",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "phase2-self-reference",
+          "status": "consistent"
+        },
+        "semantic_core_hash": {
+          "actual_value": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "fact": "semantic_core_hash",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "semantic_core_hash",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "semantic_core_hash",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "status": "consistent"
+        }
+      },
+      "correspondence_baseline_consistent": true,
+      "cost_preserved": true,
+      "evaluator_source_unchanged": true,
+      "external_output": 4,
+      "failure_attacks": {
+        "all_failures_preserved": true,
+        "claim_unsupported_by_provenance": {
+          "claim": {
+            "actual_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+            "fact": "evaluator_source_hash",
+            "kind": "correspondence_claim",
+            "provenance": {
+              "actual_source": {
+                "fact": "evaluator_source_hash",
+                "source": "phase2-runtime-observation"
+              },
+              "represented_source": {
+                "source": "fabricated"
+              }
+            },
+            "represented_value": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+            "status": "inconsistent"
+          },
+          "repaired": false,
+          "status": "unsupported"
+        },
+        "corrupted_represented_rule": {
+          "error": "unknown represented instruction: xor",
+          "repaired": false,
+          "status": "unknown"
+        },
+        "false_represented_cost": {
+          "kind": "cost_correspondence_claim",
+          "measured_cost": 4,
+          "provenance": {
+            "actual_source": {
+              "metric": "instruction_count",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "rule": "R1",
+              "source": "represented-self-model"
+            }
+          },
+          "reported_cost": 999,
+          "rule": "rule_R1",
+          "status": "inconsistent"
+        },
+        "self_model_missing_host_capability": {
+          "actual_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "set",
+            "return"
+          ],
+          "fact": "evaluator_vocabulary",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "evaluator_vocabulary",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": [
+            "get",
+            "const",
+            "add",
+            "mul",
+            "return"
+          ],
+          "status": "inconsistent"
+        },
+        "stale_self_description": {
+          "actual_value": "phase2-self-reference",
+          "fact": "phase",
+          "kind": "correspondence_claim",
+          "provenance": {
+            "actual_source": {
+              "fact": "phase",
+              "source": "phase2-runtime-observation"
+            },
+            "represented_source": {
+              "fact": "phase",
+              "source": "phase1-frozen-observation"
+            }
+          },
+          "represented_value": "phase1",
+          "status": "inconsistent"
+        }
+      },
+      "history": {
+        "after": {
+          "kind": "rule",
+          "name": "R2",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "before": {
+          "kind": "rule",
+          "name": "R1",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "kind": "self_transformation_history",
+        "observed_cost": {
+          "after": 4,
+          "before": 4,
+          "transformation": 7
+        },
+        "provenance": {
+          "event": "R1_to_R2",
+          "source": "represented-self-model"
+        },
+        "transformation": {
+          "cost_observation": {
+            "metric": "instruction_count",
+            "value": 7
+          },
+          "kind": "transformation",
+          "name": "R1_to_R2",
+          "provenance": {
+            "reason": "change represented rule behavior",
+            "source": "represented-self-model"
+          },
+          "rule": {
+            "kind": "rule",
+            "name": "transform_self_model_rule",
+            "program": [
+              {
+                "op": "const",
+                "value": 2
+              },
+              {
+                "op": "set",
+                "path": [
+                  "executable_representation",
+                  "rule",
+                  "program",
+                  1,
+                  "value"
+                ]
+              },
+              {
+                "op": "const",
+                "value": "mul"
+              },
+              {
+                "op": "set",
+                "path": [
+                  "executable_representation",
+                  "rule",
+                  "program",
+                  2,
+                  "op"
+                ]
+              },
+              {
+                "op": "const",
+                "value": "R2"
+              },
+              {
+                "op": "set",
+                "path": [
+                  "executable_representation",
+                  "rule",
+                  "name"
+                ]
+              },
+              {
+                "op": "return"
+              }
+            ]
+          },
+          "target_path": [
+            "executable_representation",
+            "rule"
+          ]
+        }
+      },
+      "history_round_trip": true,
+      "inspection": {
+        "cost": {
+          "metric": "instruction_count",
+          "provenance": {
+            "rule": "R1",
+            "source": "represented-self-model"
+          },
+          "value": 4
+        },
+        "provenance": {
+          "semantic_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+          "source": "phase1-final-state"
+        },
+        "reconstructed": {
+          "cost": {
+            "metric": "instruction_count",
+            "provenance": {
+              "rule": "R1",
+              "source": "represented-self-model"
+            },
+            "value": 4
+          },
+          "provenance": {
+            "semantic_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e",
+            "source": "phase1-final-state"
+          },
+          "rule": {
+            "kind": "rule",
+            "name": "R1",
+            "program": [
+              {
+                "op": "get",
+                "path": [
+                  "value"
+                ]
+              },
+              {
+                "op": "const",
+                "value": 1
+              },
+              {
+                "op": "add"
+              },
+              {
+                "op": "return"
+              }
+            ]
+          }
+        },
+        "reconstructs_exactly": true,
+        "rule": {
+          "kind": "rule",
+          "name": "R1",
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        }
+      },
+      "new_rule_preserved": true,
+      "previous_rule_preserved": true,
+      "provenance_preserved": true,
+      "same_external_self_mechanism": true,
+      "self_evaluation": {
+        "alternatives": [
+          {
+            "acceptable": true,
+            "observed_cost": 4,
+            "output": 4,
+            "rule": "R1"
+          },
+          {
+            "acceptable": true,
+            "observed_cost": 2,
+            "output": 4,
+            "rule": "R_short"
+          }
+        ],
+        "claim_round_trip": true,
+        "policy": {
+          "direction": "minimize",
+          "metric": "instruction_count",
+          "provenance": {
+            "reason": "prefer lower observed cost",
+            "source": "represented-policy"
+          }
+        },
+        "selection_claim": {
+          "evidence": [
+            {
+              "acceptable": true,
+              "observed_cost": 4,
+              "output": 4,
+              "rule": "R1"
+            },
+            {
+              "acceptable": true,
+              "observed_cost": 2,
+              "output": 4,
+              "rule": "R_short"
+            }
+          ],
+          "kind": "selection_claim",
+          "policy": {
+            "direction": "minimize",
+            "metric": "instruction_count",
+            "provenance": {
+              "reason": "prefer lower observed cost",
+              "source": "represented-policy"
+            }
+          },
+          "provenance": {
+            "source": "represented-alternatives-and-costs"
+          },
+          "selected_rule": "R_short"
+        },
+        "selects_lowest_cost": true,
+        "source_mutated": false
+      },
+      "self_input_output": 4,
+      "self_model_distinguishes_description_and_executable": true,
+      "self_model_round_trip": true,
+      "self_rule_after": {
+        "kind": "rule",
+        "name": "R2",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 2
+          },
+          {
+            "op": "mul"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      },
+      "self_rule_before": {
+        "kind": "rule",
+        "name": "R1",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      },
+      "transformation_round_trip": true
+    }
+  ]
+}
