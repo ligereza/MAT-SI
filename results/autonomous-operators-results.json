@@ -1,0 +1,1934 @@
+{
+  "codeine": {
+    "indistinguishable_prefix_pair": {
+      "barren_oracle": 1.0,
+      "best_patience_for_barren": 1,
+      "best_patience_for_fertile": 3,
+      "claim": "two worlds share an observable prefix and have opposite optimal actions, so no prefix-measurable policy is optimal in both",
+      "fertile_oracle": 4.5,
+      "patience_sweep": [
+        {
+          "barren_regret": 0.5,
+          "fertile_regret": 4.0,
+          "patience": 1,
+          "total_regret": 4.5
+        },
+        {
+          "barren_regret": 1.0,
+          "fertile_regret": 4.5,
+          "patience": 2,
+          "total_regret": 5.5
+        },
+        {
+          "barren_regret": 1.5,
+          "fertile_regret": 0.5,
+          "patience": 3,
+          "total_regret": 2.0
+        },
+        {
+          "barren_regret": 2.0,
+          "fertile_regret": 0.5,
+          "patience": 4,
+          "total_regret": 2.5
+        },
+        {
+          "barren_regret": 2.0,
+          "fertile_regret": 0.5,
+          "patience": 6,
+          "total_regret": 2.5
+        }
+      ],
+      "prefix_identical": true,
+      "single_patience_optimal_for_both": false,
+      "status": "PROVED_BY_ARGUMENT"
+    },
+    "progress_is_not_state_change": {
+      "claim": "on a trajectory with a constant state digest and positive utility, the digest-only v0 rule says STOP while the utility-aware operator reaches the oracle payoff",
+      "digests_distinct": 1,
+      "operator_reasons": [
+        "insufficient_measurement",
+        "insufficient_measurement",
+        "productive_repetition",
+        "productive_repetition",
+        "productive_repetition",
+        "productive_repetition",
+        "productive_repetition",
+        "productive_repetition",
+        "budget exhausted"
+      ],
+      "regret": 0.0,
+      "status": "COUNTEREXAMPLE",
+      "steps": 8,
+      "v0_digest_only_rule": "STOP"
+    },
+    "worlds": {
+      "A_productive_repetition": {
+        "note": "progress without state change: repetition pays while the digest is constant",
+        "oracle_payoff": 6.0,
+        "patience": 2,
+        "payoff": 6.0,
+        "reasons": [
+          "insufficient_measurement",
+          "insufficient_measurement",
+          "productive_repetition",
+          "productive_repetition",
+          "productive_repetition",
+          "productive_repetition",
+          "productive_repetition",
+          "productive_repetition",
+          "budget exhausted"
+        ],
+        "regret": 0.0,
+        "steps_taken": 8,
+        "v0_rule_on_same_digests": "STOP",
+        "world": "productive_repetition"
+      },
+      "B_diminishing_returns": {
+        "note": "marginal gain decays below the step cost; stopping becomes optimal",
+        "oracle_payoff": 2.75,
+        "patience": 2,
+        "payoff": 2.625,
+        "reasons": [
+          "insufficient_measurement",
+          "insufficient_measurement",
+          "productive_repetition",
+          "productive_repetition",
+          "productive_repetition",
+          "detected_collapse"
+        ],
+        "regret": 0.125,
+        "steps_taken": 5,
+        "v0_rule_on_same_digests": "CONTINUE",
+        "world": "diminishing"
+      },
+      "C_plateau_then_payoff": {
+        "note": "a plateau is not evidence of exhaustion",
+        "oracle_payoff": 5.75,
+        "patience": 2,
+        "payoff": 0.25,
+        "reasons": [
+          "insufficient_measurement",
+          "insufficient_measurement",
+          "productive_repetition",
+          "diminishing_returns_exhausted"
+        ],
+        "regret": 5.5,
+        "steps_taken": 3,
+        "v0_rule_on_same_digests": "CONTINUE",
+        "world": "delayed_payoff"
+      },
+      "D_cycle_triggers_switch": {
+        "note": "state change without progress: a cycle with an available alternative",
+        "oracle_payoff": 7.5,
+        "patience": 2,
+        "payoff": 4.5,
+        "reasons": [
+          "insufficient_measurement",
+          "insufficient_measurement",
+          "regime_change_alternative_better",
+          "productive_repetition",
+          "productive_repetition",
+          "productive_repetition",
+          "budget exhausted"
+        ],
+        "regret": 3.0,
+        "steps_taken": 6,
+        "v0_rule_on_same_digests": "CONTINUE",
+        "world": "cycling"
+      },
+      "E_late_reward_vs_switch": {
+        "note": "switching on a flat prefix forfeits a late payoff",
+        "oracle_payoff": 8.2,
+        "patience": 2,
+        "payoff": 0.8000000000000003,
+        "reasons": [
+          "insufficient_measurement",
+          "insufficient_measurement",
+          "plateau_within_patience",
+          "regime_change_alternative_better",
+          "productive_repetition",
+          "productive_repetition",
+          "budget exhausted"
+        ],
+        "regret": 7.399999999999999,
+        "steps_taken": 6,
+        "v0_rule_on_same_digests": "CONTINUE",
+        "world": "late_reward_versus_switch"
+      },
+      "F_sunk_cost_stop": {
+        "note": "a good prefix does not license continuation",
+        "oracle_payoff": 4.0,
+        "patience": 2,
+        "payoff": 3.0,
+        "reasons": [
+          "insufficient_measurement",
+          "insufficient_measurement",
+          "productive_repetition",
+          "productive_repetition",
+          "detected_collapse"
+        ],
+        "regret": 1.0,
+        "steps_taken": 4,
+        "v0_rule_on_same_digests": "CONTINUE",
+        "world": "deceptive_prefix"
+      }
+    }
+  },
+  "cross_operator": {
+    "codeine_admissibility_by_trajectory_length": [
+      {
+        "admissible": false,
+        "measured_steps": 0,
+        "reason": "no trajectory in R"
+      },
+      {
+        "admissible": false,
+        "measured_steps": 1,
+        "reason": "fewer than two measured steps"
+      },
+      {
+        "admissible": true,
+        "measured_steps": 2,
+        "reason": "a measured trajectory exists and can be extended"
+      }
+    ],
+    "emergent_sequence": [
+      "RUN_VIZZ",
+      "RUN_XANAX",
+      "RUN_KETAMINE"
+    ],
+    "incomparability": {
+      "claim": "with two useful operators and no commensurable unit the selector abstains from ordering them",
+      "decision": "INCOMPARABLE",
+      "reason": "several operators are useful and their value units are not commensurable",
+      "status": "PROVED_BY_ARGUMENT",
+      "useful": [
+        "CODEINE",
+        "X-ANA-X"
+      ],
+      "with_external_preference": "RUN_XANAX"
+    },
+    "representation_sensitivity": {
+      "R_belief": {
+        "VIZZ": true,
+        "X-ANA-X": false,
+        "decision": "RUN_VIZZ"
+      },
+      "R_term": {
+        "VIZZ": false,
+        "X-ANA-X": true,
+        "decision": "RUN_XANAX"
+      },
+      "claim": "the same object and the same task admit different operators under different representations",
+      "status": "VERIFIED_FINITE_CASE",
+      "task_identical": true
+    },
+    "sequence_is_scripted": false,
+    "stages": {
+      "belief": {
+        "admissible": [
+          "VIZZ"
+        ],
+        "decision": "RUN_VIZZ",
+        "reason": "unique useful operator: residual target uncertainty with a purchasable reduction",
+        "triggers": {
+          "CODEINE": {
+            "admissible": false,
+            "condition": "trajectory with >= 2 measured utility steps and budget for one more",
+            "operator": "CODEINE",
+            "reason": "no trajectory in R",
+            "useful": false,
+            "witness": {}
+          },
+          "KETAMINE": {
+            "admissible": false,
+            "condition": ">= 2 mutually exclusive branches consistent with the evidence",
+            "operator": "KETAMINE",
+            "reason": "no branch structure in R",
+            "useful": false,
+            "witness": {}
+          },
+          "VIZZ": {
+            "admissible": true,
+            "condition": "H(T) > 0 and some unperformed affordable experiment has I(T;Y) > 0",
+            "operator": "VIZZ",
+            "reason": "residual target uncertainty with a purchasable reduction",
+            "useful": true,
+            "witness": {
+              "affordable_experiments": 3,
+              "informative_affordable": 3,
+              "target_entropy_bits": 1.584962500721156
+            }
+          },
+          "X-ANA-X": {
+            "admissible": false,
+            "condition": "the equivalence class of R contains >= 2 distinct representations",
+            "operator": "X-ANA-X",
+            "reason": "R is not a concrete representation: nothing to rewrite",
+            "useful": false,
+            "witness": {}
+          }
+        },
+        "useful": [
+          "VIZZ"
+        ]
+      },
+      "branches": {
+        "admissible": [
+          "KETAMINE"
+        ],
+        "decision": "RUN_KETAMINE",
+        "reason": "unique useful operator: several consistent alternatives remain",
+        "triggers": {
+          "CODEINE": {
+            "admissible": false,
+            "condition": "trajectory with >= 2 measured utility steps and budget for one more",
+            "operator": "CODEINE",
+            "reason": "no trajectory in R",
+            "useful": false,
+            "witness": {}
+          },
+          "KETAMINE": {
+            "admissible": true,
+            "condition": ">= 2 mutually exclusive branches consistent with the evidence",
+            "operator": "KETAMINE",
+            "reason": "several consistent alternatives remain",
+            "useful": true,
+            "witness": {
+              "budget_remaining": 8,
+              "consistent_branches": 3,
+              "exhaustive_affordable": true,
+              "exhaustive_nodes": 6
+            }
+          },
+          "VIZZ": {
+            "admissible": false,
+            "condition": "H(T) > 0 and some unperformed affordable experiment has I(T;Y) > 0",
+            "operator": "VIZZ",
+            "reason": "target already determined",
+            "useful": false,
+            "witness": {
+              "affordable_experiments": 0,
+              "informative_affordable": 0,
+              "target_entropy_bits": 0.0
+            }
+          },
+          "X-ANA-X": {
+            "admissible": false,
+            "condition": "the equivalence class of R contains >= 2 distinct representations",
+            "operator": "X-ANA-X",
+            "reason": "the equivalence class is a singleton under the available rules",
+            "useful": false,
+            "witness": {
+              "class_size": 1,
+              "required_operation_already_enabled": true
+            }
+          }
+        },
+        "useful": [
+          "KETAMINE"
+        ]
+      },
+      "term": {
+        "admissible": [
+          "X-ANA-X"
+        ],
+        "decision": "RUN_XANAX",
+        "reason": "unique useful operator: several equivalent forms exist",
+        "triggers": {
+          "CODEINE": {
+            "admissible": false,
+            "condition": "trajectory with >= 2 measured utility steps and budget for one more",
+            "operator": "CODEINE",
+            "reason": "no trajectory in R",
+            "useful": false,
+            "witness": {}
+          },
+          "KETAMINE": {
+            "admissible": false,
+            "condition": ">= 2 mutually exclusive branches consistent with the evidence",
+            "operator": "KETAMINE",
+            "reason": "no branch structure in R",
+            "useful": false,
+            "witness": {}
+          },
+          "VIZZ": {
+            "admissible": false,
+            "condition": "H(T) > 0 and some unperformed affordable experiment has I(T;Y) > 0",
+            "operator": "VIZZ",
+            "reason": "target already determined",
+            "useful": false,
+            "witness": {
+              "affordable_experiments": 0,
+              "informative_affordable": 0,
+              "target_entropy_bits": 0.0
+            }
+          },
+          "X-ANA-X": {
+            "admissible": true,
+            "condition": "the equivalence class of R contains >= 2 distinct representations",
+            "operator": "X-ANA-X",
+            "reason": "several equivalent forms exist",
+            "useful": true,
+            "witness": {
+              "class_size": 3,
+              "required_operation_already_enabled": false
+            }
+          }
+        },
+        "useful": [
+          "X-ANA-X"
+        ]
+      }
+    }
+  },
+  "determinism": {
+    "external_dependencies": [],
+    "llm_used": false,
+    "network_used": false,
+    "random_seeds": "all worlds are deterministic; no sampling is performed"
+  },
+  "ketamine": {
+    "A_C_admissible_bound_makes_pruning_safe": {
+      "bound_admissibility": {
+        "admissible": true,
+        "claimed": true,
+        "states_checked": 10,
+        "violations": []
+      },
+      "budget_curve": [
+        {
+          "best_value": 3.0,
+          "budget_exhausted": true,
+          "expanded": 4,
+          "node_budget": 4,
+          "optimal": true,
+          "pruned": 0
+        },
+        {
+          "best_value": 3.0,
+          "budget_exhausted": true,
+          "expanded": 6,
+          "node_budget": 6,
+          "optimal": true,
+          "pruned": 1
+        },
+        {
+          "best_value": 3.0,
+          "budget_exhausted": false,
+          "expanded": 7,
+          "node_budget": 8,
+          "optimal": true,
+          "pruned": 2
+        },
+        {
+          "best_value": 3.0,
+          "budget_exhausted": false,
+          "expanded": 7,
+          "node_budget": 24,
+          "optimal": true,
+          "pruned": 2
+        }
+      ],
+      "claim": "with a verified admissible bound, pruning never loses the optimum",
+      "oracle_value": 3.0,
+      "reference": "Land & Doig 1960; Hart, Nilsson & Raphael 1968",
+      "status": "VERIFIED_FINITE_CASE"
+    },
+    "B_beam_loses_the_optimum": {
+      "beams": [
+        {
+          "beam_width": 1,
+          "best_value": 6.0,
+          "expanded": 3,
+          "optimal": false
+        },
+        {
+          "beam_width": 2,
+          "best_value": 100.0,
+          "expanded": 5,
+          "optimal": true
+        }
+      ],
+      "best_first_without_valid_bound": {
+        "best_value": 100.0,
+        "optimal": true
+      },
+      "bound_claimed_admissible": false,
+      "bound_verified_admissible": false,
+      "claim": "a beam narrower than the branching factor discards the unique optimal prefix when that prefix scores worst immediately",
+      "oracle_value": 100.0,
+      "status": "COUNTEREXAMPLE"
+    },
+    "D_counterfactual_rejected": {
+      "best_consistent_value": 8.0,
+      "claim": "a branch whose assumption contradicts the record is rejected before exploration, even though it has the highest nominal value",
+      "evidence": [
+        "test_failed"
+      ],
+      "inconsistent_branch_value": 50.0,
+      "reference": "Pearl 2009, ch. 7 (finite syntactic special case)",
+      "rejected": [
+        {
+          "assumptions": [
+            "tests_passed"
+          ],
+          "branch": "assume_tests_passed",
+          "reason": "tests_passed contradicts recorded evidence test_failed",
+          "state": "fantasy",
+          "status": "REJECTED"
+        }
+      ],
+      "status": "VERIFIED_FINITE_CASE"
+    },
+    "E_F_novelty_is_not_value": {
+      "claim": "novelty-driven expansion spends the whole budget on mutually dissimilar worthless branches",
+      "oracle_value": 20.0,
+      "runs": {
+        "beam_width_3": {
+          "best_value": 20.0,
+          "expanded": 4,
+          "optimal": true
+        },
+        "bound_guided": {
+          "best_value": 20.0,
+          "expanded": 5,
+          "optimal": true
+        },
+        "diversity_first": {
+          "best_value": 1.0,
+          "expanded": 5,
+          "optimal": false
+        }
+      },
+      "status": "COUNTEREXAMPLE"
+    },
+    "mcts_decision": {
+      "reason": "the worlds are finite, deterministic and equipped with an admissible bound, so branch and bound is exact and cheaper; UCT's guarantee is asymptotic and would add no capability here",
+      "reference": "Kocsis & Szepesvari 2006",
+      "status": "KNOWN_RESULT",
+      "used": false
+    }
+  },
+  "meta_selector": {
+    "implemented": "structural admissibility plus a partial order with explicit INCOMPARABLE",
+    "not_implemented": "a scalar meta-utility over operators",
+    "reason": "value-of-computation requires a common utility (Russell & Wefald 1991); the four operators produce bits, utility-per-step, invariant preservation and simulated branch value, which are not commensurable without an external preference this milestone declines to invent",
+    "status": "DEFERRED"
+  },
+  "parent_commit": "c91efd8",
+  "protocol": "autonomous-operators-foundation",
+  "vizz": {
+    "A_rarity_is_not_information": {
+      "claim": "an outcome can be rare and carry zero information about the target",
+      "experiments": [
+        {
+          "cost": 1.0,
+          "expected_rarity_bits": 0.8112781244591328,
+          "expected_surprise_bits": 0.8112781244591327,
+          "information_about_target_bits": 0.0,
+          "information_about_theta_bits": 0.8112781244591329,
+          "key": "rare_nuisance"
+        },
+        {
+          "cost": 1.0,
+          "expected_rarity_bits": 1.0,
+          "expected_surprise_bits": 1.0,
+          "information_about_target_bits": 1.0,
+          "information_about_theta_bits": 1.0,
+          "key": "decisive"
+        }
+      ],
+      "note": "rarity of an outcome is not information about the target",
+      "status": "VERIFIED_FINITE_CASE",
+      "world": "rare_but_uninformative"
+    },
+    "B_surprise_is_not_decision_value": {
+      "claim": "an experiment can be maximally surprising about Theta and useless for T",
+      "experiments": [
+        {
+          "cost": 1.0,
+          "expected_rarity_bits": 2.0,
+          "expected_surprise_bits": 2.0,
+          "information_about_target_bits": 0.0,
+          "information_about_theta_bits": 2.0,
+          "key": "nuisance"
+        },
+        {
+          "cost": 3.0,
+          "expected_rarity_bits": 1.0,
+          "expected_surprise_bits": 1.0,
+          "information_about_target_bits": 1.0,
+          "information_about_theta_bits": 1.0,
+          "key": "decisive"
+        }
+      ],
+      "note": "an experiment can be surprising about Theta and useless for T",
+      "status": "VERIFIED_FINITE_CASE",
+      "world": "nuisance_surprise"
+    },
+    "C_unaffordable_information": {
+      "claim": "the highest-information experiment is refused when unaffordable",
+      "decisions": [
+        "SWITCH",
+        "SWITCH"
+      ],
+      "final_certificate": "ABSTAIN: nothing affordable within budget",
+      "status": "VERIFIED_FINITE_CASE",
+      "world": "expensive_information"
+    },
+    "D_greedy_with_its_guarantee": {
+      "approximation_ratio": 1.0,
+      "budget_size": 2,
+      "claim": "conditionally independent observations make the objective submodular",
+      "greedy_guarantee_applies": true,
+      "greedy_subset": [
+        "bit0",
+        "bit1"
+      ],
+      "greedy_trace": [
+        {
+          "marginal_gain_bits": 1.0,
+          "picked": "bit0"
+        },
+        {
+          "marginal_gain_bits": 1.0,
+          "picked": "bit1"
+        }
+      ],
+      "greedy_value_bits": 2.0,
+      "guarantee_respected": true,
+      "interpretation": "guarantee precondition holds and is respected",
+      "one_minus_1_over_e": 0.6321205588285577,
+      "optimal_subset": [
+        "bit0",
+        "bit1"
+      ],
+      "optimal_value_bits": 2.0,
+      "reference": "Krause & Guestrin 2005; Nemhauser, Wolsey & Fisher 1978",
+      "status": "KNOWN_RESULT",
+      "submodularity_status": "VERIFIED_FINITE_CASE",
+      "world": "conditionally_independent"
+    },
+    "E_greedy_counterexample": {
+      "approximation_ratio": 0.011300591711502772,
+      "budget_size": 2,
+      "claim": "greedy expected-information-gain has no constant-factor guarantee: the ratio to the optimum tends to 0 as the decoy weakens",
+      "greedy_guarantee_applies": false,
+      "greedy_subset": [
+        "decoy",
+        "probe_a"
+      ],
+      "greedy_trace": [
+        {
+          "marginal_gain_bits": 0.011300591711502772,
+          "picked": "decoy"
+        },
+        {
+          "marginal_gain_bits": 0.0,
+          "picked": "probe_a"
+        }
+      ],
+      "greedy_value_bits": 0.011300591711502772,
+      "guarantee_respected": false,
+      "interpretation": "precondition fails; the observed ratio is not bounded by 1 - 1/e",
+      "one_minus_1_over_e": 0.6321205588285577,
+      "optimal_subset": [
+        "probe_a",
+        "probe_b"
+      ],
+      "optimal_value_bits": 1.0,
+      "ratio_shrinks_with_decoy": [
+        {
+          "approximation_ratio": 0.04556599707503528,
+          "decoy_bits": "1/4",
+          "greedy_value_bits": 0.04556599707503528,
+          "optimal_value_bits": 1.0
+        },
+        {
+          "approximation_ratio": 0.011300591711502772,
+          "decoy_bits": "1/8",
+          "greedy_value_bits": 0.011300591711502772,
+          "optimal_value_bits": 1.0
+        },
+        {
+          "approximation_ratio": 0.0007045556378457718,
+          "decoy_bits": "1/32",
+          "greedy_value_bits": 0.0007045556378457718,
+          "optimal_value_bits": 1.0
+        },
+        {
+          "approximation_ratio": 4.4028006503715744e-05,
+          "decoy_bits": "1/128",
+          "greedy_value_bits": 4.4028006503715744e-05,
+          "optimal_value_bits": 1.0
+        }
+      ],
+      "status": "COUNTEREXAMPLE",
+      "submodularity_status": "COUNTEREXAMPLE",
+      "world": "decoy_parity"
+    },
+    "incomparability": {
+      "claim": "with several Pareto-optimal experiments and no supplied exchange rate the operator refuses to choose",
+      "final_decision": "STOP",
+      "no_exchange_rate": "INCOMPARABLE: frontier has several points and no exchange rate was supplied",
+      "status": "PROVED_BY_ARGUMENT",
+      "with_exchange_rate_0_01": [
+        "bit2",
+        "bit1",
+        "bit0"
+      ]
+    }
+  },
+  "xanax": {
+    "invariant_beats_cost": {
+      "claim": "the cheapest equivalent representation destroys a declared invariant and is rejected; cost and size cannot distinguish the two forms because they tie",
+      "cost_driven_choice": "(x + x)",
+      "cost_driven_choice_is_admissible": false,
+      "decision": "SELECT (x << 1)",
+      "preserved": [
+        "no_multiplication",
+        "single_read"
+      ],
+      "rejected_for_invariant": [
+        "(x + x)"
+      ],
+      "status": "COUNTEREXAMPLE"
+    },
+    "objective_dependence": {
+      "claim": "the extracted representation depends on the downstream objective",
+      "distinct_selections": 2,
+      "no_objective": "INCOMPARABLE: several admissible forms and no downstream objective",
+      "selection_by_objective": {
+        "depth": "SELECT ((2 * 2) * x)",
+        "execution": "SELECT ((x + x) << 1)",
+        "interpretability_proxy": "SELECT ((2 * 2) * x)",
+        "tree_size": "SELECT ((2 * 2) * x)"
+      },
+      "status": "VERIFIED_FINITE_CASE"
+    },
+    "tasks": {
+      "A_canonicalisation": {
+        "admissible": [
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 2.0,
+              "execution": 1.0,
+              "interpretability_proxy": 3.5,
+              "operation_count": 1.0,
+              "tree_size": 3.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "no_multiplication": true
+            },
+            "points_checked": 17,
+            "residue": {
+              "depth_delta": 0,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "<<"
+              ],
+              "operators_lost": [
+                "*"
+              ],
+              "size_delta": 0
+            },
+            "term": "(x << 2)"
+          }
+        ],
+        "class_size_explored": 3,
+        "declared_invariants": [
+          "no_multiplication"
+        ],
+        "enables_description": "evaluable on a machine without a multiply instruction",
+        "equivalence_scope": "verified on 17^1 integer points; not a proof over Z",
+        "note": "enabling predicate, not size, selects the representation",
+        "rejected_for_invariant": [],
+        "saturation": {
+          "class_count": 4,
+          "dropped_directions": [
+            "add_zero:reverse",
+            "mul_one:reverse"
+          ],
+          "iterations": 2,
+          "match_truncated": false,
+          "merges": 2,
+          "node_count": 6,
+          "nodes_added": 3,
+          "rule_applications": {
+            "comm_mul": 6,
+            "quad_is_shift": 3
+          },
+          "saturated": true,
+          "stopped_by": "fixpoint"
+        },
+        "start": "(x * 4)",
+        "task": "shift_only_machine"
+      },
+      "C_exposed_decomposition": {
+        "admissible": [
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "at_most_one_multiplication": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": 0,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [],
+              "operators_lost": [],
+              "size_delta": -2
+            },
+            "term": "(x * (3 + 5))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "at_most_one_multiplication": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": 0,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [],
+              "operators_lost": [],
+              "size_delta": -2
+            },
+            "term": "(x * (5 + 3))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "at_most_one_multiplication": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": 0,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [],
+              "operators_lost": [],
+              "size_delta": -2
+            },
+            "term": "((3 + 5) * x)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "at_most_one_multiplication": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": 0,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [],
+              "operators_lost": [],
+              "size_delta": -2
+            },
+            "term": "((5 + 3) * x)"
+          }
+        ],
+        "class_size_explored": 12,
+        "declared_invariants": [
+          "at_most_one_multiplication"
+        ],
+        "enables_description": "a single top-level product, or no product at all",
+        "equivalence_scope": "verified on 13^1 integer points; not a proof over Z",
+        "note": "rewriting exposes a decomposition the source form hides",
+        "rejected_for_invariant": [],
+        "saturation": {
+          "class_count": 7,
+          "dropped_directions": [
+            "add_zero:reverse",
+            "mul_one:reverse"
+          ],
+          "iterations": 3,
+          "match_truncated": false,
+          "merges": 6,
+          "node_count": 13,
+          "nodes_added": 7,
+          "rule_applications": {
+            "comm_add": 16,
+            "comm_mul": 26,
+            "distribute": 8,
+            "factor_common": 8
+          },
+          "saturated": true,
+          "stopped_by": "fixpoint"
+        },
+        "start": "((x * 3) + (x * 5))",
+        "task": "expose_common_factor"
+      },
+      "D_invariant_violation": {
+        "admissible": [
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 2.0,
+              "execution": 1.0,
+              "interpretability_proxy": 3.5,
+              "operation_count": 1.0,
+              "tree_size": 3.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "no_multiplication": true,
+              "single_read": true
+            },
+            "points_checked": 17,
+            "residue": {
+              "depth_delta": 0,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "<<"
+              ],
+              "operators_lost": [
+                "*"
+              ],
+              "size_delta": 0
+            },
+            "term": "(x << 1)"
+          }
+        ],
+        "class_size_explored": 4,
+        "declared_invariants": [
+          "no_multiplication",
+          "single_read"
+        ],
+        "enables_description": "evaluable on a machine without a multiply instruction",
+        "equivalence_scope": "verified on 17^1 integer points; not a proof over Z",
+        "note": "the cheapest equivalent form breaks the single-read invariant",
+        "rejected_for_invariant": [
+          {
+            "admissible": false,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 2.0,
+              "execution": 1.0,
+              "interpretability_proxy": 3.5,
+              "operation_count": 1.0,
+              "tree_size": 3.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "no_multiplication": true,
+              "single_read": false
+            },
+            "points_checked": 17,
+            "residue": {
+              "depth_delta": 0,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "+"
+              ],
+              "operators_lost": [
+                "*"
+              ],
+              "size_delta": 0
+            },
+            "term": "(x + x)"
+          }
+        ],
+        "saturation": {
+          "class_count": 4,
+          "dropped_directions": [
+            "add_zero:reverse",
+            "mul_one:reverse"
+          ],
+          "iterations": 2,
+          "match_truncated": false,
+          "merges": 3,
+          "node_count": 7,
+          "nodes_added": 4,
+          "rule_applications": {
+            "comm_add": 2,
+            "comm_mul": 6,
+            "double_is_add": 3,
+            "double_is_shift": 3
+          },
+          "saturated": true,
+          "stopped_by": "fixpoint"
+        },
+        "start": "(x * 2)",
+        "task": "single_read_machine"
+      },
+      "E_objective_dependent": {
+        "admissible": [
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 8.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "(x * (2 * 2))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": -2
+            },
+            "term": "(x * (2 + 2))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 8.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "((x * 2) * 2)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 8.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "((2 * x) * 2)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": -2
+            },
+            "term": "((x + x) * 2)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*",
+                "<<"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "((x << 1) * 2)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 8.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "((2 * 2) * x)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": -2
+            },
+            "term": "((2 + 2) * x)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 8.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "(2 * (x * 2))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 8.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "(2 * (2 * x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": -2
+            },
+            "term": "(2 * (x + x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*",
+                "<<"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "(2 * (x << 1))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 9.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x * 2) + (x * 2))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 9.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x * 2) + (2 * x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 6.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x * 2) + (x + x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 6.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*",
+                "<<"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x * 2) + (x << 1))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 9.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((2 * x) + (x * 2))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 9.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((2 * x) + (2 * x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 6.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((2 * x) + (x + x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 6.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*",
+                "<<"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((2 * x) + (x << 1))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 6.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x + x) + (x * 2))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 6.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x + x) + (2 * x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 3.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x + x) + (x + x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 3.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "<<"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x + x) + (x << 1))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 6.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*",
+                "<<"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x << 1) + (x * 2))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 6.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*",
+                "<<"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x << 1) + (2 * x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 3.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "<<"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x << 1) + (x + x))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 3.0,
+              "interpretability_proxy": 9.75,
+              "operation_count": 3.0,
+              "tree_size": 7.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "<<"
+              ],
+              "operators_lost": [],
+              "size_delta": 0
+            },
+            "term": "((x << 1) + (x << 1))"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*",
+                "<<"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "((x * 2) << 1)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 5.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "*",
+                "<<"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "((2 * x) << 1)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 2.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "<<"
+              ],
+              "operators_lost": [],
+              "size_delta": -2
+            },
+            "term": "((x + x) << 1)"
+          },
+          {
+            "admissible": true,
+            "checker": "finite_domain",
+            "costs": {
+              "depth": 3.0,
+              "execution": 2.0,
+              "interpretability_proxy": 8.5,
+              "operation_count": 2.0,
+              "tree_size": 5.0
+            },
+            "enables": true,
+            "equivalent": true,
+            "invariants": {
+              "depth_at_most_3": true
+            },
+            "points_checked": 13,
+            "residue": {
+              "depth_delta": -1,
+              "note": "the source form is retained; nothing is discarded by rewriting",
+              "operators_gained": [
+                "<<"
+              ],
+              "operators_lost": [
+                "+"
+              ],
+              "size_delta": -2
+            },
+            "term": "((x << 1) << 1)"
+          }
+        ],
+        "class_size_explored": 48,
+        "declared_invariants": [
+          "depth_at_most_3"
+        ],
+        "enables_description": "critical path of at most three levels",
+        "equivalence_scope": "verified on 13^1 integer points; not a proof over Z",
+        "note": "the same value with a shorter critical path",
+        "rejected_for_invariant": [],
+        "saturation": {
+          "class_count": 7,
+          "dropped_directions": [
+            "add_zero:reverse",
+            "mul_one:reverse"
+          ],
+          "iterations": 3,
+          "match_truncated": false,
+          "merges": 13,
+          "node_count": 19,
+          "nodes_added": 15,
+          "rule_applications": {
+            "assoc_add": 18,
+            "assoc_mul": 2,
+            "comm_add": 32,
+            "comm_mul": 10,
+            "distribute": 4,
+            "double_is_add": 9,
+            "double_is_shift": 4,
+            "factor_common": 4
+          },
+          "saturated": false,
+          "stopped_by": "iteration_limit"
+        },
+        "start": "(((x + x) + x) + x)",
+        "task": "latency_bound_machine"
+      }
+    }
+  }
+}

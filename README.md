@@ -185,3 +185,20 @@ PYTHONPATH=src python -m matsi.baseline_audit --json-out results/phase4a-baselin
 See `docs/reproducible-evidence.md` for the four locked failures, the corrected
 same-population baseline, and the evidence that remains non-reproducible without
 private sources.
+
+## Autonomous operators
+
+Four operators with different action spaces over the shared substrate
+`S = (R, O, H, M, B)`: VIZZ buys an experiment, CODEINE decides about a
+trajectory, X-ANA-X applies an equivalence-preserving rewrite, KETAMINE expands
+simulated branches. Which one is admissible is computed from the structure of the
+state, never chosen by name:
+
+```text
+PYTHONPATH=src python -m matsi.autonomous_operators --json-out results/autonomous-operators-results.json
+```
+
+Every world is finite, deterministic and shipped with an exhaustive oracle, and
+each operator comes with a world where its intuitive strategy provably fails. See
+`docs/autonomous-operators.md` for the literature audit, the counterexamples, the
+proof-status labels and the open questions.
