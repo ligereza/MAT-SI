@@ -4,8 +4,10 @@ from fractions import Fraction
 from matsi.decision_calculus import (
     adaptive_task_quotient,
     analyze_decision_ambiguity,
+    analyze_structural_probe,
     bayes_decision_engine,
     compare_blackwell,
+    compare_probes,
     complexity_experiment_suite,
     compose_garblings,
     directed_deficiency,
@@ -15,11 +17,17 @@ from matsi.decision_calculus import (
     le_cam_distance,
     mutual_information,
     multi_task_sufficient_quotient,
+    quotient_experiment,
     representation_compiler,
+    evaluate_probe,
+    evaluate_representation_transformation,
     representation_path,
     set_cover_reduction_instance,
+    solve_sequential_meta_decision,
     stochastic_compression_search,
+    structural_analysis_cost_model,
     task_sufficient_quotient,
+    choose_next_computation,
     verify_set_cover_reduction,
     vertex_cover_reduction_certificate,
     vertex_cover_reduction_instance,
@@ -202,6 +210,102 @@ class DecisionCalculusTests(unittest.TestCase):
         self.assertIn("component-wise", rows["decomposable"]["algorithm"])
         self.assertEqual(rows["large_general_bounded"]["status"], "BOUNDED_APPROXIMATION")
         self.assertGreater(rows["large_general_bounded"]["optimality_gap"], 0)
+
+    def test_probe_zero_value_is_common_posterior_action_condition(self):
+        informative = evaluate_probe(
+            self.prior,
+            {"id": "informative", "channel": self.identity, "cost": {"time": 1}},
+            [[0, 1], [0, 1]],
+        )
+        self.assertGreater(informative["information_value_bits"], 0)
+        self.assertEqual(informative["decision_value"], "0")
+        self.assertTrue(informative["zero_decision_value_certificate"]["holds"])
+
+        uninformative = evaluate_probe(
+            self.prior,
+            {"id": "uninformative", "channel": [[Fraction(1, 2), Fraction(1, 2)]] * 2},
+            self.loss,
+        )
+        self.assertEqual(uninformative["information_value_bits"], 0.0)
+        self.assertEqual(uninformative["decision_value"], "0")
+
+    def test_probe_decision_value_can_reverse_mutual_information_order(self):
+        prior = [Fraction(1, 3)] * 3
+        high_mi = [[1, 0], [0, 1], [1, 0]]
+        lower_mi = [
+            [Fraction(9, 10), Fraction(1, 10)],
+            [Fraction(1, 10), Fraction(9, 10)],
+            [Fraction(1, 10), Fraction(9, 10)],
+        ]
+        losses = [[0, 1], [1, 0], [1, 0]]
+        comparison = compare_probes(
+            prior,
+            [{"id": "high", "channel": high_mi}, {"id": "targeted", "channel": lower_mi}],
+            losses,
+        )
+        self.assertGreater(comparison["probes"][0]["information_value_bits"], comparison["probes"][1]["information_value_bits"])
+        self.assertLess(Fraction(comparison["probes"][0]["decision_value"]), Fraction(comparison["probes"][1]["decision_value"]))
+
+    def test_equal_information_can_have_different_decision_value(self):
+        prior = [Fraction(1, 3)] * 3
+        losses = [[0, 1], [1, 0], [1, 0]]
+        comparison = compare_probes(
+            prior,
+            [
+                {"id": "target", "channel": [[1, 0], [0, 1], [0, 1]]},
+                {"id": "irrelevant", "channel": [[1, 0], [0, 1], [1, 0]]},
+            ],
+            losses,
+        )
+        self.assertAlmostEqual(
+            comparison["probes"][0]["information_value_bits"],
+            comparison["probes"][1]["information_value_bits"],
+        )
+        self.assertNotEqual(comparison["probes"][0]["decision_value"], comparison["probes"][1]["decision_value"])
+
+    def test_blackwell_dominance_does_not_override_explicit_probe_cost(self):
+        choice = choose_next_computation(
+            self.prior,
+            [
+                {"id": "expensive", "channel": self.identity, "cost": {"time": 10}},
+                {"id": "cheap", "channel": self.strict, "cost": {"time": 1}},
+            ],
+            self.loss,
+            policy={"max_cost": {"time": 1}},
+        )
+        self.assertEqual(choice["recommended_next_operation"], "cheap")
+        self.assertTrue(choice["policy"]["scalarization"] == "none")
+
+    def test_sequential_meta_solver_stops_after_revealing_probe(self):
+        result = solve_sequential_meta_decision(
+            self.prior,
+            [
+                {"id": "reveal", "channel": self.identity, "cost": {"time": 1}},
+                {"id": "partial", "channel": self.strict, "cost": {"time": 2}},
+            ],
+            self.loss,
+            time_cost_weight=Fraction(1, 10),
+        )
+        self.assertEqual(result["status"], "EXACT")
+        self.assertEqual(result["policy"]["operation"], "reveal")
+        self.assertEqual(result["policy"]["branches"][0]["continuation"]["operation"], "execute_now")
+
+    def test_representation_transform_changes_solver_regime_without_risk_change(self):
+        source = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+        prior = [Fraction(1, 4)] * 4
+        losses = [[0, 0, 0], [0, 0, 0], [0, 1, 1], [1, 0, 1]]
+        quotient = task_sufficient_quotient(source, prior, losses)
+        target = quotient_experiment(source, quotient["blocks"])
+        result = evaluate_representation_transformation(source, target, prior, losses)
+        self.assertTrue(result["decision_preserved"])
+        self.assertTrue(result["structural_change"])
+        self.assertEqual(result["before"]["regime"], "GENERAL_SET_COVER")
+        self.assertEqual(result["after"]["regime"], "UNIQUE_OPTIMUM")
+
+    def test_meta_cost_model_marks_exact_quotient_as_expensive(self):
+        model = structural_analysis_cost_model()
+        exact = next(item for item in model["entries"] if item["property"] == "exact_quotient_or_exact_lower_bound")
+        self.assertEqual(exact["acquisition_cost"], "EXPENSIVE")
 
 
 if __name__ == "__main__":

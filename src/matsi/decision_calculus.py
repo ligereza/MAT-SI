@@ -1709,6 +1709,550 @@ def complexity_experiment_suite() -> list[dict[str, Any]]:
     return rows
 
 
+def _probe_parts(probe: dict[str, Any]) -> tuple[str, Matrix, dict[str, Fraction]]:
+    """Validate a finite structural probe without collapsing its costs."""
+    if not isinstance(probe, dict) or "channel" not in probe:
+        raise ValueError("probe must contain a finite observation channel")
+    channel = validate_experiment(probe["channel"])
+    identifier = str(probe.get("id", "probe"))
+    raw_cost = probe.get("cost", {})
+    if not isinstance(raw_cost, dict):
+        raise ValueError("probe cost must be a mapping of resource dimensions")
+    costs = {str(name): frac(value) for name, value in raw_cost.items()}
+    if any(value < 0 for value in costs.values()):
+        raise ValueError("probe costs must be non-negative")
+    return identifier, channel, costs
+
+
+def _constant_experiment(state_count: int) -> Matrix:
+    return [[Fraction(1)] for _ in range(state_count)]
+
+
+def _evaluate_probe_internal(
+    prior: Sequence[Number],
+    probe: dict[str, Any],
+    losses: Sequence[Sequence[Number]],
+    actions: Sequence[Any] | None = None,
+) -> dict[str, Any]:
+    pi = _validate_distribution(prior, "prior")
+    identifier, channel, costs = _probe_parts(probe)
+    states, outcomes = _shape(channel)
+    if len(pi) != states:
+        raise ValueError("prior length must match probe states")
+    loss = validate_losses(losses, states)
+    current = bayes_decision_engine(pi, _constant_experiment(states), loss, actions)
+    joint = [[pi[state] * channel[state][outcome] for outcome in range(outcomes)] for state in range(states)]
+    masses = [sum(joint[state][outcome] for state in range(states)) for outcome in range(outcomes)]
+    outcome_details = []
+    posterior_risk = Fraction(0)
+    for outcome, mass in enumerate(masses):
+        if mass == 0:
+            outcome_details.append({
+                "outcome": outcome,
+                "mass": Fraction(0),
+                "posterior": None,
+                "risk": Fraction(0),
+                "optimal_actions": list(current["actions"]),
+            })
+            continue
+        posterior = [joint[state][outcome] / mass for state in range(states)]
+        posterior_engine = bayes_decision_engine(
+            posterior, _constant_experiment(states), loss, actions
+        )
+        risk = posterior_engine["internal"]["bayes_risk"]
+        posterior_risk += mass * risk
+        outcome_details.append({
+            "outcome": outcome,
+            "mass": mass,
+            "posterior": posterior,
+            "risk": risk,
+            "optimal_actions": list(posterior_engine["policy"][0]),
+        })
+    positive = [item for item in outcome_details if item["mass"] > 0]
+    common = set(positive[0]["optimal_actions"]) if positive else set(current["actions"])
+    for item in positive[1:]:
+        common &= set(item["optimal_actions"])
+    decision_value = current["internal"]["bayes_risk"] - posterior_risk
+    return {
+        "id": identifier,
+        "channel": channel,
+        "cost": costs,
+        "current": current,
+        "outcomes": outcome_details,
+        "posterior_risk": posterior_risk,
+        "decision_value": decision_value,
+        "information_value_bits": mutual_information(pi, channel),
+        "common_optimal_actions": sorted(common, key=str),
+        "zero_decision_value_certificate": {
+            "holds": decision_value == 0,
+            "positive_probability_outcomes": [item["outcome"] for item in positive],
+            "common_optimal_actions": sorted(common, key=str),
+            "reason": (
+                "min-sum equality: one action is optimal for every positive-probability posterior"
+                if decision_value == 0
+                else "no common action is optimal for every positive-probability posterior"
+            ),
+        },
+    }
+
+
+def evaluate_probe(
+    prior: Sequence[Number],
+    probe: dict[str, Any],
+    losses: Sequence[Sequence[Number]],
+    actions: Sequence[Any] | None = None,
+) -> dict[str, Any]:
+    """Evaluate one finite structural computation without scalarizing costs."""
+    result = _evaluate_probe_internal(prior, probe, losses, actions)
+    current = result["current"]
+    return {
+        "id": result["id"],
+        "channel": _serialize_matrix(result["channel"]),
+        "cost_profile": {name: _fraction_text(value) for name, value in result["cost"].items()},
+        "current_bayes_risk": current["bayes_risk"],
+        "posterior_bayes_risk": _fraction_text(result["posterior_risk"]),
+        "decision_value": _fraction_text(result["decision_value"]),
+        "information_value_bits": result["information_value_bits"],
+        "posterior_action_partitions": [
+            {
+                "outcome": item["outcome"],
+                "mass": _fraction_text(item["mass"]),
+                "posterior": (
+                    [_fraction_text(value) for value in item["posterior"]]
+                    if item["posterior"] is not None else None
+                ),
+                "optimal_actions": item["optimal_actions"],
+            }
+            for item in result["outcomes"]
+        ],
+        "zero_decision_value_certificate": result["zero_decision_value_certificate"],
+    }
+
+
+def analyze_structural_probe(
+    prior: Sequence[Number],
+    probe: dict[str, Any],
+    losses: Sequence[Sequence[Number]],
+    actions: Sequence[Any] | None = None,
+) -> dict[str, Any]:
+    """Expose the structural partition a probe can induce downstream."""
+    result = evaluate_probe(prior, probe, losses, actions)
+    partitions = result["posterior_action_partitions"]
+    return {
+        **result,
+        "outcome_count": len(partitions),
+        "positive_outcome_count": sum(item["mass"] != "0" for item in partitions),
+        "distinct_action_partitions": sorted(
+            {tuple(item["optimal_actions"]) for item in partitions if item["mass"] != "0"},
+            key=str,
+        ),
+        "can_change_downstream_action": len(result["zero_decision_value_certificate"]["common_optimal_actions"]) == 0,
+    }
+
+
+def _cost_dominates(first: dict[str, Fraction], second: dict[str, Fraction]) -> bool:
+    dimensions = set(first) | set(second)
+    return all(first.get(name, Fraction(0)) <= second.get(name, Fraction(0)) for name in dimensions)
+
+
+def compare_probes(
+    prior: Sequence[Number],
+    probes: Sequence[dict[str, Any]],
+    losses: Sequence[Sequence[Number]],
+    actions: Sequence[Any] | None = None,
+) -> dict[str, Any]:
+    """Compare probes by decision value, costs, and Blackwell relation."""
+    if not probes:
+        raise ValueError("at least one probe is required")
+    evaluated = [_evaluate_probe_internal(prior, probe, losses, actions) for probe in probes]
+    public = [evaluate_probe(prior, probe, losses, actions) for probe in probes]
+    relations = []
+    for left in range(len(evaluated)):
+        for right in range(left + 1, len(evaluated)):
+            relation = compare_blackwell(evaluated[left]["channel"], evaluated[right]["channel"])
+            relations.append({
+                "first": evaluated[left]["id"],
+                "second": evaluated[right]["id"],
+                "relation": relation,
+            })
+    return {
+        "probes": public,
+        "informativeness_order": relations,
+        "costs_remain_vector_valued": True,
+        "interpretation": "Blackwell order constrains decision values before costs; costs require an explicit meta-policy",
+    }
+
+
+def choose_next_computation(
+    prior: Sequence[Number],
+    probes: Sequence[dict[str, Any]],
+    losses: Sequence[Sequence[Number]],
+    actions: Sequence[Any] | None = None,
+    *,
+    policy: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Choose a probe under an explicit constraint policy, or execute now.
+
+    The default policy maximizes decision value and does not pretend that
+    time, memory, and other resources have a universal exchange rate.  A
+    caller may instead provide ``max_cost`` constraints and tie-breaking
+    dimensions.  All pruning decisions are returned as certificates.
+    """
+    if not probes:
+        raise ValueError("at least one probe is required")
+    policy = dict(policy or {})
+    evaluated = [_evaluate_probe_internal(prior, probe, losses, actions) for probe in probes]
+    current = evaluated[0]["current"]
+    candidates = []
+    pruned = []
+    for item in evaluated:
+        if item["decision_value"] == 0:
+            pruned.append({
+                "probe": item["id"],
+                "rule": "ZERO_DECISION_VALUE",
+                "certificate": item["zero_decision_value_certificate"],
+            })
+            continue
+        max_cost = policy.get("max_cost", {})
+        if any(item["cost"].get(name, Fraction(0)) > frac(limit) for name, limit in max_cost.items()):
+            pruned.append({
+                "probe": item["id"],
+                "rule": "RESOURCE_CONSTRAINT",
+                "certificate": {name: _fraction_text(value) for name, value in item["cost"].items()},
+            })
+            continue
+        candidates.append(item)
+
+    # If q1 dominates q2 but q1 is no cheaper in every resource dimension,
+    # q1 is never preferable under a policy that maximizes decision value
+    # subject to resource constraints.  This is a safe, policy-relative rule.
+    for left in evaluated:
+        for right in evaluated:
+            if left["id"] == right["id"]:
+                continue
+            relation = compare_blackwell(left["channel"], right["channel"])
+            if relation["classification"] == "DOMINATES" and _cost_dominates(right["cost"], left["cost"]):
+                if any(item["id"] == left["id"] for item in candidates):
+                    candidates = [item for item in candidates if item["id"] != left["id"]]
+                    pruned.append({
+                        "probe": left["id"],
+                        "rule": "BLACKWELL_DOMINATED_WITHOUT_COST_ADVANTAGE",
+                        "certificate": {"dominates": left["id"], "cheaper_or_equal": right["id"]},
+                    })
+
+    execute = {
+        "id": "execute_now",
+        "decision_value": Fraction(0),
+        "risk": current["internal"]["bayes_risk"],
+        "cost": {},
+    }
+    if candidates:
+        chosen = max(
+            candidates,
+            key=lambda item: (
+                item["decision_value"],
+                tuple(-item["cost"].get(name, Fraction(0)) for name in sorted(item["cost"])),
+                str(item["id"]),
+            ),
+        )
+        chosen_id = chosen["id"]
+        chosen_value = chosen["decision_value"]
+    else:
+        chosen_id = execute["id"]
+        chosen_value = Fraction(0)
+    return {
+        "current_best_object_action": current["policy"][0],
+        "candidate_meta_actions": [item["id"] for item in evaluated] + [execute["id"]],
+        "evaluated_probes": [evaluate_probe(prior, probe, losses, actions) for probe in probes],
+        "pruned": pruned,
+        "recommended_next_operation": chosen_id,
+        "chosen_decision_value": _fraction_text(chosen_value),
+        "chosen_meta_action": chosen_id,
+        "policy": {
+            "objective": "maximize decision value under explicit resource constraints",
+            "constraints": policy.get("max_cost", {}),
+            "scalarization": "none",
+        },
+        "execute_now": execute,
+    }
+
+
+def solve_sequential_meta_decision(
+    prior: Sequence[Number],
+    probes: Sequence[dict[str, Any]],
+    losses: Sequence[Sequence[Number]],
+    actions: Sequence[Any] | None = None,
+    *,
+    time_cost_weight: Number = 1,
+) -> dict[str, Any]:
+    """Solve the finite sequential probe/stop problem by exact recursion.
+
+    This is the finite metalevel-MDP/VOC formulation with a deliberately
+    explicit scalar tradeoff for time only.  Other resource dimensions remain
+    visible in the one-step calculus and are not silently folded into it.
+    """
+    pi = tuple(_validate_distribution(prior, "prior"))
+    loss = _matrix(losses)
+    weight = frac(time_cost_weight)
+    if weight < 0:
+        raise ValueError("time_cost_weight must be non-negative")
+    normalized = []
+    for probe in probes:
+        identifier, channel, costs = _probe_parts(probe)
+        normalized.append({"id": identifier, "channel": channel, "cost": costs})
+    memo: dict[tuple[tuple[Fraction, ...], tuple[int, ...]], tuple[Fraction, dict[str, Any]]] = {}
+    states_explored = 0
+
+    def recurse(belief: tuple[Fraction, ...], remaining: tuple[int, ...]) -> tuple[Fraction, dict[str, Any]]:
+        nonlocal states_explored
+        key = (belief, remaining)
+        if key in memo:
+            return memo[key]
+        states_explored += 1
+        terminal = bayes_decision_engine(belief, _constant_experiment(len(belief)), loss, actions)
+        best_value = terminal["internal"]["bayes_risk"]
+        best_policy: dict[str, Any] = {
+            "operation": "execute_now",
+            "value": _fraction_text(best_value),
+            "action": terminal["policy"][0],
+        }
+        for index in remaining:
+            probe = normalized[index]
+            channel = probe["channel"]
+            joint = [[belief[state] * channel[state][outcome] for outcome in range(len(channel[0]))] for state in range(len(belief))]
+            masses = [sum(joint[state][outcome] for state in range(len(belief))) for outcome in range(len(channel[0]))]
+            expected = weight * probe["cost"].get("time", Fraction(0))
+            branches = []
+            for outcome, mass in enumerate(masses):
+                if mass == 0:
+                    continue
+                posterior = tuple(joint[state][outcome] / mass for state in range(len(belief)))
+                child_remaining = tuple(item for item in remaining if item != index)
+                child_value, child_policy = recurse(posterior, child_remaining)
+                expected += mass * child_value
+                branches.append({
+                    "outcome": outcome,
+                    "probability": _fraction_text(mass),
+                    "posterior": [_fraction_text(value) for value in posterior],
+                    "continuation": child_policy,
+                })
+            if expected < best_value:
+                best_value = expected
+                best_policy = {
+                    "operation": probe["id"],
+                    "value": _fraction_text(expected),
+                    "time_cost_weight": _fraction_text(weight),
+                    "branches": branches,
+                }
+        memo[key] = (best_value, best_policy)
+        return memo[key]
+
+    value, policy = recurse(pi, tuple(range(len(normalized))))
+    return {
+        "status": "EXACT",
+        "value": _fraction_text(value),
+        "policy": policy,
+        "states_explored": states_explored,
+        "memoized_states": len(memo),
+        "complexity": "O(2^q * reachable posterior states * downstream decision cost)",
+        "theory_relation": "finite metalevel MDP / rational metareasoning with explicit stop action",
+        "cost_policy": {"time_weight": _fraction_text(weight), "other_dimensions": "not scalarized"},
+    }
+
+
+def evaluate_representation_transformation(
+    source_experiment: Sequence[Sequence[Number]],
+    target_experiment: Sequence[Sequence[Number]],
+    prior: Sequence[Number],
+    losses: Sequence[Sequence[Number]],
+    *,
+    transformation_id: str = "T",
+    cost: dict[str, Number] | None = None,
+) -> dict[str, Any]:
+    """Measure a representation transform as a meta-action consumer."""
+    source = validate_experiment(source_experiment)
+    target = validate_experiment(target_experiment)
+    before = adaptive_task_quotient(source, prior, losses)
+    after = adaptive_task_quotient(target, prior, losses)
+    before_engine = bayes_decision_engine(prior, source, losses)
+    after_engine = bayes_decision_engine(prior, target, losses)
+    return {
+        "transformation": transformation_id,
+        "cost_profile": {name: _fraction_text(frac(value)) for name, value in (cost or {}).items()},
+        "before": {
+            "regime": before["complexity_regime"],
+            "algorithm": before["algorithm"],
+            "ambiguity": before["ambiguity"],
+        },
+        "after": {
+            "regime": after["complexity_regime"],
+            "algorithm": after["algorithm"],
+            "ambiguity": after["ambiguity"],
+        },
+        "task_risk_before": before_engine["bayes_risk"],
+        "task_risk_after": after_engine["bayes_risk"],
+        "decision_preserved": before_engine["internal"]["bayes_risk"] == after_engine["internal"]["bayes_risk"],
+        "blackwell": compare_blackwell(source, target),
+        "deficiency": le_cam_distance(source, target),
+        "structural_change": before["complexity_regime"] != after["complexity_regime"],
+        "interpretation": "decision-equivalent structural transform; not claimed as a complexity-class separation",
+    }
+
+
+def structural_analysis_cost_model() -> dict[str, Any]:
+    """Return the acquisition-cost dependency graph for the current selector."""
+    entries = [
+        {
+            "property": "posterior_and_Opt(r)",
+            "acquisition_cost": "POLYNOMIAL",
+            "complexity": "O(|Theta||R||A|)",
+            "enables": ["task quotient", "ambiguity hypergraph"],
+            "possible_decision_improvement": "identifies whether a block or probe can change the action",
+        },
+        {
+            "property": "connected_components",
+            "acquisition_cost": "POLYNOMIAL_AFTER_Opt",
+            "complexity": "linear in hypergraph incidence",
+            "enables": ["component decomposition"],
+            "possible_decision_improvement": "replaces one exact cover by independent covers",
+        },
+        {
+            "property": "ambiguity_profile",
+            "acquisition_cost": "POLYNOMIAL_AFTER_Opt",
+            "complexity": "O(|A|^2 + |R||A|)",
+            "enables": ["algorithm selection", "safe zero-value pruning"],
+            "possible_decision_improvement": "avoids invoking an unnecessarily hard solver",
+        },
+        {
+            "property": "exact_quotient_or_exact_lower_bound",
+            "acquisition_cost": "EXPENSIVE",
+            "complexity": "NP-hard problem; current small solvers exponential",
+            "enables": ["optimal certificate", "tight representation bound"],
+            "possible_decision_improvement": "may improve solver choice, but can cost more than fallback execution",
+        },
+        {
+            "property": "Blackwell_relation",
+            "acquisition_cost": "POLYNOMIAL_FORMULATION / EXPENSIVE_CURRENT_SOLVER",
+            "complexity": "LP in theory; exact vertex enumeration here",
+            "enables": ["probe pruning", "decision-value monotonicity certificate"],
+            "possible_decision_improvement": "can rule out a weaker probe before evaluating all tasks",
+        },
+        {
+            "property": "deficiency",
+            "acquisition_cost": "EXPENSIVE_CURRENT_SOLVER",
+            "complexity": "LP formulation; exact finite vertex/sign enumeration here",
+            "enables": ["approximate transformation certificate"],
+            "possible_decision_improvement": "quantifies reconstruction loss but need not change algorithm selection",
+        },
+        {
+            "property": "epsilon_compression",
+            "acquisition_cost": "EXPENSIVE",
+            "complexity": "NP-hard already at epsilon=0; Bell(|R|) current traversal",
+            "enables": ["resource-bounded transform"],
+            "possible_decision_improvement": "only amortizable when the quotient is reused",
+        },
+    ]
+    return {
+        "entries": entries,
+        "dependency_graph": [
+            "posterior_and_Opt -> ambiguity_profile -> structural_regime -> solver",
+            "ambiguity_profile -> zero_value_pruning -> execute_now_or_probe",
+            "Blackwell_relation -> dominance_pruning -> probe_portfolio",
+            "exact_quotient -> decision_equivalent_transform -> new_structural_regime",
+        ],
+        "principle": "structural analysis is itself a meta-action with acquisition cost",
+    }
+
+
+def literature_audit_matrix() -> list[dict[str, Any]]:
+    """Record audited external claims without treating summaries as axioms."""
+    return [
+        {
+            "claim": "Rice algorithm selection",
+            "primary_source": "https://doi.org/10.1016/S0065-2458(08)60520-3",
+            "status": "ESTABLISHED_THEORY",
+            "exact_result": "problem/algorithm/performance spaces with a selection mapping; feature-based selection is an extension of the basic model",
+            "feature_cost_and_sequentiality": "the basic mapping is one-shot; feature extraction cost and sequential probe choice are not its native meta-level state/action model",
+            "representation_selection": "not a general representation-transformation theory",
+            "assumptions": "candidate algorithms and a performance criterion are given",
+            "relation_to_matsi": "MAT-SI adds explicit finite probes whose acquisition cost is part of the meta-decision",
+            "classification": "FORMAL_SPECIAL_CASE",
+        },
+        {
+            "claim": "value of computation and rational metareasoning",
+            "primary_source": "https://doi.org/10.1016/0004-3702(91)90015-C",
+            "status": "ESTABLISHED_THEORY",
+            "exact_result": "computations are selected by expected downstream decision utility minus explicit computation cost",
+            "assumptions": "belief state, transition model, reward/loss, and computation costs are specified",
+            "relation_to_matsi": "the finite probe solver is an explicit statistical-experiment instantiation, not a new metareasoning theory",
+            "classification": "IMPORTED_THEORY",
+        },
+        {
+            "claim": "metalevel MDP",
+            "primary_source": "https://arxiv.org/abs/1207.5879",
+            "status": "ESTABLISHED_THEORY",
+            "exact_result": "sequential computation selection is a metalevel decision process over information/belief states",
+            "assumptions": "finite or modeled belief transitions and a stop/action decision",
+            "relation_to_matsi": "the exact sequential solver is a small finite instance of this framework",
+            "classification": "IMPORTED_THEORY",
+        },
+        {
+            "claim": "representation-dependent complexity",
+            "primary_source": "https://www.math.ias.edu/~avi/PUBLICATIONS/ABSTRACT/gw84.pdf",
+            "status": "ESTABLISHED_THEORY",
+            "exact_result": "succinct graph encodings can raise the complexity of graph problems; reachability-style problems exhibit exponential complexity shifts",
+            "assumptions": "the encoding is part of the input model and may describe exponentially many vertices",
+            "relation_to_matsi": "supports separating object, encoding, representation, and downstream algorithm; not a complexity-class claim about MAT-SI toys",
+            "classification": "IMPORTED_ANALOGY_WITH_FORMAL_SPECIAL_CASE",
+        },
+        {
+            "claim": "knowledge compilation",
+            "primary_source": "https://www.cril.univ-artois.fr/~marquis/darwiche-marquis-jair02.pdf",
+            "status": "ESTABLISHED_THEORY",
+            "exact_result": "succinctness trades off against polynomial-time queries and transformations in the target representation",
+            "assumptions": "an offline compilation language and supported query/transform classes are fixed",
+            "relation_to_matsi": "closest external analogue for representation transformations changing algorithmic accessibility",
+            "classification": "FORMAL_ANALOGY",
+        },
+        {
+            "claim": "Pitman-Koopman-Darmois / sufficient statistics",
+            "primary_source": "https://utstat.toronto.edu/dfraser/documents/25.pdf",
+            "status": "ESTABLISHED_WITH_REGULARITY",
+            "exact_result": "fixed-dimensional sufficient statistics for all IID sample sizes force an exponential-family form under support/regularity assumptions",
+            "assumptions": "fixed support and regularity; the unrestricted statement is false",
+            "relation_to_matsi": "ordinary statistical sufficiency is stronger/different from task-sufficient quotients for a specified loss",
+            "classification": "ANALOGY_NOT_IDENTITY",
+        },
+        {
+            "claim": "RG to deep learning",
+            "primary_source": "https://arxiv.org/abs/1410.3831",
+            "status": "ESTABLISHED_SPECIAL_CASE",
+            "exact_result": "an exact mapping is constructed between variational RG and RBM architectures for the stated construction",
+            "assumptions": "specific variational RG/RBM construction and physical model setting",
+            "relation_to_matsi": "does not supply a general decision-value, resource-cost, or algorithm-selection semantics",
+            "classification": "SPECIAL_CASE_NOT_EQUIVALENCE",
+        },
+        {
+            "claim": "DFA minimization is MPS canonicalization",
+            "primary_source": "https://proceedings.mlr.press/v130/adhikary21a.html",
+            "status": "PARTIAL_CORRESPONDENCE",
+            "exact_result": "uniform MPS have equivalence relationships with weighted/probabilistic automata in a stochastic-process setting",
+            "assumptions": "weighted/stochastic automata and uniform/infinite-sequence tensor models",
+            "relation_to_matsi": "no audited source establishes a DFA-minimization/MPS-canonicalization isomorphism",
+            "classification": "ANALOGY; STRONGER_CLAIM_UNSUPPORTED",
+        },
+        {
+            "claim": "causal representation learning selects algorithms",
+            "primary_source": "https://proceedings.mlr.press/v235/morioka24a.html",
+            "status": "ESTABLISHED_IDENTIFIABILITY_RESULTS",
+            "exact_result": "under explicit assumptions, latent causal representations can be identifiable and consistently estimated",
+            "assumptions": "model, grouping, observational structure, and identifiability conditions",
+            "relation_to_matsi": "identifiability/latent discovery is not meta-algorithm selection or value-of-computation reasoning",
+            "classification": "UNRELATED_TO_SELECTION; USEFUL_DISTINCTION",
+        },
+    ]
+
+
 def representation_compiler(
     experiment: Sequence[Sequence[Number]],
     prior: Sequence[Number],
@@ -1967,8 +2511,79 @@ def run_calculus() -> dict[str, Any]:
         fixtures["three_signal_task"], prior, tasks[:1], [0], target_symbols=1, denominator=2
     )
     complexity_suite = complexity_experiment_suite()
+    probe_prior = [Fraction(1, 2), Fraction(1, 2)]
+    probe_loss = [[0, 1], [1, 0]]
+    informative_irrelevant_probe = {
+        "id": "informative_but_decision_irrelevant",
+        "channel": [[1, 0], [0, 1]],
+        "cost": {"time": 1, "memory": 0},
+    }
+    probe_audit = {
+        "informative_but_decision_irrelevant": evaluate_probe(
+            probe_prior,
+            informative_irrelevant_probe,
+            [[0, 1], [0, 1]],
+        ),
+        "uninformative": evaluate_probe(
+            probe_prior,
+            {"id": "uninformative", "channel": [[Fraction(1, 2), Fraction(1, 2)]] * 2, "cost": {"time": 1}},
+            probe_loss,
+        ),
+        "mi_vs_decision": compare_probes(
+            information_prior,
+            [
+                {"id": "high_mi_low_value", "channel": irrelevant_information, "cost": {"time": 1}},
+                {"id": "lower_mi_high_value", "channel": task_targeted_information, "cost": {"time": 1}},
+            ],
+            target_loss,
+        ),
+        "equal_mi_different_decision": compare_probes(
+            information_prior,
+            [
+                {"id": "target_partition", "channel": [[1, 0], [0, 1], [0, 1]], "cost": {"time": 1}},
+                {"id": "irrelevant_partition", "channel": irrelevant_information, "cost": {"time": 1}},
+            ],
+            target_loss,
+        ),
+    }
+    costed_probes = [
+        {"id": "blackwell_strong_but_expensive", "channel": revealing, "cost": {"time": 10}},
+        {"id": "blackwell_weaker_but_cheap", "channel": strict, "cost": {"time": 1}},
+    ]
+    meta_choice = choose_next_computation(
+        probe_prior,
+        costed_probes,
+        probe_loss,
+        policy={"max_cost": {"time": 1}},
+    )
+    sequential = solve_sequential_meta_decision(
+        probe_prior,
+        [
+            {"id": "reveal_state", "channel": revealing, "cost": {"time": 1}},
+            {"id": "partial_state", "channel": strict, "cost": {"time": 2}},
+        ],
+        probe_loss,
+        time_cost_weight=Fraction(1, 10),
+    )
+    transform_source, transform_prior, transform_losses, transform_actions = _identity_hypergraph_instance(
+        [[0, 1, 2], [0, 1, 2], [0], [1]], 3
+    )
+    transform_quotient = task_sufficient_quotient(transform_source, transform_prior, transform_losses)
+    transform_target = quotient_experiment(transform_source, transform_quotient["blocks"])
+    transformation = evaluate_representation_transformation(
+        transform_source,
+        transform_target,
+        transform_prior,
+        transform_losses,
+        transformation_id="task_sufficient_structural_transform",
+        cost={"time": 2},
+    )
+    meta_costs = structural_analysis_cost_model()
+    literature = literature_audit_matrix()
     return {
         "protocol": "agent1-decision-representation-calculus-v1",
+        "extension_protocol": "agent1-structural-probes-meta-decision-v1",
+        "starting_commit": "0274ab2",
         "corpus_policy": "no new corpus; exact finite mathematical fixtures only",
         "object": {
             "experiment": "E[y][r] = P(R=r | Y=y)",
@@ -2031,6 +2646,44 @@ def run_calculus() -> dict[str, Any]:
         "blackwell_separation": separation,
         "stochastic_compression": stochastic,
         "complexity_experiment_suite": complexity_suite,
+        "structural_probe_calculus": {
+            "status": "EXECUTABLE",
+            "definition": {
+                "world": "Theta",
+                "prior": "pi(theta)",
+                "downstream_loss": "L(theta,a)",
+                "probe": "Q_q(o|theta)",
+                "decision_value": "R(pi) - sum_o P(o|pi,q) R(pi(.|o,q))",
+                "costs": "vector-valued and not implicitly scalarized",
+            },
+            "theorems": {
+                "zero_decision_value": {
+                    "status": "PROVED",
+                    "statement": "DV(q;pi)=0 iff the positive-probability posterior optimal-action sets have non-empty intersection",
+                },
+                "zero_mutual_information": {
+                    "status": "PROVED",
+                    "statement": "I(Theta;O_q)=0 implies the posterior equals pi almost surely, hence DV(q;pi)=0 for every fixed task",
+                },
+                "blackwell_monotonicity": {
+                    "status": "PROVED",
+                    "statement": "q1 Blackwell-dominates q2 implies DV(q1)>=DV(q2) before probe costs",
+                },
+            },
+            "audits": probe_audit,
+            "costed_meta_choice": meta_choice,
+            "sequential_exact_solver": sequential,
+            "complexity": {
+                "fixed_probe_evaluation": "PROVED_POLYNOMIAL in explicit finite channel/task size",
+                "zero_value_check": "PROVED_POLYNOMIAL after posterior action evaluation",
+                "finite_probe_selection": "POLYNOMIAL over an explicit finite portfolio under a fixed constraint policy; current Blackwell relation checks use exponential exact vertices",
+                "sequential_selection": "KNOWN_EXPONENTIAL in number of probes/reachable posterior states for this exact recursion; no PSPACE claim made",
+                "representation_transform_selection": "NP-HARD when the candidate transform includes exact task-sufficient quotient search; finite explicit candidate evaluation is polynomial after candidates are supplied",
+            },
+        },
+        "representation_transformation": transformation,
+        "meta_cost_model": meta_costs,
+        "literature_audit": literature,
         "complexity": {
             "bayes_engine": {
                 "decision_version": "is V(E,D,pi) <= q?",

@@ -1086,7 +1086,7 @@
       "optimality_gap": 0,
       "optimum": 4,
       "regime": "UNIQUE_OPTIMUM",
-      "runtime_seconds": 0.0015486999982385896,
+      "runtime_seconds": 0.0010323000024072826,
       "states_explored": 1,
       "status": "EXACT",
       "symbols": 4,
@@ -1111,7 +1111,7 @@
       "optimality_gap": 0,
       "optimum": 2,
       "regime": "DEGREE_2_AMBIGUITY",
-      "runtime_seconds": 0.0011697000009007752,
+      "runtime_seconds": 0.0007590999957756139,
       "states_explored": 9,
       "status": "EXACT",
       "symbols": 4,
@@ -1134,7 +1134,7 @@
       "optimality_gap": 0,
       "optimum": 2,
       "regime": "DECOMPOSABLE_HYPERGRAPH",
-      "runtime_seconds": 0.0013810000018565916,
+      "runtime_seconds": 0.0009061000018846244,
       "states_explored": 2,
       "status": "EXACT",
       "symbols": 4,
@@ -1159,7 +1159,7 @@
       "optimality_gap": 0,
       "optimum": 1,
       "regime": "DEGREE_2_AMBIGUITY",
-      "runtime_seconds": 0.0008345000023837201,
+      "runtime_seconds": 0.0005060000039520673,
       "states_explored": 3,
       "status": "EXACT",
       "symbols": 4,
@@ -1185,7 +1185,7 @@
       "optimality_gap": 0,
       "optimum": 2,
       "regime": "GENERAL_SET_COVER",
-      "runtime_seconds": 0.0011986999961663969,
+      "runtime_seconds": 0.0009597999960533343,
       "states_explored": null,
       "status": "EXACT",
       "symbols": 5,
@@ -1229,7 +1229,7 @@
       "optimality_gap": 1,
       "optimum": null,
       "regime": "GENERAL_SET_COVER",
-      "runtime_seconds": 0.0286638999969,
+      "runtime_seconds": 0.023616099999344442,
       "states_explored": null,
       "status": "BOUNDED_APPROXIMATION",
       "symbols": 23,
@@ -3370,6 +3370,7 @@
     },
     "status": "EXECUTABLE"
   },
+  "extension_protocol": "agent1-structural-probes-meta-decision-v1",
   "identification_interface": {
     "identified": false,
     "missing": [
@@ -3402,6 +3403,169 @@
       "year": 1964
     }
   ],
+  "literature_audit": [
+    {
+      "assumptions": "candidate algorithms and a performance criterion are given",
+      "claim": "Rice algorithm selection",
+      "classification": "FORMAL_SPECIAL_CASE",
+      "exact_result": "problem/algorithm/performance spaces with a selection mapping; feature-based selection is an extension of the basic model",
+      "feature_cost_and_sequentiality": "the basic mapping is one-shot; feature extraction cost and sequential probe choice are not its native meta-level state/action model",
+      "primary_source": "https://doi.org/10.1016/S0065-2458(08)60520-3",
+      "relation_to_matsi": "MAT-SI adds explicit finite probes whose acquisition cost is part of the meta-decision",
+      "representation_selection": "not a general representation-transformation theory",
+      "status": "ESTABLISHED_THEORY"
+    },
+    {
+      "assumptions": "belief state, transition model, reward/loss, and computation costs are specified",
+      "claim": "value of computation and rational metareasoning",
+      "classification": "IMPORTED_THEORY",
+      "exact_result": "computations are selected by expected downstream decision utility minus explicit computation cost",
+      "primary_source": "https://doi.org/10.1016/0004-3702(91)90015-C",
+      "relation_to_matsi": "the finite probe solver is an explicit statistical-experiment instantiation, not a new metareasoning theory",
+      "status": "ESTABLISHED_THEORY"
+    },
+    {
+      "assumptions": "finite or modeled belief transitions and a stop/action decision",
+      "claim": "metalevel MDP",
+      "classification": "IMPORTED_THEORY",
+      "exact_result": "sequential computation selection is a metalevel decision process over information/belief states",
+      "primary_source": "https://arxiv.org/abs/1207.5879",
+      "relation_to_matsi": "the exact sequential solver is a small finite instance of this framework",
+      "status": "ESTABLISHED_THEORY"
+    },
+    {
+      "assumptions": "the encoding is part of the input model and may describe exponentially many vertices",
+      "claim": "representation-dependent complexity",
+      "classification": "IMPORTED_ANALOGY_WITH_FORMAL_SPECIAL_CASE",
+      "exact_result": "succinct graph encodings can raise the complexity of graph problems; reachability-style problems exhibit exponential complexity shifts",
+      "primary_source": "https://www.math.ias.edu/~avi/PUBLICATIONS/ABSTRACT/gw84.pdf",
+      "relation_to_matsi": "supports separating object, encoding, representation, and downstream algorithm; not a complexity-class claim about MAT-SI toys",
+      "status": "ESTABLISHED_THEORY"
+    },
+    {
+      "assumptions": "an offline compilation language and supported query/transform classes are fixed",
+      "claim": "knowledge compilation",
+      "classification": "FORMAL_ANALOGY",
+      "exact_result": "succinctness trades off against polynomial-time queries and transformations in the target representation",
+      "primary_source": "https://www.cril.univ-artois.fr/~marquis/darwiche-marquis-jair02.pdf",
+      "relation_to_matsi": "closest external analogue for representation transformations changing algorithmic accessibility",
+      "status": "ESTABLISHED_THEORY"
+    },
+    {
+      "assumptions": "fixed support and regularity; the unrestricted statement is false",
+      "claim": "Pitman-Koopman-Darmois / sufficient statistics",
+      "classification": "ANALOGY_NOT_IDENTITY",
+      "exact_result": "fixed-dimensional sufficient statistics for all IID sample sizes force an exponential-family form under support/regularity assumptions",
+      "primary_source": "https://utstat.toronto.edu/dfraser/documents/25.pdf",
+      "relation_to_matsi": "ordinary statistical sufficiency is stronger/different from task-sufficient quotients for a specified loss",
+      "status": "ESTABLISHED_WITH_REGULARITY"
+    },
+    {
+      "assumptions": "specific variational RG/RBM construction and physical model setting",
+      "claim": "RG to deep learning",
+      "classification": "SPECIAL_CASE_NOT_EQUIVALENCE",
+      "exact_result": "an exact mapping is constructed between variational RG and RBM architectures for the stated construction",
+      "primary_source": "https://arxiv.org/abs/1410.3831",
+      "relation_to_matsi": "does not supply a general decision-value, resource-cost, or algorithm-selection semantics",
+      "status": "ESTABLISHED_SPECIAL_CASE"
+    },
+    {
+      "assumptions": "weighted/stochastic automata and uniform/infinite-sequence tensor models",
+      "claim": "DFA minimization is MPS canonicalization",
+      "classification": "ANALOGY; STRONGER_CLAIM_UNSUPPORTED",
+      "exact_result": "uniform MPS have equivalence relationships with weighted/probabilistic automata in a stochastic-process setting",
+      "primary_source": "https://proceedings.mlr.press/v130/adhikary21a.html",
+      "relation_to_matsi": "no audited source establishes a DFA-minimization/MPS-canonicalization isomorphism",
+      "status": "PARTIAL_CORRESPONDENCE"
+    },
+    {
+      "assumptions": "model, grouping, observational structure, and identifiability conditions",
+      "claim": "causal representation learning selects algorithms",
+      "classification": "UNRELATED_TO_SELECTION; USEFUL_DISTINCTION",
+      "exact_result": "under explicit assumptions, latent causal representations can be identifiable and consistently estimated",
+      "primary_source": "https://proceedings.mlr.press/v235/morioka24a.html",
+      "relation_to_matsi": "identifiability/latent discovery is not meta-algorithm selection or value-of-computation reasoning",
+      "status": "ESTABLISHED_IDENTIFIABILITY_RESULTS"
+    }
+  ],
+  "meta_cost_model": {
+    "dependency_graph": [
+      "posterior_and_Opt -> ambiguity_profile -> structural_regime -> solver",
+      "ambiguity_profile -> zero_value_pruning -> execute_now_or_probe",
+      "Blackwell_relation -> dominance_pruning -> probe_portfolio",
+      "exact_quotient -> decision_equivalent_transform -> new_structural_regime"
+    ],
+    "entries": [
+      {
+        "acquisition_cost": "POLYNOMIAL",
+        "complexity": "O(|Theta||R||A|)",
+        "enables": [
+          "task quotient",
+          "ambiguity hypergraph"
+        ],
+        "possible_decision_improvement": "identifies whether a block or probe can change the action",
+        "property": "posterior_and_Opt(r)"
+      },
+      {
+        "acquisition_cost": "POLYNOMIAL_AFTER_Opt",
+        "complexity": "linear in hypergraph incidence",
+        "enables": [
+          "component decomposition"
+        ],
+        "possible_decision_improvement": "replaces one exact cover by independent covers",
+        "property": "connected_components"
+      },
+      {
+        "acquisition_cost": "POLYNOMIAL_AFTER_Opt",
+        "complexity": "O(|A|^2 + |R||A|)",
+        "enables": [
+          "algorithm selection",
+          "safe zero-value pruning"
+        ],
+        "possible_decision_improvement": "avoids invoking an unnecessarily hard solver",
+        "property": "ambiguity_profile"
+      },
+      {
+        "acquisition_cost": "EXPENSIVE",
+        "complexity": "NP-hard problem; current small solvers exponential",
+        "enables": [
+          "optimal certificate",
+          "tight representation bound"
+        ],
+        "possible_decision_improvement": "may improve solver choice, but can cost more than fallback execution",
+        "property": "exact_quotient_or_exact_lower_bound"
+      },
+      {
+        "acquisition_cost": "POLYNOMIAL_FORMULATION / EXPENSIVE_CURRENT_SOLVER",
+        "complexity": "LP in theory; exact vertex enumeration here",
+        "enables": [
+          "probe pruning",
+          "decision-value monotonicity certificate"
+        ],
+        "possible_decision_improvement": "can rule out a weaker probe before evaluating all tasks",
+        "property": "Blackwell_relation"
+      },
+      {
+        "acquisition_cost": "EXPENSIVE_CURRENT_SOLVER",
+        "complexity": "LP formulation; exact finite vertex/sign enumeration here",
+        "enables": [
+          "approximate transformation certificate"
+        ],
+        "possible_decision_improvement": "quantifies reconstruction loss but need not change algorithm selection",
+        "property": "deficiency"
+      },
+      {
+        "acquisition_cost": "EXPENSIVE",
+        "complexity": "NP-hard already at epsilon=0; Bell(|R|) current traversal",
+        "enables": [
+          "resource-bounded transform"
+        ],
+        "possible_decision_improvement": "only amortizable when the quotient is reused",
+        "property": "epsilon_compression"
+      }
+    ],
+    "principle": "structural analysis is itself a meta-action with acquisition cost"
+  },
   "multi_task": {
     "monotonicity": "minimum multi-task quotient size is at least each single-task minimum",
     "result": {
@@ -5744,6 +5908,467 @@
       }
     ]
   },
+  "representation_transformation": {
+    "after": {
+      "algorithm": "direct grouping by unique optimal action",
+      "ambiguity": {
+        "action_count": 3,
+        "action_coverage": {
+          "0": 1,
+          "1": 1,
+          "2": 0
+        },
+        "action_overlap": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "actions": [
+          0,
+          1,
+          2
+        ],
+        "ambiguity_cardinalities": [
+          1,
+          1
+        ],
+        "ambiguous_symbols": [],
+        "component_indices": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "components": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "dominated_actions": [
+          {
+            "by": 0,
+            "dominated": 2
+          },
+          {
+            "by": 1,
+            "dominated": 2
+          }
+        ],
+        "dominated_candidates": [
+          {
+            "by": 0,
+            "dominated": 2
+          },
+          {
+            "by": 1,
+            "dominated": 2
+          }
+        ],
+        "equivalent_action_classes": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "exact_easy_reductions": [
+          "polynomial direct grouping"
+        ],
+        "hyperedges": [
+          {
+            "actions": [
+              0
+            ],
+            "arity": 1,
+            "signal": 0
+          },
+          {
+            "actions": [
+              1
+            ],
+            "arity": 1,
+            "signal": 1
+          }
+        ],
+        "interpretation": "ambiguity is a hypergraph; selector complexity is its minimum action cover",
+        "lower_bound": 2,
+        "maximum_ambiguity_arity": 1,
+        "parameters": {
+          "action_count": 3,
+          "ambiguous_symbol_count": 0,
+          "component_count": 3,
+          "maximum_action_frequency": 1,
+          "maximum_ambiguity": 1
+        },
+        "reason": "every hyperedge is a singleton, so no covering choice remains",
+        "recommended_algorithm": "direct grouping by unique optimal action",
+        "redundant_symbols": [],
+        "regime": "UNIQUE_OPTIMUM",
+        "signal_count": 2,
+        "symbols": [
+          0,
+          1
+        ],
+        "unique_optimum_symbols": [
+          0,
+          1
+        ]
+      },
+      "regime": "UNIQUE_OPTIMUM"
+    },
+    "before": {
+      "algorithm": "exact bitmask set-cover dynamic programming",
+      "ambiguity": {
+        "action_count": 3,
+        "action_coverage": {
+          "0": 3,
+          "1": 3,
+          "2": 2
+        },
+        "action_overlap": [
+          [
+            3,
+            2,
+            2
+          ],
+          [
+            2,
+            3,
+            2
+          ],
+          [
+            2,
+            2,
+            2
+          ]
+        ],
+        "actions": [
+          0,
+          1,
+          2
+        ],
+        "ambiguity_cardinalities": [
+          3,
+          3,
+          1,
+          1
+        ],
+        "ambiguous_symbols": [
+          0,
+          1
+        ],
+        "component_indices": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "components": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "dominated_actions": [
+          {
+            "by": 0,
+            "dominated": 2
+          },
+          {
+            "by": 1,
+            "dominated": 2
+          }
+        ],
+        "dominated_candidates": [
+          {
+            "by": 0,
+            "dominated": 2
+          },
+          {
+            "by": 1,
+            "dominated": 2
+          }
+        ],
+        "equivalent_action_classes": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "exact_easy_reductions": [
+          "equivalent-action symmetry breaking",
+          "dominated-action pruning"
+        ],
+        "hyperedges": [
+          {
+            "actions": [
+              0,
+              1,
+              2
+            ],
+            "arity": 3,
+            "signal": 0
+          },
+          {
+            "actions": [
+              0,
+              1,
+              2
+            ],
+            "arity": 3,
+            "signal": 1
+          },
+          {
+            "actions": [
+              0
+            ],
+            "arity": 1,
+            "signal": 2
+          },
+          {
+            "actions": [
+              1
+            ],
+            "arity": 1,
+            "signal": 3
+          }
+        ],
+        "interpretation": "ambiguity is a hypergraph; selector complexity is its minimum action cover",
+        "lower_bound": 2,
+        "maximum_ambiguity_arity": 3,
+        "parameters": {
+          "action_count": 3,
+          "ambiguous_symbol_count": 2,
+          "component_count": 1,
+          "maximum_action_frequency": 3,
+          "maximum_ambiguity": 3
+        },
+        "reason": "the incidence hypergraph has general overlapping hyperedges",
+        "recommended_algorithm": "exact bitmask cover or greedy bounded fallback",
+        "redundant_symbols": [
+          {
+            "same_optimal_set_as": 0,
+            "symbol": 1
+          }
+        ],
+        "regime": "GENERAL_SET_COVER",
+        "signal_count": 4,
+        "symbols": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "unique_optimum_symbols": [
+          2,
+          3
+        ]
+      },
+      "regime": "GENERAL_SET_COVER"
+    },
+    "blackwell": {
+      "classification": "DOMINATES",
+      "first_to_second": {
+        "certificate": "K is row-stochastic and source*K equals target exactly",
+        "channel": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "exists": true,
+        "internal_channel": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "residual": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "residual_linf": "0"
+      },
+      "meaning": "the second representation is a garbling of the first",
+      "reverse_only_dominance": false,
+      "second_to_first": {
+        "certificate": "no feasible stochastic channel satisfies source*K=target",
+        "channel": null,
+        "exists": false,
+        "residual": null,
+        "residual_linf": null
+      }
+    },
+    "cost_profile": {
+      "time": "2"
+    },
+    "decision_preserved": true,
+    "deficiency": {
+      "forward": {
+        "certificate": "Blackwell garbling witness; deficiency is exactly zero",
+        "channel": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "deficiency": "0",
+        "deficiency_float": 0.0,
+        "direction": "source_to_target",
+        "internal_channel": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "residual": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "residual_linf": "0",
+        "simulated_target": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "status": "EXACT"
+      },
+      "reverse": {
+        "reason": "vertex LP needs 1560780 active sets; limit=250000",
+        "status": "INVALID"
+      },
+      "status": "INVALID"
+    },
+    "interpretation": "decision-equivalent structural transform; not claimed as a complexity-class separation",
+    "structural_change": true,
+    "task_risk_after": "0",
+    "task_risk_before": "0",
+    "transformation": "task_sufficient_structural_transform"
+  },
+  "starting_commit": "0274ab2",
   "status_summary": {
     "CONJECTURE": [],
     "DISPROVED": [
@@ -5951,6 +6576,651 @@
     "stochastic_feasible": null,
     "strict_stochastic_advantage_found": false,
     "target_symbols": 1
+  },
+  "structural_probe_calculus": {
+    "audits": {
+      "equal_mi_different_decision": {
+        "costs_remain_vector_valued": true,
+        "informativeness_order": [
+          {
+            "first": "target_partition",
+            "relation": {
+              "classification": "INCOMPARABLE",
+              "first_to_second": {
+                "certificate": "no feasible stochastic channel satisfies source*K=target",
+                "channel": null,
+                "exists": false,
+                "residual": null,
+                "residual_linf": null
+              },
+              "meaning": "neither direction has a stochastic garbling witness",
+              "reverse_only_dominance": false,
+              "second_to_first": {
+                "certificate": "no feasible stochastic channel satisfies source*K=target",
+                "channel": null,
+                "exists": false,
+                "residual": null,
+                "residual_linf": null
+              }
+            },
+            "second": "irrelevant_partition"
+          }
+        ],
+        "interpretation": "Blackwell order constrains decision values before costs; costs require an explicit meta-policy",
+        "probes": [
+          {
+            "channel": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ],
+              [
+                "0",
+                "1"
+              ]
+            ],
+            "cost_profile": {
+              "time": "1"
+            },
+            "current_bayes_risk": "1/3",
+            "decision_value": "1/3",
+            "id": "target_partition",
+            "information_value_bits": 0.9182958340544893,
+            "posterior_action_partitions": [
+              {
+                "mass": "1/3",
+                "optimal_actions": [
+                  0
+                ],
+                "outcome": 0,
+                "posterior": [
+                  "1",
+                  "0",
+                  "0"
+                ]
+              },
+              {
+                "mass": "2/3",
+                "optimal_actions": [
+                  1
+                ],
+                "outcome": 1,
+                "posterior": [
+                  "0",
+                  "1/2",
+                  "1/2"
+                ]
+              }
+            ],
+            "posterior_bayes_risk": "0",
+            "zero_decision_value_certificate": {
+              "common_optimal_actions": [],
+              "holds": false,
+              "positive_probability_outcomes": [
+                0,
+                1
+              ],
+              "reason": "no common action is optimal for every positive-probability posterior"
+            }
+          },
+          {
+            "channel": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "cost_profile": {
+              "time": "1"
+            },
+            "current_bayes_risk": "1/3",
+            "decision_value": "0",
+            "id": "irrelevant_partition",
+            "information_value_bits": 0.9182958340544893,
+            "posterior_action_partitions": [
+              {
+                "mass": "2/3",
+                "optimal_actions": [
+                  0,
+                  1
+                ],
+                "outcome": 0,
+                "posterior": [
+                  "1/2",
+                  "0",
+                  "1/2"
+                ]
+              },
+              {
+                "mass": "1/3",
+                "optimal_actions": [
+                  1
+                ],
+                "outcome": 1,
+                "posterior": [
+                  "0",
+                  "1",
+                  "0"
+                ]
+              }
+            ],
+            "posterior_bayes_risk": "1/3",
+            "zero_decision_value_certificate": {
+              "common_optimal_actions": [
+                1
+              ],
+              "holds": true,
+              "positive_probability_outcomes": [
+                0,
+                1
+              ],
+              "reason": "min-sum equality: one action is optimal for every positive-probability posterior"
+            }
+          }
+        ]
+      },
+      "informative_but_decision_irrelevant": {
+        "channel": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "cost_profile": {
+          "memory": "0",
+          "time": "1"
+        },
+        "current_bayes_risk": "0",
+        "decision_value": "0",
+        "id": "informative_but_decision_irrelevant",
+        "information_value_bits": 1.0,
+        "posterior_action_partitions": [
+          {
+            "mass": "1/2",
+            "optimal_actions": [
+              0
+            ],
+            "outcome": 0,
+            "posterior": [
+              "1",
+              "0"
+            ]
+          },
+          {
+            "mass": "1/2",
+            "optimal_actions": [
+              0
+            ],
+            "outcome": 1,
+            "posterior": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "posterior_bayes_risk": "0",
+        "zero_decision_value_certificate": {
+          "common_optimal_actions": [
+            0
+          ],
+          "holds": true,
+          "positive_probability_outcomes": [
+            0,
+            1
+          ],
+          "reason": "min-sum equality: one action is optimal for every positive-probability posterior"
+        }
+      },
+      "mi_vs_decision": {
+        "costs_remain_vector_valued": true,
+        "informativeness_order": [
+          {
+            "first": "high_mi_low_value",
+            "relation": {
+              "classification": "INCOMPARABLE",
+              "first_to_second": {
+                "certificate": "no feasible stochastic channel satisfies source*K=target",
+                "channel": null,
+                "exists": false,
+                "residual": null,
+                "residual_linf": null
+              },
+              "meaning": "neither direction has a stochastic garbling witness",
+              "reverse_only_dominance": false,
+              "second_to_first": {
+                "certificate": "no feasible stochastic channel satisfies source*K=target",
+                "channel": null,
+                "exists": false,
+                "residual": null,
+                "residual_linf": null
+              }
+            },
+            "second": "lower_mi_high_value"
+          }
+        ],
+        "interpretation": "Blackwell order constrains decision values before costs; costs require an explicit meta-policy",
+        "probes": [
+          {
+            "channel": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "1"
+              ],
+              [
+                "1",
+                "0"
+              ]
+            ],
+            "cost_profile": {
+              "time": "1"
+            },
+            "current_bayes_risk": "1/3",
+            "decision_value": "0",
+            "id": "high_mi_low_value",
+            "information_value_bits": 0.9182958340544893,
+            "posterior_action_partitions": [
+              {
+                "mass": "2/3",
+                "optimal_actions": [
+                  0,
+                  1
+                ],
+                "outcome": 0,
+                "posterior": [
+                  "1/2",
+                  "0",
+                  "1/2"
+                ]
+              },
+              {
+                "mass": "1/3",
+                "optimal_actions": [
+                  1
+                ],
+                "outcome": 1,
+                "posterior": [
+                  "0",
+                  "1",
+                  "0"
+                ]
+              }
+            ],
+            "posterior_bayes_risk": "1/3",
+            "zero_decision_value_certificate": {
+              "common_optimal_actions": [
+                1
+              ],
+              "holds": true,
+              "positive_probability_outcomes": [
+                0,
+                1
+              ],
+              "reason": "min-sum equality: one action is optimal for every positive-probability posterior"
+            }
+          },
+          {
+            "channel": [
+              [
+                "9/10",
+                "1/10"
+              ],
+              [
+                "1/10",
+                "9/10"
+              ],
+              [
+                "1/10",
+                "9/10"
+              ]
+            ],
+            "cost_profile": {
+              "time": "1"
+            },
+            "current_bayes_risk": "1/3",
+            "decision_value": "7/30",
+            "id": "lower_mi_high_value",
+            "information_value_bits": 0.4790826500046241,
+            "posterior_action_partitions": [
+              {
+                "mass": "11/30",
+                "optimal_actions": [
+                  0
+                ],
+                "outcome": 0,
+                "posterior": [
+                  "9/11",
+                  "1/11",
+                  "1/11"
+                ]
+              },
+              {
+                "mass": "19/30",
+                "optimal_actions": [
+                  1
+                ],
+                "outcome": 1,
+                "posterior": [
+                  "1/19",
+                  "9/19",
+                  "9/19"
+                ]
+              }
+            ],
+            "posterior_bayes_risk": "1/10",
+            "zero_decision_value_certificate": {
+              "common_optimal_actions": [],
+              "holds": false,
+              "positive_probability_outcomes": [
+                0,
+                1
+              ],
+              "reason": "no common action is optimal for every positive-probability posterior"
+            }
+          }
+        ]
+      },
+      "uninformative": {
+        "channel": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1/2"
+          ]
+        ],
+        "cost_profile": {
+          "time": "1"
+        },
+        "current_bayes_risk": "1/2",
+        "decision_value": "0",
+        "id": "uninformative",
+        "information_value_bits": 0.0,
+        "posterior_action_partitions": [
+          {
+            "mass": "1/2",
+            "optimal_actions": [
+              0,
+              1
+            ],
+            "outcome": 0,
+            "posterior": [
+              "1/2",
+              "1/2"
+            ]
+          },
+          {
+            "mass": "1/2",
+            "optimal_actions": [
+              0,
+              1
+            ],
+            "outcome": 1,
+            "posterior": [
+              "1/2",
+              "1/2"
+            ]
+          }
+        ],
+        "posterior_bayes_risk": "1/2",
+        "zero_decision_value_certificate": {
+          "common_optimal_actions": [
+            0,
+            1
+          ],
+          "holds": true,
+          "positive_probability_outcomes": [
+            0,
+            1
+          ],
+          "reason": "min-sum equality: one action is optimal for every positive-probability posterior"
+        }
+      }
+    },
+    "complexity": {
+      "finite_probe_selection": "POLYNOMIAL over an explicit finite portfolio under a fixed constraint policy; current Blackwell relation checks use exponential exact vertices",
+      "fixed_probe_evaluation": "PROVED_POLYNOMIAL in explicit finite channel/task size",
+      "representation_transform_selection": "NP-HARD when the candidate transform includes exact task-sufficient quotient search; finite explicit candidate evaluation is polynomial after candidates are supplied",
+      "sequential_selection": "KNOWN_EXPONENTIAL in number of probes/reachable posterior states for this exact recursion; no PSPACE claim made",
+      "zero_value_check": "PROVED_POLYNOMIAL after posterior action evaluation"
+    },
+    "costed_meta_choice": {
+      "candidate_meta_actions": [
+        "blackwell_strong_but_expensive",
+        "blackwell_weaker_but_cheap",
+        "execute_now"
+      ],
+      "chosen_decision_value": "1/4",
+      "chosen_meta_action": "blackwell_weaker_but_cheap",
+      "current_best_object_action": [
+        0,
+        1
+      ],
+      "evaluated_probes": [
+        {
+          "channel": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "cost_profile": {
+            "time": "10"
+          },
+          "current_bayes_risk": "1/2",
+          "decision_value": "1/2",
+          "id": "blackwell_strong_but_expensive",
+          "information_value_bits": 1.0,
+          "posterior_action_partitions": [
+            {
+              "mass": "1/2",
+              "optimal_actions": [
+                0
+              ],
+              "outcome": 0,
+              "posterior": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "mass": "1/2",
+              "optimal_actions": [
+                1
+              ],
+              "outcome": 1,
+              "posterior": [
+                "0",
+                "1"
+              ]
+            }
+          ],
+          "posterior_bayes_risk": "0",
+          "zero_decision_value_certificate": {
+            "common_optimal_actions": [],
+            "holds": false,
+            "positive_probability_outcomes": [
+              0,
+              1
+            ],
+            "reason": "no common action is optimal for every positive-probability posterior"
+          }
+        },
+        {
+          "channel": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ],
+          "cost_profile": {
+            "time": "1"
+          },
+          "current_bayes_risk": "1/2",
+          "decision_value": "1/4",
+          "id": "blackwell_weaker_but_cheap",
+          "information_value_bits": 0.18872187554086717,
+          "posterior_action_partitions": [
+            {
+              "mass": "1/2",
+              "optimal_actions": [
+                0
+              ],
+              "outcome": 0,
+              "posterior": [
+                "3/4",
+                "1/4"
+              ]
+            },
+            {
+              "mass": "1/2",
+              "optimal_actions": [
+                1
+              ],
+              "outcome": 1,
+              "posterior": [
+                "1/4",
+                "3/4"
+              ]
+            }
+          ],
+          "posterior_bayes_risk": "1/4",
+          "zero_decision_value_certificate": {
+            "common_optimal_actions": [],
+            "holds": false,
+            "positive_probability_outcomes": [
+              0,
+              1
+            ],
+            "reason": "no common action is optimal for every positive-probability posterior"
+          }
+        }
+      ],
+      "execute_now": {
+        "cost": {},
+        "decision_value": "0",
+        "id": "execute_now",
+        "risk": "1/2"
+      },
+      "policy": {
+        "constraints": {
+          "time": 1
+        },
+        "objective": "maximize decision value under explicit resource constraints",
+        "scalarization": "none"
+      },
+      "pruned": [
+        {
+          "certificate": {
+            "time": "10"
+          },
+          "probe": "blackwell_strong_but_expensive",
+          "rule": "RESOURCE_CONSTRAINT"
+        }
+      ],
+      "recommended_next_operation": "blackwell_weaker_but_cheap"
+    },
+    "definition": {
+      "costs": "vector-valued and not implicitly scalarized",
+      "decision_value": "R(pi) - sum_o P(o|pi,q) R(pi(.|o,q))",
+      "downstream_loss": "L(theta,a)",
+      "prior": "pi(theta)",
+      "probe": "Q_q(o|theta)",
+      "world": "Theta"
+    },
+    "sequential_exact_solver": {
+      "complexity": "O(2^q * reachable posterior states * downstream decision cost)",
+      "cost_policy": {
+        "other_dimensions": "not scalarized",
+        "time_weight": "1/10"
+      },
+      "memoized_states": 7,
+      "policy": {
+        "branches": [
+          {
+            "continuation": {
+              "action": [
+                0
+              ],
+              "operation": "execute_now",
+              "value": "0"
+            },
+            "outcome": 0,
+            "posterior": [
+              "1",
+              "0"
+            ],
+            "probability": "1/2"
+          },
+          {
+            "continuation": {
+              "action": [
+                1
+              ],
+              "operation": "execute_now",
+              "value": "0"
+            },
+            "outcome": 1,
+            "posterior": [
+              "0",
+              "1"
+            ],
+            "probability": "1/2"
+          }
+        ],
+        "operation": "reveal_state",
+        "time_cost_weight": "1/10",
+        "value": "1/10"
+      },
+      "states_explored": 7,
+      "status": "EXACT",
+      "theory_relation": "finite metalevel MDP / rational metareasoning with explicit stop action",
+      "value": "1/10"
+    },
+    "status": "EXECUTABLE",
+    "theorems": {
+      "blackwell_monotonicity": {
+        "statement": "q1 Blackwell-dominates q2 implies DV(q1)>=DV(q2) before probe costs",
+        "status": "PROVED"
+      },
+      "zero_decision_value": {
+        "statement": "DV(q;pi)=0 iff the positive-probability posterior optimal-action sets have non-empty intersection",
+        "status": "PROVED"
+      },
+      "zero_mutual_information": {
+        "statement": "I(Theta;O_q)=0 implies the posterior equals pi almost surely, hence DV(q;pi)=0 for every fixed task",
+        "status": "PROVED"
+      }
+    }
   },
   "task_sufficient_quotient": {
     "criterion": "a block is valid iff its symbols share at least one Bayes-optimal action",
