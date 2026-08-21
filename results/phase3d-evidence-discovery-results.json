@@ -1,0 +1,1257 @@
+{
+  "discovery": {
+    "all_candidates_are_minimal_supported_forms": true,
+    "candidate_count": 3,
+    "candidate_hypotheses": [
+      {
+        "coverage": 4,
+        "description_cost": 49,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "input": [
+              -2,
+              0,
+              1
+            ],
+            "observation_id": "obs_0",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 0,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              -1,
+              0,
+              1
+            ],
+            "observation_id": "obs_1",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 1,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              0.25,
+              0,
+              1
+            ],
+            "observation_id": "obs_2",
+            "outputs": {
+              "A": 0.25,
+              "B": 0.25
+            },
+            "provenance": {
+              "input_index": 2,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              1.5,
+              0,
+              1
+            ],
+            "observation_id": "obs_3",
+            "outputs": {
+              "A": 1,
+              "B": 1
+            },
+            "provenance": {
+              "input_index": 3,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          }
+        ],
+        "generated_from": "observations",
+        "id": "pair_output_==",
+        "kind": "binary_output_relation",
+        "left": "A",
+        "operator": "==",
+        "provenance": {
+          "observation_ids": [
+            "obs_0",
+            "obs_1",
+            "obs_2",
+            "obs_3"
+          ]
+        },
+        "right": "B"
+      },
+      {
+        "coverage": 4,
+        "description_cost": 49,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "input": [
+              -2,
+              0,
+              1
+            ],
+            "observation_id": "obs_0",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 0,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              -1,
+              0,
+              1
+            ],
+            "observation_id": "obs_1",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 1,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              0.25,
+              0,
+              1
+            ],
+            "observation_id": "obs_2",
+            "outputs": {
+              "A": 0.25,
+              "B": 0.25
+            },
+            "provenance": {
+              "input_index": 2,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              1.5,
+              0,
+              1
+            ],
+            "observation_id": "obs_3",
+            "outputs": {
+              "A": 1,
+              "B": 1
+            },
+            "provenance": {
+              "input_index": 3,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          }
+        ],
+        "generated_from": "observations",
+        "id": "pair_output_<=",
+        "kind": "binary_output_relation",
+        "left": "A",
+        "operator": "<=",
+        "provenance": {
+          "observation_ids": [
+            "obs_0",
+            "obs_1",
+            "obs_2",
+            "obs_3"
+          ]
+        },
+        "right": "B"
+      },
+      {
+        "coverage": 4,
+        "description_cost": 49,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "input": [
+              -2,
+              0,
+              1
+            ],
+            "observation_id": "obs_0",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 0,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              -1,
+              0,
+              1
+            ],
+            "observation_id": "obs_1",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 1,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              0.25,
+              0,
+              1
+            ],
+            "observation_id": "obs_2",
+            "outputs": {
+              "A": 0.25,
+              "B": 0.25
+            },
+            "provenance": {
+              "input_index": 2,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              1.5,
+              0,
+              1
+            ],
+            "observation_id": "obs_3",
+            "outputs": {
+              "A": 1,
+              "B": 1
+            },
+            "provenance": {
+              "input_index": 3,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          }
+        ],
+        "generated_from": "observations",
+        "id": "pair_output_>=",
+        "kind": "binary_output_relation",
+        "left": "A",
+        "operator": ">=",
+        "provenance": {
+          "observation_ids": [
+            "obs_0",
+            "obs_1",
+            "obs_2",
+            "obs_3"
+          ]
+        },
+        "right": "B"
+      }
+    ],
+    "observations": [
+      {
+        "input": [
+          -2,
+          0,
+          1
+        ],
+        "observation_id": "obs_0",
+        "outputs": {
+          "A": 0,
+          "B": 0
+        },
+        "provenance": {
+          "input_index": 0,
+          "input_set": "frozen_discovery",
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "status": "OBSERVED"
+      },
+      {
+        "input": [
+          -1,
+          0,
+          1
+        ],
+        "observation_id": "obs_1",
+        "outputs": {
+          "A": 0,
+          "B": 0
+        },
+        "provenance": {
+          "input_index": 1,
+          "input_set": "frozen_discovery",
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "status": "OBSERVED"
+      },
+      {
+        "input": [
+          0.25,
+          0,
+          1
+        ],
+        "observation_id": "obs_2",
+        "outputs": {
+          "A": 0.25,
+          "B": 0.25
+        },
+        "provenance": {
+          "input_index": 2,
+          "input_set": "frozen_discovery",
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "status": "OBSERVED"
+      },
+      {
+        "input": [
+          1.5,
+          0,
+          1
+        ],
+        "observation_id": "obs_3",
+        "outputs": {
+          "A": 1,
+          "B": 1
+        },
+        "provenance": {
+          "input_index": 3,
+          "input_set": "frozen_discovery",
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "status": "OBSERVED"
+      }
+    ],
+    "relation_language": {
+      "description": "small generic comparator language over observed output pairs",
+      "domain_specific_properties": false,
+      "forms": [
+        "binary output equality",
+        "binary output less-than-or-equal",
+        "binary output greater-than-or-equal"
+      ]
+    },
+    "structural_candidate": {
+      "compression_gain": 464,
+      "generalization_digest": "1034b89a49dbe3e824a4d408d833d37a72e322d4075b09cc1d6d8b260f4b00f2",
+      "reconstruction": true,
+      "shared_structure_nodes": 81
+    }
+  },
+  "frozen_hypotheses": {
+    "changed_after_held_out": false,
+    "digest": "e26e506ec73d8152b0023f32fc018cba17f5c75cc88556be3909bb25322fc3dd",
+    "hypotheses": [
+      {
+        "coverage": 4,
+        "description_cost": 49,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "input": [
+              -2,
+              0,
+              1
+            ],
+            "observation_id": "obs_0",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 0,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              -1,
+              0,
+              1
+            ],
+            "observation_id": "obs_1",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 1,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              0.25,
+              0,
+              1
+            ],
+            "observation_id": "obs_2",
+            "outputs": {
+              "A": 0.25,
+              "B": 0.25
+            },
+            "provenance": {
+              "input_index": 2,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              1.5,
+              0,
+              1
+            ],
+            "observation_id": "obs_3",
+            "outputs": {
+              "A": 1,
+              "B": 1
+            },
+            "provenance": {
+              "input_index": 3,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          }
+        ],
+        "generated_from": "observations",
+        "id": "pair_output_==",
+        "kind": "binary_output_relation",
+        "left": "A",
+        "operator": "==",
+        "provenance": {
+          "observation_ids": [
+            "obs_0",
+            "obs_1",
+            "obs_2",
+            "obs_3"
+          ]
+        },
+        "right": "B"
+      },
+      {
+        "coverage": 4,
+        "description_cost": 49,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "input": [
+              -2,
+              0,
+              1
+            ],
+            "observation_id": "obs_0",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 0,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              -1,
+              0,
+              1
+            ],
+            "observation_id": "obs_1",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 1,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              0.25,
+              0,
+              1
+            ],
+            "observation_id": "obs_2",
+            "outputs": {
+              "A": 0.25,
+              "B": 0.25
+            },
+            "provenance": {
+              "input_index": 2,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              1.5,
+              0,
+              1
+            ],
+            "observation_id": "obs_3",
+            "outputs": {
+              "A": 1,
+              "B": 1
+            },
+            "provenance": {
+              "input_index": 3,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          }
+        ],
+        "generated_from": "observations",
+        "id": "pair_output_<=",
+        "kind": "binary_output_relation",
+        "left": "A",
+        "operator": "<=",
+        "provenance": {
+          "observation_ids": [
+            "obs_0",
+            "obs_1",
+            "obs_2",
+            "obs_3"
+          ]
+        },
+        "right": "B"
+      },
+      {
+        "coverage": 4,
+        "description_cost": 49,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "input": [
+              -2,
+              0,
+              1
+            ],
+            "observation_id": "obs_0",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 0,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              -1,
+              0,
+              1
+            ],
+            "observation_id": "obs_1",
+            "outputs": {
+              "A": 0,
+              "B": 0
+            },
+            "provenance": {
+              "input_index": 1,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              0.25,
+              0,
+              1
+            ],
+            "observation_id": "obs_2",
+            "outputs": {
+              "A": 0.25,
+              "B": 0.25
+            },
+            "provenance": {
+              "input_index": 2,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          {
+            "input": [
+              1.5,
+              0,
+              1
+            ],
+            "observation_id": "obs_3",
+            "outputs": {
+              "A": 1,
+              "B": 1
+            },
+            "provenance": {
+              "input_index": 3,
+              "input_set": "frozen_discovery",
+              "source_ids": [
+                "A",
+                "B"
+              ]
+            }
+          }
+        ],
+        "generated_from": "observations",
+        "id": "pair_output_>=",
+        "kind": "binary_output_relation",
+        "left": "A",
+        "operator": ">=",
+        "provenance": {
+          "observation_ids": [
+            "obs_0",
+            "obs_1",
+            "obs_2",
+            "obs_3"
+          ]
+        },
+        "right": "B"
+      }
+    ]
+  },
+  "frozen_inputs": {
+    "expected_outputs_used_before_discovery": false,
+    "manifest": "corpus/phase3d-evidence-discovery-manifest.json",
+    "manifest_commit": "0d1b2b4",
+    "manual_relation_used_before_discovery": false,
+    "semantic_labels_used_before_discovery": false
+  },
+  "gate": {
+    "decision": "A",
+    "discovered_relation_claims": [
+      "A.output == B.output",
+      "A.output >= B.output"
+    ],
+    "meaning": "a relation was derived from observations, survived held-out inputs, and rejected the structural negative",
+    "phase4_started": false,
+    "stronger_semantic_relation_claimed": false
+  },
+  "held_out": {
+    "evaluations": [
+      {
+        "coverage": 4,
+        "evidence_against": [],
+        "hypothesis_id": "pair_output_==",
+        "provenance": {
+          "input_set": "frozen_held_out"
+        },
+        "status": "SURVIVED"
+      },
+      {
+        "coverage": 4,
+        "evidence_against": [],
+        "hypothesis_id": "pair_output_<=",
+        "provenance": {
+          "input_set": "frozen_held_out"
+        },
+        "status": "SURVIVED"
+      },
+      {
+        "coverage": 4,
+        "evidence_against": [],
+        "hypothesis_id": "pair_output_>=",
+        "provenance": {
+          "input_set": "frozen_held_out"
+        },
+        "status": "SURVIVED"
+      }
+    ],
+    "observations": [
+      {
+        "input": [
+          -0.5,
+          0,
+          1
+        ],
+        "observation_id": "obs_0",
+        "outputs": {
+          "A": 0,
+          "B": 0
+        },
+        "provenance": {
+          "input_index": 0,
+          "input_set": "frozen_held_out",
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "status": "OBSERVED"
+      },
+      {
+        "input": [
+          0,
+          0,
+          1
+        ],
+        "observation_id": "obs_1",
+        "outputs": {
+          "A": 0,
+          "B": 0
+        },
+        "provenance": {
+          "input_index": 1,
+          "input_set": "frozen_held_out",
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "status": "OBSERVED"
+      },
+      {
+        "input": [
+          0.75,
+          0,
+          1
+        ],
+        "observation_id": "obs_2",
+        "outputs": {
+          "A": 0.75,
+          "B": 0.75
+        },
+        "provenance": {
+          "input_index": 2,
+          "input_set": "frozen_held_out",
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "status": "OBSERVED"
+      },
+      {
+        "input": [
+          3,
+          0,
+          1
+        ],
+        "observation_id": "obs_3",
+        "outputs": {
+          "A": 1,
+          "B": 1
+        },
+        "provenance": {
+          "input_index": 3,
+          "input_set": "frozen_held_out",
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "status": "OBSERVED"
+      }
+    ],
+    "surviving_hypothesis_ids": [
+      "pair_output_==",
+      "pair_output_<=",
+      "pair_output_>="
+    ]
+  },
+  "host_represented_derived": {
+    "DERIVED": [
+      "candidate coverage",
+      "held-out status",
+      "negative-control discrimination",
+      "oracle validation"
+    ],
+    "HOST": [
+      "Python parsing",
+      "restricted execution",
+      "generic numeric comparison",
+      "oracle file access after the freeze"
+    ],
+    "REPRESENTED": [
+      "ordinary input/output observations",
+      "generic relation hypotheses",
+      "evidence and provenance records"
+    ]
+  },
+  "llm_boundary": {
+    "confidence_is_evidence": false,
+    "llm_integration_built": false,
+    "proposal_allowed": true,
+    "required_pipeline": [
+      "proposal",
+      "evidence_for/evidence_against",
+      "held_out_falsification",
+      "survive/fail/unknown"
+    ]
+  },
+  "negative_control": {
+    "behavioral_distinction_observed": true,
+    "discriminating_hypothesis_ids": [
+      "pair_output_==",
+      "pair_output_>="
+    ],
+    "evaluations": [
+      {
+        "evidence_against": [
+          {
+            "input": [
+              -0.5,
+              0,
+              1
+            ],
+            "observation_id": "obs_0",
+            "outputs": {
+              "A": 0,
+              "N": 1
+            },
+            "provenance": {
+              "input_index": 0,
+              "input_set": "frozen_negative_held_out",
+              "source_ids": [
+                "A",
+                "N"
+              ]
+            }
+          },
+          {
+            "input": [
+              0,
+              0,
+              1
+            ],
+            "observation_id": "obs_1",
+            "outputs": {
+              "A": 0,
+              "N": 1
+            },
+            "provenance": {
+              "input_index": 1,
+              "input_set": "frozen_negative_held_out",
+              "source_ids": [
+                "A",
+                "N"
+              ]
+            }
+          },
+          {
+            "input": [
+              0.75,
+              0,
+              1
+            ],
+            "observation_id": "obs_2",
+            "outputs": {
+              "A": 0.75,
+              "N": 1
+            },
+            "provenance": {
+              "input_index": 2,
+              "input_set": "frozen_negative_held_out",
+              "source_ids": [
+                "A",
+                "N"
+              ]
+            }
+          },
+          {
+            "input": [
+              3,
+              0,
+              1
+            ],
+            "observation_id": "obs_3",
+            "outputs": {
+              "A": 1,
+              "N": 3
+            },
+            "provenance": {
+              "input_index": 3,
+              "input_set": "frozen_negative_held_out",
+              "source_ids": [
+                "A",
+                "N"
+              ]
+            }
+          }
+        ],
+        "hypothesis_id": "pair_output_==",
+        "provenance": {
+          "input_set": "frozen_negative_held_out",
+          "right_source": "N"
+        },
+        "status": "FALSIFIED"
+      },
+      {
+        "evidence_against": [],
+        "hypothesis_id": "pair_output_<=",
+        "provenance": {
+          "input_set": "frozen_negative_held_out",
+          "right_source": "N"
+        },
+        "status": "SURVIVED"
+      },
+      {
+        "evidence_against": [
+          {
+            "input": [
+              -0.5,
+              0,
+              1
+            ],
+            "observation_id": "obs_0",
+            "outputs": {
+              "A": 0,
+              "N": 1
+            },
+            "provenance": {
+              "input_index": 0,
+              "input_set": "frozen_negative_held_out",
+              "source_ids": [
+                "A",
+                "N"
+              ]
+            }
+          },
+          {
+            "input": [
+              0,
+              0,
+              1
+            ],
+            "observation_id": "obs_1",
+            "outputs": {
+              "A": 0,
+              "N": 1
+            },
+            "provenance": {
+              "input_index": 1,
+              "input_set": "frozen_negative_held_out",
+              "source_ids": [
+                "A",
+                "N"
+              ]
+            }
+          },
+          {
+            "input": [
+              0.75,
+              0,
+              1
+            ],
+            "observation_id": "obs_2",
+            "outputs": {
+              "A": 0.75,
+              "N": 1
+            },
+            "provenance": {
+              "input_index": 2,
+              "input_set": "frozen_negative_held_out",
+              "source_ids": [
+                "A",
+                "N"
+              ]
+            }
+          },
+          {
+            "input": [
+              3,
+              0,
+              1
+            ],
+            "observation_id": "obs_3",
+            "outputs": {
+              "A": 1,
+              "N": 3
+            },
+            "provenance": {
+              "input_index": 3,
+              "input_set": "frozen_negative_held_out",
+              "source_ids": [
+                "A",
+                "N"
+              ]
+            }
+          }
+        ],
+        "hypothesis_id": "pair_output_>=",
+        "provenance": {
+          "input_set": "frozen_negative_held_out",
+          "right_source": "N"
+        },
+        "status": "FALSIFIED"
+      }
+    ],
+    "observations": [
+      {
+        "input": [
+          -0.5,
+          0,
+          1
+        ],
+        "observation_id": "obs_0",
+        "outputs": {
+          "A": 0,
+          "N": 1
+        },
+        "provenance": {
+          "input_index": 0,
+          "input_set": "frozen_negative_held_out",
+          "source_ids": [
+            "A",
+            "N"
+          ]
+        },
+        "status": "OBSERVED"
+      },
+      {
+        "input": [
+          0,
+          0,
+          1
+        ],
+        "observation_id": "obs_1",
+        "outputs": {
+          "A": 0,
+          "N": 1
+        },
+        "provenance": {
+          "input_index": 1,
+          "input_set": "frozen_negative_held_out",
+          "source_ids": [
+            "A",
+            "N"
+          ]
+        },
+        "status": "OBSERVED"
+      },
+      {
+        "input": [
+          0.75,
+          0,
+          1
+        ],
+        "observation_id": "obs_2",
+        "outputs": {
+          "A": 0.75,
+          "N": 1
+        },
+        "provenance": {
+          "input_index": 2,
+          "input_set": "frozen_negative_held_out",
+          "source_ids": [
+            "A",
+            "N"
+          ]
+        },
+        "status": "OBSERVED"
+      },
+      {
+        "input": [
+          3,
+          0,
+          1
+        ],
+        "observation_id": "obs_3",
+        "outputs": {
+          "A": 1,
+          "N": 3
+        },
+        "provenance": {
+          "input_index": 3,
+          "input_set": "frozen_negative_held_out",
+          "source_ids": [
+            "A",
+            "N"
+          ]
+        },
+        "status": "OBSERVED"
+      }
+    ],
+    "structural_candidate_reused": true,
+    "structural_match_to_G": true
+  },
+  "phase_order": [
+    "frozen_observations",
+    "hypothesis_generation_without_oracle",
+    "hypothesis_freeze",
+    "held_out_falsification",
+    "negative_control",
+    "sealed_oracle_validation"
+  ],
+  "protocol": "phase3d-evidence-discovery",
+  "real_phase3b_G_information_test": {
+    "G_frozen_digest_matches": true,
+    "behavioral_interface_exposed": false,
+    "falsifiable_behavioral_hypotheses_generated": [],
+    "missing_information": [
+      "callable input boundary for the matched neutral units",
+      "comparable observable output contract",
+      "safe execution fixture for dependencies, state, and effects"
+    ],
+    "provenance": {
+      "candidate_source_pair": [
+        "A",
+        "B"
+      ],
+      "generalization_node_count": 18,
+      "manifest_commit": "4e8921c",
+      "phase3b_commit": "e9d018e"
+    },
+    "status": "STRUCTURE_FOUND_BUT_NO_OBSERVABLE_CORRESPONDENCE_CAN_BE_DERIVED",
+    "structural_matches": {
+      "C": 2,
+      "N1": 34,
+      "N2": 29
+    }
+  },
+  "sealed_oracle_validation": {
+    "A_equals_B_on_oracle": true,
+    "A_matches_sealed_outputs": true,
+    "B_matches_sealed_outputs": true,
+    "discovered_claim_validated": true,
+    "inputs": [
+      [
+        -2,
+        0,
+        1
+      ],
+      [
+        0.5,
+        0,
+        1
+      ],
+      [
+        2,
+        0,
+        1
+      ]
+    ],
+    "observed_outputs": {
+      "A": [
+        0,
+        0.5,
+        1
+      ],
+      "B": [
+        0,
+        0.5,
+        1
+      ]
+    },
+    "opened_after_discovery_and_held_out": true,
+    "oracle_source": "represented_test_vector_frozen_with_the_corpus",
+    "provenance": {
+      "manifest": "corpus/phase3c-semantic-control-manifest.json",
+      "oracle_only": true
+    },
+    "sealed_expected_outputs": [
+      0,
+      0.5,
+      1
+    ],
+    "stronger_semantic_description_claimed": false
+  }
+}

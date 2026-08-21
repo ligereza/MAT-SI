@@ -47,7 +47,7 @@ def _load_control_source(spec: dict[str, Any]) -> str:
                 data = response.read()
             target.write_bytes(data)
     else:
-        data = (ROOT / spec["source_path"]).read_bytes()
+        data = (ROOT / spec["source_path"]).read_bytes().replace(b"\r\n", b"\n")
     observed = _sha256(data)
     if observed != spec["source_sha256"]:
         raise ValueError(f"frozen control hash mismatch for {spec['id']}: {observed}")

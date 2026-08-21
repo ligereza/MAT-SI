@@ -89,3 +89,16 @@ python -m matsi.semantic_falsification --json-out results/phase3c-semantic-falsi
 
 See `docs/phase3c-semantic-falsification.md` for the held-out `UNKNOWN` results,
 host/represented/derived audit, and the Phase 3 gate decision. Phase 4 has not begun.
+
+## Phase 3D
+
+Phase 3D derives generic behavioral hypotheses from observations before opening the
+Phase 3C oracle:
+
+```text
+python -m matsi.evidence_discovery --json-out results/phase3d-evidence-discovery-results.json
+```
+
+See `docs/phase3d-evidence-discovery.md` for the frozen hypotheses, held-out
+falsification, negative control, sealed-oracle validation, and the Phase 3D gate.
+Phase 4 has not begun.
