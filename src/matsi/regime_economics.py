@@ -21,6 +21,7 @@ import argparse
 import json
 from dataclasses import dataclass
 from fractions import Fraction
+from itertools import product
 from pathlib import Path
 from typing import Any, Sequence
 
@@ -315,6 +316,108 @@ def evaluate_joint_cost_scenarios(scenarios: Sequence[JointCostScenario]) -> dic
     }
 
 
+def audit_omitted_scenario_challenges(
+    declared: Sequence[JointCostScenario],
+    challengers: Sequence[JointCostScenario],
+) -> dict[str, Any]:
+    """Attack a robust certificate with explicitly supplied omitted scenarios.
+
+    Surviving the challengers is not a completeness proof.  A single omitted
+    scenario with the opposite net-gain sign falsifies the corresponding
+    universal certificate.
+    """
+
+    declared_items = tuple(declared)
+    challenger_items = tuple(challengers)
+    if not declared_items:
+        raise ValueError("at least one declared scenario is required")
+    if len({item.id for item in declared_items + challenger_items}) != len(declared_items) + len(challenger_items):
+        raise ValueError("declared and challenger scenario ids must be unique")
+    declared_result = evaluate_joint_cost_scenarios(declared_items)
+    declared_decision = declared_result["decision"]
+    attacks: list[dict[str, Any]] = []
+    for challenger in challenger_items:
+        if declared_decision == "ROBUST_IDENTIFY_AND_SOLVE":
+            falsifies = challenger.net_gain <= 0
+        elif declared_decision == "DIRECT_CERTIFIED":
+            falsifies = challenger.net_gain > 0
+        else:
+            falsifies = False
+        combined = evaluate_joint_cost_scenarios(declared_items + (challenger,))
+        attacks.append(
+            {
+                "challenger": challenger.as_dict(),
+                "falsifies_declared_certificate": falsifies,
+                "combined_decision": combined["decision"],
+            }
+        )
+    falsified = any(item["falsifies_declared_certificate"] for item in attacks)
+    if falsified:
+        status = "CERTIFICATE_FALSIFIED_BY_OMITTED_SCENARIO"
+    elif declared_decision in {"ROBUST_IDENTIFY_AND_SOLVE", "DIRECT_CERTIFIED"}:
+        status = "CERTIFICATE_SURVIVES_CHALLENGERS_NOT_COMPLETENESS_PROOF"
+    else:
+        status = "DECLARATION_NOT_ROBUST"
+    return {
+        "status": status,
+        "declared_decision": declared_decision,
+        "declared_scenarios": [item.as_dict() for item in declared_items],
+        "attacks": attacks,
+        "certificate": "a robust decision is universal only over the declared feasible set",
+    }
+
+
+def enumerate_finite_joint_cost_domain(
+    direct_costs: Sequence[Number],
+    downstream_costs: Sequence[Number],
+    identification_costs: Sequence[Number],
+) -> tuple[JointCostScenario, ...]:
+    """Enumerate an explicit finite Cartesian scenario domain exactly."""
+
+    if not direct_costs or not downstream_costs or not identification_costs:
+        raise ValueError("each finite domain axis must be non-empty")
+    scenarios = []
+    for index, (direct, downstream, identification) in enumerate(
+        product(direct_costs, downstream_costs, identification_costs)
+    ):
+        scenarios.append(JointCostScenario(f"domain-{index}", direct, downstream, identification))
+    return tuple(scenarios)
+
+
+def audit_finite_joint_domain_coverage(
+    declared: Sequence[JointCostScenario],
+    finite_domain: Sequence[JointCostScenario],
+) -> dict[str, Any]:
+    """Check coverage relative to an explicitly enumerated finite universe."""
+
+    declared_items = tuple(declared)
+    domain_items = tuple(finite_domain)
+    if not domain_items:
+        raise ValueError("finite domain must be non-empty")
+    declared_signatures = {
+        (item.direct_cost, item.downstream_cost, item.identification_cost) for item in declared_items
+    }
+    missing = [
+        item
+        for item in domain_items
+        if (item.direct_cost, item.downstream_cost, item.identification_cost) not in declared_signatures
+    ]
+    full_result = evaluate_joint_cost_scenarios(domain_items)
+    if not missing:
+        status = "COVERAGE_COMPLETE_FOR_DECLARED_FINITE_DOMAIN"
+    else:
+        status = "COVERAGE_INCOMPLETE_FOR_DECLARED_FINITE_DOMAIN"
+    return {
+        "status": status,
+        "declared_decision": None if not declared_items else evaluate_joint_cost_scenarios(declared_items)["decision"],
+        "full_domain_decision": full_result["decision"],
+        "domain_size": len(domain_items),
+        "declared_size": len(declared_items),
+        "missing_scenarios": [item.as_dict() for item in missing],
+        "certificate": "coverage is certified only relative to the explicit finite domain supplied",
+    }
+
+
 def run_regime_economics_suite() -> dict[str, Any]:
     """Run the smallest exact counterexample suite for identification cost."""
 
@@ -357,6 +460,17 @@ def run_regime_economics_suite() -> dict[str, Any]:
             JointCostScenario("negative", 10, 5, 6),
         )
     )
+    declared_scenarios = (
+        JointCostScenario("declared-a", 10, 6, 0),
+        JointCostScenario("declared-b", 10, 0, 9),
+    )
+    omitted_attack = audit_omitted_scenario_challenges(
+        declared_scenarios,
+        (JointCostScenario("omitted-negative", 10, 9, 2),),
+    )
+    finite_domain = enumerate_finite_joint_cost_domain((10,), (6, 0), (0, 1))
+    finite_complete = audit_finite_joint_domain_coverage(finite_domain, finite_domain)
+    finite_incomplete = audit_finite_joint_domain_coverage(finite_domain[:2], finite_domain)
 
     return {
         "question": "When does regime identification pay for itself?",
@@ -378,6 +492,11 @@ def run_regime_economics_suite() -> dict[str, Any]:
         "joint_cost_scenarios": {
             "correlation_recovers_certificate": correlated,
             "joint_disagreement_abstains": joint_abstain,
+        },
+        "coverage_attack": {
+            "omitted_counterexample": omitted_attack,
+            "finite_domain_complete": finite_complete,
+            "finite_domain_incomplete": finite_incomplete,
         },
         "break_even": {
             "setup": "3",
@@ -423,6 +542,18 @@ def run_regime_economics_suite() -> dict[str, Any]:
             {
                 "status": "DISPROVED",
                 "claim": "independent interval hulls preserve every robust decision available from joint evidence",
+            },
+            {
+                "status": "PROVED",
+                "claim": "one omitted opposite-sign scenario falsifies the corresponding universal certificate",
+            },
+            {
+                "status": "KNOWN_RESULT",
+                "claim": "complete coverage can only be certified relative to an explicitly enumerated finite universe",
+            },
+            {
+                "status": "UNKNOWN",
+                "claim": "an open-ended scenario generator can prove that its feasible set is complete",
             },
         ],
         "phase_boundary": "No new corpus; no new product; no merge to main.",
