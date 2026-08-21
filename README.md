@@ -114,3 +114,14 @@ python -m matsi.cross_domain --json-out results/phase4-cross-domain-results.json
 
 See `docs/phase4-cross-domain.md` for the separate structural, behavioral, and
 predictive transfer results. Product implementations have not begun.
+
+## Phase 4B
+
+Phase 4B tests real pre-existing records without authoring replacement events:
+
+```text
+python -m matsi.real_experience_transfer --json-out results/phase4b-real-experience-transfer-results.json
+```
+
+See `docs/phase4b-real-experience-transfer.md` for the frozen evidence manifest,
+derivation audits, missing observables, held-out contamination boundary, and gate.

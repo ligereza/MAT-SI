@@ -1,0 +1,332 @@
+{
+  "adapters": {
+    "A": {
+      "audit": {
+        "LOST": [
+          "domain/product names",
+          "human interpretation",
+          "prose claims as semantics",
+          "filenames"
+        ],
+        "NORMALIZED": [
+          "source identity to opaque hash",
+          "headings to structural depth only"
+        ],
+        "PRESERVED": [
+          "markdown block order",
+          "heading depth",
+          "block line and byte counts",
+          "line ranges"
+        ],
+        "RESIDUE": {
+          "heading_texts_not_represented": true,
+          "source_hash": "83987c02b4a2076f4ed22569070bbf884d313aa44d4e4c8d63153297f26ae386"
+        },
+        "derived_fields": {
+          "action": {
+            "DERIVATION": null,
+            "LOSS": "unrecorded",
+            "PROVENANCE": "source schema",
+            "RAW_SOURCE": null,
+            "RESIDUE": "UNKNOWN"
+          },
+          "context": {
+            "DERIVATION": "heading depth",
+            "LOSS": "heading text",
+            "PROVENANCE": "line range",
+            "RAW_SOURCE": "markdown heading",
+            "RESIDUE": "opaque"
+          },
+          "cost": {
+            "DERIVATION": null,
+            "LOSS": "unrecorded",
+            "PROVENANCE": "source schema",
+            "RAW_SOURCE": null,
+            "RESIDUE": "UNKNOWN"
+          },
+          "observation": {
+            "DERIVATION": "line and UTF-8 byte counts",
+            "LOSS": "prose content",
+            "PROVENANCE": "block index",
+            "RAW_SOURCE": "markdown block",
+            "RESIDUE": "hash only"
+          },
+          "outcome": {
+            "DERIVATION": null,
+            "LOSS": "ambiguous narrative claims",
+            "PROVENANCE": "source schema",
+            "RAW_SOURCE": null,
+            "RESIDUE": "UNKNOWN"
+          }
+        },
+        "source_id": "A"
+      },
+      "event_count": 13
+    },
+    "B": {
+      "audit": {
+        "LOST": [
+          "venue/producer names",
+          "source sheet names",
+          "domain/product interpretation",
+          "filenames"
+        ],
+        "NORMALIZED": [
+          "event identity and source identity to opaque hashes",
+          "labels to status categories"
+        ],
+        "PRESERVED": [
+          "source event order",
+          "source sheet index",
+          "explicit status fields",
+          "event count"
+        ],
+        "RESIDUE": {
+          "raw_event_fields_not_transferred": true,
+          "source_hash": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916"
+        },
+        "derived_fields": {
+          "action": {
+            "DERIVATION": null,
+            "LOSS": "unrecorded",
+            "PROVENANCE": "source schema",
+            "RAW_SOURCE": null,
+            "RESIDUE": "UNKNOWN"
+          },
+          "context": {
+            "DERIVATION": "copy numeric source index",
+            "LOSS": "sheet name",
+            "PROVENANCE": "event ordinal",
+            "RAW_SOURCE": "events[*].source_sheet_index",
+            "RESIDUE": "opaque"
+          },
+          "cost": {
+            "DERIVATION": null,
+            "LOSS": "unrecorded",
+            "PROVENANCE": "source schema",
+            "RAW_SOURCE": null,
+            "RESIDUE": "UNKNOWN"
+          },
+          "observation": {
+            "DERIVATION": "copy explicit status values",
+            "LOSS": "raw labels and names",
+            "PROVENANCE": "event id hash",
+            "RAW_SOURCE": "events[*].*_status",
+            "RESIDUE": "hash only"
+          },
+          "outcome": {
+            "DERIVATION": "not promoted",
+            "LOSS": "ambiguous outcome semantics",
+            "PROVENANCE": "source schema",
+            "RAW_SOURCE": "status metadata",
+            "RESIDUE": "UNKNOWN"
+          }
+        },
+        "source_id": "B"
+      },
+      "event_count": 42
+    }
+  },
+  "blind_pass": {
+    "domain_labels_hidden": true,
+    "filenames_hidden": true,
+    "human_interpretation_hidden": true,
+    "product_names_hidden": true,
+    "source_ids_exposed": [
+      "A",
+      "B"
+    ]
+  },
+  "common_envelope": {
+    "envelope_is_imposing_the_pattern": false,
+    "fields": [
+      "context",
+      "observation",
+      "action",
+      "outcome",
+      "cost",
+      "provenance"
+    ],
+    "semantics_invented": false,
+    "status": "REPRESENTABLE_WITH_UNKNOWN_FIELDS"
+  },
+  "discovery_from_A_B": {
+    "behavior_field_availability": {
+      "action": false,
+      "cost": false,
+      "outcome": false
+    },
+    "candidate_relations": [],
+    "comparable_behavior_fields": [],
+    "cost": 44,
+    "coverage": 0,
+    "evidence_against": [],
+    "evidence_for": [],
+    "generic_relation_attempt_count": 22,
+    "generic_relation_attempts": [
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "context",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      },
+      {
+        "field": "observation",
+        "relation": "equal"
+      }
+    ],
+    "provenance": {
+      "method": "generic_equal_or_increasing_over_derived_fields",
+      "source_ids": [
+        "A",
+        "B"
+      ]
+    },
+    "residue": {
+      "missing_behavior_fields": [
+        "action",
+        "outcome",
+        "cost"
+      ],
+      "source_ids": [
+        "A",
+        "B"
+      ]
+    },
+    "status": "NO_COMPARABLE_BEHAVIORAL_RELATION"
+  },
+  "gate": {
+    "decision": "B",
+    "meaning": "the transfer idea is testable, but the available real histories do not contain sufficient comparable action/outcome/cost evidence",
+    "phase5_started": false,
+    "product_implementation_started": false
+  },
+  "held_out_C": {
+    "evaluation_contamination": "C was not used for discovery or prediction; its held-out evaluation is invalidated because a header/sample was inspected before G freeze",
+    "loaded": false,
+    "path_not_opened_by_adapter": "C:/Users/issvk/Documents/Codex/2026-08-08/quie/claude-code-session-catalog.csv",
+    "pre_freeze_header_inspected": true,
+    "reason": "no G with comparable behavioral observables could be frozen from A+B",
+    "role": "held_out_C",
+    "selection_frozen": true
+  },
+  "host_represented_derived": {
+    "DERIVED": [
+      "field availability",
+      "candidate absence",
+      "data/observability bottleneck"
+    ],
+    "HOST": [
+      "markdown/JSON parsing",
+      "hash verification",
+      "regex for headings",
+      "generic availability counting"
+    ],
+    "REPRESENTED": [
+      "unknown-preserving envelope",
+      "derived observations and provenance",
+      "generic relation attempts"
+    ]
+  },
+  "missing_information": {
+    "A": [
+      "explicit action",
+      "measured outcome",
+      "operational cost"
+    ],
+    "B": [
+      "explicit action",
+      "measured outcome distinct from metadata status",
+      "operational cost"
+    ],
+    "C": [
+      "not adapted; held-out intentionally not opened after contamination"
+    ]
+  },
+  "parent_commit": "7da86e1",
+  "protocol": "phase4b-real-experience-transfer",
+  "raw_manifest_commit": "7a2ebb2",
+  "raw_sources_only": true,
+  "source_hashes_used": {
+    "A": "83987c02b4a2076f4ed22569070bbf884d313aa44d4e4c8d63153297f26ae386",
+    "B": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916"
+  }
+}
