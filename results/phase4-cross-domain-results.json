@@ -1,0 +1,1327 @@
+{
+  "adapter_audit": {
+    "A": {
+      "LOST": [
+        "domain label",
+        "producer label",
+        "trajectory label",
+        "raw filenames",
+        "human interpretation"
+      ],
+      "NORMALIZED": [
+        "source identity",
+        "trajectory identity",
+        "event provenance to opaque tokens"
+      ],
+      "PRESERVED": [
+        "envelope field presence",
+        "chronology",
+        "adjacency",
+        "observable field values",
+        "cost values"
+      ],
+      "RESIDUE": {
+        "removed_event_provenance_fields": [
+          "raw_id"
+        ],
+        "removed_top_level_fields": [
+          "domain_label",
+          "producer"
+        ],
+        "removed_trajectory_fields": [
+          "trajectory_label"
+        ],
+        "source_hash": "4ebfe53735db97f19682fad1ccd07600e50663b405f8ef824eb75eb83438cd02"
+      }
+    },
+    "B": {
+      "LOST": [
+        "domain label",
+        "producer label",
+        "trajectory label",
+        "raw filenames",
+        "human interpretation"
+      ],
+      "NORMALIZED": [
+        "source identity",
+        "trajectory identity",
+        "event provenance to opaque tokens"
+      ],
+      "PRESERVED": [
+        "envelope field presence",
+        "chronology",
+        "adjacency",
+        "observable field values",
+        "cost values"
+      ],
+      "RESIDUE": {
+        "removed_event_provenance_fields": [
+          "raw_id"
+        ],
+        "removed_top_level_fields": [
+          "domain_label",
+          "producer"
+        ],
+        "removed_trajectory_fields": [
+          "trajectory_label"
+        ],
+        "source_hash": "5701182952e264ec712ffdcf20b24a4e49331777ddf8a6d62bf31ced803db9e4"
+      }
+    },
+    "C": {
+      "LOST": [
+        "domain label",
+        "producer label",
+        "trajectory label",
+        "raw filenames",
+        "human interpretation"
+      ],
+      "NORMALIZED": [
+        "source identity",
+        "trajectory identity",
+        "event provenance to opaque tokens"
+      ],
+      "PRESERVED": [
+        "envelope field presence",
+        "chronology",
+        "adjacency",
+        "observable field values",
+        "cost values"
+      ],
+      "RESIDUE": {
+        "removed_event_provenance_fields": [
+          "raw_id"
+        ],
+        "removed_top_level_fields": [
+          "domain_label",
+          "producer"
+        ],
+        "removed_trajectory_fields": [
+          "trajectory_label"
+        ],
+        "source_hash": "8a66e3507588bf028f8a6c9b4cd467053ef9b1ca2fb0548acfe81d585659b56e"
+      }
+    }
+  },
+  "blind_pass": {
+    "chronology_and_transitions_preserved": true,
+    "costs_preserved": true,
+    "descriptive_labels_visible_to_discovery": false,
+    "domain_names_visible_to_discovery": false,
+    "filenames_visible_to_discovery": false,
+    "human_interpretation_visible_to_discovery": false
+  },
+  "common_experience_envelope": {
+    "fields": [
+      "context",
+      "observation",
+      "action",
+      "outcome",
+      "cost",
+      "provenance"
+    ],
+    "role": "transport structure only; domain values remain opaque residue"
+  },
+  "discovery_from_A_B": {
+    "atomic_candidates": [
+      {
+        "cost": 46,
+        "coverage": 4,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "5f68a27dc63e11dc"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "f672a6475b8a3535"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 1
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "2cb1b0eada0d7caf"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "3372070f3eb31274"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 1
+          }
+        ],
+        "features": [
+          "action.equal"
+        ],
+        "generated_from": "blind_A_B_observations",
+        "id": "prefix:action.equal",
+        "phase": "prefix",
+        "provenance": {
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "residue": {
+          "adapter_residue_digests": {
+            "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+            "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+          },
+          "unmodeled_envelope_fields": [
+            "context"
+          ]
+        }
+      },
+      {
+        "cost": 49,
+        "coverage": 4,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "5f68a27dc63e11dc"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "f672a6475b8a3535"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 1
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "2cb1b0eada0d7caf"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "3372070f3eb31274"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 1
+          }
+        ],
+        "features": [
+          "cost.increasing"
+        ],
+        "generated_from": "blind_A_B_observations",
+        "id": "prefix:cost.increasing",
+        "phase": "prefix",
+        "provenance": {
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "residue": {
+          "adapter_residue_digests": {
+            "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+            "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+          },
+          "unmodeled_envelope_fields": [
+            "context"
+          ]
+        }
+      },
+      {
+        "cost": 51,
+        "coverage": 4,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "5f68a27dc63e11dc"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "f672a6475b8a3535"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 1
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "2cb1b0eada0d7caf"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "3372070f3eb31274"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 1
+          }
+        ],
+        "features": [
+          "observation.equal"
+        ],
+        "generated_from": "blind_A_B_observations",
+        "id": "prefix:observation.equal",
+        "phase": "prefix",
+        "provenance": {
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "residue": {
+          "adapter_residue_digests": {
+            "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+            "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+          },
+          "unmodeled_envelope_fields": [
+            "context"
+          ]
+        }
+      },
+      {
+        "cost": 47,
+        "coverage": 4,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "5f68a27dc63e11dc"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "f672a6475b8a3535"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 1
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "2cb1b0eada0d7caf"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "3372070f3eb31274"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 1
+          }
+        ],
+        "features": [
+          "outcome.equal"
+        ],
+        "generated_from": "blind_A_B_observations",
+        "id": "prefix:outcome.equal",
+        "phase": "prefix",
+        "provenance": {
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "residue": {
+          "adapter_residue_digests": {
+            "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+            "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+          },
+          "unmodeled_envelope_fields": [
+            "context"
+          ]
+        }
+      },
+      {
+        "cost": 50,
+        "coverage": 4,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "5f68a27dc63e11dc"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "f672a6475b8a3535"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 1
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "2cb1b0eada0d7caf"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "3372070f3eb31274"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 1
+          }
+        ],
+        "features": [
+          "action.equal"
+        ],
+        "generated_from": "blind_A_B_observations",
+        "id": "prediction:action.equal",
+        "phase": "prediction",
+        "provenance": {
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "residue": {
+          "adapter_residue_digests": {
+            "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+            "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+          },
+          "unmodeled_envelope_fields": [
+            "context"
+          ]
+        }
+      },
+      {
+        "cost": 53,
+        "coverage": 4,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "5f68a27dc63e11dc"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "f672a6475b8a3535"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 1
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "2cb1b0eada0d7caf"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "3372070f3eb31274"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 1
+          }
+        ],
+        "features": [
+          "cost.increasing"
+        ],
+        "generated_from": "blind_A_B_observations",
+        "id": "prediction:cost.increasing",
+        "phase": "prediction",
+        "provenance": {
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "residue": {
+          "adapter_residue_digests": {
+            "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+            "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+          },
+          "unmodeled_envelope_fields": [
+            "context"
+          ]
+        }
+      },
+      {
+        "cost": 55,
+        "coverage": 4,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "5f68a27dc63e11dc"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "f672a6475b8a3535"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 1
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "2cb1b0eada0d7caf"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "3372070f3eb31274"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 1
+          }
+        ],
+        "features": [
+          "observation.equal"
+        ],
+        "generated_from": "blind_A_B_observations",
+        "id": "prediction:observation.equal",
+        "phase": "prediction",
+        "provenance": {
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "residue": {
+          "adapter_residue_digests": {
+            "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+            "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+          },
+          "unmodeled_envelope_fields": [
+            "context"
+          ]
+        }
+      },
+      {
+        "cost": 51,
+        "coverage": 4,
+        "evidence_against": [],
+        "evidence_for": [
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "5f68a27dc63e11dc"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "f672a6475b8a3535"
+            },
+            "source_id": "A",
+            "start": 0,
+            "trajectory_index": 1
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "2cb1b0eada0d7caf"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 0
+          },
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "3372070f3eb31274"
+            },
+            "source_id": "B",
+            "start": 0,
+            "trajectory_index": 1
+          }
+        ],
+        "features": [
+          "outcome.equal"
+        ],
+        "generated_from": "blind_A_B_observations",
+        "id": "prediction:outcome.equal",
+        "phase": "prediction",
+        "provenance": {
+          "source_ids": [
+            "A",
+            "B"
+          ]
+        },
+        "residue": {
+          "adapter_residue_digests": {
+            "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+            "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+          },
+          "unmodeled_envelope_fields": [
+            "context"
+          ]
+        }
+      }
+    ],
+    "candidate_count": 8,
+    "prediction_common_features": [
+      "action.equal",
+      "cost.increasing",
+      "observation.equal",
+      "outcome.equal"
+    ],
+    "prefix_common_features": [
+      "action.equal",
+      "cost.increasing",
+      "observation.equal",
+      "outcome.equal"
+    ],
+    "selected_G": {
+      "cost": 165,
+      "coverage": 4,
+      "evidence_against": [],
+      "evidence_for": [
+        {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "5f68a27dc63e11dc"
+          },
+          "source_id": "A",
+          "start": 0,
+          "trajectory_index": 0
+        },
+        {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "f672a6475b8a3535"
+          },
+          "source_id": "A",
+          "start": 0,
+          "trajectory_index": 1
+        },
+        {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "2cb1b0eada0d7caf"
+          },
+          "source_id": "B",
+          "start": 0,
+          "trajectory_index": 0
+        },
+        {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "3372070f3eb31274"
+          },
+          "source_id": "B",
+          "start": 0,
+          "trajectory_index": 1
+        }
+      ],
+      "generated_from": "blind_A_B_observations",
+      "id": "G_maximal_common_trajectory_relation",
+      "prediction_features": [
+        "action.equal",
+        "cost.increasing",
+        "observation.equal",
+        "outcome.equal"
+      ],
+      "prefix_features": [
+        "action.equal",
+        "cost.increasing",
+        "observation.equal",
+        "outcome.equal"
+      ],
+      "provenance": {
+        "source_ids": [
+          "A",
+          "B"
+        ],
+        "window_count": 4
+      },
+      "residue": {
+        "adapter_residue_digests": {
+          "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+          "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+        },
+        "unmodeled_envelope_fields": [
+          "context"
+        ]
+      },
+      "selection_policy": "maximal conjunction of generic field relations supported by every A+B window",
+      "window_length": 4
+    },
+    "windows": [
+      {
+        "event_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "provenance": {
+          "input_kind": "blind_common_envelope_window",
+          "opaque_source": "5f68a27dc63e11dc"
+        },
+        "source_id": "A",
+        "start": 0,
+        "trajectory_index": 0
+      },
+      {
+        "event_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "provenance": {
+          "input_kind": "blind_common_envelope_window",
+          "opaque_source": "f672a6475b8a3535"
+        },
+        "source_id": "A",
+        "start": 0,
+        "trajectory_index": 1
+      },
+      {
+        "event_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "provenance": {
+          "input_kind": "blind_common_envelope_window",
+          "opaque_source": "2cb1b0eada0d7caf"
+        },
+        "source_id": "B",
+        "start": 0,
+        "trajectory_index": 0
+      },
+      {
+        "event_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "provenance": {
+          "input_kind": "blind_common_envelope_window",
+          "opaque_source": "3372070f3eb31274"
+        },
+        "source_id": "B",
+        "start": 0,
+        "trajectory_index": 1
+      }
+    ]
+  },
+  "frozen_G": {
+    "C_was_loaded_after_freeze": true,
+    "G": {
+      "cost": 165,
+      "coverage": 4,
+      "evidence_against": [],
+      "evidence_for": [
+        {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "5f68a27dc63e11dc"
+          },
+          "source_id": "A",
+          "start": 0,
+          "trajectory_index": 0
+        },
+        {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "f672a6475b8a3535"
+          },
+          "source_id": "A",
+          "start": 0,
+          "trajectory_index": 1
+        },
+        {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "2cb1b0eada0d7caf"
+          },
+          "source_id": "B",
+          "start": 0,
+          "trajectory_index": 0
+        },
+        {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "3372070f3eb31274"
+          },
+          "source_id": "B",
+          "start": 0,
+          "trajectory_index": 1
+        }
+      ],
+      "generated_from": "blind_A_B_observations",
+      "id": "G_maximal_common_trajectory_relation",
+      "prediction_features": [
+        "action.equal",
+        "cost.increasing",
+        "observation.equal",
+        "outcome.equal"
+      ],
+      "prefix_features": [
+        "action.equal",
+        "cost.increasing",
+        "observation.equal",
+        "outcome.equal"
+      ],
+      "provenance": {
+        "source_ids": [
+          "A",
+          "B"
+        ],
+        "window_count": 4
+      },
+      "residue": {
+        "adapter_residue_digests": {
+          "A": "dea89f2e2df5027b053c9abb08a6e8fd3cd89bb046fc580e7c26c7ac79521752",
+          "B": "12dfa4d2990a0d66ef0aea8bbf8c1948c057cc51d3339d1ad8d5238dfaad0e0d"
+        },
+        "unmodeled_envelope_fields": [
+          "context"
+        ]
+      },
+      "selection_policy": "maximal conjunction of generic field relations supported by every A+B window",
+      "window_length": 4
+    },
+    "changed_after_C": false,
+    "digest": "cf5ec8c3856a8c279d368ec41e48a1994d01afc172c19d5266c78f64ed09da80"
+  },
+  "gate": {
+    "decision": "A",
+    "meaning": "a relation derived from A+B predicts a held-out property in C without domain labels",
+    "phase5_started": false,
+    "product_implementation_started": false
+  },
+  "held_out_C": {
+    "evaluations": [
+      {
+        "evidence_against": [],
+        "prediction_holds": true,
+        "prefix_match": true,
+        "provenance": {
+          "input_kind": "blind_common_envelope_window",
+          "opaque_source": "d1ce63c89a702d97"
+        },
+        "status": "SURVIVED",
+        "window": {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "d1ce63c89a702d97"
+          },
+          "source_id": "C",
+          "start": 0,
+          "trajectory_index": 0
+        }
+      },
+      {
+        "evidence_against": [
+          {
+            "event_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "provenance": {
+              "input_kind": "blind_common_envelope_window",
+              "opaque_source": "990be64d2002ea61"
+            },
+            "source_id": "C",
+            "start": 0,
+            "trajectory_index": 1
+          }
+        ],
+        "prediction_holds": false,
+        "prefix_match": true,
+        "provenance": {
+          "input_kind": "blind_common_envelope_window",
+          "opaque_source": "990be64d2002ea61"
+        },
+        "status": "FALSIFIED",
+        "window": {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "990be64d2002ea61"
+          },
+          "source_id": "C",
+          "start": 0,
+          "trajectory_index": 1
+        }
+      },
+      {
+        "evidence_against": [],
+        "prediction_holds": true,
+        "prefix_match": true,
+        "provenance": {
+          "input_kind": "blind_common_envelope_window",
+          "opaque_source": "cf6b25c36eae19fd"
+        },
+        "status": "SURVIVED",
+        "window": {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "cf6b25c36eae19fd"
+          },
+          "source_id": "C",
+          "start": 0,
+          "trajectory_index": 2
+        }
+      },
+      {
+        "evidence_against": [],
+        "prediction_holds": false,
+        "prefix_match": false,
+        "provenance": {
+          "input_kind": "blind_common_envelope_window",
+          "opaque_source": "ada6573f527b5e05"
+        },
+        "status": "NOT_MATCHED",
+        "window": {
+          "event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "provenance": {
+            "input_kind": "blind_common_envelope_window",
+            "opaque_source": "ada6573f527b5e05"
+          },
+          "source_id": "C",
+          "start": 0,
+          "trajectory_index": 3
+        }
+      }
+    ],
+    "prediction_metrics": {
+      "G_beats_no_G_baseline": true,
+      "G_prediction_accuracy_on_matched_windows": 0.6666666666666666,
+      "matched_windows": 3,
+      "no_G_baseline_modal_accuracy_over_all_C_windows": 0.5,
+      "predictive_gain": 0.16666666666666663,
+      "provenance": {
+        "baseline": "all_C_windows_without_prefix_selection",
+        "evaluation": "held_out_C_windows"
+      },
+      "total_windows": 4
+    },
+    "structural_matches": 3,
+    "trajectory_window_count": 4
+  },
+  "host_represented_derived": {
+    "DERIVED": [
+      "candidate support",
+      "prefix matching",
+      "continuation status",
+      "predictive gain"
+    ],
+    "HOST": [
+      "JSON parsing",
+      "hash verification",
+      "generic field comparison",
+      "metric arithmetic"
+    ],
+    "REPRESENTED": [
+      "common event envelope",
+      "opaque trajectories",
+      "generic relation atoms",
+      "G and provenance"
+    ]
+  },
+  "negative_control": {
+    "principle": "a prefix can match while the subsequent outcome changes productively",
+    "productive_repetition_window_indices": [
+      1
+    ],
+    "provenance": {
+      "selection": "post_freeze_behavioral_outcome",
+      "source_id": "C"
+    },
+    "structural_match_is_not_badness": true
+  },
+  "no_products_implemented": [
+    "CODEINE",
+    "X-ANA-X",
+    "VIZZ",
+    "KETAMINE"
+  ],
+  "parent_commit": "a79845a",
+  "phase3_closed": true,
+  "protocol": "phase4-cross-domain",
+  "representation_transfer": {
+    "BEHAVIORAL_TRANSFER": "the same prefix has both surviving and falsified continuations",
+    "PREDICTIVE_TRANSFER": "matched C windows outperform the no-G modal baseline",
+    "STRUCTURAL_TRANSFER": "prefix feature conjunction matches opaque C windows"
+  },
+  "source_hashes": {
+    "A": "4ebfe53735db97f19682fad1ccd07600e50663b405f8ef824eb75eb83438cd02",
+    "B": "5701182952e264ec712ffdcf20b24a4e49331777ddf8a6d62bf31ced803db9e4",
+    "C": "8a66e3507588bf028f8a6c9b4cd467053ef9b1ca2fb0548acfe81d585659b56e"
+  },
+  "transfer": {
+    "BEHAVIORAL_TRANSFER": {
+      "falsified_windows": 1,
+      "status": "OBSERVED",
+      "survived_windows": 2
+    },
+    "PREDICTIVE_TRANSFER": {
+      "metrics": {
+        "G_beats_no_G_baseline": true,
+        "G_prediction_accuracy_on_matched_windows": 0.6666666666666666,
+        "matched_windows": 3,
+        "no_G_baseline_modal_accuracy_over_all_C_windows": 0.5,
+        "predictive_gain": 0.16666666666666663,
+        "provenance": {
+          "baseline": "all_C_windows_without_prefix_selection",
+          "evaluation": "held_out_C_windows"
+        },
+        "total_windows": 4
+      },
+      "status": "OBSERVED"
+    },
+    "STRUCTURAL_TRANSFER": {
+      "matched_windows": 3,
+      "status": "OBSERVED"
+    }
+  }
+}

@@ -102,3 +102,15 @@ python -m matsi.evidence_discovery --json-out results/phase3d-evidence-discovery
 See `docs/phase3d-evidence-discovery.md` for the frozen hypotheses, held-out
 falsification, negative control, sealed-oracle validation, and the Phase 3D gate.
 Phase 4 has not begun.
+
+## Phase 4
+
+Phase 4 tests transfer of a relation discovered from blind A+B trajectories to a
+held-out C trajectory family using the minimal common experience envelope:
+
+```text
+python -m matsi.cross_domain --json-out results/phase4-cross-domain-results.json
+```
+
+See `docs/phase4-cross-domain.md` for the separate structural, behavioral, and
+predictive transfer results. Product implementations have not begun.
