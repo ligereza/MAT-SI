@@ -1,0 +1,59 @@
+{
+  "protocol": "phase3b-real-distillation",
+  "frozen_at": "2026-08-21T00:15:28.5147606-04:00",
+  "selection_policy": "one small Python utility slice from each of five independently authored public repositories; assignments were fixed before source acquisition",
+  "blind_pass": {
+    "parser": "Python ast",
+    "semantic_labels_used": false,
+    "readme_topics_comments_docstrings_used": false,
+    "function_and_class_names_used_as_labels": false,
+    "normalization": "neutral AST shape with identifiers and literals retained only as residue/provenance"
+  },
+  "entries": [
+    {
+      "id": "A",
+      "repository_url": "https://github.com/psf/requests.git",
+      "commit_sha": "8f8b212de8c2129d7954c6cd373762880375620a",
+      "source_path": "src/requests/utils.py",
+      "language": "Python",
+      "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+      "assignment": "discovery_A"
+    },
+    {
+      "id": "B",
+      "repository_url": "https://github.com/pallets/werkzeug.git",
+      "commit_sha": "002fcc5450870362028d3ffb3d91f05a4f1fa559",
+      "source_path": "src/werkzeug/utils.py",
+      "language": "Python",
+      "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+      "assignment": "discovery_B"
+    },
+    {
+      "id": "C",
+      "repository_url": "https://github.com/urllib3/urllib3.git",
+      "commit_sha": "52dfb19e055baacc4ebc432a2e6012b6d489e4b6",
+      "source_path": "src/urllib3/util/retry.py",
+      "language": "Python",
+      "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+      "assignment": "held_out_C"
+    },
+    {
+      "id": "N1",
+      "repository_url": "https://github.com/benoitc/gunicorn.git",
+      "commit_sha": "328c300d9d4f5fb134032200d628eafee3f43292",
+      "source_path": "gunicorn/util.py",
+      "language": "Python",
+      "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+      "assignment": "negative_control_N1"
+    },
+    {
+      "id": "N2",
+      "repository_url": "https://github.com/python-hyper/hyper-h2.git",
+      "commit_sha": "bc239af1d1b85bc70482804f30a0e0e587d90a08",
+      "source_path": "src/h2/utilities.py",
+      "language": "Python",
+      "acquisition_timestamp": "2026-08-21T00:15:28.5147606-04:00",
+      "assignment": "negative_control_N2"
+    }
+  ]
+}
