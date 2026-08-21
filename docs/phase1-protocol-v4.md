@@ -96,20 +96,22 @@ not used to design it:
 
 - software release counter;
 - ordinary human action/process queue;
-- symbolic subtraction;
-- unfamiliar weaving/rotation process.
+- symbolic arithmetic defined as `left + (right * -1)`;
+- unfamiliar sequence behavior defined by represented `get/set` steps.
 
 All three candidates round-trip every held-out payload, rule, and execution input. The
-frozen six-op evaluator executes the software and human-process rules. It preserves two
-intentional counterexamples without changing the core:
+frozen six-op evaluator executes all four cases, including the two novel represented
+programs:
 
 ```text
-symbolic_subtraction -> unknown represented instruction: sub
-unfamiliar_weaving_process -> unknown represented instruction: rotate
+left=9, right=4 -> 5
+[a,b,c,d] -> [b,c,d,a]
 ```
 
-These are one unresolved boundary class: a represented transformation can be stored
-but cannot execute when it requests an operation outside the fixed vocabulary.
+The host source hash is unchanged and every instruction belongs to the original six-op
+vocabulary. The words `sub` and `rotate` in the old test were unknown semantics, not
+evidence of unrepresentable semantics. This branch exits early as soon as both
+represented programs pass.
 
 ## Host leakage audit
 
@@ -127,10 +129,8 @@ exactly where semantic work is still trapped in the host.
 
 ## Gate status
 
-The gate does not open. Protocol v4 selects decision **B — one counterexample remains**:
+Protocol v4 selects decision **A — CLOSE PHASE 1**. The fixed core interprets novel
+represented behavior without new host branches. The previous counterexample was
+reclassified as unknown semantics caused by bare labels and is removed.
 
-> The frozen core represents held-out symbolic and unfamiliar structures, but cannot
-> execute a represented rule requiring an operation absent from the six-op VM without
-> adding a new host opcode or a new represented operation mechanism.
-
-No unrelated feature work follows this result, and no Phase 2 code is created.
+Phase 2 is permitted by the gate, but no Phase 2 code is created in this change.

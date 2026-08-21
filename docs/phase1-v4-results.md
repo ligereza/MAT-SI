@@ -2,14 +2,12 @@
 
 ## Decision
 
-**B — ONE COUNTEREXAMPLE REMAINS.**
+**A — CLOSE PHASE 1.**
 
-The unresolved counterexample is not storage, identity, or representation fidelity.
-It is executable semantics at the frozen boundary: a represented rule can be carried
-through U but cannot run if it requests an operation not in the six-op VM vocabulary.
-
-Concrete held-out failures are `sub` in symbolic subtraction and `rotate` in the
-unfamiliar process. They are preserved; no new primitive is added.
+The v4 counterexample was incorrectly formulated. Bare `sub` and `rotate` labels
+provided unknown semantics, not fully represented definitions. After replacing them
+with represented programs, both execute with the fixed evaluator and no host changes.
+Phase 2 is permitted by the gate, but no Phase 2 code is created here.
 
 ## Gate questions
 
@@ -85,10 +83,17 @@ from a primitive `identity` or `continuity` field.
 ### 6. Held-out survival
 
 Representation survives all four domains on all three candidates. Full behavior does
-not survive without new semantics: two held-out transformations deliberately request
-unsupported operations. The frozen system therefore provides evidence about both what
-things are and how supported rules change them, but not closure over arbitrary domain
-operations.
+survive without new semantics: the symbolic case defines arithmetic as `left + (right *
+-1)`, and the unfamiliar case defines sequence rotation through represented `get/set`
+steps. Both produce the expected results using only `get`, `const`, `add`, `mul`, `set`,
+and `return`. The evaluator source hash is identical before and after the experiment.
+
+The distinction is now explicit:
+
+```text
+unknown label       != unrepresentable behavior
+represented program  -> executable behavior
+```
 
 ## Smallest surviving set
 

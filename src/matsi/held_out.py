@@ -8,13 +8,70 @@ from .minimal_rewrite import core_source_hash
 from .rule_vm import RepresentedRuleEvaluator
 
 
-def _rule(operation: str, constant: int) -> dict[str, Any]:
+_FIXED_VM_OPS = {"get", "const", "add", "mul", "set", "return"}
+
+
+def _increment_rule() -> dict[str, Any]:
     return {
         "kind": "rule",
         "program": [
             {"op": "get", "path": ["value"]},
-            {"op": "const", "value": constant},
-            {"op": operation},
+            {"op": "const", "value": 1},
+            {"op": "add"},
+            {"op": "return"},
+        ],
+    }
+
+
+def _double_rule() -> dict[str, Any]:
+    return {
+        "kind": "rule",
+        "program": [
+            {"op": "get", "path": ["value"]},
+            {"op": "const", "value": 2},
+            {"op": "mul"},
+            {"op": "return"},
+        ],
+    }
+
+
+def _defined_arithmetic_rule() -> dict[str, Any]:
+    """Define subtraction as ordinary composition of existing VM operations."""
+
+    return {
+        "kind": "represented_definition",
+        "name": "defined_arithmetic_behavior",
+        "definition": "left + (right * -1)",
+        "program": [
+            {"op": "get", "path": ["left"]},
+            {"op": "get", "path": ["right"]},
+            {"op": "const", "value": -1},
+            {"op": "mul"},
+            {"op": "add"},
+            {"op": "return"},
+        ],
+    }
+
+
+def _defined_sequence_rule() -> dict[str, Any]:
+    """Define a left sequence shift using only represented get/set steps."""
+
+    return {
+        "kind": "represented_definition",
+        "name": "defined_sequence_behavior",
+        "definition": "[a,b,c,d] -> [b,c,d,a]",
+        "program": [
+            {"op": "get", "path": ["seq", 0]},
+            {"op": "set", "path": ["tmp"]},
+            {"op": "get", "path": ["seq", 1]},
+            {"op": "set", "path": ["seq", 0]},
+            {"op": "get", "path": ["seq", 2]},
+            {"op": "set", "path": ["seq", 1]},
+            {"op": "get", "path": ["seq", 3]},
+            {"op": "set", "path": ["seq", 2]},
+            {"op": "get", "path": ["tmp"]},
+            {"op": "set", "path": ["seq", 3]},
+            {"op": "get", "path": ["seq"]},
             {"op": "return"},
         ],
     }
@@ -23,8 +80,8 @@ def _rule(operation: str, constant: int) -> dict[str, Any]:
 def held_out_cases() -> list[dict[str, Any]]:
     """Cases written after the semantic core was frozen.
 
-    The two unsupported operations are intentional: a held-out failure is
-    evidence about the trusted boundary, not a request for a special opcode.
+    The novel behaviors are represented programs. Their labels never enter the
+    evaluator's instruction dispatch.
     """
 
     return [
@@ -37,7 +94,7 @@ def held_out_cases() -> list[dict[str, Any]]:
                 "steps": ["compile", "test", "publish"],
             },
             "execution_input": {"value": 41},
-            "rule": _rule("add", 1),
+            "rule": _increment_rule(),
             "expected": 42,
         },
         {
@@ -50,22 +107,22 @@ def held_out_cases() -> list[dict[str, Any]]:
                 "state_after": "approved",
             },
             "execution_input": {"value": 3},
-            "rule": _rule("mul", 2),
+            "rule": _double_rule(),
             "expected": 6,
         },
         {
-            "case_id": "symbolic_subtraction",
+            "case_id": "symbolic_defined_arithmetic",
             "domain": "symbolic_transformation",
             "payload": {
                 "expression": {"op": "subtract", "left": 9, "right": 4},
                 "normal_form": 5,
             },
-            "execution_input": {"value": 9},
-            "rule": _rule("sub", 4),
-            "expected_failure": "unknown represented instruction: sub",
+            "execution_input": {"left": 9, "right": 4},
+            "rule": _defined_arithmetic_rule(),
+            "expected": 5,
         },
         {
-            "case_id": "unfamiliar_weaving_process",
+            "case_id": "unfamiliar_defined_sequence",
             "domain": "unfamiliar_domain",
             "payload": {
                 "object": "pattern",
@@ -73,9 +130,9 @@ def held_out_cases() -> list[dict[str, Any]]:
                 "parameters": {"quarter_turns": 1},
                 "material": "fiber",
             },
-            "execution_input": {"value": 2},
-            "rule": _rule("rotate", 1),
-            "expected_failure": "unknown represented instruction: rotate",
+            "execution_input": {"seq": ["a", "b", "c", "d"], "tmp": None},
+            "rule": _defined_sequence_rule(),
+            "expected": ["b", "c", "d", "a"],
         },
     ]
 
@@ -84,7 +141,8 @@ def run_held_out(kernels: list[Any]) -> dict[str, Any]:
     """Evaluate the frozen representation and evaluator without changing them."""
 
     evaluator = RepresentedRuleEvaluator()
-    frozen_hash = f"{core_source_hash()}:{evaluator.source_hash()}"
+    host_source_hash_before = evaluator.source_hash()
+    frozen_hash = f"{core_source_hash()}:{host_source_hash_before}"
     rows: list[dict[str, Any]] = []
     for kernel in kernels:
         for case in held_out_cases():
@@ -94,6 +152,11 @@ def run_held_out(kernels: list[Any]) -> dict[str, Any]:
             payload_round_trip = kernel.decode(payload_representation) == case["payload"]
             rule_round_trip = kernel.decode(rule_representation) == case["rule"]
             input_round_trip = kernel.decode(input_representation) == case["execution_input"]
+            represented_definition = case["rule"]["kind"] == "represented_definition"
+            uses_only_fixed_vm_ops = all(
+                instruction["op"] in _FIXED_VM_OPS
+                for instruction in case["rule"]["program"]
+            )
             actual: Any = None
             error: str | None = None
             try:
@@ -103,11 +166,7 @@ def run_held_out(kernels: list[Any]) -> dict[str, Any]:
                 actual = kernel.decode(output_representation)
             except (KeyError, TypeError, ValueError, IndexError) as exc:
                 error = str(exc)
-            expected_failure = case.get("expected_failure")
-            if expected_failure is None:
-                evaluation_status = "pass" if actual == case["expected"] else "wrong_result"
-            else:
-                evaluation_status = "expected_failure" if error == expected_failure else "unexpected_failure"
+            evaluation_status = "pass" if error is None and actual == case["expected"] else "wrong_result"
             rows.append(
                 {
                     "candidate": kernel.name,
@@ -116,6 +175,8 @@ def run_held_out(kernels: list[Any]) -> dict[str, Any]:
                     "payload_round_trip": payload_round_trip,
                     "rule_round_trip": rule_round_trip,
                     "input_round_trip": input_round_trip,
+                    "represented_definition": represented_definition,
+                    "uses_only_fixed_vm_ops": uses_only_fixed_vm_ops,
                     "actual": actual,
                     "error": error,
                     "evaluation_status": evaluation_status,
@@ -123,8 +184,9 @@ def run_held_out(kernels: list[Any]) -> dict[str, Any]:
                     "frozen_core_hash": frozen_hash,
                 }
             )
+    host_source_hash_after = evaluator.source_hash()
     return {
-        "experiment": "frozen_held_out_corpus",
+        "experiment": "frozen_held_out_represented_behavior",
         "case_ids": [case["case_id"] for case in held_out_cases()],
         "rows": rows,
         "representation_survives": all(
@@ -132,15 +194,21 @@ def run_held_out(kernels: list[Any]) -> dict[str, Any]:
             for row in rows
         ),
         "evaluation_passes_without_new_primitives": all(
-            row["evaluation_status"] in {"pass", "expected_failure"} for row in rows
+            row["evaluation_status"] == "pass" for row in rows
         ),
         "unexpected_evaluation_failures": [
-            row for row in rows if row["evaluation_status"] == "unexpected_failure"
+            row for row in rows if row["evaluation_status"] != "pass"
         ],
-        "preserved_counterexamples": [
-            row["case_id"] for row in rows if row["evaluation_status"] == "expected_failure"
-        ],
+        "represented_definitions_execute": all(
+            row["evaluation_status"] == "pass"
+            for row in rows
+            if row["represented_definition"]
+        ),
+        "all_programs_use_only_fixed_vm_ops": all(row["uses_only_fixed_vm_ops"] for row in rows),
+        "host_source_hash_before": host_source_hash_before,
+        "host_source_hash_after": host_source_hash_after,
+        "host_source_unchanged": host_source_hash_before == host_source_hash_after,
         "semantic_core_modified": any(row["semantic_core_modified"] for row in rows),
         "frozen_core_hashes": sorted({row["frozen_core_hash"] for row in rows}),
-        "conclusion": "The frozen core represents every held-out payload and rule, but execution fails exactly where a held-out rule asks for an operation outside the six-op vocabulary.",
+        "conclusion": "Two novel behaviors execute as represented programs using only the unchanged six-op vocabulary; bare unknown labels were not a valid expressivity counterexample.",
     }

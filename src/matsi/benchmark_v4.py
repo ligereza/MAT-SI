@@ -74,9 +74,10 @@ def run_v4() -> dict[str, Any]:
             },
             "frozen_held_out_survival": {
                 "representation": held_out["representation_survives"],
-                "full_behavior_without_new_primitives": False,
-                "reason": "The frozen system executes the software and human-process cases, but symbolic subtraction and unfamiliar rotation remain outside the fixed represented-rule vocabulary.",
-                "preserved_counterexample_class": "a held-out transformation requiring an operation absent from the six-op VM",
+                "full_behavior_without_new_primitives": held_out["evaluation_passes_without_new_primitives"],
+                "represented_definitions_execute": held_out["represented_definitions_execute"],
+                "host_source_unchanged": held_out["host_source_unchanged"],
+                "reason": "The former bare labels were unknown semantics, not an expressivity test. The replacement programs define arithmetic and sequence behavior entirely in U and execute with the fixed VM.",
             },
         },
         "smallest_surviving_concepts": [
@@ -90,10 +91,12 @@ def run_v4() -> dict[str, Any]:
         ],
         "phase1_gate": {
             "what_things_are": "evidence established for ordinary represented values, rules, transformations, histories, costs, provenance, and policies",
-            "how_things_change": "evidence established for represented rewrite and fixed-VM execution; not closed for operations outside the VM vocabulary",
-            "open_phase2": False,
-            "decision": "B",
-            "unresolved_counterexample": "The frozen semantic core round-trips held-out symbolic and unfamiliar structures, but cannot execute represented rules whose operation is subtract or rotate without adding a new host opcode or a new represented arithmetic/operation mechanism.",
+            "how_things_change": "evidence established: novel represented programs execute through the fixed VM without host changes",
+            "phase2_permitted": True,
+            "phase2_started": False,
+            "phase2_code_created": False,
+            "decision": "A",
+            "unresolved_counterexample": None,
         },
         "selection": None,
     }

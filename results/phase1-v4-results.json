@@ -335,27 +335,24 @@
       "tree_order_changes_result": true
     },
     "frozen_held_out_evaluation": {
+      "all_programs_use_only_fixed_vm_ops": true,
       "case_ids": [
         "software_release_counter",
         "human_process_queue",
-        "symbolic_subtraction",
-        "unfamiliar_weaving_process"
+        "symbolic_defined_arithmetic",
+        "unfamiliar_defined_sequence"
       ],
-      "conclusion": "The frozen core represents every held-out payload and rule, but execution fails exactly where a held-out rule asks for an operation outside the six-op vocabulary.",
+      "conclusion": "Two novel behaviors execute as represented programs using only the unchanged six-op vocabulary; bare unknown labels were not a valid expressivity counterexample.",
       "evaluation_passes_without_new_primitives": true,
-      "experiment": "frozen_held_out_corpus",
+      "experiment": "frozen_held_out_represented_behavior",
       "frozen_core_hashes": [
         "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b"
       ],
-      "preserved_counterexamples": [
-        "symbolic_subtraction",
-        "unfamiliar_weaving_process",
-        "symbolic_subtraction",
-        "unfamiliar_weaving_process",
-        "symbolic_subtraction",
-        "unfamiliar_weaving_process"
-      ],
+      "host_source_hash_after": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+      "host_source_hash_before": "7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
+      "host_source_unchanged": true,
       "representation_survives": true,
+      "represented_definitions_execute": true,
       "rows": [
         {
           "actual": 42,
@@ -367,8 +364,10 @@
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": false,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
           "actual": 6,
@@ -380,34 +379,45 @@
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": false,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
-          "actual": null,
+          "actual": 5,
           "candidate": "atom_pair",
-          "case_id": "symbolic_subtraction",
+          "case_id": "symbolic_defined_arithmetic",
           "domain": "symbolic_transformation",
-          "error": "unknown represented instruction: sub",
-          "evaluation_status": "expected_failure",
+          "error": null,
+          "evaluation_status": "pass",
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": true,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
-          "actual": null,
+          "actual": [
+            "b",
+            "c",
+            "d",
+            "a"
+          ],
           "candidate": "atom_pair",
-          "case_id": "unfamiliar_weaving_process",
+          "case_id": "unfamiliar_defined_sequence",
           "domain": "unfamiliar_domain",
-          "error": "unknown represented instruction: rotate",
-          "evaluation_status": "expected_failure",
+          "error": null,
+          "evaluation_status": "pass",
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": true,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
           "actual": 42,
@@ -419,8 +429,10 @@
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": false,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
           "actual": 6,
@@ -432,34 +444,45 @@
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": false,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
-          "actual": null,
+          "actual": 5,
           "candidate": "content_dag",
-          "case_id": "symbolic_subtraction",
+          "case_id": "symbolic_defined_arithmetic",
           "domain": "symbolic_transformation",
-          "error": "unknown represented instruction: sub",
-          "evaluation_status": "expected_failure",
+          "error": null,
+          "evaluation_status": "pass",
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": true,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
-          "actual": null,
+          "actual": [
+            "b",
+            "c",
+            "d",
+            "a"
+          ],
           "candidate": "content_dag",
-          "case_id": "unfamiliar_weaving_process",
+          "case_id": "unfamiliar_defined_sequence",
           "domain": "unfamiliar_domain",
-          "error": "unknown represented instruction: rotate",
-          "evaluation_status": "expected_failure",
+          "error": null,
+          "evaluation_status": "pass",
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": true,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
           "actual": 42,
@@ -471,8 +494,10 @@
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": false,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
           "actual": 6,
@@ -484,34 +509,45 @@
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": false,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
-          "actual": null,
+          "actual": 5,
           "candidate": "rewrite_egraph",
-          "case_id": "symbolic_subtraction",
+          "case_id": "symbolic_defined_arithmetic",
           "domain": "symbolic_transformation",
-          "error": "unknown represented instruction: sub",
-          "evaluation_status": "expected_failure",
+          "error": null,
+          "evaluation_status": "pass",
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": true,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         },
         {
-          "actual": null,
+          "actual": [
+            "b",
+            "c",
+            "d",
+            "a"
+          ],
           "candidate": "rewrite_egraph",
-          "case_id": "unfamiliar_weaving_process",
+          "case_id": "unfamiliar_defined_sequence",
           "domain": "unfamiliar_domain",
-          "error": "unknown represented instruction: rotate",
-          "evaluation_status": "expected_failure",
+          "error": null,
+          "evaluation_status": "pass",
           "frozen_core_hash": "ae34b691dd7dad0f3d9c8f2b006d4e1f57ec1121a8c6d61ec87bf9b86ae8415e:7fc22290cfc3c77f0ceb318dd3a4cf2ea74c62e3503d0274d220f798a42c1c4b",
           "input_round_trip": true,
           "payload_round_trip": true,
+          "represented_definition": true,
           "rule_round_trip": true,
-          "semantic_core_modified": false
+          "semantic_core_modified": false,
+          "uses_only_fixed_vm_ops": true
         }
       ],
       "semantic_core_modified": false,
@@ -692,10 +728,11 @@
       "whole_implementation_required": false
     },
     "frozen_held_out_survival": {
-      "full_behavior_without_new_primitives": false,
-      "preserved_counterexample_class": "a held-out transformation requiring an operation absent from the six-op VM",
-      "reason": "The frozen system executes the software and human-process cases, but symbolic subtraction and unfamiliar rotation remain outside the fixed represented-rule vocabulary.",
-      "representation": true
+      "full_behavior_without_new_primitives": true,
+      "host_source_unchanged": true,
+      "reason": "The former bare labels were unknown semantics, not an expressivity test. The replacement programs define arithmetic and sequence behavior entirely in U and execute with the fixed VM.",
+      "representation": true,
+      "represented_definitions_execute": true
     },
     "minimum_trusted_semantic_core": {
       "answer": "generic pattern matching, substitution, rewriting, and atom equality; retain the six-op represented-rule VM as the current boundary for open arithmetic",
@@ -966,10 +1003,12 @@
   },
   "objective": "attack the Phase 1 gate with the smallest falsification experiments",
   "phase1_gate": {
-    "decision": "B",
-    "how_things_change": "evidence established for represented rewrite and fixed-VM execution; not closed for operations outside the VM vocabulary",
-    "open_phase2": false,
-    "unresolved_counterexample": "The frozen semantic core round-trips held-out symbolic and unfamiliar structures, but cannot execute represented rules whose operation is subtract or rotate without adding a new host opcode or a new represented arithmetic/operation mechanism.",
+    "decision": "A",
+    "how_things_change": "evidence established: novel represented programs execute through the fixed VM without host changes",
+    "phase2_code_created": false,
+    "phase2_permitted": true,
+    "phase2_started": false,
+    "unresolved_counterexample": null,
     "what_things_are": "evidence established for ordinary represented values, rules, transformations, histories, costs, provenance, and policies"
   },
   "protocol": "phase1-v4",

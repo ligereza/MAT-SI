@@ -18,7 +18,8 @@ The experiment compares three independent candidates on the same corpus:
 The candidates are required to represent the same objects, including a usable model of
 their own evaluator and rules. Protocol v4 attacks the Phase 1 gate with a minimum-core
 trial, one alternative-rich e-graph workload, policy-based continuity, and a frozen
-held-out corpus. It does not select a final kernel or open Phase 2.
+held-out corpus. It closes the Phase 1 gate without selecting a final kernel or creating
+Phase 2 code.
 
 ## Run
 

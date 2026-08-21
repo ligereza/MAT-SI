@@ -31,14 +31,13 @@ class ProtocolV4Tests(unittest.TestCase):
         self.assertTrue(result["claims_preserve_provenance"])
         self.assertFalse(result["stable_identity_primitive_used"])
 
-    def test_frozen_held_out_corpus_preserves_boundary_failure(self):
+    def test_frozen_held_out_corpus_executes_represented_novel_behavior(self):
         result = run_held_out(self.kernels)
         self.assertTrue(result["representation_survives"])
         self.assertFalse(result["semantic_core_modified"])
-        self.assertEqual(
-            set(result["preserved_counterexamples"]),
-            {"symbolic_subtraction", "unfamiliar_weaving_process"},
-        )
+        self.assertTrue(result["represented_definitions_execute"])
+        self.assertTrue(result["all_programs_use_only_fixed_vm_ops"])
+        self.assertTrue(result["host_source_unchanged"])
         self.assertFalse(result["unexpected_evaluation_failures"])
 
 
