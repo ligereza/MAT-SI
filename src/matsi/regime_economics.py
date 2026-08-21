@@ -217,6 +217,104 @@ def evaluate_bounded_identification_economics(
     }
 
 
+@dataclass(frozen=True)
+class JointCostScenario:
+    """One jointly feasible triple of direct, downstream, and meta costs."""
+
+    id: str
+    direct_cost: Number
+    downstream_cost: Number
+    identification_cost: Number
+
+    def __post_init__(self) -> None:
+        if not self.id:
+            raise ValueError("scenario id must be non-empty")
+        object.__setattr__(self, "direct_cost", _validate_cost(self.direct_cost, "direct_cost"))
+        object.__setattr__(self, "downstream_cost", _validate_cost(self.downstream_cost, "downstream_cost"))
+        object.__setattr__(self, "identification_cost", _validate_cost(self.identification_cost, "identification_cost"))
+
+    @property
+    def net_gain(self) -> Fraction:
+        return self.direct_cost - self.identification_cost - self.downstream_cost
+
+    @property
+    def gross_gain(self) -> Fraction:
+        return self.direct_cost - self.downstream_cost
+
+    def as_dict(self) -> dict[str, str]:
+        return {
+            "id": self.id,
+            "direct_cost": str(self.direct_cost),
+            "downstream_cost": str(self.downstream_cost),
+            "identification_cost": str(self.identification_cost),
+            "gross_gain": str(self.gross_gain),
+            "net_gain": str(self.net_gain),
+        }
+
+
+def evaluate_joint_cost_scenarios(scenarios: Sequence[JointCostScenario]) -> dict[str, Any]:
+    """Evaluate robust decisions over a finite jointly feasible scenario set.
+
+    The joint set preserves correlations between downstream gain and
+    identification cost.  Its robust decision is based on the sign of the net
+    gain in every feasible scenario, while the independent interval hull is
+    reported as a deliberately weaker comparison.
+    """
+
+    items = tuple(scenarios)
+    if not items:
+        raise ValueError("at least one feasible scenario is required")
+    if len({item.id for item in items}) != len(items):
+        raise ValueError("scenario ids must be unique")
+    net_gains = [item.net_gain for item in items]
+    if all(gain > 0 for gain in net_gains):
+        decision = "ROBUST_IDENTIFY_AND_SOLVE"
+        status = "ROBUST_DECISION"
+        reason = "identify has positive net gain in every jointly feasible scenario"
+        fallback = None
+    elif all(gain <= 0 for gain in net_gains):
+        decision = "DIRECT_CERTIFIED"
+        status = "ROBUST_DECISION"
+        reason = "direct is no worse in every jointly feasible scenario"
+        fallback = None
+    else:
+        decision = "ABSTAIN_JOINT_UNCERTAIN"
+        status = "ABSTAIN"
+        reason = "jointly feasible scenarios disagree on the strict decision"
+        fallback = "SOLVE_DIRECT"
+
+    min_identification = min(item.identification_cost for item in items)
+    max_identification = max(item.identification_cost for item in items)
+    min_gross = min(item.gross_gain for item in items)
+    max_gross = max(item.gross_gain for item in items)
+    if max_identification < min_gross:
+        independent_decision = "ROBUST_IDENTIFY_AND_SOLVE"
+    elif min_identification >= max_gross:
+        independent_decision = "DIRECT_CERTIFIED"
+    else:
+        independent_decision = "ABSTAIN_INDEPENDENT_HULL"
+    return {
+        "status": status,
+        "decision": decision,
+        "reason": reason,
+        "safe_fallback": fallback,
+        "certificate": "universal comparison over the supplied feasible scenario set",
+        "scenarios": [item.as_dict() for item in items],
+        "joint_net_gain": {
+            "minimum": str(min(net_gains)),
+            "maximum": str(max(net_gains)),
+        },
+        "independent_interval_hull": {
+            "identification_cost": {
+                "lower": str(min_identification),
+                "upper": str(max_identification),
+            },
+            "gross_gain": {"lower": str(min_gross), "upper": str(max_gross)},
+            "decision": independent_decision,
+        },
+    }
+
+
 def run_regime_economics_suite() -> dict[str, Any]:
     """Run the smallest exact counterexample suite for identification cost."""
 
@@ -247,6 +345,18 @@ def run_regime_economics_suite() -> dict[str, Any]:
     bounded_direct = evaluate_bounded_identification_economics(observation, 10, 5, 8)
     bounded_abstain = evaluate_bounded_identification_economics(observation, 10, 4, 6)
     unbounded = evaluate_bounded_identification_economics(observation, 10, 0, None)
+    correlated = evaluate_joint_cost_scenarios(
+        (
+            JointCostScenario("low_meta_low_gain", 10, 6, 0),
+            JointCostScenario("high_meta_high_gain", 10, 0, 9),
+        )
+    )
+    joint_abstain = evaluate_joint_cost_scenarios(
+        (
+            JointCostScenario("positive", 10, 6, 0),
+            JointCostScenario("negative", 10, 5, 6),
+        )
+    )
 
     return {
         "question": "When does regime identification pay for itself?",
@@ -264,6 +374,10 @@ def run_regime_economics_suite() -> dict[str, Any]:
             "robust_direct": bounded_direct,
             "crossing_interval_abstains": bounded_abstain,
             "unbounded_interval_abstains": unbounded,
+        },
+        "joint_cost_scenarios": {
+            "correlation_recovers_certificate": correlated,
+            "joint_disagreement_abstains": joint_abstain,
         },
         "break_even": {
             "setup": "3",
@@ -301,6 +415,14 @@ def run_regime_economics_suite() -> dict[str, Any]:
             {
                 "status": "DISPROVED",
                 "claim": "an interval crossing the break-even boundary can certify a strict choice without extra evidence",
+            },
+            {
+                "status": "PROVED",
+                "claim": "finite jointly feasible scenarios admit exact robust identify/direct/abstain decisions by net-gain sign",
+            },
+            {
+                "status": "DISPROVED",
+                "claim": "independent interval hulls preserve every robust decision available from joint evidence",
             },
         ],
         "phase_boundary": "No new corpus; no new product; no merge to main.",
