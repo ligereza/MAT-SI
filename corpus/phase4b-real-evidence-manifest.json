@@ -1,0 +1,57 @@
+{
+  "protocol": "phase4b-real-experience-transfer",
+  "parent_commit": "7da86e1",
+  "frozen_at": "2026-08-21T01:00:00-04:00",
+  "raw_evidence_copied_into_repo": false,
+  "selection_criteria_frozen_before_adaptation": [
+    "pre-existing local record produced before Phase 4B",
+    "source has an immutable local hash and timestamp",
+    "source contains a sequence, event list, or ordered records from which an adapter may derive chronology",
+    "no manually authored MAT-SI events or synthetic replacements",
+    "one source is held out before any adapter output or pattern inspection"
+  ],
+  "sources": [
+    {
+      "id": "A",
+      "role": "discovery_A",
+      "path": "C:/Users/issvk/Downloads/vibecodeine-session-20260812.md",
+      "provenance": "pre-existing VIBECODEINE session record downloaded on 2026-08-12",
+      "timestamp_range": {
+        "filesystem_created": "2026-08-12T20:24:19.0970462-04:00",
+        "filesystem_modified": "2026-08-12T20:24:19.2139599-04:00"
+      },
+      "bytes": 5947,
+      "sha256": "83987c02b4a2076f4ed22569070bbf884d313aa44d4e4c8d63153297f26ae386"
+    },
+    {
+      "id": "B",
+      "role": "discovery_B",
+      "path": "C:/Users/issvk/claude_sesiones_recuperadas/rd_testeos_eventos_2025_evidence_2026-08-12.json",
+      "provenance": "pre-existing research/event evidence export recovered on 2026-08-12",
+      "timestamp_range": {
+        "filesystem_created": "2026-08-12T00:22:56.2917928-04:00",
+        "filesystem_modified": "2026-08-12T00:29:04.6607937-04:00"
+      },
+      "bytes": 5745417,
+      "sha256": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916"
+    },
+    {
+      "id": "C",
+      "role": "held_out_C",
+      "path": "C:/Users/issvk/Documents/Codex/2026-08-08/quie/claude-code-session-catalog.csv",
+      "provenance": "pre-existing independently generated session catalog from 2026-08-08",
+      "timestamp_range": {
+        "filesystem_created": "2026-08-10T16:19:52.9329865-04:00",
+        "filesystem_modified": "2026-08-10T16:19:52.9451411-04:00"
+      },
+      "bytes": 102472,
+      "sha256": "3aeb9953f76f54e5cf57e5df8fee48f764a226d06f7e5605643f9b03c2e70622"
+    }
+  ],
+  "discovery_split": {
+    "discover_from": ["A", "B"],
+    "held_out_until_G_freeze": ["C"],
+    "domain_labels_hidden_during_discovery": true,
+    "product_names_hidden_during_discovery": true
+  }
+}
