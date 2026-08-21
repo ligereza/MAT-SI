@@ -1,0 +1,280 @@
+{
+  "claims": [
+    {
+      "claim": "the known-horizon affine solver returns the exact minimum over supplied routes",
+      "status": "PROVED"
+    },
+    {
+      "claim": "the two-slope threshold policy is at most 2-competitive in its stated model",
+      "status": "PROVED"
+    },
+    {
+      "claim": "these two solver families are standard mathematical regimes, not a novelty claim",
+      "status": "KNOWN_RESULT"
+    },
+    {
+      "claim": "identifying a favorable regime implies that transformation is worthwhile",
+      "status": "DISPROVED"
+    },
+    {
+      "claim": "regime identification lowers end-to-end cost after charging its own observation cost",
+      "status": "UNKNOWN"
+    }
+  ],
+  "costly_inspection": {
+    "classification": {
+      "observed": {
+        "candidate_values_known": false,
+        "direct_rate_known": false,
+        "horizon": "UNKNOWN",
+        "horizon_value": null,
+        "inspection_cost_count": 1,
+        "objective_dimensions": 1,
+        "route_count": 0,
+        "route_graph_complete": false,
+        "route_ids": [],
+        "transition_generators_complete": false
+      },
+      "reasons": [
+        "option values are not observed",
+        "inspection costs are observed"
+      ],
+      "regime": "COSTLY_OPTION_INSPECTION",
+      "solver_family": "COSTLY_INFORMATION_OR_PANDORA_LIKE",
+      "status": "CLASSIFIED"
+    },
+    "status": "CLASSIFIED_BUT_SOLVER_DEFERRED"
+  },
+  "direction": "representation-conditioned regime identification with abstention",
+  "known_horizon": {
+    "classification": {
+      "observed": {
+        "candidate_values_known": true,
+        "direct_rate_known": false,
+        "horizon": "KNOWN",
+        "horizon_value": 4,
+        "inspection_cost_count": 0,
+        "objective_dimensions": 1,
+        "route_count": 2,
+        "route_graph_complete": false,
+        "route_ids": [
+          "direct",
+          "compiled"
+        ],
+        "transition_generators_complete": false
+      },
+      "reasons": [
+        "finite reusable routes expose setup and per-use costs",
+        "the reuse horizon is observed"
+      ],
+      "regime": "KNOWN_HORIZON_AFFINE",
+      "solver_family": "EXACT_LOWER_ENVELOPE",
+      "status": "CLASSIFIED"
+    },
+    "solution": {
+      "certificate": "minimum over all explicitly supplied affine route costs",
+      "complexity": {
+        "space": "O(m)",
+        "time": "O(m)"
+      },
+      "costs": {
+        "compiled": "11",
+        "direct": "40"
+      },
+      "optimal_cost": "11",
+      "status": "EXACT",
+      "ties": [
+        "compiled"
+      ],
+      "winner": "compiled"
+    },
+    "status": "SOLVED"
+  },
+  "phase_boundary": "No new corpus; no product; no merge to main.",
+  "question": "Can observable invariants identify a meta-problem regime before selecting a solver?",
+  "regime_without_speedup_negative_control": {
+    "classification": {
+      "observed": {
+        "candidate_values_known": true,
+        "direct_rate_known": false,
+        "horizon": "KNOWN",
+        "horizon_value": 1,
+        "inspection_cost_count": 0,
+        "objective_dimensions": 1,
+        "route_count": 2,
+        "route_graph_complete": false,
+        "route_ids": [
+          "direct",
+          "expensive_transform"
+        ],
+        "transition_generators_complete": false
+      },
+      "reasons": [
+        "finite reusable routes expose setup and per-use costs",
+        "the reuse horizon is observed"
+      ],
+      "regime": "KNOWN_HORIZON_AFFINE",
+      "solver_family": "EXACT_LOWER_ENVELOPE",
+      "status": "CLASSIFIED"
+    },
+    "solution": {
+      "certificate": "minimum over all explicitly supplied affine route costs",
+      "complexity": {
+        "space": "O(m)",
+        "time": "O(m)"
+      },
+      "costs": {
+        "direct": "10",
+        "expensive_transform": "13"
+      },
+      "optimal_cost": "10",
+      "status": "EXACT",
+      "ties": [
+        "direct"
+      ],
+      "winner": "direct"
+    },
+    "status": "SOLVED"
+  },
+  "unknown_horizon": {
+    "audit": {
+      "max_horizon": 8,
+      "rows": [
+        {
+          "action": "RENT_THROUGHOUT",
+          "competitive_ratio": "1",
+          "horizon": 1,
+          "offline_optimum": "5",
+          "policy_cost": "5",
+          "within_two": true
+        },
+        {
+          "action": "RENT_THEN_BUY",
+          "competitive_ratio": "101/51",
+          "horizon": 2,
+          "offline_optimum": "51/10",
+          "policy_cost": "101/10",
+          "within_two": true
+        },
+        {
+          "action": "RENT_THEN_BUY",
+          "competitive_ratio": "101/51",
+          "horizon": 3,
+          "offline_optimum": "51/10",
+          "policy_cost": "101/10",
+          "within_two": true
+        },
+        {
+          "action": "RENT_THEN_BUY",
+          "competitive_ratio": "101/51",
+          "horizon": 4,
+          "offline_optimum": "51/10",
+          "policy_cost": "101/10",
+          "within_two": true
+        },
+        {
+          "action": "RENT_THEN_BUY",
+          "competitive_ratio": "101/51",
+          "horizon": 5,
+          "offline_optimum": "51/10",
+          "policy_cost": "101/10",
+          "within_two": true
+        },
+        {
+          "action": "RENT_THEN_BUY",
+          "competitive_ratio": "101/51",
+          "horizon": 6,
+          "offline_optimum": "51/10",
+          "policy_cost": "101/10",
+          "within_two": true
+        },
+        {
+          "action": "RENT_THEN_BUY",
+          "competitive_ratio": "101/51",
+          "horizon": 7,
+          "offline_optimum": "51/10",
+          "policy_cost": "101/10",
+          "within_two": true
+        },
+        {
+          "action": "RENT_THEN_BUY",
+          "competitive_ratio": "101/51",
+          "horizon": 8,
+          "offline_optimum": "51/10",
+          "policy_cost": "101/10",
+          "within_two": true
+        }
+      ],
+      "status": "FINITE_AUDIT",
+      "within_certified_bound": true,
+      "worst_horizon": 2,
+      "worst_ratio": "101/51"
+    },
+    "policy": {
+      "classification": {
+        "observed": {
+          "candidate_values_known": true,
+          "direct_rate_known": true,
+          "horizon": "UNKNOWN",
+          "horizon_value": null,
+          "inspection_cost_count": 0,
+          "objective_dimensions": 1,
+          "route_count": 1,
+          "route_graph_complete": false,
+          "route_ids": [
+            "compiled"
+          ],
+          "transition_generators_complete": false
+        },
+        "reasons": [
+          "one direct rate and one reusable transformed rate are observed",
+          "the transformed rate is strictly lower",
+          "the reuse horizon is explicitly unknown"
+        ],
+        "regime": "UNKNOWN_HORIZON_TWO_SLOPE",
+        "solver_family": "DETERMINISTIC_SKI_RENTAL_THRESHOLD",
+        "status": "CLASSIFIED"
+      },
+      "solution": {
+        "buy_before_use": 2,
+        "certificate": "deterministic two-slope threshold against offline optimum",
+        "competitive_ratio_bound": "2",
+        "direct_rate": "5",
+        "rent_uses_before_buy": 1,
+        "route": "compiled",
+        "saving_per_use": "5",
+        "status": "CERTIFIED_ONLINE_POLICY",
+        "transformed_rate": "0",
+        "transformed_setup": "51/10"
+      },
+      "status": "POLICY"
+    }
+  },
+  "unsupported_negative_control": {
+    "classification": {
+      "observed": {
+        "candidate_values_known": true,
+        "direct_rate_known": true,
+        "horizon": "UNKNOWN",
+        "horizon_value": null,
+        "inspection_cost_count": 0,
+        "objective_dimensions": 1,
+        "route_count": 2,
+        "route_graph_complete": false,
+        "route_ids": [
+          "a",
+          "b"
+        ],
+        "transition_generators_complete": false
+      },
+      "reasons": [
+        "the observed invariants do not identify a supported regime",
+        "no solver guarantee is exported for this case"
+      ],
+      "regime": "UNSUPPORTED_OR_UNOBSERVED",
+      "solver_family": null,
+      "status": "ABSTAIN"
+    },
+    "status": "ABSTAIN"
+  }
+}
