@@ -8,7 +8,7 @@ import json
 from typing import Any, Iterable
 
 from ..canonical import apply_operation, canonical_text, deep_node_count
-from .base import QueryResult, TransformResult
+from .base import QueryResult, SelfApplicationResult, TransformResult, run_self_application
 
 
 @dataclass(frozen=True)
@@ -77,12 +77,15 @@ def _decode(reference: Ref, store: dict[str, Node], memo: dict[str, Any] | None 
 def _query(reference: Ref, store: dict[str, Node], path: tuple[str | int, ...]) -> QueryResult:
     current = reference
     cost = 0
+    nodes_visited = 0
     for segment in path:
         node = store[current.cid]
         cost += 1
+        nodes_visited += 1
         if node.kind == "map":
             for key, cid in node.data:
                 cost += 1
+                nodes_visited += 1
                 if key == str(segment):
                     current = Ref(cid)
                     break
@@ -93,9 +96,10 @@ def _query(reference: Ref, store: dict[str, Node], path: tuple[str | int, ...]) 
                 raise KeyError(segment)
             current = Ref(node.data[segment])
             cost += segment + 1
+            nodes_visited += 1
         else:
             raise KeyError(segment)
-    return QueryResult(_decode(current, store), cost + 1)
+    return QueryResult(_decode(current, store), cost + 1, nodes_visited + 1)
 
 
 class ContentDagKernel:
@@ -110,7 +114,7 @@ class ContentDagKernel:
         return _decode(representation.root, representation.store)
 
     def size_bytes(self, representation: ContentDagRepresentation) -> int:
-        return sum(len(_node_bytes(node)) for node in representation.store.values()) + len(representation.root.cid)
+        return self.storage_breakdown(representation)["total_bytes"]
 
     def sharing(self, representation: ContentDagRepresentation) -> tuple[int, int]:
         expanded = deep_node_count(self.decode(representation))
@@ -124,7 +128,39 @@ class ContentDagKernel:
         result = apply_operation(self.decode(representation), operation)
         transformed = self.encode(result)
         created = len(transformed.store)
-        return TransformResult(transformed, before + created)
+        visited = before + created
+        return TransformResult(transformed, visited, visited)
+
+    def storage_breakdown(self, representation: ContentDagRepresentation) -> dict[str, int]:
+        """Return an additive storage proxy plus payload diagnostics.
+
+        ``store_bytes`` includes payload and a fixed block framing proxy. The
+        payload field is reported separately to show how much of the store is
+        actual node data; it is intentionally not added twice to ``total_bytes``.
+        Hashes use 32-byte binary digests even though the Python diagnostic store
+        exposes hexadecimal keys. The index proxy serializes CID-to-kind entries.
+        """
+
+        payload_bytes = sum(
+            len(canonical_text(node.data).encode("utf-8")) for node in representation.store.values()
+        )
+        store_bytes = sum(len(_node_bytes(node)) + 8 for node in representation.store.values())
+        hashes_bytes = 32 * (len(representation.store) + 1)
+        index_entries = sorted((cid, node.kind) for cid, node in representation.store.items())
+        index_bytes = len(canonical_text(index_entries).encode("utf-8"))
+        root_reference_bytes = 32
+        return {
+            "payload_bytes": payload_bytes,
+            "hashes_bytes": hashes_bytes,
+            "index_bytes": index_bytes,
+            "store_bytes": store_bytes,
+            "store_overhead_bytes": store_bytes - payload_bytes,
+            "original_term_bytes": 0,
+            "eclasses_bytes": 0,
+            "rules_bytes": 0,
+            "root_reference_bytes": root_reference_bytes,
+            "total_bytes": store_bytes + hashes_bytes + index_bytes + root_reference_bytes,
+        }
 
     def self_description(self) -> dict[str, Any]:
         return {
@@ -134,5 +170,18 @@ class ContentDagKernel:
             "transformations": ["append immutable nodes", "redirect root"],
             "costs": ["block bytes", "link traversal", "new nodes"],
             "history": "content-addressed roots linked by an external log",
+            "evaluator": {
+                "encode": "intern canonical immutable node and return its digest",
+                "decode": "follow links from root with memoization",
+                "query": "follow links and scan map or list edges",
+                "transform": "decode, apply operation, intern result, redirect root",
+            },
+            "rules": [
+                {"name": "content_identity", "pattern": "cid = sha256(canonical(node))", "replacement": "same node -> same cid"},
+                {"name": "immutable_extension", "pattern": "root -> new root", "replacement": "old nodes remain addressable"},
+            ],
             "self_reference": self.name,
         }
+
+    def self_application(self) -> SelfApplicationResult:
+        return run_self_application(self)

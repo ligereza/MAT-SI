@@ -1,0 +1,236 @@
+{
+  "cases": [
+    {
+      "expected": {
+        "annotation_equal": false,
+        "content_equal": true,
+        "full_equal": false
+      },
+      "id": "same_content_different_name",
+      "objects": [
+        {
+          "annotations": {
+            "name": "alpha"
+          },
+          "content": {
+            "body": "same content",
+            "kind": "document",
+            "revision": 1
+          }
+        },
+        {
+          "annotations": {
+            "name": "beta"
+          },
+          "content": {
+            "body": "same content",
+            "kind": "document",
+            "revision": 1
+          }
+        }
+      ]
+    },
+    {
+      "expected": {
+        "annotation_equal": true,
+        "content_equal": false,
+        "full_equal": false
+      },
+      "id": "same_name_different_content",
+      "objects": [
+        {
+          "annotations": {
+            "name": "shared-name"
+          },
+          "content": {
+            "body": "same content",
+            "kind": "document",
+            "revision": 1
+          }
+        },
+        {
+          "annotations": {
+            "name": "shared-name"
+          },
+          "content": {
+            "body": "changed content",
+            "kind": "document",
+            "revision": 2
+          }
+        }
+      ]
+    },
+    {
+      "annotations": {
+        "names": [
+          "primary",
+          "alias"
+        ]
+      },
+      "expected": {
+        "alias_count": 2,
+        "content_occurrences": 1,
+        "stable_identity": "object-1"
+      },
+      "id": "two_names_one_object",
+      "object": {
+        "content": {
+          "body": "same content",
+          "kind": "document",
+          "revision": 1
+        },
+        "object_id": "object-1"
+      }
+    },
+    {
+      "annotations": {
+        "aliases": [
+          "sensor",
+          "main-sensor"
+        ]
+      },
+      "expected": {
+        "alias_count": 2,
+        "content_changes": 3,
+        "stable_identity": "object-2"
+      },
+      "id": "evolving_object",
+      "object_id": "object-2",
+      "versions": [
+        {
+          "content": {
+            "counter": 0,
+            "state": "cold"
+          },
+          "revision": 0
+        },
+        {
+          "content": {
+            "counter": 1,
+            "state": "warm"
+          },
+          "revision": 1
+        },
+        {
+          "content": {
+            "counter": 2,
+            "state": "hot"
+          },
+          "revision": 2
+        }
+      ]
+    }
+  ],
+  "conclusion": "No new identity primitive was introduced; structural content and annotations are separable by representation layout, while alias and evolution semantics remain external annotations.",
+  "observations": [
+    {
+      "annotation_projection_equal": false,
+      "candidate": "atom_pair",
+      "case_id": "same_content_different_name",
+      "content_projection_equal": true,
+      "finding": "content and annotations can be separated structurally, but the kernel does not assign their roles",
+      "full_equal_after_round_trip": false
+    },
+    {
+      "annotation_projection_equal": true,
+      "candidate": "atom_pair",
+      "case_id": "same_name_different_content",
+      "content_projection_equal": false,
+      "finding": "content and annotations can be separated structurally, but the kernel does not assign their roles",
+      "full_equal_after_round_trip": false
+    },
+    {
+      "alias_count": 2,
+      "candidate": "atom_pair",
+      "case_id": "two_names_one_object",
+      "content_occurrences_in_object_table": 1,
+      "content_projection_token": "{\"body\":\"same content\",\"kind\":\"document\",\"revision\":1}",
+      "finding": "aliases remain annotations if the content table is encoded once; no kernel-level alias semantics are inferred"
+    },
+    {
+      "candidate": "atom_pair",
+      "case_id": "evolving_object",
+      "content_tokens_distinct": true,
+      "finding": "content identity changes per version while stable identity survives only as separate data",
+      "stable_external_identity": "object-2",
+      "version_content_tokens": [
+        "{\"counter\":0,\"state\":\"cold\"}",
+        "{\"counter\":1,\"state\":\"warm\"}",
+        "{\"counter\":2,\"state\":\"hot\"}"
+      ]
+    },
+    {
+      "annotation_projection_equal": false,
+      "candidate": "content_dag",
+      "case_id": "same_content_different_name",
+      "content_projection_equal": true,
+      "finding": "content and annotations can be separated structurally, but the kernel does not assign their roles",
+      "full_equal_after_round_trip": false
+    },
+    {
+      "annotation_projection_equal": true,
+      "candidate": "content_dag",
+      "case_id": "same_name_different_content",
+      "content_projection_equal": false,
+      "finding": "content and annotations can be separated structurally, but the kernel does not assign their roles",
+      "full_equal_after_round_trip": false
+    },
+    {
+      "alias_count": 2,
+      "candidate": "content_dag",
+      "case_id": "two_names_one_object",
+      "content_occurrences_in_object_table": 1,
+      "content_projection_token": "{\"body\":\"same content\",\"kind\":\"document\",\"revision\":1}",
+      "finding": "aliases remain annotations if the content table is encoded once; no kernel-level alias semantics are inferred"
+    },
+    {
+      "candidate": "content_dag",
+      "case_id": "evolving_object",
+      "content_tokens_distinct": true,
+      "finding": "content identity changes per version while stable identity survives only as separate data",
+      "stable_external_identity": "object-2",
+      "version_content_tokens": [
+        "{\"counter\":0,\"state\":\"cold\"}",
+        "{\"counter\":1,\"state\":\"warm\"}",
+        "{\"counter\":2,\"state\":\"hot\"}"
+      ]
+    },
+    {
+      "annotation_projection_equal": false,
+      "candidate": "rewrite_egraph",
+      "case_id": "same_content_different_name",
+      "content_projection_equal": true,
+      "finding": "content and annotations can be separated structurally, but the kernel does not assign their roles",
+      "full_equal_after_round_trip": false
+    },
+    {
+      "annotation_projection_equal": true,
+      "candidate": "rewrite_egraph",
+      "case_id": "same_name_different_content",
+      "content_projection_equal": false,
+      "finding": "content and annotations can be separated structurally, but the kernel does not assign their roles",
+      "full_equal_after_round_trip": false
+    },
+    {
+      "alias_count": 2,
+      "candidate": "rewrite_egraph",
+      "case_id": "two_names_one_object",
+      "content_occurrences_in_object_table": 1,
+      "content_projection_token": "{\"body\":\"same content\",\"kind\":\"document\",\"revision\":1}",
+      "finding": "aliases remain annotations if the content table is encoded once; no kernel-level alias semantics are inferred"
+    },
+    {
+      "candidate": "rewrite_egraph",
+      "case_id": "evolving_object",
+      "content_tokens_distinct": true,
+      "finding": "content identity changes per version while stable identity survives only as separate data",
+      "stable_external_identity": "object-2",
+      "version_content_tokens": [
+        "{\"counter\":0,\"state\":\"cold\"}",
+        "{\"counter\":1,\"state\":\"warm\"}",
+        "{\"counter\":2,\"state\":\"hot\"}"
+      ]
+    }
+  ],
+  "protocol": "phase1-v2"
+}

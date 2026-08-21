@@ -7,7 +7,7 @@ import json
 from typing import Any, Iterable
 
 from ..canonical import apply_operation, canonical_text, deep_node_count
-from .base import QueryResult, TransformResult
+from .base import QueryResult, SelfApplicationResult, TransformResult, run_self_application
 
 
 @dataclass(frozen=True)
@@ -82,29 +82,51 @@ def _items(term: Term) -> list[Term]:
 
 
 def _render(term: Term) -> str:
-    if isinstance(term, Atom):
-        return "a(" + term.value + ")"
-    return "p(" + _render(term.left) + "," + _render(term.right) + ")"
+    output: list[str] = []
+    stack: list[tuple[str, Term | str]] = [("term", term)]
+    while stack:
+        action, current = stack.pop()
+        if action == "literal":
+            output.append(str(current))
+            continue
+        if isinstance(current, Atom):
+            output.append("a(" + current.value + ")")
+            continue
+        output.append("p(")
+        stack.append(("literal", ")"))
+        stack.append(("term", current.right))
+        stack.append(("literal", ","))
+        stack.append(("term", current.left))
+    return "".join(output)
 
 
 def _count(term: Term) -> int:
-    if isinstance(term, Atom):
-        return 1
-    return 1 + _count(term.left) + _count(term.right)
+    count = 0
+    stack = [term]
+    while stack:
+        current = stack.pop()
+        count += 1
+        if isinstance(current, Pair):
+            stack.append(current.right)
+            stack.append(current.left)
+    return count
 
 
 def _query(term: Term, path: tuple[str | int, ...]) -> QueryResult:
     current = term
     cost = 0
+    nodes_visited = 0
     for segment in path:
         if not isinstance(current, Pair):
             raise KeyError(segment)
         tag = current.left
         cost += 1
+        nodes_visited += 1
         if tag == Atom("map"):
             found = False
             for entry in _items(current.right):
                 cost += 1
+                nodes_visited += 1
                 if isinstance(entry, Pair) and entry.left == Atom("key:" + str(segment)):
                     current = entry.right
                     found = True
@@ -118,10 +140,11 @@ def _query(term: Term, path: tuple[str | int, ...]) -> QueryResult:
             if segment < 0 or segment >= len(values):
                 raise KeyError(segment)
             cost += segment + 1
+            nodes_visited += segment + 1
             current = values[segment]
         else:
             raise KeyError(segment)
-    return QueryResult(_decode(current), cost + 1)
+    return QueryResult(_decode(current), cost + 1, nodes_visited + 1)
 
 
 class AtomPairKernel:
@@ -147,7 +170,23 @@ class AtomPairKernel:
         source = self.decode(representation)
         result = apply_operation(source, operation)
         transformed = self.encode(result)
-        return TransformResult(transformed, _count(representation.root) + _count(transformed.root))
+        visited = _count(representation.root) + _count(transformed.root)
+        return TransformResult(transformed, visited, visited)
+
+    def storage_breakdown(self, representation: AtomPairRepresentation) -> dict[str, int]:
+        payload_bytes = self.size_bytes(representation)
+        return {
+            "payload_bytes": payload_bytes,
+            "hashes_bytes": 0,
+            "index_bytes": 0,
+            "store_bytes": 0,
+            "store_overhead_bytes": 0,
+            "original_term_bytes": payload_bytes,
+            "eclasses_bytes": 0,
+            "rules_bytes": 0,
+            "root_reference_bytes": 0,
+            "total_bytes": payload_bytes,
+        }
 
     def self_description(self) -> dict[str, Any]:
         return {
@@ -157,5 +196,18 @@ class AtomPairKernel:
             "transformations": ["decode", "apply operation", "re-encode"],
             "costs": ["description size", "tree traversal"],
             "history": "external sequence of complete roots",
+            "evaluator": {
+                "encode": "recursive value to tagged pair tree",
+                "decode": "tagged pair tree to value",
+                "query": "linear tagged-tree traversal",
+                "transform": "decode, apply operation, re-encode",
+            },
+            "rules": [
+                {"name": "atom_constructor", "pattern": "atom(value)", "replacement": "atom(value)"},
+                {"name": "pair_constructor", "pattern": "pair(left, right)", "replacement": "pair(left, right)"},
+            ],
             "self_reference": self.name,
         }
+
+    def self_application(self) -> SelfApplicationResult:
+        return run_self_application(self)

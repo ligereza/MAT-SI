@@ -1,0 +1,19 @@
+{
+  "protocol": "phase1-v2",
+  "sizes": [10, 100, 1000, 10000],
+  "shapes": ["repetition", "shared_graph", "temporal_branching"],
+  "cases": [
+    {"case_id": "repetition_10", "shape": "repetition", "size": 10},
+    {"case_id": "shared_graph_10", "shape": "shared_graph", "size": 10},
+    {"case_id": "temporal_branching_10", "shape": "temporal_branching", "size": 10},
+    {"case_id": "repetition_100", "shape": "repetition", "size": 100},
+    {"case_id": "shared_graph_100", "shape": "shared_graph", "size": 100},
+    {"case_id": "temporal_branching_100", "shape": "temporal_branching", "size": 100},
+    {"case_id": "repetition_1000", "shape": "repetition", "size": 1000},
+    {"case_id": "shared_graph_1000", "shape": "shared_graph", "size": 1000},
+    {"case_id": "temporal_branching_1000", "shape": "temporal_branching", "size": 1000},
+    {"case_id": "repetition_10000", "shape": "repetition", "size": 10000},
+    {"case_id": "shared_graph_10000", "shape": "shared_graph", "size": 10000},
+    {"case_id": "temporal_branching_10000", "shape": "temporal_branching", "size": 10000}
+  ]
+}
