@@ -9,27 +9,26 @@ from pathlib import Path
 import re
 from typing import Any
 
-from .canonical import canonical_text
+from . import frozen_source
+from .canonical import canonical_newline_bytes, canonical_text
 from .distillation import _size
 from .real_distillation import _digest
 
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_PATH = ROOT / "corpus" / "phase4b-real-evidence-manifest.json"
+HISTORICAL_RESULT = ROOT / "results" / "phase4b-real-experience-transfer-results.json"
 BEHAVIOR_FIELDS = ("action", "outcome", "cost")
 ENVELOPE_FIELDS = ("context", "observation", "action", "outcome", "cost", "provenance")
 
 
-def _logical_bytes(path: Path) -> bytes:
-    return path.read_bytes()
-
-
-def _load_source(spec: dict[str, Any]) -> tuple[bytes, str]:
-    data = _logical_bytes(ROOT / spec["path"])
-    observed = hashlib.sha256(data).hexdigest()
-    if observed != spec["sha256"]:
-        raise ValueError(f"Phase 4B raw hash mismatch for {spec['id']}: {observed}")
-    return data, observed
+def _load_source(spec: dict[str, Any]) -> tuple[bytes | None, str | None, dict[str, Any]]:
+    """Resolve one frozen Phase 4B source without fabricating an absent payload."""
+    data, resolution = frozen_source.load_source(spec, source_id=spec["id"], root=ROOT)
+    if data is None:
+        return None, None, resolution
+    identity = resolution["observed_canonical_sha256"] or resolution["observed_raw_sha256"]
+    return canonical_newline_bytes(data), identity, resolution
 
 
 def _opaque(value: Any) -> str:
@@ -211,12 +210,30 @@ def run_phase4b() -> dict[str, Any]:
     domains = {}
     audits = {}
     source_hashes = {}
+    resolutions = {}
     for source_id, adapter in (("A", _adapt_markdown), ("B", _adapt_json_evidence)):
-        data, source_hash = _load_source(specs[source_id])
+        data, source_hash, resolutions[source_id] = _load_source(specs[source_id])
+        if data is None:
+            continue
         domains[source_id], audits[source_id] = adapter(data, source_id, source_hash)
         source_hashes[source_id] = source_hash
 
-    discovery = _discover_ab(domains, audits)
+    # C is deliberately never opened, so its availability is not probed at all.
+    reproduction = frozen_source.reproduction_status(resolutions)
+    discovery_available = {"A", "B"} <= set(domains)
+    discovery = (
+        _discover_ab(domains, audits)
+        if discovery_available
+        else {
+            "status": "NOT_RECOMPUTED_WITHOUT_PRIVATE_SOURCES",
+            "reason": "the generic relation attempt reads A and B; neither is fabricated when absent",
+            "missing_sources": sorted({"A", "B"} - set(domains)),
+            "generic_relation_attempt_count": None,
+            "candidate_relations": None,
+            "behavior_field_availability": None,
+            "comparable_behavior_fields": None,
+        }
+    )
     c_spec = specs["C"]
     return {
         "protocol": "phase4b-real-experience-transfer",
@@ -224,6 +241,19 @@ def run_phase4b() -> dict[str, Any]:
         "raw_manifest_commit": "7a2ebb2",
         "raw_sources_only": True,
         "source_hashes_used": source_hashes,
+        "source_resolution": resolutions,
+        "reproduction": {
+            **reproduction,
+            "held_out_C_not_probed": True,
+            "not_independently_reproducible": (
+                []
+                if discovery_available
+                else [
+                    "the A/B adapter output, the generic relation attempt, and the gate decision",
+                ]
+            ),
+            "historical_result": HISTORICAL_RESULT.name,
+        },
         "common_envelope": {
             "fields": list(ENVELOPE_FIELDS),
             "status": "REPRESENTABLE_WITH_UNKNOWN_FIELDS",
@@ -238,8 +268,11 @@ def run_phase4b() -> dict[str, Any]:
             "source_ids_exposed": ["A", "B"],
         },
         "adapters": {
-            "A": {"event_count": len(domains["A"]["events"]), "audit": audits["A"]},
-            "B": {"event_count": len(domains["B"]["events"]), "audit": audits["B"]},
+            source_id: {
+                "event_count": len(domains[source_id]["events"]),
+                "audit": audits[source_id],
+            }
+            for source_id in sorted(domains)
         },
         "discovery_from_A_B": discovery,
         "held_out_C": {
@@ -262,8 +295,11 @@ def run_phase4b() -> dict[str, Any]:
             "DERIVED": ["field availability", "candidate absence", "data/observability bottleneck"],
         },
         "gate": {
-            "decision": "B",
+            "decision": "B" if discovery_available else None,
+            "status": "RECOMPUTED" if discovery_available else "REQUIRES_PRIVATE_SOURCES",
             "meaning": "the transfer idea is testable, but the available real histories do not contain sufficient comparable action/outcome/cost evidence",
+            "historical_decision": "B",
+            "historical_decision_reproduced_here": discovery_available,
             "phase5_started": False,
             "product_implementation_started": False,
         },

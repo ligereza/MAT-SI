@@ -9,7 +9,8 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .canonical import canonical_text
+from . import frozen_source
+from .canonical import canonical_newline_bytes, canonical_text
 from .distillation import _size
 from .real_distillation import _digest
 
@@ -21,15 +22,18 @@ COMPARABLE_FIELDS = ("context", "observation", "action", "outcome", "cost")
 
 
 def _logical_bytes(path: Path) -> bytes:
-    return path.read_bytes().replace(b"\r\n", b"\n")
+    return canonical_newline_bytes(path.read_bytes())
 
 
-def _load_source(spec: dict[str, Any]) -> tuple[dict[str, Any], str]:
-    data = _logical_bytes(ROOT / spec["path"])
-    observed_hash = hashlib.sha256(data).hexdigest()
-    if observed_hash != spec["sha256"]:
-        raise ValueError(f"frozen Phase 4 source hash mismatch for {spec['id']}: {observed_hash}")
-    return json.loads(data.decode("utf-8")), observed_hash
+def _load_source(spec: dict[str, Any]) -> tuple[dict[str, Any], str, dict[str, Any]]:
+    """Load one repo-owned Phase 4 source through the shared identity boundary."""
+    data, resolution = frozen_source.load_source(spec, source_id=spec["id"], root=ROOT)
+    if data is None:
+        raise ValueError(
+            f"repo-owned Phase 4 source is missing for {spec['id']}: {resolution['reason']}"
+        )
+    logical = canonical_newline_bytes(data)
+    return json.loads(logical.decode("utf-8")), hashlib.sha256(logical).hexdigest(), resolution
 
 
 def _blind_adapter(raw: dict[str, Any], source_id: str, source_hash: str) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -240,8 +244,9 @@ def run_phase4() -> dict[str, Any]:
     domains_ab = {}
     audits_ab = {}
     source_hashes = {}
+    resolutions = {}
     for source_id in ("A", "B"):
-        raw, source_hash = _load_source(specs[source_id])
+        raw, source_hash, resolutions[source_id] = _load_source(specs[source_id])
         domains_ab[source_id], audits_ab[source_id] = _blind_adapter(raw, source_id, source_hash)
         source_hashes[source_id] = source_hash
 
@@ -250,7 +255,7 @@ def run_phase4() -> dict[str, Any]:
     G_digest = _digest(G)
     frozen_G = deepcopy(G)
 
-    raw_c, source_hash_c = _load_source(specs["C"])
+    raw_c, source_hash_c, resolutions["C"] = _load_source(specs["C"])
     domain_c, audit_c = _blind_adapter(raw_c, "C", source_hash_c)
     source_hashes["C"] = source_hash_c
     c_windows = _windows(domain_c)
@@ -267,6 +272,8 @@ def run_phase4() -> dict[str, Any]:
             "role": "transport structure only; domain values remain opaque residue",
         },
         "source_hashes": source_hashes,
+        "source_resolution": resolutions,
+        "reproduction": frozen_source.reproduction_status(resolutions),
         "adapter_audit": {"A": audits_ab["A"], "B": audits_ab["B"], "C": audit_c},
         "blind_pass": {
             "domain_names_visible_to_discovery": False,

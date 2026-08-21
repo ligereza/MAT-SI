@@ -1,0 +1,942 @@
+{
+  "attempts": [
+    {
+      "after": {
+        "captured_at": "2026-08-21T06:31:58.371062+00:00",
+        "git": {
+          "diff_bytes": 0,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "a723be9ec12f80125245b842b7b3b797f81a27d598fe8ad25a799db9d28d1466",
+          "status_line_count": 1,
+          "unstaged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "untracked_file_count": 1,
+          "working_tree_digest": "a9dd3be78c728f15d39067361ff7a5d8ea5e5db1ca198a4d8ec7e0ee63762f9f"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "8fc90d225f91b5a8687b03ecf5ace97517751e2a6946574579b649f1c9474c84",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 1,
+          "stable_stderr_digest": "410c360f2ceefb9860bbb269a2485e12cf73587fb334194c61b24e28a095ebbd",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "f4676b9cb5e8ec0ebf5f423fefa5009ea381ae452c6074a8e5c7799635867320",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "attempt_id": "attempt-0001",
+      "before": {
+        "captured_at": "2026-08-21T06:30:48.799536+00:00",
+        "git": {
+          "diff_bytes": 0,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "status_line_count": 0,
+          "unstaged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "untracked_file_count": 0,
+          "working_tree_digest": "430417249e8c4feeab5da80cc5c1f04efd8506e00b36ae3706ed1c86aaa5e9be"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "aea1b7f60c3a4ca38b50bbea9fba7701062779b7a7dcb10133e21531d5501e9b",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 1,
+          "stable_stderr_digest": "ccd92450cbd72ae8af01a179a29c9969e040039845522ebb17beaac02f159874",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "4bab611019c6d81db4fc2312c7c30ed0a95610cfb1aaf280e2e248ccfbdfb609",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "derived": {
+        "resources_observed": true,
+        "semantic_claim": "none; state_changed is only digest inequality",
+        "state_changed": true
+      },
+      "intervention": {
+        "kind": "opaque_attempt_token",
+        "token_digest": "e3f2a28243ac8d75"
+      },
+      "ordinal": 1,
+      "provenance": {
+        "captured_at": "2026-08-21T06:31:58.371062+00:00",
+        "field_audit_keys": [
+          "after",
+          "before",
+          "intervention",
+          "provenance"
+        ],
+        "residue": {
+          "raw_snapshots_retained": true,
+          "repository_root": "withheld_local_path",
+          "test_command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b"
+        },
+        "source_ref": "session:e927d94b52464df1836fc054d6c157f8/attempts[0]",
+        "source_system": "local Git workflow"
+      },
+      "resources": {
+        "dimensions": {
+          "diff_bytes": {
+            "source_ref": "git diff --binary",
+            "status": "MEASURED",
+            "value": 0
+          },
+          "elapsed_ms": {
+            "source_ref": "configured test command",
+            "status": "MEASURED",
+            "value": 4427.783
+          }
+        },
+        "scalar_collapsed": false
+      }
+    },
+    {
+      "after": {
+        "captured_at": "2026-08-21T06:36:16.711291+00:00",
+        "git": {
+          "diff_bytes": 9416,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "865444f2758598dcf9b82eeb2f8a180ff2ccb06a6e2cc5837bcf063177fde21e",
+          "status_line_count": 9,
+          "unstaged_diff_digest": "2562369e4e251d9c6bed3bf9b681dcd5910491557a0d6285fe3b6e1e808cd418",
+          "untracked_file_count": 4,
+          "working_tree_digest": "0d8fff213b1e81ca5b86689c50c28538bcf5f26acda77c1bad3592debc4b43c0"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "c7986578c86ab754d4aacf840668c7d389a714080db8c51242e2ff814fa95449",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 1,
+          "stable_stderr_digest": "4d5c65e6a6b49106fa33dab304a9b07bb7f4be4b1fb27df5e32456a3f41f44cf",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "6c03196ac66b6979323685282ab01d34920f01064544b386121b036e3c23809a",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "attempt_id": "attempt-0002",
+      "before": {
+        "captured_at": "2026-08-21T06:31:58.371062+00:00",
+        "git": {
+          "diff_bytes": 0,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "a723be9ec12f80125245b842b7b3b797f81a27d598fe8ad25a799db9d28d1466",
+          "status_line_count": 1,
+          "unstaged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "untracked_file_count": 1,
+          "working_tree_digest": "a9dd3be78c728f15d39067361ff7a5d8ea5e5db1ca198a4d8ec7e0ee63762f9f"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "8fc90d225f91b5a8687b03ecf5ace97517751e2a6946574579b649f1c9474c84",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 1,
+          "stable_stderr_digest": "410c360f2ceefb9860bbb269a2485e12cf73587fb334194c61b24e28a095ebbd",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "f4676b9cb5e8ec0ebf5f423fefa5009ea381ae452c6074a8e5c7799635867320",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "derived": {
+        "resources_observed": true,
+        "semantic_claim": "none; state_changed is only digest inequality",
+        "state_changed": true
+      },
+      "intervention": {
+        "kind": "opaque_attempt_token",
+        "token_digest": "0b00a4a21b0e6d54"
+      },
+      "ordinal": 2,
+      "provenance": {
+        "captured_at": "2026-08-21T06:36:16.711291+00:00",
+        "field_audit_keys": [
+          "after",
+          "before",
+          "intervention",
+          "provenance"
+        ],
+        "residue": {
+          "raw_snapshots_retained": true,
+          "repository_root": "withheld_local_path",
+          "test_command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b"
+        },
+        "source_ref": "session:e927d94b52464df1836fc054d6c157f8/attempts[1]",
+        "source_system": "local Git workflow"
+      },
+      "resources": {
+        "dimensions": {
+          "diff_bytes": {
+            "source_ref": "git diff --binary",
+            "status": "MEASURED",
+            "value": 9416
+          },
+          "elapsed_ms": {
+            "source_ref": "configured test command",
+            "status": "MEASURED",
+            "value": 4510.346
+          }
+        },
+        "scalar_collapsed": false
+      }
+    },
+    {
+      "after": {
+        "captured_at": "2026-08-21T06:40:55.982192+00:00",
+        "git": {
+          "diff_bytes": 21729,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "8c9ec14b0f37598b2a5ed7bc217c413f969a0cdde3c26abf5189e33420066a8d",
+          "status_line_count": 11,
+          "unstaged_diff_digest": "25bd42b0d733b2f986428a7b4f1e8f8729d4ad57f65c0ad834d8685abc64f775",
+          "untracked_file_count": 4,
+          "working_tree_digest": "c329f71d4bda1acd2984551d9fb30f471179dfe27f0673db2947f2d7b6c79878"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "71e5ce6ddec4fa978a9e0931af4050193972df5da041a6820f56c6df5ee668af",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 1,
+          "stable_stderr_digest": "4f9c6f38e0a6a05c9d4d304270bc3a82bd926f14d4f2399a26d0454d9e1a9386",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "68b405d2352350829ca51cee6ca3f988152c1c7e4f65d94650f4b56360f88a66",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "attempt_id": "attempt-0003",
+      "before": {
+        "captured_at": "2026-08-21T06:36:16.711291+00:00",
+        "git": {
+          "diff_bytes": 9416,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "865444f2758598dcf9b82eeb2f8a180ff2ccb06a6e2cc5837bcf063177fde21e",
+          "status_line_count": 9,
+          "unstaged_diff_digest": "2562369e4e251d9c6bed3bf9b681dcd5910491557a0d6285fe3b6e1e808cd418",
+          "untracked_file_count": 4,
+          "working_tree_digest": "0d8fff213b1e81ca5b86689c50c28538bcf5f26acda77c1bad3592debc4b43c0"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "c7986578c86ab754d4aacf840668c7d389a714080db8c51242e2ff814fa95449",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 1,
+          "stable_stderr_digest": "4d5c65e6a6b49106fa33dab304a9b07bb7f4be4b1fb27df5e32456a3f41f44cf",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "6c03196ac66b6979323685282ab01d34920f01064544b386121b036e3c23809a",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "derived": {
+        "resources_observed": true,
+        "semantic_claim": "none; state_changed is only digest inequality",
+        "state_changed": true
+      },
+      "intervention": {
+        "kind": "opaque_attempt_token",
+        "token_digest": "26a23171d206a4df"
+      },
+      "ordinal": 3,
+      "provenance": {
+        "captured_at": "2026-08-21T06:40:55.982192+00:00",
+        "field_audit_keys": [
+          "after",
+          "before",
+          "intervention",
+          "provenance"
+        ],
+        "residue": {
+          "raw_snapshots_retained": true,
+          "repository_root": "withheld_local_path",
+          "test_command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b"
+        },
+        "source_ref": "session:e927d94b52464df1836fc054d6c157f8/attempts[2]",
+        "source_system": "local Git workflow"
+      },
+      "resources": {
+        "dimensions": {
+          "diff_bytes": {
+            "source_ref": "git diff --binary",
+            "status": "MEASURED",
+            "value": 21729
+          },
+          "elapsed_ms": {
+            "source_ref": "configured test command",
+            "status": "MEASURED",
+            "value": 4638.158
+          }
+        },
+        "scalar_collapsed": false
+      }
+    },
+    {
+      "after": {
+        "captured_at": "2026-08-21T06:45:05.882678+00:00",
+        "git": {
+          "diff_bytes": 39357,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "202b5e3ed37e42632142be12502be8a54b90e220ed2a20548533c502e9048385",
+          "status_line_count": 14,
+          "unstaged_diff_digest": "458ea6fad078fe9038715d2461b427ea68734621f07b8ff1f5cbd2e4dab5cce9",
+          "untracked_file_count": 5,
+          "working_tree_digest": "40a7031b18b08890003c2b9534f26672e7d1981b00cb9cbe21971d97cc8f78e3"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "edce5364af4ce571d282e64a655af56067b2c8c67bdf07302e83fef87ecf0a4b",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 1,
+          "stable_stderr_digest": "b1e3d6a2d7573a2b2f9f919669b3ba321cfedefe37795999ec8b9bd57e077aca",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "12b03d38e15e88a68c91a740609f4cb5facabdc80e233da5fe4c905f3a1e93bd",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "attempt_id": "attempt-0004",
+      "before": {
+        "captured_at": "2026-08-21T06:40:55.982192+00:00",
+        "git": {
+          "diff_bytes": 21729,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "8c9ec14b0f37598b2a5ed7bc217c413f969a0cdde3c26abf5189e33420066a8d",
+          "status_line_count": 11,
+          "unstaged_diff_digest": "25bd42b0d733b2f986428a7b4f1e8f8729d4ad57f65c0ad834d8685abc64f775",
+          "untracked_file_count": 4,
+          "working_tree_digest": "c329f71d4bda1acd2984551d9fb30f471179dfe27f0673db2947f2d7b6c79878"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "71e5ce6ddec4fa978a9e0931af4050193972df5da041a6820f56c6df5ee668af",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 1,
+          "stable_stderr_digest": "4f9c6f38e0a6a05c9d4d304270bc3a82bd926f14d4f2399a26d0454d9e1a9386",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "68b405d2352350829ca51cee6ca3f988152c1c7e4f65d94650f4b56360f88a66",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "derived": {
+        "resources_observed": true,
+        "semantic_claim": "none; state_changed is only digest inequality",
+        "state_changed": true
+      },
+      "intervention": {
+        "kind": "opaque_attempt_token",
+        "token_digest": "531b39bd778b7a1c"
+      },
+      "ordinal": 4,
+      "provenance": {
+        "captured_at": "2026-08-21T06:45:05.882678+00:00",
+        "field_audit_keys": [
+          "after",
+          "before",
+          "intervention",
+          "provenance"
+        ],
+        "residue": {
+          "raw_snapshots_retained": true,
+          "repository_root": "withheld_local_path",
+          "test_command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b"
+        },
+        "source_ref": "session:e927d94b52464df1836fc054d6c157f8/attempts[3]",
+        "source_system": "local Git workflow"
+      },
+      "resources": {
+        "dimensions": {
+          "diff_bytes": {
+            "source_ref": "git diff --binary",
+            "status": "MEASURED",
+            "value": 39357
+          },
+          "elapsed_ms": {
+            "source_ref": "configured test command",
+            "status": "MEASURED",
+            "value": 4401.121
+          }
+        },
+        "scalar_collapsed": false
+      }
+    },
+    {
+      "after": {
+        "captured_at": "2026-08-21T06:49:36.357709+00:00",
+        "git": {
+          "diff_bytes": 49097,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "71d59ef0d1f754a4ce51eae011590fdc3a2ec0062e518e5b706de2e3b680f649",
+          "status_line_count": 18,
+          "unstaged_diff_digest": "93d3b07e07ad467dbabd66e45607f90058503b2e93576e9fb2b03fb5e3afe3e8",
+          "untracked_file_count": 7,
+          "working_tree_digest": "fa1981d1e2d2a0936056e8cec800e6d938743c2e84d1dfdaea0aab3c597fd76e"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "a95c52d42121023992a51d043aab387188b1f4830e66008660836d3c3cfbf621",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 0,
+          "stable_stderr_digest": "c64a75ea9d8fc1fea683b0acc6e4f8d1b164cae7a13be0d7e434ef53a8440595",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "69ae515561cd74e38655ce9db34b2c1336249d4e3e7ff8e28a0e2bc0c9098904",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "attempt_id": "attempt-0005",
+      "before": {
+        "captured_at": "2026-08-21T06:45:05.882678+00:00",
+        "git": {
+          "diff_bytes": 39357,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "202b5e3ed37e42632142be12502be8a54b90e220ed2a20548533c502e9048385",
+          "status_line_count": 14,
+          "unstaged_diff_digest": "458ea6fad078fe9038715d2461b427ea68734621f07b8ff1f5cbd2e4dab5cce9",
+          "untracked_file_count": 5,
+          "working_tree_digest": "40a7031b18b08890003c2b9534f26672e7d1981b00cb9cbe21971d97cc8f78e3"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "edce5364af4ce571d282e64a655af56067b2c8c67bdf07302e83fef87ecf0a4b",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 1,
+          "stable_stderr_digest": "b1e3d6a2d7573a2b2f9f919669b3ba321cfedefe37795999ec8b9bd57e077aca",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "12b03d38e15e88a68c91a740609f4cb5facabdc80e233da5fe4c905f3a1e93bd",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "derived": {
+        "resources_observed": true,
+        "semantic_claim": "none; state_changed is only digest inequality",
+        "state_changed": true
+      },
+      "intervention": {
+        "kind": "opaque_attempt_token",
+        "token_digest": "a8510ad2b9249e32"
+      },
+      "ordinal": 5,
+      "provenance": {
+        "captured_at": "2026-08-21T06:49:36.357709+00:00",
+        "field_audit_keys": [
+          "after",
+          "before",
+          "intervention",
+          "provenance"
+        ],
+        "residue": {
+          "raw_snapshots_retained": true,
+          "repository_root": "withheld_local_path",
+          "test_command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b"
+        },
+        "source_ref": "session:e927d94b52464df1836fc054d6c157f8/attempts[4]",
+        "source_system": "local Git workflow"
+      },
+      "resources": {
+        "dimensions": {
+          "diff_bytes": {
+            "source_ref": "git diff --binary",
+            "status": "MEASURED",
+            "value": 49097
+          },
+          "elapsed_ms": {
+            "source_ref": "configured test command",
+            "status": "MEASURED",
+            "value": 4831.997
+          }
+        },
+        "scalar_collapsed": false
+      }
+    },
+    {
+      "after": {
+        "captured_at": "2026-08-21T06:51:28.734110+00:00",
+        "git": {
+          "diff_bytes": 51012,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "27537357d255d9b96dab755e15674e02f38606db0e3eaafb14dfe5ae993160a2",
+          "status_line_count": 21,
+          "unstaged_diff_digest": "29c850c332301b51df4747d53e8ce3b6d825af13d92f1b848d5719e63cf301f7",
+          "untracked_file_count": 8,
+          "working_tree_digest": "ad7d2c56bdd5ac3acc228231703f4201e8cfd20cfd76423d8703c8a7fa333a6e"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "c63c5dfff343655fd008aca99baee482793df9190aef3cb7b1a97e3001fa1fb8",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 0,
+          "stable_stderr_digest": "c64a75ea9d8fc1fea683b0acc6e4f8d1b164cae7a13be0d7e434ef53a8440595",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "fceba929962e5350afb641629d9be16d656825d55c18c9f948380881e71ab8e4",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "attempt_id": "attempt-0006",
+      "before": {
+        "captured_at": "2026-08-21T06:49:36.357709+00:00",
+        "git": {
+          "diff_bytes": 49097,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "71d59ef0d1f754a4ce51eae011590fdc3a2ec0062e518e5b706de2e3b680f649",
+          "status_line_count": 18,
+          "unstaged_diff_digest": "93d3b07e07ad467dbabd66e45607f90058503b2e93576e9fb2b03fb5e3afe3e8",
+          "untracked_file_count": 7,
+          "working_tree_digest": "fa1981d1e2d2a0936056e8cec800e6d938743c2e84d1dfdaea0aab3c597fd76e"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "a95c52d42121023992a51d043aab387188b1f4830e66008660836d3c3cfbf621",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 0,
+          "stable_stderr_digest": "c64a75ea9d8fc1fea683b0acc6e4f8d1b164cae7a13be0d7e434ef53a8440595",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "69ae515561cd74e38655ce9db34b2c1336249d4e3e7ff8e28a0e2bc0c9098904",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "derived": {
+        "resources_observed": true,
+        "semantic_claim": "none; state_changed is only digest inequality",
+        "state_changed": true
+      },
+      "intervention": {
+        "kind": "opaque_attempt_token",
+        "token_digest": "e43abaf640500466"
+      },
+      "ordinal": 6,
+      "provenance": {
+        "captured_at": "2026-08-21T06:51:28.734110+00:00",
+        "field_audit_keys": [
+          "after",
+          "before",
+          "intervention",
+          "provenance"
+        ],
+        "residue": {
+          "raw_snapshots_retained": true,
+          "repository_root": "withheld_local_path",
+          "test_command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b"
+        },
+        "source_ref": "session:e927d94b52464df1836fc054d6c157f8/attempts[5]",
+        "source_system": "local Git workflow"
+      },
+      "resources": {
+        "dimensions": {
+          "diff_bytes": {
+            "source_ref": "git diff --binary",
+            "status": "MEASURED",
+            "value": 51012
+          },
+          "elapsed_ms": {
+            "source_ref": "configured test command",
+            "status": "MEASURED",
+            "value": 4855.457
+          }
+        },
+        "scalar_collapsed": false
+      }
+    },
+    {
+      "after": {
+        "captured_at": "2026-08-21T06:52:34.280531+00:00",
+        "git": {
+          "diff_bytes": 51012,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "27537357d255d9b96dab755e15674e02f38606db0e3eaafb14dfe5ae993160a2",
+          "status_line_count": 21,
+          "unstaged_diff_digest": "29c850c332301b51df4747d53e8ce3b6d825af13d92f1b848d5719e63cf301f7",
+          "untracked_file_count": 8,
+          "working_tree_digest": "ad7d2c56bdd5ac3acc228231703f4201e8cfd20cfd76423d8703c8a7fa333a6e"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "c63c5dfff343655fd008aca99baee482793df9190aef3cb7b1a97e3001fa1fb8",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 0,
+          "stable_stderr_digest": "c64a75ea9d8fc1fea683b0acc6e4f8d1b164cae7a13be0d7e434ef53a8440595",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "588724c3aed751b9c10a684fb286ceed6dc36eda18dacfd1137014d9e670cfea",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "attempt_id": "attempt-0007",
+      "before": {
+        "captured_at": "2026-08-21T06:51:28.734110+00:00",
+        "git": {
+          "diff_bytes": 51012,
+          "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+          "payload_withheld": [
+            "status lines",
+            "untracked file paths",
+            "diff payloads"
+          ],
+          "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "status_digest": "27537357d255d9b96dab755e15674e02f38606db0e3eaafb14dfe5ae993160a2",
+          "status_line_count": 21,
+          "unstaged_diff_digest": "29c850c332301b51df4747d53e8ce3b6d825af13d92f1b848d5719e63cf301f7",
+          "untracked_file_count": 8,
+          "working_tree_digest": "ad7d2c56bdd5ac3acc228231703f4201e8cfd20cfd76423d8703c8a7fa333a6e"
+        },
+        "scope": "local_git_worktree",
+        "state_digest": "c63c5dfff343655fd008aca99baee482793df9190aef3cb7b1a97e3001fa1fb8",
+        "test": {
+          "availability": "OBSERVED",
+          "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+          "exit_code": 0,
+          "stable_stderr_digest": "c64a75ea9d8fc1fea683b0acc6e4f8d1b164cae7a13be0d7e434ef53a8440595",
+          "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "stderr_digest": "fceba929962e5350afb641629d9be16d656825d55c18c9f948380881e71ab8e4",
+          "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "derived": {
+        "resources_observed": true,
+        "semantic_claim": "none; state_changed is only digest inequality",
+        "state_changed": false
+      },
+      "intervention": {
+        "kind": "opaque_attempt_token",
+        "token_digest": "e2aaf2647871ee0a"
+      },
+      "ordinal": 7,
+      "provenance": {
+        "captured_at": "2026-08-21T06:52:34.280531+00:00",
+        "field_audit_keys": [
+          "after",
+          "before",
+          "intervention",
+          "provenance"
+        ],
+        "residue": {
+          "raw_snapshots_retained": true,
+          "repository_root": "withheld_local_path",
+          "test_command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b"
+        },
+        "source_ref": "session:e927d94b52464df1836fc054d6c157f8/attempts[6]",
+        "source_system": "local Git workflow"
+      },
+      "resources": {
+        "dimensions": {
+          "diff_bytes": {
+            "source_ref": "git diff --binary",
+            "status": "MEASURED",
+            "value": 51012
+          },
+          "elapsed_ms": {
+            "source_ref": "configured test command",
+            "status": "MEASURED",
+            "value": 4740.498
+          }
+        },
+        "scalar_collapsed": false
+      }
+    }
+  ],
+  "baseline_before": {
+    "captured_at": "2026-08-21T06:30:48.799536+00:00",
+    "git": {
+      "diff_bytes": 0,
+      "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+      "payload_withheld": [
+        "status lines",
+        "untracked file paths",
+        "diff payloads"
+      ],
+      "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "status_line_count": 0,
+      "unstaged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "untracked_file_count": 0,
+      "working_tree_digest": "430417249e8c4feeab5da80cc5c1f04efd8506e00b36ae3706ed1c86aaa5e9be"
+    },
+    "scope": "local_git_worktree",
+    "state_digest": "aea1b7f60c3a4ca38b50bbea9fba7701062779b7a7dcb10133e21531d5501e9b",
+    "test": {
+      "availability": "OBSERVED",
+      "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+      "exit_code": 1,
+      "stable_stderr_digest": "ccd92450cbd72ae8af01a179a29c9969e040039845522ebb17beaac02f159874",
+      "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "stderr_digest": "4bab611019c6d81db4fc2312c7c30ed0a95610cfb1aaf280e2e248ccfbdfb609",
+      "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "determinism": {
+    "digest_scope": "every field of this export except determinism itself",
+    "export_digest": "1fb0dc9e02976b78cd02d92e2fcdc3dcbb4528bc5930e129a048e5d1c2c4f5ef",
+    "replay_entry_point": "codeine.core.replay_export"
+  },
+  "final_observation": {
+    "recorded": true,
+    "snapshot": {
+      "captured_at": "2026-08-21T06:53:05.050510+00:00",
+      "git": {
+        "diff_bytes": 51012,
+        "head": "4463d8429ba5a602bb008e6d9f7246c619dab617",
+        "payload_withheld": [
+          "status lines",
+          "untracked file paths",
+          "diff payloads"
+        ],
+        "staged_diff_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status_digest": "27537357d255d9b96dab755e15674e02f38606db0e3eaafb14dfe5ae993160a2",
+        "status_line_count": 21,
+        "unstaged_diff_digest": "29c850c332301b51df4747d53e8ce3b6d825af13d92f1b848d5719e63cf301f7",
+        "untracked_file_count": 8,
+        "working_tree_digest": "ad7d2c56bdd5ac3acc228231703f4201e8cfd20cfd76423d8703c8a7fa333a6e"
+      },
+      "scope": "local_git_worktree",
+      "state_digest": "c63c5dfff343655fd008aca99baee482793df9190aef3cb7b1a97e3001fa1fb8",
+      "test": {
+        "availability": "OBSERVED",
+        "command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+        "exit_code": 0,
+        "stable_stderr_digest": "c64a75ea9d8fc1fea683b0acc6e4f8d1b164cae7a13be0d7e434ef53a8440595",
+        "stable_stdout_digest": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "stderr_digest": "629698562d40d20a5fd563e95e900cb56661aeb32cfb216e8adebfecb86b837d",
+        "stdout_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "test_exit_code": 0
+  },
+  "finished_at": "2026-08-21T06:53:05.050571+00:00",
+  "gate_inputs": {
+    "attempt_count": 7,
+    "causal_help_claimed": false,
+    "decisions_emitted": {
+      "CONTINUE": 2
+    },
+    "derivation": "counted from the machine-generated records in this export",
+    "intervention_recommended": false,
+    "unchanged_boundary_count": 1
+  },
+  "generated_by": "codeine.core.export_session",
+  "hypothesis": {
+    "id": "persistence_without_observable_change",
+    "not_universal_truth": true,
+    "required_observables": [
+      "before",
+      "intervention",
+      "after",
+      "resources when available",
+      "provenance"
+    ],
+    "statement": "repeated similar boundaries with no observable state change while measured resources continue"
+  },
+  "manually_authored": false,
+  "privacy": {
+    "committed": [
+      "observation order",
+      "opaque intervention token digests",
+      "before/after state digests",
+      "raw and stable test output digests",
+      "measured resource dimensions",
+      "detector inputs",
+      "recommendations and provenance"
+    ],
+    "withheld": [
+      "repository root path",
+      "git status lines",
+      "untracked file paths",
+      "diff and test output payloads"
+    ],
+    "withheld_payloads_are_represented_by": "their digests and provenance only"
+  },
+  "protocol": "codeine-v0-session-export",
+  "raw_record_label_audit": {
+    "forbidden_keys_checked": [
+      "progress",
+      "stuck",
+      "success",
+      "failure",
+      "productive",
+      "bad_strategy"
+    ],
+    "forbidden_keys_present": [],
+    "raw_records_carry_no_conclusion": true
+  },
+  "recommendations": [
+    {
+      "consequence": null,
+      "decision": "CONTINUE",
+      "evaluation": {
+        "consecutive_unchanged_attempts": 0,
+        "evidence_against": [
+          "attempt-0001",
+          "attempt-0002",
+          "attempt-0003"
+        ],
+        "evidence_for": [],
+        "missing_resource_attempts": [],
+        "no_hidden_score": true,
+        "resources_observed_for_evidence_for": false,
+        "rule_id": "persistence_without_observable_change"
+      },
+      "evidence_against": [
+        "attempt-0001",
+        "attempt-0002",
+        "attempt-0003"
+      ],
+      "evidence_for": [],
+      "evidence_strength": "observed_change",
+      "fingerprint": "3af8c0aa32abeec0c35742318f1d4dad2ec2c299c55c8f0dadac98659dd822b7",
+      "hypothesis_id": "persistence_without_observable_change",
+      "issued_at": "2026-08-21T06:44:09.174890+00:00",
+      "provenance": {
+        "attempt_ids": [
+          "attempt-0001",
+          "attempt-0002",
+          "attempt-0003"
+        ],
+        "derivation": "explicit count of consecutive digest-equal boundaries and measured elapsed_ms availability",
+        "semantic_claim": "recommendation only; no causal claim",
+        "source": "CODEINE v0 persistence detector"
+      },
+      "reason": "the latest boundary changed observably or repetition remains productive",
+      "recommendation_id": "recommendation-0001"
+    },
+    {
+      "consequence": null,
+      "decision": "CONTINUE",
+      "evaluation": {
+        "consecutive_unchanged_attempts": 1,
+        "evidence_against": [
+          "attempt-0001",
+          "attempt-0002",
+          "attempt-0003",
+          "attempt-0004",
+          "attempt-0005",
+          "attempt-0006"
+        ],
+        "evidence_for": [
+          "attempt-0007"
+        ],
+        "missing_resource_attempts": [],
+        "no_hidden_score": true,
+        "resources_observed_for_evidence_for": true,
+        "rule_id": "persistence_without_observable_change"
+      },
+      "evidence_against": [
+        "attempt-0001",
+        "attempt-0002",
+        "attempt-0003",
+        "attempt-0004",
+        "attempt-0005",
+        "attempt-0006"
+      ],
+      "evidence_for": [
+        "attempt-0007"
+      ],
+      "evidence_strength": "weak_repetition",
+      "fingerprint": "9bb17622d84992e80ace883462375516e0f1e1645b9060f4149f19aa035886d1",
+      "hypothesis_id": "persistence_without_observable_change",
+      "issued_at": "2026-08-21T06:52:52.099848+00:00",
+      "provenance": {
+        "attempt_ids": [
+          "attempt-0001",
+          "attempt-0002",
+          "attempt-0003",
+          "attempt-0004",
+          "attempt-0005",
+          "attempt-0006",
+          "attempt-0007"
+        ],
+        "derivation": "explicit count of consecutive digest-equal boundaries and measured elapsed_ms availability",
+        "semantic_claim": "recommendation only; no causal claim",
+        "source": "CODEINE v0 persistence detector"
+      },
+      "reason": "one unchanged observable boundary; the intervention threshold has not been reached",
+      "recommendation_id": "recommendation-0002"
+    }
+  ],
+  "schema_version": 1,
+  "session_id": "e927d94b52464df1836fc054d6c157f8",
+  "started_at": "2026-08-21T06:30:48.799589+00:00",
+  "task": "make accepted MAT-SI evidence portable and replayable from a second machine",
+  "test_command": "PYTHONPATH=src python3 -m unittest discover -s tests",
+  "test_command_digest": "ddc8dfd820908fc29a70fd94d32dcc04d5787a1a697f5cfbc5cc10968b2edc1b",
+  "test_command_disclosure": "included"
+}

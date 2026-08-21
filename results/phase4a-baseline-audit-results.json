@@ -1,0 +1,170 @@
+{
+  "audited_protocol": "phase4-cross-domain",
+  "corpus_limits": {
+    "held_out_window_count": 4,
+    "note": "with this population size a single window decides the gate; the audit reports the arithmetic and does not claim a corrected transfer result",
+    "sources_are_authored_fixtures": true
+  },
+  "corrected_metrics": {
+    "G_accuracy": 0.6666666666666666,
+    "G_beats_baseline": false,
+    "baseline_modal_accuracy": 0.6666666666666666,
+    "coverage": 0.75,
+    "population": "matched_windows_only",
+    "population_size": 3,
+    "predictive_gain": 0.0,
+    "provenance": {
+      "derivation": "modal class of the continuation property restricted to matched windows",
+      "rule": "G and baseline are scored on identical windows; coverage is reported separately"
+    },
+    "total_windows": 4
+  },
+  "corrected_predictive_gain": 0.0,
+  "gate": {
+    "corrected_decision": "D",
+    "corrected_meaning": "G matches the best no-G answer on its own population; no predictive advantage survives the same-opportunity comparison",
+    "historical_decision": "A",
+    "historical_meaning": "a relation derived from A+B predicts a held-out property in C"
+  },
+  "gate_changes_under_corrected_comparison": true,
+  "historical_metrics": {
+    "G_accuracy": 0.6666666666666666,
+    "G_beats_baseline": true,
+    "baseline_modal_accuracy": 0.5,
+    "defect": "the baseline denominator includes windows G never predicts on, so the reported gain also credits G for not matching a window",
+    "matched_windows": 3,
+    "population_of_G": "matched_windows",
+    "population_of_baseline": "all_C_windows",
+    "populations_are_identical": false,
+    "predictive_gain": 0.16666666666666663,
+    "total_windows": 4
+  },
+  "historical_result_preserved": {
+    "identity": {
+      "canonical_bytes": 33903,
+      "canonical_sha256": "fa93f92b5def3fba1f2830ba0d01f3f10ee1a279a04b9f7575adf1457ef55137",
+      "canonicalization": "newline_crlf_to_lf",
+      "raw_bytes": 33903,
+      "raw_sha256": "fa93f92b5def3fba1f2830ba0d01f3f10ee1a279a04b9f7575adf1457ef55137"
+    },
+    "overwritten": false,
+    "path": "phase4-cross-domain-results.json"
+  },
+  "host_represented_derived": {
+    "DERIVED": [
+      "historical restatement",
+      "same-population baseline",
+      "gate comparison"
+    ],
+    "HOST": [
+      "JSON parsing",
+      "modal class counting"
+    ],
+    "REPRESENTED": [
+      "frozen G",
+      "held-out window evaluations"
+    ]
+  },
+  "parent_commit": "a79845a",
+  "protocol": "phase4a-baseline-audit",
+  "question": "does G beat the best no-G answer on the windows where G predicts",
+  "reproduction": {
+    "available_sources": [
+      "A",
+      "B",
+      "C"
+    ],
+    "fabrication": "no absent source is substituted, inferred, or synthesised",
+    "independently_reproduced": true,
+    "not_independently_reproducible": [],
+    "status": "INDEPENDENTLY_REPRODUCED",
+    "stored_historical_result_is_not_a_reproduction": true,
+    "unavailable_sources": []
+  },
+  "source_resolution": {
+    "A": {
+      "availability": "repo_owned",
+      "canonicalization": "newline_crlf_to_lf",
+      "content_kind": "text",
+      "expected_canonical_sha256": "4ebfe53735db97f19682fad1ccd07600e50663b405f8ef824eb75eb83438cd02",
+      "expected_raw_sha256": "4ebfe53735db97f19682fad1ccd07600e50663b405f8ef824eb75eb83438cd02",
+      "identity_matched": "raw",
+      "observed_bytes": 1707,
+      "observed_canonical_sha256": "4ebfe53735db97f19682fad1ccd07600e50663b405f8ef824eb75eb83438cd02",
+      "observed_raw_sha256": "4ebfe53735db97f19682fad1ccd07600e50663b405f8ef824eb75eb83438cd02",
+      "provenance": {
+        "frozen_bytes": null,
+        "frozen_path": "corpus/phase4-source-a.json",
+        "payload_committed": true,
+        "repo_path": "corpus/phase4-source-a.json",
+        "source_map_env": "MATSI_SOURCE_MAP"
+      },
+      "reason": null,
+      "resolved_from": "repo_path",
+      "searched": [
+        {
+          "exists": true,
+          "origin": "repo_path"
+        }
+      ],
+      "source_id": "A",
+      "status": "SOURCE_AVAILABLE"
+    },
+    "B": {
+      "availability": "repo_owned",
+      "canonicalization": "newline_crlf_to_lf",
+      "content_kind": "text",
+      "expected_canonical_sha256": "5701182952e264ec712ffdcf20b24a4e49331777ddf8a6d62bf31ced803db9e4",
+      "expected_raw_sha256": "5701182952e264ec712ffdcf20b24a4e49331777ddf8a6d62bf31ced803db9e4",
+      "identity_matched": "raw",
+      "observed_bytes": 1714,
+      "observed_canonical_sha256": "5701182952e264ec712ffdcf20b24a4e49331777ddf8a6d62bf31ced803db9e4",
+      "observed_raw_sha256": "5701182952e264ec712ffdcf20b24a4e49331777ddf8a6d62bf31ced803db9e4",
+      "provenance": {
+        "frozen_bytes": null,
+        "frozen_path": "corpus/phase4-source-b.json",
+        "payload_committed": true,
+        "repo_path": "corpus/phase4-source-b.json",
+        "source_map_env": "MATSI_SOURCE_MAP"
+      },
+      "reason": null,
+      "resolved_from": "repo_path",
+      "searched": [
+        {
+          "exists": true,
+          "origin": "repo_path"
+        }
+      ],
+      "source_id": "B",
+      "status": "SOURCE_AVAILABLE"
+    },
+    "C": {
+      "availability": "repo_owned",
+      "canonicalization": "newline_crlf_to_lf",
+      "content_kind": "text",
+      "expected_canonical_sha256": "8a66e3507588bf028f8a6c9b4cd467053ef9b1ca2fb0548acfe81d585659b56e",
+      "expected_raw_sha256": "8a66e3507588bf028f8a6c9b4cd467053ef9b1ca2fb0548acfe81d585659b56e",
+      "identity_matched": "raw",
+      "observed_bytes": 3326,
+      "observed_canonical_sha256": "8a66e3507588bf028f8a6c9b4cd467053ef9b1ca2fb0548acfe81d585659b56e",
+      "observed_raw_sha256": "8a66e3507588bf028f8a6c9b4cd467053ef9b1ca2fb0548acfe81d585659b56e",
+      "provenance": {
+        "frozen_bytes": null,
+        "frozen_path": "corpus/phase4-source-c.json",
+        "payload_committed": true,
+        "repo_path": "corpus/phase4-source-c.json",
+        "source_map_env": "MATSI_SOURCE_MAP"
+      },
+      "reason": null,
+      "resolved_from": "repo_path",
+      "searched": [
+        {
+          "exists": true,
+          "origin": "repo_path"
+        }
+      ],
+      "source_id": "C",
+      "status": "SOURCE_AVAILABLE"
+    }
+  }
+}

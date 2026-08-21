@@ -10,7 +10,12 @@
       "provenance": "MAT-SI Phase 2 represented self-application experiment",
       "bytes": 42130,
       "modified": "2026-08-21T00:04:23.7216268-04:00",
-      "sha256": "a0c8bd229ca28ef96546068fd5e2530a67034b77a4dbdbcf8e56bb27d2c10713"
+      "sha256": "a0c8bd229ca28ef96546068fd5e2530a67034b77a4dbdbcf8e56bb27d2c10713",
+      "content_kind": "text",
+      "repo_path": "results/phase2-self-reference-results.json",
+      "availability": "repo_owned",
+      "canonical_sha256": "a705855487344c470c8168ab231ec0aeee74fa1e60b888a9e8dbd9dfd32daa92",
+      "identity_note": "sha256 is the original CRLF checkout byte hash; canonical_sha256 ignores newline style"
     },
     {
       "system_id": "VIBECODEINE",
@@ -19,7 +24,10 @@
       "provenance": "pre-existing MAK/VIBECODEINE evidence export frozen in Phase 4B",
       "bytes": 5745417,
       "modified": "2026-08-12T00:29:04.6607937-04:00",
-      "sha256": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916"
+      "sha256": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916",
+      "content_kind": "text",
+      "availability": "private_external",
+      "identity_note": "payload is not committed; only its frozen identity and provenance are"
     }
   ],
   "candidate_contracts_to_attack": [

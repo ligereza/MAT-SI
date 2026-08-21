@@ -156,3 +156,32 @@ python -m codeine finish
 See `docs/codeine-v0.md` and `results/codeine-v0-real-session.json` for the contract,
 detector, real-session evidence, and Gate B. No dashboard, daemon, IDE integration,
 LLM integration, or additional product has been started.
+
+## Reproducible evidence
+
+A session record is machine generated, exported deterministically, and replayed by
+recomputing every recommendation from the recorded observations:
+
+```text
+PYTHONPATH=src python -m codeine export --out results/codeine-linux-session.json
+PYTHONPATH=src python -m codeine replay --export results/codeine-linux-session.json
+```
+
+Frozen sources resolve through one explicit boundary that reports
+`SOURCE_AVAILABLE`, `SOURCE_UNAVAILABLE`, or `SOURCE_HASH_MISMATCH`. Repository-owned
+text is pinned by canonical newline identity, so a CRLF or LF checkout does not change
+it; a hash mismatch remains a hard failure. Private external evidence is never copied
+into the repository: when it is absent the phase still runs and names the derivations
+it cannot independently reproduce. An optional local mapping can supply those paths
+through `MATSI_SOURCE_MAP` or `corpus/local-source-map.json`, neither of which is
+committed.
+
+The Phase 4A predictive baseline is audited without overwriting the historical result:
+
+```text
+PYTHONPATH=src python -m matsi.baseline_audit --json-out results/phase4a-baseline-audit-results.json
+```
+
+See `docs/reproducible-evidence.md` for the four locked failures, the corrected
+same-population baseline, and the evidence that remains non-reproducible without
+private sources.

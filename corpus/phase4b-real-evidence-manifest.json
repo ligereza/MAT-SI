@@ -21,7 +21,10 @@
         "filesystem_modified": "2026-08-12T20:24:19.2139599-04:00"
       },
       "bytes": 5947,
-      "sha256": "83987c02b4a2076f4ed22569070bbf884d313aa44d4e4c8d63153297f26ae386"
+      "sha256": "83987c02b4a2076f4ed22569070bbf884d313aa44d4e4c8d63153297f26ae386",
+      "availability": "private_external",
+      "content_kind": "text",
+      "identity_note": "payload is not committed; only its frozen identity and provenance are"
     },
     {
       "id": "B",
@@ -33,7 +36,10 @@
         "filesystem_modified": "2026-08-12T00:29:04.6607937-04:00"
       },
       "bytes": 5745417,
-      "sha256": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916"
+      "sha256": "3b0e529a7b1283923f4a4665adbdbcd2aca8b47ae0840f500ba115469f660916",
+      "availability": "private_external",
+      "content_kind": "text",
+      "identity_note": "payload is not committed; only its frozen identity and provenance are"
     },
     {
       "id": "C",
@@ -45,12 +51,20 @@
         "filesystem_modified": "2026-08-10T16:19:52.9451411-04:00"
       },
       "bytes": 102472,
-      "sha256": "3aeb9953f76f54e5cf57e5df8fee48f764a226d06f7e5605643f9b03c2e70622"
+      "sha256": "3aeb9953f76f54e5cf57e5df8fee48f764a226d06f7e5605643f9b03c2e70622",
+      "availability": "private_external",
+      "content_kind": "text",
+      "identity_note": "payload is not committed; only its frozen identity and provenance are"
     }
   ],
   "discovery_split": {
-    "discover_from": ["A", "B"],
-    "held_out_until_G_freeze": ["C"],
+    "discover_from": [
+      "A",
+      "B"
+    ],
+    "held_out_until_G_freeze": [
+      "C"
+    ],
     "domain_labels_hidden_during_discovery": true,
     "product_names_hidden_during_discovery": true
   }

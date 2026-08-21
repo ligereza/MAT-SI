@@ -3,3 +3,4 @@ __pycache__/
 *.py[cod]
 artifacts/
 *.log
+corpus/local-source-map.json

@@ -14,6 +14,16 @@ def canonical_bytes(value: Any) -> bytes:
     return canonical_text(value).encode("utf-8")
 
 
+def canonical_newline_bytes(data: bytes) -> bytes:
+    """Collapse CRLF and lone CR to LF for textual evidence.
+
+    Phase 3C and Phase 3D already applied this rule before hashing a frozen
+    repository-owned source.  It is named here so every phase can share it
+    instead of freezing an operating-system specific newline convention.
+    """
+    return data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
 def deep_node_count(value: Any) -> int:
     if isinstance(value, dict):
         return 1 + sum(deep_node_count(key) + deep_node_count(item) for key, item in value.items())

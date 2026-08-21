@@ -8,7 +8,16 @@ from pathlib import Path
 import subprocess
 import sys
 
-from .core import CodeineError, assess, checkpoint, finish, start
+from .core import (
+    CodeineError,
+    assess,
+    checkpoint,
+    finish,
+    replay_export,
+    replay_session,
+    start,
+    write_export,
+)
 
 
 def _emit(value: object) -> None:
@@ -40,6 +49,15 @@ def build_parser() -> argparse.ArgumentParser:
 
     finish_parser = commands.add_parser("finish", help="capture final observation and close the session")
     _common_session(finish_parser)
+
+    export_parser = commands.add_parser("export", help="write the deterministic committable session record")
+    _common_session(export_parser)
+    export_parser.add_argument("--out", type=Path, default=None, help="export path (default: results/codeine-session-export.json)")
+
+    replay_parser = commands.add_parser("replay", help="recompute recommendations from recorded observations")
+    _common_session(replay_parser)
+    replay_parser.add_argument("--export", type=Path, default=None, help="replay this export instead of the local session")
+    replay_parser.add_argument("--verify-export", type=Path, default=None, help="also check the export is byte-for-byte reproducible from the session")
     return parser
 
 
@@ -62,10 +80,17 @@ def main(argv: list[str] | None = None) -> int:
                     "evidence_strength": recommendation["evidence_strength"],
                     "reason": recommendation["reason"],
                 }
+        elif args.command == "export":
+            result = write_export(args.session, args.out)
+        elif args.command == "replay":
+            if args.export is not None:
+                result = replay_export(args.export)
+            else:
+                result = replay_session(args.session, args.verify_export)
         else:
             result = finish(args.session)
         _emit(result)
-        return 0
+        return 0 if result.get("deterministic", True) else 1
     except (CodeineError, OSError, subprocess.TimeoutExpired) as exc:
         print(f"codeine: {exc}", file=sys.stderr)
         return 2

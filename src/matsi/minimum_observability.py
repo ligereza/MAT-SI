@@ -14,11 +14,13 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .canonical import canonical_text
+from . import frozen_source
+from .canonical import canonical_newline_bytes, canonical_text
 
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_PATH = ROOT / "corpus" / "phase4c-observability-manifest.json"
+HISTORICAL_RESULT = ROOT / "results" / "phase4c-minimum-observability-results.json"
 MANDATORY_FIELDS = ("before", "intervention", "after", "provenance")
 OPTIONAL_FIELDS = ("resources",)
 AUDIT_KEYS = ("RAW_SOURCE", "DERIVATION", "LOSS", "RESIDUE", "PROVENANCE")
@@ -32,17 +34,19 @@ def _short_digest(value: Any) -> str:
     return _digest(value)[:16]
 
 
-def _source_path(spec: dict[str, Any]) -> Path:
-    path = Path(spec["path"])
-    return path if path.is_absolute() else ROOT / path
+def _resolve_frozen_source(spec: dict[str, Any]) -> tuple[bytes | None, str | None, dict[str, Any]]:
+    """Resolve one frozen Phase 4C source.
 
-
-def _load_frozen_source(spec: dict[str, Any]) -> tuple[bytes, str]:
-    data = _source_path(spec).read_bytes()
-    observed = hashlib.sha256(data).hexdigest()
-    if observed != spec["sha256"]:
-        raise ValueError(f"Phase 4C raw hash mismatch for {spec['system_id']}: {observed}")
-    return data, observed
+    An absent private source is reported, never fabricated.  A resolved payload
+    whose identity does not match stays a hard failure.
+    """
+    data, resolution = frozen_source.load_source(
+        spec, source_id=spec["system_id"], root=ROOT
+    )
+    if data is None:
+        return None, None, resolution
+    identity = resolution["observed_canonical_sha256"] or resolution["observed_raw_sha256"]
+    return canonical_newline_bytes(data), identity, resolution
 
 
 def _audit(
@@ -398,19 +402,36 @@ def _mapping_summary(adapted: dict[str, dict[str, Any]]) -> dict[str, Any]:
 def run_phase4c() -> dict[str, Any]:
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     specs = {spec["system_id"]: spec for spec in manifest["sources"]}
-    raw_matsi, matsi_hash = _load_frozen_source(specs["MAT-SI"])
-    raw_vibecodeine, vibecodeine_hash = _load_frozen_source(specs["VIBECODEINE"])
-    adapted = {
-        "MAT-SI": _adapt_matsi(json.loads(raw_matsi.decode("utf-8")), specs["MAT-SI"], matsi_hash),
-        "VIBECODEINE": _adapt_vibecodeine(json.loads(raw_vibecodeine.decode("utf-8")), specs["VIBECODEINE"], vibecodeine_hash),
-    }
+    adapters = {"MAT-SI": _adapt_matsi, "VIBECODEINE": _adapt_vibecodeine}
+    adapted: dict[str, dict[str, Any]] = {}
+    resolutions: dict[str, dict[str, Any]] = {}
+    identities: dict[str, str] = {}
+    for system_id, adapt in adapters.items():
+        payload, identity, resolutions[system_id] = _resolve_frozen_source(specs[system_id])
+        if payload is None:
+            continue
+        identities[system_id] = identity
+        adapted[system_id] = adapt(
+            json.loads(payload.decode("utf-8")), specs[system_id], identity
+        )
+    reproduction = frozen_source.reproduction_status(resolutions)
     all_records = [record for data in adapted.values() for record in data["records"]]
     validation = [_validate_record(record) for record in all_records]
     return {
         "protocol": "phase4c-minimum-observability",
         "parent_commit": manifest["parent_commit"],
         "manifest_path": str(MANIFEST_PATH),
-        "source_hashes_verified": {key: value for key, value in (("MAT-SI", matsi_hash), ("VIBECODEINE", vibecodeine_hash))},
+        "source_hashes_verified": dict(identities),
+        "source_resolution": resolutions,
+        "reproduction": {
+            **reproduction,
+            "analytical_contract_is_source_independent": True,
+            "not_independently_reproducible": [
+                f"the {source_id} event mapping, its record examples, and its share of the record count"
+                for source_id in reproduction["unavailable_sources"]
+            ],
+            "historical_result": HISTORICAL_RESULT.name,
+        },
         "question": "smallest domain-neutral observational record sufficient for future real cross-domain falsification",
         "minimal_record": {
             "mandatory_fields": list(MANDATORY_FIELDS),
@@ -443,9 +464,10 @@ def run_phase4c() -> dict[str, Any]:
         },
         "self_application": {
             "system": "MAT-SI",
-            "same_record_contract": True,
-            "records_emitted": len(adapted["MAT-SI"]["records"]),
-            "existing_output_sufficient": True,
+            "observed_on_this_machine": "MAT-SI" in adapted,
+            "same_record_contract": "MAT-SI" in adapted,
+            "records_emitted": len(adapted["MAT-SI"]["records"]) if "MAT-SI" in adapted else None,
+            "existing_output_sufficient": "MAT-SI" in adapted,
             "new_instrumentation_required": False,
             "evidence": "Phase 2 already records represented before/after rules, transformation provenance, and instruction_count",
         },
@@ -470,14 +492,18 @@ def run_phase4c() -> dict[str, Any]:
         },
         "validation": {
             "record_count": len(all_records),
-            "all_mandatory_fields_present": all(item["mandatory_fields_present"] for item in validation),
-            "all_field_audits_complete": all(item["field_audits_complete"] for item in validation),
-            "no_success_labels": not any(item["contains_semantic_success_label"] for item in validation),
-            "resources_valid_vectors": all(item["resources_are_optional_vector"] for item in validation),
+            "records_available": bool(all_records),
+            "all_mandatory_fields_present": all(item["mandatory_fields_present"] for item in validation) if validation else None,
+            "all_field_audits_complete": all(item["field_audits_complete"] for item in validation) if validation else None,
+            "no_success_labels": (not any(item["contains_semantic_success_label"] for item in validation)) if validation else None,
+            "resources_valid_vectors": all(item["resources_are_optional_vector"] for item in validation) if validation else None,
         },
         "gate": {
             "decision": "A",
             "meaning": "minimum observability identified: before, opaque intervention, after, and provenance; resources remain an independent optional vector",
+            "analytical_basis": "field-removal counterexamples; these do not read any frozen source",
+            "transport_basis": sorted(adapted),
+            "transport_basis_complete": reproduction["independently_reproduced"],
             "phase5_started": False,
             "new_product_implementation_started": False,
         },
