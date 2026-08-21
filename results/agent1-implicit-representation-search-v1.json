@@ -1,0 +1,109 @@
+{
+  "protocol": "agent1-implicit-representation-search-v1",
+  "starting_commit": "19060209153d425969f8ecc67b0e175cc7916691",
+  "corpus_policy": "no new corpus; finite generated fixtures only",
+  "explicit_graph": {
+    "status": "EXACT_OPTIMUM",
+    "route": ["R0", "R1", "R2"],
+    "acquisition_cost": 6,
+    "terminal_cost_per_use": 1,
+    "reuse_horizon": 2,
+    "route_cost": 8,
+    "direct_cost": 20,
+    "optimality_gap": 0
+  },
+  "greedy_counterexample": {
+    "greedy_choice": "GB",
+    "greedy_local_score": 15,
+    "exact_route": ["G0", "GA", "GA2"],
+    "exact_route_cost": 3,
+    "status": "COUNTEREXAMPLE"
+  },
+  "bounded_search": {
+    "status": "BOUNDED_INCUMBENT",
+    "expansion_budget": 1,
+    "incumbent": 100,
+    "lower_bound": 2,
+    "optimality_gap": 98
+  },
+  "lower_bound_experiment": {
+    "uninformed_expanded": 40,
+    "admissible_lower_bound_expanded": 1,
+    "uninformed_generated": 39,
+    "admissible_lower_bound_generated": 3,
+    "same_optimum": true
+  },
+  "no_better_route": {
+    "status": "NO_BETTER_ROUTE",
+    "direct_cost": 10,
+    "best_cost": 10,
+    "optimality_gap": 0,
+    "certificate": "generated continuation is bounded below by the direct incumbent"
+  },
+  "preservation_failure": {
+    "status": "NO_BETTER_ROUTE",
+    "invalid_transition": "INVALID_FOR_TASK",
+    "preservation_failures": 1
+  },
+  "quotient_regression": {
+    "status": "EXACT_OPTIMUM",
+    "generated_by": "merge_compatible_blocks",
+    "route": [
+      "partition:((0,), (1,), (2,), (3,))",
+      "partition:((0, 1), (2,), (3,))",
+      "partition:((0, 1, 2), (3,))"
+    ],
+    "expected_minimum_blocks": 2,
+    "matches_existing_exact_solver": true
+  },
+  "directed_reachability": {
+    "small_workload": {
+      "queries": 1,
+      "winner": "SOLVE_DIRECT",
+      "direct_cost": 13
+    },
+    "reused_workload": {
+      "queries": 10,
+      "winner_route": ["RAW_GRAPH", "SCC_CONDENSATION_DAG", "SCC_REACHABILITY_INDEX"],
+      "direct_cost": 130,
+      "multi_step_cost": 69,
+      "one_step_scc_cost": 76,
+      "one_step_closure_cost": 209,
+      "answers_preserved": true,
+      "multi_step_beats_all_one_step": true
+    }
+  },
+  "reuse_frontier": {
+    "routes": [
+      {"id": "direct", "D": "0", "A": "10"},
+      {"id": "middle", "D": "3", "A": "8"},
+      {"id": "fast", "D": "6", "A": "0"}
+    ],
+    "all_non_dominated": true,
+    "integer_optimum": "fast for every n>=1",
+    "non_dominated_never_optimal": ["direct", "middle"]
+  },
+  "complexity": {
+    "explicit_route_graph": "POLYNOMIAL shortest path",
+    "implicit_generator_search": "KNOWN_EXPONENTIAL worst case in reachable generated states",
+    "quotient_discovery": "NP-HARD by existing Set-Cover reduction",
+    "bounded_search": "sound incumbent and lower-bound certificate"
+  },
+  "epistemic_status": {
+    "PROVED": ["explicit graph reduction", "same-preservation D/A dominance", "admissible lower-bound stopping under stated assumption"],
+    "KNOWN_RESULT": ["implicit quotient discovery inherits Set-Cover hardness"],
+    "VERIFIED_FINITE_CASE": ["quotient bridge", "directed reachability composition", "bounded search"],
+    "COUNTEREXAMPLE": ["greedy local choice", "non-dominated route never optimal at integer horizons"],
+    "UNKNOWN": ["universal implicit representation language", "universal admissible heuristic", "general preservation composition"]
+  },
+  "literature_audit": [
+    {"theory": "Dijkstra", "classification": "ESTABLISHED_THEORY", "source": "https://ir.cwi.nl/pub/23612"},
+    {"theory": "A*", "classification": "ESTABLISHED_THEORY", "source": "https://www.cs.auckland.ac.nz/courses/compsci709s2c/resources/Mike.d/astarNilsson.pdf"},
+    {"theory": "STRIPS", "classification": "FORMAL_ANALOGY", "source": "https://ai.stanford.edu/~nilsson/publications.html"},
+    {"theory": "equality saturation", "classification": "SPECIALIZED_REPRESENTATION_SEARCH", "source": "https://homes.cs.washington.edu/~cnandi/docs/popl21-cr.pdf"},
+    {"theory": "knowledge compilation", "classification": "ESTABLISHED_THEORY", "source": "https://www.cril.univ-artois.fr/~marquis/darwiche-marquis-jair02.pdf"},
+    {"theory": "superoptimization", "classification": "ANALOGY", "source": "https://www.brinckerhoff.org/clements/2214-csc530/Files/massalin-1987.pdf"},
+    {"theory": "physical index selection", "classification": "KNOWN_RESULT", "source": "https://doi.org/10.1093/comjnl/28.4.398"},
+    {"theory": "multiobjective shortest path", "classification": "FORMAL_ANALOGY", "source": "https://arxiv.org/abs/1802.08637"}
+  ]
+}
