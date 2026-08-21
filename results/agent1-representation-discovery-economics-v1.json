@@ -1,0 +1,129 @@
+{
+  "protocol": "agent1-representation-discovery-economics-v1",
+  "starting_commit": "f3f8816ad9e49c95668ef5030354d169d983e1a7",
+  "corpus_policy": "no new corpus; finite mathematical fixtures only",
+  "cost_decomposition": {
+    "direct": "C_direct(n)=nB",
+    "reusable_transform": "C_transform(n)=D+nA",
+    "non_reusable_transform": "C_transform(n)=n(D+A)",
+    "D": "discovery + apply",
+    "stages": ["EXISTENCE", "DISCOVERY", "CONSTRUCTION", "EXPLOITATION"]
+  },
+  "theorems": {
+    "break_even": {
+      "status": "PROVED",
+      "statement": "For reusable D>=0 and B>A, the least positive n with D+nA<nB is floor(D/(B-A))+1; if B<=A there is no break-even.",
+      "implementation": "exact_break_even_count"
+    },
+    "portfolio_selection": {
+      "status": "PROVED",
+      "statement": "After an explicit finite portfolio and one resource policy are supplied, route selection is a finite minimum over exact cost vectors.",
+      "scope": "candidate evaluation, not transformation discovery"
+    }
+  },
+  "false_principle": {
+    "status": "DISPROVED",
+    "statement": "T(R) easier than R implies transforming is preferable",
+    "counterexample": {
+      "B": 10,
+      "discovery": 8,
+      "apply": 3,
+      "A": 1,
+      "n": 1,
+      "direct_total": 10,
+      "transform_total": 12,
+      "selector": "SOLVE_DIRECT",
+      "break_even": 2
+    }
+  },
+  "positive_case": {
+    "source_regime": "GENERAL_SET_COVER",
+    "target_regime": "UNIQUE_OPTIMUM",
+    "decision_preserved": true,
+    "B": 10,
+    "discovery": 2,
+    "apply": 1,
+    "A": 3,
+    "n": 1,
+    "transform_total": 6,
+    "selector": "cheap_task_sufficient_quotient"
+  },
+  "amortized_case": {
+    "B": 10,
+    "discovery": 5,
+    "apply": 3,
+    "A": 4,
+    "break_even": 2,
+    "n1": {"direct": 10, "transform": 12, "selector": "SOLVE_DIRECT"},
+    "n2": {"direct": 20, "transform": 16, "selector": "compiled_reusable_representation"}
+  },
+  "preservation": {
+    "lossy_candidate": "pruned",
+    "rule": "TASK_NOT_PRESERVED",
+    "risk_degradation": "1/10",
+    "allowed_degradation": "0"
+  },
+  "meta_solver_integration": {
+    "one_step": "transformation_discovery_probe -> choose_next_computation",
+    "sequential": "transformation_discovery_probe -> solve_sequential_meta_decision",
+    "scalarization": "none by default; route comparison requires explicit resource"
+  },
+  "outside_opt_r": {
+    "task": "undirected_connectivity",
+    "structural_property": "connected_components",
+    "before": "BFS/DFS_PER_QUERY",
+    "after": "COMPONENT_LABEL_LOOKUP",
+    "direct_total_for_3_queries": 33,
+    "transformed_total_for_3_queries": 19,
+    "break_even_queries": 2,
+    "task_preserved": true,
+    "verdict": "GENERALIZES_WITH_NEW_OBJECT"
+  },
+  "complexity": {
+    "known_route_evaluation": "POLYNOMIAL",
+    "finite_portfolio_selection": "POLYNOMIAL",
+    "break_even": "O(1)",
+    "exact_task_sufficient_discovery": "NP-HARD by existing Set-Cover reduction",
+    "sequential_search": "KNOWN_EXPONENTIAL in probes/reachable states",
+    "general_representation_discovery": "UNKNOWN"
+  },
+  "literature_audit": [
+    {
+      "theory": "knowledge compilation",
+      "classification": "ESTABLISHED_THEORY",
+      "source": "https://www.cril.univ-artois.fr/~marquis/darwiche-marquis-jair02.pdf"
+    },
+    {
+      "theory": "kernelization / parameterized preprocessing",
+      "classification": "FORMAL_SPECIAL_CASE",
+      "source": "https://arxiv.org/abs/1104.4217"
+    },
+    {
+      "theory": "incompressibility and polynomial kernels",
+      "classification": "ESTABLISHED_LOWER_BOUND",
+      "source": "https://doi.org/10.1145/1374376.1374398"
+    },
+    {
+      "theory": "cell-probe preprocessing/query tradeoffs",
+      "classification": "ESTABLISHED_THEORY",
+      "source": "https://doi.org/10.1137/S0097539705447256"
+    },
+    {
+      "theory": "algorithm selection",
+      "classification": "ESTABLISHED_THEORY",
+      "source": "https://doi.org/10.1016/S0065-2458(08)60520-3"
+    },
+    {
+      "theory": "value of computation / metareasoning",
+      "classification": "IMPORTED_THEORY",
+      "source": "https://doi.org/10.1016/0004-3702(91)90015-C"
+    }
+  ],
+  "status": {
+    "PROVED": ["cost decomposition", "strict break-even", "exact preservation pruning", "finite route selection"],
+    "KNOWN_RESULT": ["knowledge compilation and kernelization are established neighbors", "exact quotient discovery is NP-hard in existing reduction"],
+    "DISPROVED": ["easier transformed representation is automatically preferable"],
+    "CONJECTURE": [],
+    "UNKNOWN": ["general discovery complexity", "universal structural analyzer outside supplied finite objects"]
+  }
+}
