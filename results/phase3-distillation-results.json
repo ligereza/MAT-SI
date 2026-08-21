@@ -1,0 +1,1141 @@
+{
+  "controlled_controls": {
+    "no_useful_shared_abstraction": {
+      "baselines": {
+        "compression_only_selection": {
+          "candidate": "anti_unification",
+          "compression_gain": 19,
+          "description_cost": 378,
+          "semantic_test_performed": false,
+          "would_keep_compressed_description": true
+        },
+        "exact_structural_matching": {
+          "explains_pair": false,
+          "matches": false
+        },
+        "naive_subtree_recurrence": {
+          "common_subtree_count": 25,
+          "largest_common_subtree_bytes": 61,
+          "predicts_semantics": false,
+          "reconstructs_pair": false
+        },
+        "simple_anti_unification": {
+          "compression_gain": 19,
+          "reconstructs_pair": true,
+          "semantic_equivalence": false
+        }
+      },
+      "candidate_G": {
+        "compression_gain": 19,
+        "description_cost": 378,
+        "generalization": {
+          "meta": {
+            "flags": [
+              "u",
+              "v"
+            ],
+            "limits": {
+              "high": 100,
+              "low": 0
+            },
+            "version": 1
+          },
+          "name": {
+            "$var": "v0"
+          },
+          "program": {
+            "$var": "v1"
+          }
+        },
+        "left_semantic_signature": [
+          0,
+          7,
+          14,
+          35
+        ],
+        "provenance": {
+          "inputs": [
+            "chi",
+            "psi"
+          ],
+          "method": "structural_anti_unification"
+        },
+        "raw_description_cost": 397,
+        "reconstruction_left": true,
+        "reconstruction_right": true,
+        "residue_left": {
+          "v0": "chi",
+          "v1": [
+            {
+              "op": "get",
+              "path": [
+                "x"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 7
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "residue_right": {
+          "v0": "psi",
+          "v1": [
+            {
+              "op": "get",
+              "path": [
+                "nested",
+                "q"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 3
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "const",
+              "value": 2
+            },
+            {
+              "op": "mul"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "residue_size_left": 99,
+        "residue_size_right": 146,
+        "right_semantic_signature": [
+          6,
+          8,
+          10,
+          16
+        ],
+        "semantic_equivalence": false,
+        "shared_structure_nodes": 23
+      },
+      "pair": "u_f+u_g",
+      "rejection_reason": "semantic_mismatch",
+      "signals": {
+        "compression_gain": 19,
+        "semantic_equivalence": false,
+        "structural_recurrence": 23
+      },
+      "useful_abstraction": false
+    },
+    "partial_shared_structure": {
+      "baselines": {
+        "compression_only_selection": {
+          "candidate": "anti_unification",
+          "compression_gain": 41,
+          "description_cost": 313,
+          "semantic_test_performed": false,
+          "would_keep_compressed_description": true
+        },
+        "exact_structural_matching": {
+          "explains_pair": false,
+          "matches": false
+        },
+        "naive_subtree_recurrence": {
+          "common_subtree_count": 23,
+          "largest_common_subtree_bytes": 61,
+          "predicts_semantics": false,
+          "reconstructs_pair": false
+        },
+        "simple_anti_unification": {
+          "compression_gain": 41,
+          "reconstructs_pair": true,
+          "semantic_equivalence": false
+        }
+      },
+      "candidate_G": {
+        "compression_gain": 41,
+        "description_cost": 313,
+        "generalization": {
+          "meta": {
+            "flags": [
+              "u",
+              "v"
+            ],
+            "limits": {
+              "high": 100,
+              "low": 0
+            },
+            "version": 1
+          },
+          "name": {
+            "$var": "v0"
+          },
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                {
+                  "$var": "v1"
+                }
+              ]
+            },
+            {
+              "op": "const",
+              "value": {
+                "$var": "v2"
+              }
+            },
+            {
+              "op": {
+                "$var": "v3"
+              }
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "left_semantic_signature": [
+          2,
+          3,
+          4,
+          7
+        ],
+        "provenance": {
+          "inputs": [
+            "phi",
+            "chi"
+          ],
+          "method": "structural_anti_unification"
+        },
+        "raw_description_cost": 354,
+        "reconstruction_left": true,
+        "reconstruction_right": true,
+        "residue_left": {
+          "v0": "phi",
+          "v1": "value",
+          "v2": 2,
+          "v3": "add"
+        },
+        "residue_right": {
+          "v0": "chi",
+          "v1": "x",
+          "v2": 7,
+          "v3": "mul"
+        },
+        "residue_size_left": 43,
+        "residue_size_right": 39,
+        "right_semantic_signature": [
+          0,
+          7,
+          14,
+          35
+        ],
+        "semantic_equivalence": false,
+        "shared_structure_nodes": 44
+      },
+      "pair": "u_e+u_f",
+      "rejection_reason": "semantic_mismatch",
+      "signals": {
+        "compression_gain": 41,
+        "semantic_equivalence": false,
+        "structural_recurrence": 44
+      },
+      "useful_abstraction": false
+    },
+    "same_transformation_different_names": {
+      "baselines": {
+        "compression_only_selection": {
+          "candidate": "anti_unification",
+          "compression_gain": 129,
+          "description_cost": 244,
+          "semantic_test_performed": false,
+          "would_keep_compressed_description": true
+        },
+        "exact_structural_matching": {
+          "explains_pair": false,
+          "matches": false
+        },
+        "naive_subtree_recurrence": {
+          "common_subtree_count": 29,
+          "largest_common_subtree_bytes": 85,
+          "predicts_semantics": false,
+          "reconstructs_pair": false
+        },
+        "simple_anti_unification": {
+          "compression_gain": 129,
+          "reconstructs_pair": true,
+          "semantic_equivalence": true
+        }
+      },
+      "candidate_G": {
+        "compression_gain": 129,
+        "description_cost": 244,
+        "generalization": {
+          "meta": {
+            "flags": [
+              "u",
+              "v"
+            ],
+            "limits": {
+              "high": 100,
+              "low": 0
+            },
+            "version": 1
+          },
+          "name": {
+            "$var": "v0"
+          },
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": 1
+            },
+            {
+              "op": "add"
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "left_semantic_signature": [
+          1,
+          2,
+          3,
+          6
+        ],
+        "provenance": {
+          "inputs": [
+            "left_label",
+            "right_label"
+          ],
+          "method": "structural_anti_unification"
+        },
+        "raw_description_cost": 373,
+        "reconstruction_left": true,
+        "reconstruction_right": true,
+        "residue_left": {
+          "v0": "left_label"
+        },
+        "residue_right": {
+          "v0": "right_label"
+        },
+        "residue_size_left": 19,
+        "residue_size_right": 20,
+        "right_semantic_signature": [
+          1,
+          2,
+          3,
+          6
+        ],
+        "semantic_equivalence": true,
+        "shared_structure_nodes": 38
+      },
+      "pair": "u_n1+u_n2",
+      "rejection_reason": null,
+      "signals": {
+        "compression_gain": 129,
+        "semantic_equivalence": true,
+        "structural_recurrence": 38
+      },
+      "useful_abstraction": true
+    },
+    "similar_surface_different_behavior": {
+      "baselines": {
+        "compression_only_selection": {
+          "candidate": "anti_unification",
+          "compression_gain": 73,
+          "description_cost": 289,
+          "semantic_test_performed": false,
+          "would_keep_compressed_description": true
+        },
+        "exact_structural_matching": {
+          "explains_pair": false,
+          "matches": false
+        },
+        "naive_subtree_recurrence": {
+          "common_subtree_count": 25,
+          "largest_common_subtree_bytes": 61,
+          "predicts_semantics": false,
+          "reconstructs_pair": false
+        },
+        "simple_anti_unification": {
+          "compression_gain": 73,
+          "reconstructs_pair": true,
+          "semantic_equivalence": false
+        }
+      },
+      "candidate_G": {
+        "compression_gain": 73,
+        "description_cost": 289,
+        "generalization": {
+          "meta": {
+            "flags": [
+              "u",
+              "v"
+            ],
+            "limits": {
+              "high": 100,
+              "low": 0
+            },
+            "version": 1
+          },
+          "name": {
+            "$var": "v0"
+          },
+          "program": [
+            {
+              "op": "get",
+              "path": [
+                "value"
+              ]
+            },
+            {
+              "op": "const",
+              "value": {
+                "$var": "v1"
+              }
+            },
+            {
+              "op": {
+                "$var": "v2"
+              }
+            },
+            {
+              "op": "return"
+            }
+          ]
+        },
+        "left_semantic_signature": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "provenance": {
+          "inputs": [
+            "upsilon",
+            "phi"
+          ],
+          "method": "structural_anti_unification"
+        },
+        "raw_description_cost": 362,
+        "reconstruction_left": true,
+        "reconstruction_right": true,
+        "residue_left": {
+          "v0": "upsilon",
+          "v1": 1,
+          "v2": "mul"
+        },
+        "residue_right": {
+          "v0": "phi",
+          "v1": 2,
+          "v2": "add"
+        },
+        "residue_size_left": 34,
+        "residue_size_right": 30,
+        "right_semantic_signature": [
+          2,
+          3,
+          4,
+          7
+        ],
+        "semantic_equivalence": false,
+        "shared_structure_nodes": 42
+      },
+      "pair": "u_d+u_e",
+      "rejection_reason": "semantic_mismatch",
+      "signals": {
+        "compression_gain": 73,
+        "semantic_equivalence": false,
+        "structural_recurrence": 42
+      },
+      "useful_abstraction": false
+    }
+  },
+  "corpus": {
+    "u_a": {
+      "rule": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": "rho",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      }
+    },
+    "u_b": {
+      "rule": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": "sigma",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "payload",
+              "n"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      }
+    },
+    "u_c": {
+      "rule": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": "tau",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "packet",
+              "count"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      }
+    },
+    "u_d": {
+      "rule": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": "upsilon",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "mul"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      }
+    },
+    "u_e": {
+      "rule": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": "phi",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 2
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      }
+    },
+    "u_f": {
+      "rule": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": "chi",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "x"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 7
+          },
+          {
+            "op": "mul"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      }
+    },
+    "u_g": {
+      "rule": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": "psi",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "nested",
+              "q"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 3
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "const",
+            "value": 2
+          },
+          {
+            "op": "mul"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      }
+    },
+    "u_n1": {
+      "rule": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": "left_label",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      }
+    },
+    "u_n2": {
+      "rule": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": "right_label",
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "value"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      }
+    }
+  },
+  "cross_representation": {
+    "G_survives_surface_change_after_represented_normalization": true,
+    "normalized_surface": {
+      "compression_gain": 43,
+      "generalization": {
+        "program": [
+          {
+            "op": "get",
+            "path": {
+              "$var": "v0"
+            }
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      },
+      "normalized_b": {
+        "program": [
+          {
+            "op": "get",
+            "path": [
+              "payload",
+              "n"
+            ]
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      },
+      "reconstructs_b": true,
+      "semantic_equivalence": true
+    },
+    "provenance": {
+      "source": "represented_normalization_then_distillation"
+    },
+    "raw_layout_alone_would_fail": true,
+    "raw_surface": {
+      "compression_gain": -45,
+      "exact_match": false,
+      "generalization": {
+        "$var": "v0"
+      },
+      "semantic_equivalence_available": false
+    },
+    "represented_normalization_rules": [
+      {
+        "pattern": {
+          "steps": {
+            "$var": "items"
+          }
+        },
+        "replacement": {
+          "program": {
+            "$var": "items"
+          }
+        }
+      },
+      {
+        "pattern": {
+          "kind": "read",
+          "target": {
+            "$var": "path"
+          }
+        },
+        "replacement": {
+          "op": "get",
+          "path": {
+            "$var": "path"
+          }
+        }
+      },
+      {
+        "pattern": {
+          "content": {
+            "$var": "value"
+          },
+          "kind": "literal"
+        },
+        "replacement": {
+          "op": "const",
+          "value": {
+            "$var": "value"
+          }
+        }
+      },
+      {
+        "pattern": {
+          "kind": "combine",
+          "symbol": "+"
+        },
+        "replacement": {
+          "op": "add"
+        }
+      },
+      {
+        "pattern": {
+          "kind": "emit"
+        },
+        "replacement": {
+          "op": "return"
+        }
+      }
+    ],
+    "surface_a": {
+      "program": [
+        {
+          "op": "get",
+          "path": [
+            "value"
+          ]
+        },
+        {
+          "op": "const",
+          "value": 1
+        },
+        {
+          "op": "add"
+        },
+        {
+          "op": "return"
+        }
+      ]
+    },
+    "surface_b": {
+      "steps": [
+        {
+          "kind": "read",
+          "target": [
+            "payload",
+            "n"
+          ]
+        },
+        {
+          "content": 1,
+          "kind": "literal"
+        },
+        {
+          "kind": "combine",
+          "symbol": "+"
+        },
+        {
+          "kind": "emit"
+        }
+      ]
+    }
+  },
+  "discovery_from_A_B": {
+    "baselines": {
+      "compression_only_selection": {
+        "candidate": "anti_unification",
+        "compression_gain": 95,
+        "description_cost": 271,
+        "semantic_test_performed": false,
+        "would_keep_compressed_description": true
+      },
+      "exact_structural_matching": {
+        "explains_pair": false,
+        "matches": false
+      },
+      "naive_subtree_recurrence": {
+        "common_subtree_count": 26,
+        "largest_common_subtree_bytes": 61,
+        "predicts_semantics": false,
+        "reconstructs_pair": false
+      },
+      "simple_anti_unification": {
+        "compression_gain": 95,
+        "reconstructs_pair": true,
+        "semantic_equivalence": true
+      }
+    },
+    "candidate_G": {
+      "compression_gain": 95,
+      "description_cost": 271,
+      "generalization": {
+        "meta": {
+          "flags": [
+            "u",
+            "v"
+          ],
+          "limits": {
+            "high": 100,
+            "low": 0
+          },
+          "version": 1
+        },
+        "name": {
+          "$var": "v0"
+        },
+        "program": [
+          {
+            "op": "get",
+            "path": {
+              "$var": "v1"
+            }
+          },
+          {
+            "op": "const",
+            "value": 1
+          },
+          {
+            "op": "add"
+          },
+          {
+            "op": "return"
+          }
+        ]
+      },
+      "left_semantic_signature": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "provenance": {
+        "inputs": [
+          "rho",
+          "sigma"
+        ],
+        "method": "structural_anti_unification"
+      },
+      "raw_description_cost": 366,
+      "reconstruction_left": true,
+      "reconstruction_right": true,
+      "residue_left": {
+        "v0": "rho",
+        "v1": [
+          "value"
+        ]
+      },
+      "residue_right": {
+        "v0": "sigma",
+        "v1": [
+          "payload",
+          "n"
+        ]
+      },
+      "residue_size_left": 27,
+      "residue_size_right": 35,
+      "right_semantic_signature": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "semantic_equivalence": true,
+      "shared_structure_nodes": 39
+    },
+    "pair": "u_a+u_b",
+    "rejection_reason": null,
+    "signals": {
+      "compression_gain": 95,
+      "semantic_equivalence": true,
+      "structural_recurrence": 39
+    },
+    "useful_abstraction": true
+  },
+  "full_repository_ingestion": false,
+  "gate": {
+    "decision": "A",
+    "full_repository_ingestion_started": false,
+    "unresolved_counterexample": null
+  },
+  "gate_answers": {
+    "G_survives_surface_representation_change": true,
+    "derive_G_without_being_told": true,
+    "held_out_C_has_measurable_value": true,
+    "reconstruct_A_B_from_G_residue": true,
+    "reject_misleading_similarity": true,
+    "residue": {
+      "A": {
+        "v0": "rho",
+        "v1": [
+          "value"
+        ]
+      },
+      "B": {
+        "v0": "sigma",
+        "v1": [
+          "payload",
+          "n"
+        ]
+      },
+      "C": {
+        "v0": "tau",
+        "v1": [
+          "packet",
+          "count"
+        ]
+      },
+      "meaning": "surface path/name differences not explained by shared program skeleton"
+    },
+    "useful_signal": {
+      "combination_required": true,
+      "compression": true,
+      "semantics": true,
+      "structure": true
+    }
+  },
+  "held_out_C": {
+    "G_explanation_cost": 227,
+    "G_marginal_explanation_cost": 62,
+    "description_advantage": true,
+    "generic_baseline_cost": 188,
+    "held_out_id": "tau",
+    "held_out_signature": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "matches_G": true,
+    "participated_in_discovery": false,
+    "predicted_signature": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "predicts_property": true,
+    "provenance": {
+      "discovery_pair": "u_a+u_b",
+      "source": "frozen_discovery_G"
+    },
+    "reconstruction": true,
+    "residue": {
+      "v0": "tau",
+      "v1": [
+        "packet",
+        "count"
+      ]
+    },
+    "residue_size": 36
+  },
+  "phase1_closed": true,
+  "phase2_closed": true,
+  "protocol": "phase3-distillation",
+  "signals_kept_separate": true
+}

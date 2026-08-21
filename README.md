@@ -53,3 +53,14 @@ frozen Phase 1 evaluator:
 ```text
 python -m matsi.self_reference --json-out results/phase2-self-reference-results.json
 ```
+
+## Phase 3
+
+The controlled distillation gate runs without repository ingestion:
+
+```text
+python -m matsi.distillation --json-out results/phase3-distillation-results.json
+```
+
+See `docs/phase3-distillation.md` for discovery, residue, negative-control, held-out,
+and cross-representation results.
