@@ -1,0 +1,42 @@
+{
+  "protocol": "codeine-v0-real-session",
+  "baseline_commit": "c97f754",
+  "branch": "product/codeine-v0",
+  "session_id": "dfa2dcea296f4c86b3c4e7e56bc20a9b",
+  "task": "añadir salida resumida y auditable a assess",
+  "test_command_digest": "eac1cd1e50a81a4bc9506e29b0d68a8769a96e65da4acccdee80e510d209c72f",
+  "attempt_count": 11,
+  "attempts": [
+    {"id": "attempt-0001", "state_changed": true, "test_exit_code": 1, "elapsed_ms": 8692.218},
+    {"id": "attempt-0002", "state_changed": true, "test_exit_code": 1, "elapsed_ms": 8798.154},
+    {"id": "attempt-0003", "state_changed": true, "test_exit_code": 1, "elapsed_ms": 8191.14},
+    {"id": "attempt-0004", "state_changed": true, "test_exit_code": 0, "elapsed_ms": 8018.943},
+    {"id": "attempt-0005", "state_changed": true, "test_exit_code": 0, "elapsed_ms": 8168.078},
+    {"id": "attempt-0006", "state_changed": true, "test_exit_code": 0, "elapsed_ms": 7515.016},
+    {"id": "attempt-0007", "state_changed": true, "test_exit_code": 0, "elapsed_ms": 7616.429},
+    {"id": "attempt-0008", "state_changed": true, "test_exit_code": 0, "elapsed_ms": 9089.601},
+    {"id": "attempt-0009", "state_changed": false, "test_exit_code": 0, "elapsed_ms": 8451.364},
+    {"id": "attempt-0010", "state_changed": true, "test_exit_code": 0, "elapsed_ms": 8254.813},
+    {"id": "attempt-0011", "state_changed": false, "test_exit_code": 0, "elapsed_ms": 7746.562}
+  ],
+  "observer_findings": {
+    "initial_residue": "before normalization, repeated failing test runs changed raw stderr digests because temporary paths and the unittest duration were present",
+    "correction": "raw output remains represented by its digest; stable state comparison removes only temporary-path and duration residue",
+    "stable_repetition": ["attempt-0009", "attempt-0011"],
+    "foundation_counterexample": false
+  },
+  "recommendations": [
+    {"id": "recommendation-0001", "decision": "CONTINUE", "evidence_for": [], "evidence_against": ["attempt-0001"]},
+    {"id": "recommendation-0002", "decision": "CONTINUE", "evidence_for": [], "evidence_against": ["attempt-0001", "attempt-0002"]},
+    {"id": "recommendation-0003", "decision": "CONTINUE", "evidence_for": ["attempt-0009"], "evidence_against": ["attempt-0001", "attempt-0002", "attempt-0003", "attempt-0004", "attempt-0005", "attempt-0006", "attempt-0007", "attempt-0008"]},
+    {"id": "recommendation-0004", "decision": "CONTINUE", "evidence_for": ["attempt-0011"], "evidence_against": ["attempt-0001", "attempt-0002", "attempt-0003", "attempt-0004", "attempt-0005", "attempt-0006", "attempt-0007", "attempt-0008", "attempt-0010"], "evidence_strength": "weak_repetition"}
+  ],
+  "final_observation": {"recorded": true, "test_exit_code": 0},
+  "gate": {
+    "decision": "B",
+    "meaning": "CODEINE operated on a real coding session and correctly remained CONTINUE; no SWITCH or STOP was justified",
+    "causal_help_claimed": false,
+    "phase5_started": false,
+    "other_products_started": false
+  }
+}

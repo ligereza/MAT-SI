@@ -1,10 +1,13 @@
 import json
+from contextlib import redirect_stdout
+from io import StringIO
 from pathlib import Path
 import subprocess
 import tempfile
 import unittest
 
-from codeine.core import assess, checkpoint, finish, start
+from codeine.cli import main
+from codeine.core import _stable_output, assess, capture_snapshot, checkpoint, finish, start
 
 
 class CodeineV0Tests(unittest.TestCase):
@@ -68,6 +71,20 @@ class CodeineV0Tests(unittest.TestCase):
             checkpoint(session, "opaque-1")
             self.assertEqual(assess(session)["decision"], "UNKNOWN")
 
+    def test_test_output_digest_keeps_raw_and_normalizes_temp_residue(self):
+        left = b'File "C:\\Temp\\tmpaaaa\\test.py", line 1\n'
+        right = b'File "C:\\Temp\\tmpbbbb\\test.py", line 1\n'
+        self.assertNotEqual(left, right)
+        self.assertEqual(_stable_output(left), _stable_output(right))
+
+    def test_identical_observations_have_the_same_state_digest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            repo = self._repo(Path(directory))
+            command = 'python -c "print(\'stable\')"'
+            left = capture_snapshot(repo, command)
+            right = capture_snapshot(repo, command)
+            self.assertEqual(left["state_digest"], right["state_digest"])
+
     def test_consequence_is_observed_without_claiming_causality(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -87,6 +104,24 @@ class CodeineV0Tests(unittest.TestCase):
             self.assertFalse(consequence["causal_effect_claimed"])
             summary = finish(session)["summary"]
             self.assertEqual(summary["attempt_count"], 3)
+
+    def test_assess_summary_output_is_small_and_evidenced(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            repo = self._repo(root)
+            session = root / "session.json"
+            command = 'python -c "print(\'stable\')"'
+            start(repo, session, command)
+            (repo / "value.txt").write_text("summary\n", encoding="utf-8")
+            checkpoint(session, "opaque-summary")
+            assess(session)
+            output = StringIO()
+            with redirect_stdout(output):
+                exit_code = main(["assess", "--session", str(session), "--summary"])
+            self.assertEqual(exit_code, 0)
+            payload = json.loads(output.getvalue())
+            self.assertEqual(payload["decision"], "CONTINUE")
+            self.assertIn("evidence_against", payload)
 
 
 if __name__ == "__main__":

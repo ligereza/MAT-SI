@@ -6,7 +6,9 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import re
 import subprocess
+import tempfile
 import time
 from typing import Any
 from uuid import uuid4
@@ -36,6 +38,15 @@ def _digest(value: Any) -> str:
     else:
         payload = _canonical(value).encode("utf-8")
     return hashlib.sha256(payload).hexdigest()
+
+
+def _stable_output(value: bytes) -> str:
+    """Remove only local temporary-path residue from a test-output digest."""
+    text = value.decode("utf-8", errors="replace")
+    temp_root = str(Path(tempfile.gettempdir()))
+    text = text.replace(temp_root, "<TEMP>").replace(temp_root.replace("\\", "/"), "<TEMP>")
+    text = re.sub(r"(?i)tmp[a-z0-9_-]{4,}", "<TMP>", text)
+    return re.sub(r"Ran (\d+) tests in [0-9.]+s", r"Ran \1 tests in <DURATION>s", text)
 
 
 def _session_path(path: Path | str | None) -> Path:
@@ -104,9 +115,15 @@ def _test_snapshot(repo: Path, command: str | None) -> tuple[dict[str, Any], dic
         "exit_code": result.returncode,
         "stdout_digest": _digest(result.stdout),
         "stderr_digest": _digest(result.stderr),
+        "stable_stdout_digest": _digest(_stable_output(result.stdout)),
+        "stable_stderr_digest": _digest(_stable_output(result.stderr)),
         "duration_ms": elapsed_ms,
     }
-    stable = {key: value for key, value in snapshot.items() if key != "duration_ms"}
+    stable = {
+        key: value
+        for key, value in snapshot.items()
+        if key not in {"duration_ms", "stdout_digest", "stderr_digest"}
+    }
     return snapshot, {"elapsed_ms": elapsed_ms, "test_state_digest": _digest(stable)}
 
 
@@ -137,7 +154,11 @@ def capture_snapshot(repo: Path, test_command: str | None) -> dict[str, Any]:
     }
     stable = {
         "git": git_state,
-        "test": {key: value for key, value in test.items() if key != "duration_ms"},
+        "test": {
+            key: value
+            for key, value in test.items()
+            if key not in {"duration_ms", "stdout_digest", "stderr_digest"}
+        },
     }
     return {
         "captured_at": _now(),
@@ -371,6 +392,10 @@ def assess(session: Path | str | None = None) -> dict[str, Any]:
         decision = "SWITCH"
         strength = "moderate"
         reason = "two consecutive unchanged observable boundaries with measured resource consumption"
+    elif len(trailing_unchanged) == 1:
+        decision = "CONTINUE"
+        strength = "weak_repetition"
+        reason = "one unchanged observable boundary; the intervention threshold has not been reached"
     else:
         decision = "CONTINUE"
         strength = "observed_change"

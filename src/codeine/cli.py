@@ -36,6 +36,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     assess_parser = commands.add_parser("assess", help="emit the explicit persistence recommendation")
     _common_session(assess_parser)
+    assess_parser.add_argument("--summary", action="store_true", help="print only the decision and its evidence")
 
     finish_parser = commands.add_parser("finish", help="capture final observation and close the session")
     _common_session(finish_parser)
@@ -51,6 +52,16 @@ def main(argv: list[str] | None = None) -> int:
             result = checkpoint(args.session, args.token)
         elif args.command == "assess":
             result = assess(args.session)
+            if args.summary:
+                recommendation = result["recommendation"]
+                result = {
+                    "decision": result["decision"],
+                    "recommendation_id": recommendation["recommendation_id"],
+                    "evidence_for": recommendation["evidence_for"],
+                    "evidence_against": recommendation["evidence_against"],
+                    "evidence_strength": recommendation["evidence_strength"],
+                    "reason": recommendation["reason"],
+                }
         else:
             result = finish(args.session)
         _emit(result)

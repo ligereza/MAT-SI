@@ -153,6 +153,6 @@ python -m codeine assess
 python -m codeine finish
 ```
 
-See `docs/codeine-v0.md` for the contract, detector, and real-session gate. No
-dashboard, daemon, IDE integration, LLM integration, or additional product has been
-started.
+See `docs/codeine-v0.md` and `results/codeine-v0-real-session.json` for the contract,
+detector, real-session evidence, and Gate B. No dashboard, daemon, IDE integration,
+LLM integration, or additional product has been started.
