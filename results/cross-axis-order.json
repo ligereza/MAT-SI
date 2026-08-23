@@ -1,0 +1,3417 @@
+{
+  "anomalies_and_counterexamples": {
+    "negative_outcomes_preserved": true,
+    "q_large_w_small_exists_in_this_weighted_domain": true,
+    "same_w_q_message_content_changes": true,
+    "same_w_q_raw_history_and_cost_changes": true,
+    "same_w_same_q_same_message_different_raw_work": true
+  },
+  "axis_definitions": {
+    "D": "separator_domain_cells: 2**W binary boundary assignments",
+    "M": "distinct_messages plus exact value/rank/byte statistics; not one scalar",
+    "Q": "future_quotient_size: distinct full future response signatures",
+    "W": "separator_width: number of boundary variables"
+  },
+  "bounds_and_constraints": {
+    "general_bound_claimed": false,
+    "observed_controlled_quadrants": 4,
+    "q_le_distinct_messages_reason": "future response is a deterministic function of the exact message in this domain",
+    "q_le_distinct_messages_verified": true
+  },
+  "cases": [
+    {
+      "case": "small_q_small_w",
+      "discovery_resources": {
+        "discovery_history_query_evaluations": 2,
+        "discovery_partition_size": 1,
+        "discovery_query_count": 1,
+        "discovery_query_ids": [
+          0
+        ],
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "oracle_used_for_discovery": false,
+        "query_split": "first_half_of_future_queries",
+        "validation_counterexamples": 0,
+        "validation_query_ids": [
+          1
+        ],
+        "wall_ms": 0.0
+      },
+      "distinct_messages": 2,
+      "family": "A_controlled_quadrants",
+      "future_quotient_size": 1,
+      "interface_slack": {
+        "description_bytes": 6,
+        "message_classes": 1
+      },
+      "message_description_bytes": 13,
+      "minimal_sufficient_interface": {
+        "construction": "exhaustive future-signature fusion post-hoc",
+        "description_bytes": 7,
+        "future_quotient_size": 1,
+        "partition_labels": [
+          0
+        ]
+      },
+      "minimal_sufficient_messages": 1,
+      "minimality_attack": {
+        "candidate_pairs_tested": 1,
+        "fusion_complete": true,
+        "future_sufficiency_checked": true,
+        "natural_message_classes_tested": 2,
+        "oracle_used_during_discovery": false,
+        "safe_fusions": 1,
+        "unsafe_fusions": 0
+      },
+      "natural_interface": {
+        "description_bytes": 13,
+        "distinct_messages": 2,
+        "domain_cells": 2,
+        "message_digests": [
+          "463f2998327eb3a694145e6014444480b2235be84aa6cfd57871cc64f1cd816c",
+          "5aaf1e183f1faf12c327dc2fb8c223022f04684c61fc34533bff62e7e572c776"
+        ],
+        "message_matrix_rank": 2,
+        "message_nonzero_cells": 2,
+        "message_value_max": 1,
+        "message_value_min": 0,
+        "separator_width": 1
+      },
+      "posthoc": {
+        "future_signatures": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "natural_message_partition": [
+          1,
+          0
+        ],
+        "quotient_partition": [
+          0,
+          0
+        ]
+      },
+      "raw_history_count": 2,
+      "raw_input": {
+        "boundary_vars": [
+          "b0"
+        ],
+        "family": "A_controlled_quadrants",
+        "future_factors": [],
+        "future_vars": [
+          "f0"
+        ],
+        "history_vars": [
+          "h0"
+        ],
+        "kind": "layered_binary_factor_process",
+        "latent_vars": [],
+        "metadata": {
+          "future_ignores_boundary": true,
+          "quadrant": "small_Q_small_W"
+        },
+        "name": "small_q_small_w",
+        "past_factors": [
+          {
+            "name": "past_equal",
+            "scope": [
+              "h0",
+              "b0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "raw_input_digest": "f8bda644c3b038792dffaf0823acc65377cd943ba84308673da0e425b2ae933f",
+      "resource_policy": {
+        "lift_gain_declared": false,
+        "same_domain": true,
+        "scalar_collapsed": false
+      },
+      "separator_domain_cells": 2,
+      "separator_width": 1,
+      "solve_resources": {
+        "boundary_assignments": 2,
+        "future_queries": 2,
+        "future_response_operations": 8,
+        "history_assignments": 2,
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "message_cells_materialized": 4,
+        "message_matrix_rank": 2,
+        "wall_ms": 0.2037
+      },
+      "stop_rule": {
+        "decision_after_posthoc": "FREEZE",
+        "decision_before_posthoc": "FREEZE",
+        "oracle_can_change_decision": false,
+        "parameters_frozen_before_validation": true
+      }
+    },
+    {
+      "case": "small_q_large_w",
+      "discovery_resources": {
+        "discovery_history_query_evaluations": 4,
+        "discovery_partition_size": 2,
+        "discovery_query_count": 1,
+        "discovery_query_ids": [
+          0
+        ],
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "oracle_used_for_discovery": false,
+        "query_split": "first_half_of_future_queries",
+        "validation_counterexamples": 0,
+        "validation_query_ids": [
+          1
+        ],
+        "wall_ms": 0.0
+      },
+      "distinct_messages": 4,
+      "family": "A_controlled_quadrants",
+      "future_quotient_size": 2,
+      "interface_slack": {
+        "description_bytes": 124,
+        "message_classes": 2
+      },
+      "message_description_bytes": 137,
+      "minimal_sufficient_interface": {
+        "construction": "exhaustive future-signature fusion post-hoc",
+        "description_bytes": 13,
+        "future_quotient_size": 2,
+        "partition_labels": [
+          0,
+          1
+        ]
+      },
+      "minimal_sufficient_messages": 2,
+      "minimality_attack": {
+        "candidate_pairs_tested": 6,
+        "fusion_complete": true,
+        "future_sufficiency_checked": true,
+        "natural_message_classes_tested": 4,
+        "oracle_used_during_discovery": false,
+        "safe_fusions": 2,
+        "unsafe_fusions": 4
+      },
+      "natural_interface": {
+        "description_bytes": 137,
+        "distinct_messages": 4,
+        "domain_cells": 16,
+        "message_digests": [
+          "03a51fe95941af02ffe0cde07387d3c8d3ad26c9fd320b600379cc69f740008f",
+          "35d719225edbde95b2e8b9761555dff179aaa3f2b86fd378a80e901e8350fa95",
+          "87ed4e2412008f9f628e4be77ce7db8648b64f1a95fabaf27b23a30982d890f1",
+          "9c69b4e4b49f4a0a3e2f07198bf8bffab498e63e98cb97e7e68828d7dacb88b6"
+        ],
+        "message_matrix_rank": 4,
+        "message_nonzero_cells": 16,
+        "message_value_max": 1,
+        "message_value_min": 0,
+        "separator_width": 4
+      },
+      "posthoc": {
+        "future_signatures": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "natural_message_partition": [
+          3,
+          2,
+          1,
+          0
+        ],
+        "quotient_partition": [
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "raw_history_count": 4,
+      "raw_input": {
+        "boundary_vars": [
+          "b0",
+          "b1",
+          "b2",
+          "b3"
+        ],
+        "family": "A_controlled_quadrants",
+        "future_factors": [
+          {
+            "name": "future_equal_0",
+            "scope": [
+              "b0",
+              "f0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "future_vars": [
+          "f0"
+        ],
+        "history_vars": [
+          "h0",
+          "h1"
+        ],
+        "kind": "layered_binary_factor_process",
+        "latent_vars": [],
+        "metadata": {
+          "future_ignores_boundary_variables": [
+            "b1",
+            "b2",
+            "b3"
+          ],
+          "quadrant": "small_Q_large_W"
+        },
+        "name": "small_q_large_w",
+        "past_factors": [
+          {
+            "name": "past_equal_0",
+            "scope": [
+              "h0",
+              "b0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "past_equal_1",
+            "scope": [
+              "h1",
+              "b1"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "raw_input_digest": "9519ed08aaa35dce31a5f0c983180ea37864fea510beea86265463415415da5b",
+      "resource_policy": {
+        "lift_gain_declared": false,
+        "same_domain": true,
+        "scalar_collapsed": false
+      },
+      "separator_domain_cells": 16,
+      "separator_width": 4,
+      "solve_resources": {
+        "boundary_assignments": 16,
+        "future_queries": 2,
+        "future_response_operations": 128,
+        "history_assignments": 4,
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "message_cells_materialized": 64,
+        "message_matrix_rank": 4,
+        "wall_ms": 0.3777
+      },
+      "stop_rule": {
+        "decision_after_posthoc": "FREEZE",
+        "decision_before_posthoc": "FREEZE",
+        "oracle_can_change_decision": false,
+        "parameters_frozen_before_validation": true
+      }
+    },
+    {
+      "case": "large_q_small_w",
+      "discovery_resources": {
+        "discovery_history_query_evaluations": 64,
+        "discovery_partition_size": 7,
+        "discovery_query_count": 1,
+        "discovery_query_ids": [
+          0
+        ],
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "oracle_used_for_discovery": false,
+        "query_split": "first_half_of_future_queries",
+        "validation_counterexamples": 0,
+        "validation_query_ids": [
+          1
+        ],
+        "wall_ms": 0.0
+      },
+      "distinct_messages": 7,
+      "family": "A_controlled_quadrants",
+      "future_quotient_size": 7,
+      "interface_slack": {
+        "description_bytes": 0,
+        "message_classes": 0
+      },
+      "message_description_bytes": 52,
+      "minimal_sufficient_interface": {
+        "construction": "exhaustive future-signature fusion post-hoc",
+        "description_bytes": 52,
+        "future_quotient_size": 7,
+        "partition_labels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "minimal_sufficient_messages": 7,
+      "minimality_attack": {
+        "candidate_pairs_tested": 21,
+        "fusion_complete": true,
+        "future_sufficiency_checked": true,
+        "natural_message_classes_tested": 7,
+        "oracle_used_during_discovery": false,
+        "safe_fusions": 0,
+        "unsafe_fusions": 21
+      },
+      "natural_interface": {
+        "description_bytes": 52,
+        "distinct_messages": 7,
+        "domain_cells": 2,
+        "message_digests": [
+          "18b058689d010062a25cd7fb949b2abfea1757d2de45ca3abdda17db956e506b",
+          "25f4dbbe4c91acc1ffe66bc2bc384ba63b067705fc0156e8a6dcdff215d2ceda",
+          "5ae0afb6fc7bc1d8180dab4729c112d59ac670410b76f981937b6e627c0f0b19",
+          "c6632428933d838765722e6d2024fd4d967c52a284112479ca77303e7c87b832",
+          "dad858854482fe22fe16bc1448d75cc53a8e91f6b3df415f36d1ea66ed8486c1",
+          "e03b62b2d1e76d4b3469352c201965e80d63184c58fe79324fd9f5ee0922aad9",
+          "e61b9f584dbe27741cef6e9ee440831d7d94470c0871b0871541f0308916efea"
+        ],
+        "message_matrix_rank": 2,
+        "message_nonzero_cells": 128,
+        "message_value_max": 729,
+        "message_value_min": 1,
+        "separator_width": 1
+      },
+      "posthoc": {
+        "future_signatures": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            32,
+            243
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            32,
+            243
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            32,
+            243
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            32,
+            243
+          ],
+          [
+            16,
+            81
+          ],
+          [
+            32,
+            243
+          ],
+          [
+            32,
+            243
+          ],
+          [
+            64,
+            729
+          ]
+        ],
+        "natural_message_partition": [
+          0,
+          1,
+          1,
+          2,
+          1,
+          2,
+          2,
+          3,
+          1,
+          2,
+          2,
+          3,
+          2,
+          3,
+          3,
+          4,
+          1,
+          2,
+          2,
+          3,
+          2,
+          3,
+          3,
+          4,
+          2,
+          3,
+          3,
+          4,
+          3,
+          4,
+          4,
+          5,
+          1,
+          2,
+          2,
+          3,
+          2,
+          3,
+          3,
+          4,
+          2,
+          3,
+          3,
+          4,
+          3,
+          4,
+          4,
+          5,
+          2,
+          3,
+          3,
+          4,
+          3,
+          4,
+          4,
+          5,
+          3,
+          4,
+          4,
+          5,
+          4,
+          5,
+          5,
+          6
+        ],
+        "quotient_partition": [
+          0,
+          1,
+          1,
+          2,
+          1,
+          2,
+          2,
+          3,
+          1,
+          2,
+          2,
+          3,
+          2,
+          3,
+          3,
+          4,
+          1,
+          2,
+          2,
+          3,
+          2,
+          3,
+          3,
+          4,
+          2,
+          3,
+          3,
+          4,
+          3,
+          4,
+          4,
+          5,
+          1,
+          2,
+          2,
+          3,
+          2,
+          3,
+          3,
+          4,
+          2,
+          3,
+          3,
+          4,
+          3,
+          4,
+          4,
+          5,
+          2,
+          3,
+          3,
+          4,
+          3,
+          4,
+          4,
+          5,
+          3,
+          4,
+          4,
+          5,
+          4,
+          5,
+          5,
+          6
+        ]
+      },
+      "raw_history_count": 64,
+      "raw_input": {
+        "boundary_vars": [
+          "b0"
+        ],
+        "family": "A_controlled_quadrants",
+        "future_factors": [
+          {
+            "name": "future_equal",
+            "scope": [
+              "b0",
+              "f0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "future_vars": [
+          "f0"
+        ],
+        "history_vars": [
+          "h0",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5"
+        ],
+        "kind": "layered_binary_factor_process",
+        "latent_vars": [],
+        "metadata": {
+          "message_rule": "[2**popcount, 3**popcount]",
+          "quadrant": "large_Q_small_W"
+        },
+        "name": "large_q_small_w",
+        "past_factors": [
+          {
+            "name": "weighted_0",
+            "scope": [
+              "h0",
+              "b0"
+            ],
+            "table": [
+              1,
+              2,
+              1,
+              3
+            ]
+          },
+          {
+            "name": "weighted_1",
+            "scope": [
+              "h1",
+              "b0"
+            ],
+            "table": [
+              1,
+              2,
+              1,
+              3
+            ]
+          },
+          {
+            "name": "weighted_2",
+            "scope": [
+              "h2",
+              "b0"
+            ],
+            "table": [
+              1,
+              2,
+              1,
+              3
+            ]
+          },
+          {
+            "name": "weighted_3",
+            "scope": [
+              "h3",
+              "b0"
+            ],
+            "table": [
+              1,
+              2,
+              1,
+              3
+            ]
+          },
+          {
+            "name": "weighted_4",
+            "scope": [
+              "h4",
+              "b0"
+            ],
+            "table": [
+              1,
+              2,
+              1,
+              3
+            ]
+          },
+          {
+            "name": "weighted_5",
+            "scope": [
+              "h5",
+              "b0"
+            ],
+            "table": [
+              1,
+              2,
+              1,
+              3
+            ]
+          }
+        ]
+      },
+      "raw_input_digest": "72bfa95b116de6085eebcf014d1d28afb402d9093c8fc1fa0e0b84aa1ccdb806",
+      "resource_policy": {
+        "lift_gain_declared": false,
+        "same_domain": true,
+        "scalar_collapsed": false
+      },
+      "separator_domain_cells": 2,
+      "separator_width": 1,
+      "solve_resources": {
+        "boundary_assignments": 2,
+        "future_queries": 2,
+        "future_response_operations": 256,
+        "history_assignments": 64,
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "message_cells_materialized": 128,
+        "message_matrix_rank": 2,
+        "wall_ms": 1.3767
+      },
+      "stop_rule": {
+        "decision_after_posthoc": "FREEZE",
+        "decision_before_posthoc": "FREEZE",
+        "oracle_can_change_decision": false,
+        "parameters_frozen_before_validation": true
+      }
+    },
+    {
+      "case": "large_q_large_w",
+      "discovery_resources": {
+        "discovery_history_query_evaluations": 32,
+        "discovery_partition_size": 5,
+        "discovery_query_count": 4,
+        "discovery_query_ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "oracle_used_for_discovery": false,
+        "query_split": "first_half_of_future_queries",
+        "validation_counterexamples": 6,
+        "validation_query_ids": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "wall_ms": 0.0
+      },
+      "distinct_messages": 8,
+      "family": "A_controlled_quadrants",
+      "future_quotient_size": 8,
+      "interface_slack": {
+        "description_bytes": 0,
+        "message_classes": 0
+      },
+      "message_description_bytes": 145,
+      "minimal_sufficient_interface": {
+        "construction": "exhaustive future-signature fusion post-hoc",
+        "description_bytes": 145,
+        "future_quotient_size": 8,
+        "partition_labels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "minimal_sufficient_messages": 8,
+      "minimality_attack": {
+        "candidate_pairs_tested": 28,
+        "fusion_complete": true,
+        "future_sufficiency_checked": true,
+        "natural_message_classes_tested": 8,
+        "oracle_used_during_discovery": false,
+        "safe_fusions": 0,
+        "unsafe_fusions": 28
+      },
+      "natural_interface": {
+        "description_bytes": 145,
+        "distinct_messages": 8,
+        "domain_cells": 8,
+        "message_digests": [
+          "0841eda684bdba9745d032e99b018ab2abaac1a0913b5fc7c5a807f800493a28",
+          "27ca8051978c46e6e4dcf020893b7784946e187046f833bbbd1da42f937b9c3d",
+          "4bba76edd8421c58535de9e3c140d1a14b510e025ddd6fca6425eda1eb714f5e",
+          "5202fd7479976e76974670a28bd9d342af8f564f782fd2eff1f33f990e639004",
+          "5ebdf2774bcd818d90642d357c096b8b2d96e9f2bd8379bfb4fad98a6ec30b63",
+          "687f58adebe54b9241fbd3cf00b83e827834b4d10632b84df129ca38cd38049a",
+          "e72ec66f2ce5382146f24d94a01a4e79d2d6e61ea0a130837c28d92504d3931a",
+          "fef9f70c7529fb744072109d2661befb50262360abc7b213982ec95703e5eea0"
+        ],
+        "message_matrix_rank": 8,
+        "message_nonzero_cells": 8,
+        "message_value_max": 1,
+        "message_value_min": 0,
+        "separator_width": 3
+      },
+      "posthoc": {
+        "future_signatures": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "natural_message_partition": [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "quotient_partition": [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      },
+      "raw_history_count": 8,
+      "raw_input": {
+        "boundary_vars": [
+          "b0",
+          "b1",
+          "b2"
+        ],
+        "family": "A_controlled_quadrants",
+        "future_factors": [
+          {
+            "name": "future_equal_0",
+            "scope": [
+              "b0",
+              "f0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "future_equal_1",
+            "scope": [
+              "b1",
+              "f1"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "future_equal_2",
+            "scope": [
+              "b2",
+              "f2"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "future_vars": [
+          "f0",
+          "f1",
+          "f2"
+        ],
+        "history_vars": [
+          "h0",
+          "h1",
+          "h2"
+        ],
+        "kind": "layered_binary_factor_process",
+        "latent_vars": [],
+        "metadata": {
+          "message_rule": "one_hot_boundary_state",
+          "quadrant": "large_Q_large_W"
+        },
+        "name": "large_q_large_w",
+        "past_factors": [
+          {
+            "name": "past_equal_0",
+            "scope": [
+              "h0",
+              "b0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "past_equal_1",
+            "scope": [
+              "h1",
+              "b1"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "past_equal_2",
+            "scope": [
+              "h2",
+              "b2"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "raw_input_digest": "d79d4239d089b44281a49db9dd4b6fddf12bc0bfd0f5da611d82a72135b73960",
+      "resource_policy": {
+        "lift_gain_declared": false,
+        "same_domain": true,
+        "scalar_collapsed": false
+      },
+      "separator_domain_cells": 8,
+      "separator_width": 3,
+      "solve_resources": {
+        "boundary_assignments": 8,
+        "future_queries": 8,
+        "future_response_operations": 512,
+        "history_assignments": 8,
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "message_cells_materialized": 64,
+        "message_matrix_rank": 8,
+        "wall_ms": 1.0645
+      },
+      "stop_rule": {
+        "decision_after_posthoc": "FREEZE",
+        "decision_before_posthoc": "FREEZE",
+        "oracle_can_change_decision": false,
+        "parameters_frozen_before_validation": true
+      }
+    },
+    {
+      "case": "same_w1_q2_boolean",
+      "discovery_resources": {
+        "discovery_history_query_evaluations": 2,
+        "discovery_partition_size": 2,
+        "discovery_query_count": 1,
+        "discovery_query_ids": [
+          0
+        ],
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "oracle_used_for_discovery": false,
+        "query_split": "first_half_of_future_queries",
+        "validation_counterexamples": 0,
+        "validation_query_ids": [
+          1
+        ],
+        "wall_ms": 0.0
+      },
+      "distinct_messages": 2,
+      "family": "B_same_w_q_different_message",
+      "future_quotient_size": 2,
+      "interface_slack": {
+        "description_bytes": 0,
+        "message_classes": 0
+      },
+      "message_description_bytes": 13,
+      "minimal_sufficient_interface": {
+        "construction": "exhaustive future-signature fusion post-hoc",
+        "description_bytes": 13,
+        "future_quotient_size": 2,
+        "partition_labels": [
+          0,
+          1
+        ]
+      },
+      "minimal_sufficient_messages": 2,
+      "minimality_attack": {
+        "candidate_pairs_tested": 1,
+        "fusion_complete": true,
+        "future_sufficiency_checked": true,
+        "natural_message_classes_tested": 2,
+        "oracle_used_during_discovery": false,
+        "safe_fusions": 0,
+        "unsafe_fusions": 1
+      },
+      "natural_interface": {
+        "description_bytes": 13,
+        "distinct_messages": 2,
+        "domain_cells": 2,
+        "message_digests": [
+          "463f2998327eb3a694145e6014444480b2235be84aa6cfd57871cc64f1cd816c",
+          "5aaf1e183f1faf12c327dc2fb8c223022f04684c61fc34533bff62e7e572c776"
+        ],
+        "message_matrix_rank": 2,
+        "message_nonzero_cells": 2,
+        "message_value_max": 1,
+        "message_value_min": 0,
+        "separator_width": 1
+      },
+      "posthoc": {
+        "future_signatures": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "natural_message_partition": [
+          1,
+          0
+        ],
+        "quotient_partition": [
+          1,
+          0
+        ]
+      },
+      "raw_history_count": 2,
+      "raw_input": {
+        "boundary_vars": [
+          "b0"
+        ],
+        "family": "B_same_w_q_different_message",
+        "future_factors": [
+          {
+            "name": "future_equal",
+            "scope": [
+              "b0",
+              "f0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "future_vars": [
+          "f0"
+        ],
+        "history_vars": [
+          "h0"
+        ],
+        "kind": "layered_binary_factor_process",
+        "latent_vars": [],
+        "metadata": {
+          "contrast_group": "W1_Q2",
+          "message_kind": "boolean"
+        },
+        "name": "same_w1_q2_boolean",
+        "past_factors": [
+          {
+            "name": "past_equal",
+            "scope": [
+              "h0",
+              "b0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "raw_input_digest": "f0e8dec1e18764f012c511deec56c86e845a0acb4e77b96be132110d590cec4a",
+      "resource_policy": {
+        "lift_gain_declared": false,
+        "same_domain": true,
+        "scalar_collapsed": false
+      },
+      "separator_domain_cells": 2,
+      "separator_width": 1,
+      "solve_resources": {
+        "boundary_assignments": 2,
+        "future_queries": 2,
+        "future_response_operations": 8,
+        "history_assignments": 2,
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "message_cells_materialized": 4,
+        "message_matrix_rank": 2,
+        "wall_ms": 0.0692
+      },
+      "stop_rule": {
+        "decision_after_posthoc": "FREEZE",
+        "decision_before_posthoc": "FREEZE",
+        "oracle_can_change_decision": false,
+        "parameters_frozen_before_validation": true
+      }
+    },
+    {
+      "case": "same_w1_q2_weighted",
+      "discovery_resources": {
+        "discovery_history_query_evaluations": 2,
+        "discovery_partition_size": 2,
+        "discovery_query_count": 1,
+        "discovery_query_ids": [
+          0
+        ],
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "oracle_used_for_discovery": false,
+        "query_split": "first_half_of_future_queries",
+        "validation_counterexamples": 0,
+        "validation_query_ids": [
+          1
+        ],
+        "wall_ms": 0.0
+      },
+      "distinct_messages": 2,
+      "family": "B_same_w_q_different_message",
+      "future_quotient_size": 2,
+      "interface_slack": {
+        "description_bytes": 0,
+        "message_classes": 0
+      },
+      "message_description_bytes": 19,
+      "minimal_sufficient_interface": {
+        "construction": "exhaustive future-signature fusion post-hoc",
+        "description_bytes": 19,
+        "future_quotient_size": 2,
+        "partition_labels": [
+          0,
+          1
+        ]
+      },
+      "minimal_sufficient_messages": 2,
+      "minimality_attack": {
+        "candidate_pairs_tested": 1,
+        "fusion_complete": true,
+        "future_sufficiency_checked": true,
+        "natural_message_classes_tested": 2,
+        "oracle_used_during_discovery": false,
+        "safe_fusions": 0,
+        "unsafe_fusions": 1
+      },
+      "natural_interface": {
+        "description_bytes": 19,
+        "distinct_messages": 2,
+        "domain_cells": 2,
+        "message_digests": [
+          "b0b41945646afe7c3ccf5741b69cbc7bfb01771a2e7c161486e5036845f0fc11",
+          "e61b9f584dbe27741cef6e9ee440831d7d94470c0871b0871541f0308916efea"
+        ],
+        "message_matrix_rank": 2,
+        "message_nonzero_cells": 4,
+        "message_value_max": 2048,
+        "message_value_min": 1,
+        "separator_width": 1
+      },
+      "posthoc": {
+        "future_signatures": [
+          [
+            1,
+            1
+          ],
+          [
+            1024,
+            2048
+          ]
+        ],
+        "natural_message_partition": [
+          0,
+          1
+        ],
+        "quotient_partition": [
+          0,
+          1
+        ]
+      },
+      "raw_history_count": 2,
+      "raw_input": {
+        "boundary_vars": [
+          "b0"
+        ],
+        "family": "B_same_w_q_different_message",
+        "future_factors": [
+          {
+            "name": "future_equal",
+            "scope": [
+              "b0",
+              "f0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "future_vars": [
+          "f0"
+        ],
+        "history_vars": [
+          "h0"
+        ],
+        "kind": "layered_binary_factor_process",
+        "latent_vars": [],
+        "metadata": {
+          "contrast_group": "W1_Q2",
+          "message_kind": "weighted_large_values"
+        },
+        "name": "same_w1_q2_weighted",
+        "past_factors": [
+          {
+            "name": "weighted_large",
+            "scope": [
+              "h0",
+              "b0"
+            ],
+            "table": [
+              1,
+              1024,
+              1,
+              2048
+            ]
+          }
+        ]
+      },
+      "raw_input_digest": "991e80c4ee0ac215adc90688a2b801bed4f81cab18cd8877a7e537843d23fe6f",
+      "resource_policy": {
+        "lift_gain_declared": false,
+        "same_domain": true,
+        "scalar_collapsed": false
+      },
+      "separator_domain_cells": 2,
+      "separator_width": 1,
+      "solve_resources": {
+        "boundary_assignments": 2,
+        "future_queries": 2,
+        "future_response_operations": 8,
+        "history_assignments": 2,
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "message_cells_materialized": 4,
+        "message_matrix_rank": 2,
+        "wall_ms": 0.0777
+      },
+      "stop_rule": {
+        "decision_after_posthoc": "FREEZE",
+        "decision_before_posthoc": "FREEZE",
+        "oracle_can_change_decision": false,
+        "parameters_frozen_before_validation": true
+      }
+    },
+    {
+      "case": "same_w1_q2_more_histories",
+      "discovery_resources": {
+        "discovery_history_query_evaluations": 256,
+        "discovery_partition_size": 2,
+        "discovery_query_count": 1,
+        "discovery_query_ids": [
+          0
+        ],
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "oracle_used_for_discovery": false,
+        "query_split": "first_half_of_future_queries",
+        "validation_counterexamples": 0,
+        "validation_query_ids": [
+          1
+        ],
+        "wall_ms": 0.0
+      },
+      "distinct_messages": 2,
+      "family": "C_same_w_q_same_message_more_raw_work",
+      "future_quotient_size": 2,
+      "interface_slack": {
+        "description_bytes": 0,
+        "message_classes": 0
+      },
+      "message_description_bytes": 13,
+      "minimal_sufficient_interface": {
+        "construction": "exhaustive future-signature fusion post-hoc",
+        "description_bytes": 13,
+        "future_quotient_size": 2,
+        "partition_labels": [
+          0,
+          1
+        ]
+      },
+      "minimal_sufficient_messages": 2,
+      "minimality_attack": {
+        "candidate_pairs_tested": 1,
+        "fusion_complete": true,
+        "future_sufficiency_checked": true,
+        "natural_message_classes_tested": 2,
+        "oracle_used_during_discovery": false,
+        "safe_fusions": 0,
+        "unsafe_fusions": 1
+      },
+      "natural_interface": {
+        "description_bytes": 13,
+        "distinct_messages": 2,
+        "domain_cells": 2,
+        "message_digests": [
+          "463f2998327eb3a694145e6014444480b2235be84aa6cfd57871cc64f1cd816c",
+          "5aaf1e183f1faf12c327dc2fb8c223022f04684c61fc34533bff62e7e572c776"
+        ],
+        "message_matrix_rank": 2,
+        "message_nonzero_cells": 256,
+        "message_value_max": 1,
+        "message_value_min": 0,
+        "separator_width": 1
+      },
+      "posthoc": {
+        "future_signatures": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "natural_message_partition": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "quotient_partition": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "raw_history_count": 256,
+      "raw_input": {
+        "boundary_vars": [
+          "b0"
+        ],
+        "family": "C_same_w_q_same_message_more_raw_work",
+        "future_factors": [
+          {
+            "name": "future_equal",
+            "scope": [
+              "b0",
+              "f0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "future_vars": [
+          "f0"
+        ],
+        "history_vars": [
+          "h0",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "h7"
+        ],
+        "kind": "layered_binary_factor_process",
+        "latent_vars": [],
+        "metadata": {
+          "contrast_group": "W1_Q2",
+          "ignored_history_variables": 7
+        },
+        "name": "same_w1_q2_more_histories",
+        "past_factors": [
+          {
+            "name": "past_equal_only_h0",
+            "scope": [
+              "h0",
+              "b0"
+            ],
+            "table": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "raw_input_digest": "0981f94ae69951ee7fff1cb5d72d44f87cefa47826f871a790534394a2660a47",
+      "resource_policy": {
+        "lift_gain_declared": false,
+        "same_domain": true,
+        "scalar_collapsed": false
+      },
+      "separator_domain_cells": 2,
+      "separator_width": 1,
+      "solve_resources": {
+        "boundary_assignments": 2,
+        "future_queries": 2,
+        "future_response_operations": 1024,
+        "history_assignments": 256,
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "message_cells_materialized": 512,
+        "message_matrix_rank": 2,
+        "wall_ms": 5.7769
+      },
+      "stop_rule": {
+        "decision_after_posthoc": "FREEZE",
+        "decision_before_posthoc": "FREEZE",
+        "oracle_can_change_decision": false,
+        "parameters_frozen_before_validation": true
+      }
+    }
+  ],
+  "controlled_quadrants": [
+    {
+      "M": 2,
+      "Q": 1,
+      "W": 1,
+      "case": "small_q_small_w",
+      "quadrant": "small_Q_small_W"
+    },
+    {
+      "M": 4,
+      "Q": 2,
+      "W": 4,
+      "case": "small_q_large_w",
+      "quadrant": "small_Q_large_W"
+    },
+    {
+      "M": 7,
+      "Q": 7,
+      "W": 1,
+      "case": "large_q_small_w",
+      "quadrant": "large_Q_small_W"
+    },
+    {
+      "M": 8,
+      "Q": 8,
+      "W": 3,
+      "case": "large_q_large_w",
+      "quadrant": "large_Q_large_W"
+    }
+  ],
+  "domain": {
+    "all_axes_same_semantics": true,
+    "cross_domain_comparison_used": false,
+    "future_query": "exact contraction of boundary message with future factor for each future assignment",
+    "history": "binary assignments to past variables",
+    "interface": "integer message table over binary boundary assignments"
+  },
+  "fixed_w_contrasts": [
+    {
+      "M": 2,
+      "Q": 2,
+      "W": 1,
+      "case": "same_w1_q2_boolean",
+      "message_value_max": 1,
+      "solve_operations": 8
+    },
+    {
+      "M": 2,
+      "Q": 2,
+      "W": 1,
+      "case": "same_w1_q2_weighted",
+      "message_value_max": 2048,
+      "solve_operations": 8
+    },
+    {
+      "M": 2,
+      "Q": 2,
+      "W": 1,
+      "case": "same_w1_q2_more_histories",
+      "message_value_max": 1,
+      "solve_operations": 1024
+    }
+  ],
+  "gate": {
+    "A_q_w_contrast": true,
+    "B_reproducible_relation": true,
+    "C_natural_interface_compression": true,
+    "D_w_alone_not_sufficient": true,
+    "caveat": "These are controlled finite processes; no stable theory or universal dimension is claimed.",
+    "status": "SURVIVES_PROVISIONALLY"
+  },
+  "metrics_policy": {
+    "deterministic_fields": [
+      "raw_input",
+      "raw_input_digest",
+      "Q",
+      "W",
+      "D",
+      "M",
+      "message values",
+      "quotient",
+      "minimality partitions"
+    ],
+    "lift_gain_declared": false,
+    "machine_dependent_fields": [
+      "wall_ms"
+    ],
+    "posthoc_oracle_fields": [
+      "future_signatures",
+      "future_quotient_size",
+      "minimal_sufficient_messages",
+      "minimality_attack"
+    ],
+    "resource_vector": true,
+    "scalar_collapsed": false
+  },
+  "minimality_attack": {
+    "compression_cases": [
+      "small_q_small_w",
+      "small_q_large_w"
+    ],
+    "method": "enumerate natural messages, test every pair against all future signatures, fuse safe pairs until quotient partition",
+    "minimality_is_checked_for_small_cases": true,
+    "minimality_is_claimed": false
+  },
+  "parent_commit": "1d5a1d9",
+  "preregistered_hypotheses": {
+    "hypotheses": {
+      "MESSAGE_CONTENT_MATTERS": "At fixed or small W, message values can distinguish future behaviour beyond W alone.",
+      "MISSING_AXIS": "Equal W and Q can still carry different message/cost profiles, leaving an additional axis unresolved.",
+      "NATURAL_INTERFACE_REDUNDANCY": "Some natural separator messages can be fused without changing any future query.",
+      "Q_W_NOT_IDENTICAL": "Future quotient size Q and structural separator width W need not coincide."
+    },
+    "status": "PREREGISTERED_BEFORE_RESULTS"
+  },
+  "protocol": "pipi-44-cross-axis-order-v0",
+  "scope": "PiPi-44 same-domain layered binary factor processes; result object only",
+  "scope_declarations": {
+    "kernel_modified": false,
+    "main_modified": false,
+    "phase5_started": false,
+    "pipi_42_modified": false,
+    "pipi_43_modified": false,
+    "pr_opened": false
+  }
+}
