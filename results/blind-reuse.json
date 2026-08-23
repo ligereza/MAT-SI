@@ -1,0 +1,1327 @@
+{
+  "accepted_frontier_from_docs_STATE": "c5860520c1f3873db2b32a2970b87ec9c809dfbc",
+  "anti_leak_audits": {
+    "candidate_applicability_probe_is_domain_equivalent": true,
+    "candidate_library_metadata_contains_family_id": false,
+    "case_names_removed": true,
+    "heldout_domain_label_hidden": true,
+    "marks": [
+      "DOMAIN_LEAK"
+    ],
+    "not_marked": [
+      "GROUPING_ORACLE",
+      "FUTURE_HORIZON_LEAK",
+      "REPRESENTATION_ID_LEAK"
+    ],
+    "oracle_grouping_physically_separate": true,
+    "query_stream_length_hidden": true,
+    "raw_sha_hash_used_by_blind_policy": false,
+    "serialization_randomized": true,
+    "variable_and_node_renaming": true,
+    "verification_uses_ground_truth_future": false
+  },
+  "blind_grouping_costs": {
+    "false_group_cost": {
+      "G": 0,
+      "H": 105144,
+      "I": 555,
+      "M": 0,
+      "P": 0,
+      "Q": 612,
+      "R": 612,
+      "S": 1836,
+      "V": 2940,
+      "W": 0.0
+    },
+    "false_merge_events": 612,
+    "missed_reuse_cost": {
+      "G": 0,
+      "H": 29312,
+      "I": 1125,
+      "M": 0,
+      "P": 0,
+      "Q": 1329,
+      "R": 0,
+      "S": 3980379,
+      "V": 0,
+      "W": 0.0
+    },
+    "missed_reuse_events": 1329,
+    "rebuild_cost": {
+      "G": 0,
+      "H": 50626,
+      "I": 1680,
+      "M": 0,
+      "P": 0,
+      "Q": 480,
+      "R": 111,
+      "S": 1389672,
+      "V": 555,
+      "W": 0.0
+    },
+    "stale_reuse_cost": {
+      "G": 0,
+      "H": 285646,
+      "I": 555,
+      "M": 0,
+      "P": 0,
+      "Q": 427346,
+      "R": 427346,
+      "S": 1282038,
+      "V": 1917130,
+      "W": 0.0
+    },
+    "stale_reuse_errors": 427346
+  },
+  "branch_scope": "research/blind-reuse-discovery; speculative; no main, Phase 5, or accepted-evidence changes",
+  "break_even_calibration": {
+    "coverage": 1.0,
+    "frozen_before_heldout": true,
+    "future_stream_length_was_input": false,
+    "intervals": [
+      {
+        "covered": true,
+        "domain": "LINEAR_SYSTEM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 64,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "LINEAR_SYSTEM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 128,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "LINEAR_SYSTEM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 256,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "LINEAR_SYSTEM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 512,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "LINEAR_SYSTEM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 1024,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "LINEAR_SYSTEM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 2048,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "SUBSET_SUM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 64,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "SUBSET_SUM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 128,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "SUBSET_SUM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 256,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "SUBSET_SUM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 512,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "SUBSET_SUM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 1024,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "SUBSET_SUM",
+        "interval": [
+          2,
+          6
+        ],
+        "kstar": 3,
+        "size": 2048,
+        "width": 3.0
+      },
+      {
+        "covered": true,
+        "domain": "MEMBERSHIP",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 64,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "MEMBERSHIP",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 128,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "MEMBERSHIP",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 256,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "MEMBERSHIP",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 512,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "MEMBERSHIP",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 1024,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "MEMBERSHIP",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 2048,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "GRAPH_QUERIES",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 64,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "GRAPH_QUERIES",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 128,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "GRAPH_QUERIES",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 256,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "GRAPH_QUERIES",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 512,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "GRAPH_QUERIES",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 1024,
+        "width": 4.0
+      },
+      {
+        "covered": true,
+        "domain": "GRAPH_QUERIES",
+        "interval": [
+          2,
+          8
+        ],
+        "kstar": 4,
+        "size": 2048,
+        "width": 4.0
+      }
+    ],
+    "median_multiplicative_width": 3.5,
+    "policy_outputs": [
+      "NO_REUSE_EXPECTED",
+      "KSTAR_INTERVAL=[lo, hi]",
+      "INSUFFICIENT_EVIDENCE"
+    ],
+    "sample_count": 24
+  },
+  "domain_results": {
+    "AUTOMATON": {
+      "answer_correctness": {
+        "B0_RAW": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B1_ORACLE_GROUPING": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B2_HASH_IDENTITY": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B5_BLIND_POLICY": {
+          "accuracy": 1.0,
+          "correct": 245520,
+          "total": 245520
+        }
+      },
+      "blind_action_counts": {
+        "RAW": 245520
+      },
+      "blind_componentwise_beats_raw": false,
+      "blind_minus_raw_component_delta": {
+        "G": 0,
+        "H": 0,
+        "I": 0,
+        "M": 0,
+        "P": 0,
+        "Q": 0,
+        "R": 0,
+        "S": 0,
+        "V": 0
+      },
+      "costs": {
+        "B0_RAW": {
+          "G": 0,
+          "H": 0,
+          "I": 0,
+          "M": 0,
+          "P": 0,
+          "Q": 245520,
+          "R": 0,
+          "S": 662658480,
+          "V": 0,
+          "W": 7.721
+        },
+        "B1_ORACLE_GROUPING": {
+          "G": 6461400,
+          "H": 0,
+          "I": 0,
+          "M": 806400,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 491040,
+          "V": 736560,
+          "W": 8.303
+        },
+        "B2_HASH_IDENTITY": {
+          "G": 0,
+          "H": 2026399320,
+          "I": 0,
+          "M": 0,
+          "P": 0,
+          "Q": 245520,
+          "R": 0,
+          "S": 245520,
+          "V": 0,
+          "W": 260.818
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "G": 6461400,
+          "H": 0,
+          "I": 0,
+          "M": 806400,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 491040,
+          "V": 736560,
+          "W": 7.977
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "G": 11630520,
+          "H": 0,
+          "I": 0,
+          "M": 1451520,
+          "P": 0,
+          "Q": 245520,
+          "R": 244800,
+          "S": 2432880,
+          "V": 734400,
+          "W": 9.059
+        },
+        "B5_BLIND_POLICY": {
+          "G": 0,
+          "H": 0,
+          "I": 0,
+          "M": 0,
+          "P": 0,
+          "Q": 245520,
+          "R": 0,
+          "S": 662658480,
+          "V": 0,
+          "W": 1188.613
+        }
+      },
+      "drift": {
+        "detection_delay_sum": 0,
+        "drift_events": 120,
+        "drifts_detected_before_reuse": 120,
+        "rebuild_count": 0
+      },
+      "event_count": 245520,
+      "false_merge_events": 0,
+      "false_positive_build_decisions": 0,
+      "missed_reuse_events": 0,
+      "raw_minus_blind_component_gain": {
+        "G": 0,
+        "H": 0,
+        "I": 0,
+        "M": 0,
+        "P": 0,
+        "Q": 0,
+        "R": 0,
+        "S": 0,
+        "V": 0
+      },
+      "stale_reuse_errors": 0,
+      "stream_count": 1200,
+      "stream_type_counts": {
+        "DECOY_SIMILAR": 240,
+        "DRIFT": 120,
+        "INDEPENDENT": 120,
+        "NEAR_SHARED": 120,
+        "SHORT_LIVED": 240,
+        "TRUE_SHARED": 360
+      }
+    },
+    "GRAPH_QUERIES": {
+      "answer_correctness": {
+        "B0_RAW": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B1_ORACLE_GROUPING": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B2_HASH_IDENTITY": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B5_BLIND_POLICY": {
+          "accuracy": 0.15385304659498208,
+          "correct": 37774,
+          "total": 245520
+        }
+      },
+      "blind_action_counts": {
+        "BUILD_G": 108,
+        "DROP_G": 120,
+        "GROUP": 108,
+        "REUSE_G": 245304
+      },
+      "blind_componentwise_beats_raw": false,
+      "blind_minus_raw_component_delta": {
+        "G": 1577004,
+        "H": 240240,
+        "I": 600,
+        "M": 225024,
+        "P": 0,
+        "Q": 0,
+        "R": 245412,
+        "S": -1486361952,
+        "V": 1227060
+      },
+      "costs": {
+        "B0_RAW": {
+          "G": 0,
+          "H": 0,
+          "I": 0,
+          "M": 0,
+          "P": 0,
+          "Q": 245520,
+          "R": 0,
+          "S": 1487605680,
+          "V": 0,
+          "W": 7.721
+        },
+        "B1_ORACLE_GROUPING": {
+          "G": 11299800,
+          "H": 0,
+          "I": 0,
+          "M": 1612800,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 736560,
+          "V": 1227600,
+          "W": 8.303
+        },
+        "B2_HASH_IDENTITY": {
+          "G": 24859560,
+          "H": 4051766156,
+          "I": 0,
+          "M": 3548160,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 736560,
+          "V": 1227600,
+          "W": 260.818
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "G": 11299800,
+          "H": 0,
+          "I": 0,
+          "M": 1612800,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 736560,
+          "V": 1227600,
+          "W": 7.977
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "G": 20339640,
+          "H": 0,
+          "I": 0,
+          "M": 2903040,
+          "P": 0,
+          "Q": 245520,
+          "R": 244800,
+          "S": 5096880,
+          "V": 1224000,
+          "W": 9.059
+        },
+        "B5_BLIND_POLICY": {
+          "G": 1577004,
+          "H": 240240,
+          "I": 600,
+          "M": 225024,
+          "P": 0,
+          "Q": 245520,
+          "R": 245412,
+          "S": 1243728,
+          "V": 1227060,
+          "W": 1188.613
+        }
+      },
+      "drift": {
+        "detection_delay_sum": 0,
+        "drift_events": 120,
+        "drifts_detected_before_reuse": 120,
+        "rebuild_count": 120
+      },
+      "event_count": 245520,
+      "false_merge_events": 492,
+      "false_positive_build_decisions": 10,
+      "missed_reuse_events": 0,
+      "raw_minus_blind_component_gain": {
+        "G": -1577004,
+        "H": -240240,
+        "I": -600,
+        "M": -225024,
+        "P": 0,
+        "Q": 0,
+        "R": -245412,
+        "S": 1486361952,
+        "V": -1227060
+      },
+      "stale_reuse_errors": 207746,
+      "stream_count": 1200,
+      "stream_type_counts": {
+        "DECOY_SIMILAR": 240,
+        "DRIFT": 120,
+        "INDEPENDENT": 120,
+        "NEAR_SHARED": 120,
+        "SHORT_LIVED": 240,
+        "TRUE_SHARED": 360
+      }
+    },
+    "LINEAR_SYSTEM": {
+      "answer_correctness": {
+        "B0_RAW": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B1_ORACLE_GROUPING": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B2_HASH_IDENTITY": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B5_BLIND_POLICY": {
+          "accuracy": 0.10557184750733138,
+          "correct": 25920,
+          "total": 245520
+        }
+      },
+      "blind_action_counts": {
+        "BUILD_G": 480,
+        "DROP_G": 120,
+        "GROUP": 480,
+        "REUSE_G": 244560
+      },
+      "blind_componentwise_beats_raw": false,
+      "blind_minus_raw_component_delta": {
+        "G": 7749600,
+        "H": 126720,
+        "I": 480,
+        "M": 645120,
+        "P": 0,
+        "Q": 0,
+        "R": 245040,
+        "S": -1319295360,
+        "V": 980160
+      },
+      "costs": {
+        "B0_RAW": {
+          "G": 0,
+          "H": 0,
+          "I": 0,
+          "M": 0,
+          "P": 0,
+          "Q": 245520,
+          "R": 0,
+          "S": 1322616240,
+          "V": 0,
+          "W": 7.721
+        },
+        "B1_ORACLE_GROUPING": {
+          "G": 9687000,
+          "H": 0,
+          "I": 0,
+          "M": 806400,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 736560,
+          "V": 982080,
+          "W": 8.303
+        },
+        "B2_HASH_IDENTITY": {
+          "G": 21311400,
+          "H": 5342427212,
+          "I": 0,
+          "M": 1774080,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 736560,
+          "V": 982080,
+          "W": 260.818
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "G": 9687000,
+          "H": 0,
+          "I": 0,
+          "M": 806400,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 736560,
+          "V": 982080,
+          "W": 7.977
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "G": 19374000,
+          "H": 0,
+          "I": 0,
+          "M": 1612800,
+          "P": 0,
+          "Q": 245520,
+          "R": 245280,
+          "S": 2028720,
+          "V": 981120,
+          "W": 9.059
+        },
+        "B5_BLIND_POLICY": {
+          "G": 7749600,
+          "H": 126720,
+          "I": 480,
+          "M": 645120,
+          "P": 0,
+          "Q": 245520,
+          "R": 245040,
+          "S": 3320880,
+          "V": 980160,
+          "W": 1188.613
+        }
+      },
+      "drift": {
+        "detection_delay_sum": 0,
+        "drift_events": 120,
+        "drifts_detected_before_reuse": 120,
+        "rebuild_count": 120
+      },
+      "event_count": 245520,
+      "false_merge_events": 120,
+      "false_positive_build_decisions": 120,
+      "missed_reuse_events": 0,
+      "raw_minus_blind_component_gain": {
+        "G": -7749600,
+        "H": -126720,
+        "I": -480,
+        "M": -645120,
+        "P": 0,
+        "Q": 0,
+        "R": -245040,
+        "S": 1319295360,
+        "V": -980160
+      },
+      "stale_reuse_errors": 219600,
+      "stream_count": 1200,
+      "stream_type_counts": {
+        "DECOY_SIMILAR": 240,
+        "DRIFT": 120,
+        "INDEPENDENT": 120,
+        "NEAR_SHARED": 120,
+        "SHORT_LIVED": 240,
+        "TRUE_SHARED": 360
+      }
+    },
+    "MEMBERSHIP": {
+      "answer_correctness": {
+        "B0_RAW": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B1_ORACLE_GROUPING": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B2_HASH_IDENTITY": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B5_BLIND_POLICY": {
+          "accuracy": 1.0,
+          "correct": 245520,
+          "total": 245520
+        }
+      },
+      "blind_action_counts": {
+        "BUILD_G": 600,
+        "DROP_G": 120,
+        "GROUP": 600,
+        "REUSE_G": 244320
+      },
+      "blind_componentwise_beats_raw": false,
+      "blind_minus_raw_component_delta": {
+        "G": 4848600,
+        "H": 65979,
+        "I": 240,
+        "M": 403200,
+        "P": 0,
+        "Q": 0,
+        "R": 244920,
+        "S": -496207920,
+        "V": 489840
+      },
+      "costs": {
+        "B0_RAW": {
+          "G": 0,
+          "H": 0,
+          "I": 0,
+          "M": 0,
+          "P": 0,
+          "Q": 245520,
+          "R": 0,
+          "S": 497669040,
+          "V": 0,
+          "W": 7.721
+        },
+        "B1_ORACLE_GROUPING": {
+          "G": 4848600,
+          "H": 0,
+          "I": 0,
+          "M": 403200,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 245520,
+          "V": 491040,
+          "W": 8.303
+        },
+        "B2_HASH_IDENTITY": {
+          "G": 10666920,
+          "H": 242180898,
+          "I": 0,
+          "M": 887040,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 245520,
+          "V": 491040,
+          "W": 260.818
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "G": 4848600,
+          "H": 0,
+          "I": 0,
+          "M": 403200,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 245520,
+          "V": 491040,
+          "W": 7.977
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "G": 8727480,
+          "H": 0,
+          "I": 0,
+          "M": 725760,
+          "P": 0,
+          "Q": 245520,
+          "R": 244800,
+          "S": 1704240,
+          "V": 489600,
+          "W": 9.059
+        },
+        "B5_BLIND_POLICY": {
+          "G": 4848600,
+          "H": 65979,
+          "I": 240,
+          "M": 403200,
+          "P": 0,
+          "Q": 245520,
+          "R": 244920,
+          "S": 1461120,
+          "V": 489840,
+          "W": 1188.613
+        }
+      },
+      "drift": {
+        "detection_delay_sum": 0,
+        "drift_events": 120,
+        "drifts_detected_before_reuse": 120,
+        "rebuild_count": 120
+      },
+      "event_count": 245520,
+      "false_merge_events": 0,
+      "false_positive_build_decisions": 120,
+      "missed_reuse_events": 0,
+      "raw_minus_blind_component_gain": {
+        "G": -4848600,
+        "H": -65979,
+        "I": -240,
+        "M": -403200,
+        "P": 0,
+        "Q": 0,
+        "R": -244920,
+        "S": 496207920,
+        "V": -489840
+      },
+      "stale_reuse_errors": 0,
+      "stream_count": 1200,
+      "stream_type_counts": {
+        "DECOY_SIMILAR": 240,
+        "DRIFT": 120,
+        "INDEPENDENT": 120,
+        "NEAR_SHARED": 120,
+        "SHORT_LIVED": 240,
+        "TRUE_SHARED": 360
+      }
+    },
+    "SUBSET_SUM": {
+      "answer_correctness": {
+        "B0_RAW": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B1_ORACLE_GROUPING": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B2_HASH_IDENTITY": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "accuracy": 1.0,
+          "correct": 1320,
+          "total": 1320
+        },
+        "B5_BLIND_POLICY": {
+          "accuracy": 1.0,
+          "correct": 245520,
+          "total": 245520
+        }
+      },
+      "blind_action_counts": {
+        "BUILD_G": 600,
+        "DROP_G": 120,
+        "GROUP": 600,
+        "REUSE_G": 244320
+      },
+      "blind_componentwise_beats_raw": false,
+      "blind_minus_raw_component_delta": {
+        "G": 7267800,
+        "H": 124080,
+        "I": 360,
+        "M": 403200,
+        "P": 0,
+        "Q": 0,
+        "R": 244920,
+        "S": -989721720,
+        "V": 734760
+      },
+      "costs": {
+        "B0_RAW": {
+          "G": 0,
+          "H": 0,
+          "I": 0,
+          "M": 0,
+          "P": 0,
+          "Q": 245520,
+          "R": 0,
+          "S": 992637360,
+          "V": 0,
+          "W": 7.721
+        },
+        "B1_ORACLE_GROUPING": {
+          "G": 7267800,
+          "H": 0,
+          "I": 0,
+          "M": 403200,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 491040,
+          "V": 736560,
+          "W": 8.303
+        },
+        "B2_HASH_IDENTITY": {
+          "G": 15989160,
+          "H": 907417376,
+          "I": 0,
+          "M": 887040,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 491040,
+          "V": 736560,
+          "W": 260.818
+        },
+        "B3_SIMPLE_PAYBACK": {
+          "G": 7267800,
+          "H": 0,
+          "I": 0,
+          "M": 403200,
+          "P": 0,
+          "Q": 245520,
+          "R": 245520,
+          "S": 491040,
+          "V": 736560,
+          "W": 7.977
+        },
+        "B4_DOMAIN_SPECIALIST": {
+          "G": 14535600,
+          "H": 0,
+          "I": 0,
+          "M": 806400,
+          "P": 0,
+          "Q": 245520,
+          "R": 245280,
+          "S": 1460880,
+          "V": 735840,
+          "W": 9.059
+        },
+        "B5_BLIND_POLICY": {
+          "G": 7267800,
+          "H": 124080,
+          "I": 360,
+          "M": 403200,
+          "P": 0,
+          "Q": 245520,
+          "R": 244920,
+          "S": 2915640,
+          "V": 734760,
+          "W": 1188.613
+        }
+      },
+      "drift": {
+        "detection_delay_sum": 0,
+        "drift_events": 120,
+        "drifts_detected_before_reuse": 120,
+        "rebuild_count": 120
+      },
+      "event_count": 245520,
+      "false_merge_events": 0,
+      "false_positive_build_decisions": 120,
+      "missed_reuse_events": 0,
+      "raw_minus_blind_component_gain": {
+        "G": -7267800,
+        "H": -124080,
+        "I": -360,
+        "M": -403200,
+        "P": 0,
+        "Q": 0,
+        "R": -244920,
+        "S": 989721720,
+        "V": -734760
+      },
+      "stale_reuse_errors": 0,
+      "stream_count": 1200,
+      "stream_type_counts": {
+        "DECOY_SIMILAR": 240,
+        "DRIFT": 120,
+        "INDEPENDENT": 120,
+        "NEAR_SHARED": 120,
+        "SHORT_LIVED": 240,
+        "TRUE_SHARED": 360
+      }
+    }
+  },
+  "experiment": "MAT-SI PiPi-47B Blind Reuse Discovery / Grouping-or-Die",
+  "gates": {
+    "DIES_BOOKKEEPING_ONLY": true,
+    "DIES_DRIFT": false,
+    "DIES_FALSE_MERGES": true,
+    "DIES_GROUPING_ORACLE": true,
+    "STRONG_SURVIVAL": false,
+    "SURVIVES_HELDOUT_DOMAIN": false,
+    "SURVIVES_HELDOUT_STRUCTURE": false,
+    "SURVIVES_WITHIN_DOMAIN": false
+  },
+  "grouping_metrics": {
+    "false_merge_rate": 0.07311500380807312,
+    "false_split_rate": 0.1,
+    "pairwise_precision": 0.33027996387562897,
+    "pairwise_recall": 0.8,
+    "predicted_group_count": 2626,
+    "truth_group_count": 2400
+  },
+  "hypothesis": {
+    "H0": "apparent reuse gain requires hidden labels, IDs, candidate selection, horizon knowledge, or omitted accounting",
+    "H1": "a domain-agnostic procedure can discover, group, build, reuse, reject, and retire reusable structure on held-out streams"
+  },
+  "machine_metadata": {
+    "policy_watch_wall_ms": {
+      "B0_RAW": 38.603,
+      "B1_ORACLE_GROUPING": 41.517,
+      "B2_HASH_IDENTITY": 1304.091,
+      "B3_SIMPLE_PAYBACK": 39.887,
+      "B4_DOMAIN_SPECIALIST": 45.293,
+      "B5_BLIND_POLICY": 5943.063
+    },
+    "python": "3.13.15",
+    "release": "11",
+    "runtime_wall_ms": 15401.092,
+    "system": "Windows"
+  },
+  "next_experiment": {
+    "justified": false,
+    "reason": "None of SURVIVES_HELDOUT_STRUCTURE, SURVIVES_HELDOUT_DOMAIN, or STRONG_SURVIVAL is true; freeze and redesign conceptually rather than run a nearby benchmark."
+  },
+  "parent_commit_actual": "1bdfa411b10545d4d88f14a2d07c2b317001bd8d",
+  "policies": {
+    "B0_RAW": "solve every query from scratch",
+    "B1_ORACLE_GROUPING": "true grouping and candidate supplied; upper bound only",
+    "B2_HASH_IDENTITY": "reuse only exact raw serialization identity",
+    "B3_SIMPLE_PAYBACK": "oracle candidate/group with frozen k_hat from pilot costs",
+    "B4_DOMAIN_SPECIALIST": "domain-aware future-aware comparator; upper bound only",
+    "B5_BLIND_POLICY": "structural applicability probe plus coarse invariant grouping; no labels or IDs"
+  },
+  "portability_and_replay": {
+    "command": "PYTHONPATH=src python -m matsi.blind_reuse",
+    "deterministic_fields": [
+      "scale manifest, generated payloads, seeds, action logic, vector counts excluding W, grouping metrics, gates, conclusions"
+    ],
+    "machine_dependent_fields": [
+      "W in each cost vector",
+      "machine_metadata"
+    ],
+    "replay_contract": "Regenerate from a clean checkout and compare after removing W and machine_metadata.",
+    "runtime": "Python standard library only"
+  },
+  "resource_vector": {
+    "G": "representation discovery/build operations",
+    "H": "grouping/similarity/structure-identification operations",
+    "I": "invalidation/drift-detection operations",
+    "M": "memory cells",
+    "P": "precision bits",
+    "Q": "raw query or solver accesses",
+    "R": "per-instance residue/update operations",
+    "S": "solve/query operations after representation exists",
+    "V": "verification/certificate operations",
+    "W": "wall-clock milliseconds (machine-dependent)"
+  },
+  "scale_manifest": {
+    "design_domains": [
+      "LINEAR_SYSTEM",
+      "SUBSET_SUM",
+      "MEMBERSHIP"
+    ],
+    "domains": [
+      "LINEAR_SYSTEM",
+      "SUBSET_SUM",
+      "MEMBERSHIP",
+      "GRAPH_QUERIES",
+      "AUTOMATON"
+    ],
+    "sealed_heldout_domain": "AUTOMATON",
+    "seeds": "domain/size/index/stream deterministic formulas; no runtime randomness",
+    "size_levels": [
+      64,
+      128,
+      256,
+      512,
+      1024,
+      2048
+    ],
+    "stream_plan": [
+      {
+        "length": 8,
+        "type": "TRUE_SHARED"
+      },
+      {
+        "length": 2,
+        "type": "SHORT_LIVED"
+      },
+      {
+        "length": 16,
+        "type": "DECOY_SIMILAR"
+      },
+      {
+        "length": 32,
+        "type": "DRIFT"
+      },
+      {
+        "length": 64,
+        "type": "NEAR_SHARED"
+      },
+      {
+        "length": 128,
+        "type": "INDEPENDENT"
+      },
+      {
+        "length": 256,
+        "type": "TRUE_SHARED"
+      },
+      {
+        "length": 4,
+        "type": "SHORT_LIVED"
+      },
+      {
+        "length": 512,
+        "type": "DECOY_SIMILAR"
+      },
+      {
+        "length": 1024,
+        "type": "TRUE_SHARED"
+      }
+    ],
+    "streams_per_structure": 10,
+    "structures_per_domain_size": 20,
+    "total_events": 1227600,
+    "total_streams": 6000,
+    "total_structures": 600,
+    "validation_domain": "GRAPH_QUERIES"
+  },
+  "scope_declarations": {
+    "closure_accessibility_merged_into_accepted_evidence": false,
+    "frozen_pippi_42_to_46_modified": false,
+    "main_modified": false,
+    "phase5_started": false
+  },
+  "solver_interface": {
+    "forbidden_to_policy": [
+      "domain_label",
+      "family_label",
+      "case_name",
+      "path",
+      "stable_structure_id",
+      "future_stream_length",
+      "oracle_grouping",
+      "future_answer"
+    ],
+    "native_shapes": [
+      "rows",
+      "values",
+      "members",
+      "edges",
+      "transition_rows"
+    ],
+    "policy_arguments": [
+      "raw_object",
+      "query"
+    ],
+    "raw_object_is_native": true
+  },
+  "strongest_anomaly": "The blind probe finds known structural shapes but either splits under nuisance or accepts coarse decoys; the sealed automaton has no blind candidate and falls back to RAW.",
+  "version": "blind-reuse-v1",
+  "what_died": [
+    "H1 as a domain-agnostic held-out reuse claim: no exact, componentwise positive blind result survived candidate/grouping and verification accounting.",
+    "The hypothesis that a coarse invariant is sufficient: decoy and graph-drift streams create future-relevant false merges/stale reuse.",
+    "The hypothesis that the external candidate-supplied amortization result demonstrates autonomous discovery."
+  ],
+  "what_survived": [
+    "Oracle grouping and domain-specialist comparators can amortize stable long streams.",
+    "The frozen k-star interval is calibrated on the tested candidate cost model, but this is bookkeeping once the candidate is supplied.",
+    "Serialization/renaming perturbations are an effective separation between exact identity and structural grouping."
+  ]
+}
