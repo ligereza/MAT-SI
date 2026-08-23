@@ -1,0 +1,792 @@
+{
+  "families": {
+    "A_affine_lift": {
+      "interpretation": "candidate representation only; solver-work vectors are not collapsed into one cost scalar",
+      "negative_controls": [
+        {
+          "affine_detected": false,
+          "cnf_clauses": 24,
+          "discovery_reason": "forbidden_assignments_are_not_one_parity_class",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 5,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.0369
+          },
+          "gf2": null,
+          "instance": "tseitin_6_perturbed",
+          "n_vars": 9,
+          "resources": {
+            "discovery_steps": 30,
+            "dpll_nodes": 5,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 24
+          },
+          "semantics_preserved": false
+        },
+        {
+          "affine_detected": false,
+          "cnf_clauses": 32,
+          "discovery_reason": "forbidden_assignments_are_not_one_parity_class",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 6,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.0549
+          },
+          "gf2": null,
+          "instance": "tseitin_8_perturbed",
+          "n_vars": 12,
+          "resources": {
+            "discovery_steps": 40,
+            "dpll_nodes": 6,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 32
+          },
+          "semantics_preserved": false
+        },
+        {
+          "affine_detected": false,
+          "cnf_clauses": 40,
+          "discovery_reason": "forbidden_assignments_are_not_one_parity_class",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 7,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.0785
+          },
+          "gf2": null,
+          "instance": "tseitin_10_perturbed",
+          "n_vars": 15,
+          "resources": {
+            "discovery_steps": 50,
+            "dpll_nodes": 7,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 40
+          },
+          "semantics_preserved": false
+        },
+        {
+          "affine_detected": false,
+          "cnf_clauses": 48,
+          "discovery_reason": "forbidden_assignments_are_not_one_parity_class",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 8,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.136
+          },
+          "gf2": null,
+          "instance": "tseitin_12_perturbed",
+          "n_vars": 18,
+          "resources": {
+            "discovery_steps": 60,
+            "dpll_nodes": 8,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 48
+          },
+          "semantics_preserved": false
+        },
+        {
+          "affine_detected": false,
+          "cnf_clauses": 56,
+          "discovery_reason": "forbidden_assignments_are_not_one_parity_class",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 9,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.1536
+          },
+          "gf2": null,
+          "instance": "tseitin_14_perturbed",
+          "n_vars": 21,
+          "resources": {
+            "discovery_steps": 70,
+            "dpll_nodes": 9,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 56
+          },
+          "semantics_preserved": false
+        },
+        {
+          "affine_detected": false,
+          "cnf_clauses": 24,
+          "discovery_reason": "support_(0, 1, 2)_has_1_clauses_expected_4",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 6,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.0584
+          },
+          "gf2": null,
+          "instance": "tseitin_6_random3sat",
+          "n_vars": 9,
+          "resources": {
+            "discovery_steps": 46,
+            "dpll_nodes": 6,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 24
+          },
+          "semantics_preserved": false
+        },
+        {
+          "affine_detected": false,
+          "cnf_clauses": 32,
+          "discovery_reason": "support_(0, 1, 4)_has_1_clauses_expected_4",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 8,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.0635
+          },
+          "gf2": null,
+          "instance": "tseitin_8_random3sat",
+          "n_vars": 12,
+          "resources": {
+            "discovery_steps": 62,
+            "dpll_nodes": 8,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 32
+          },
+          "semantics_preserved": false
+        },
+        {
+          "affine_detected": false,
+          "cnf_clauses": 40,
+          "discovery_reason": "support_(0, 1, 10)_has_1_clauses_expected_4",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 9,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.1342
+          },
+          "gf2": null,
+          "instance": "tseitin_10_random3sat",
+          "n_vars": 15,
+          "resources": {
+            "discovery_steps": 76,
+            "dpll_nodes": 9,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 40
+          },
+          "semantics_preserved": false
+        },
+        {
+          "affine_detected": false,
+          "cnf_clauses": 48,
+          "discovery_reason": "support_(0, 1, 7)_has_1_clauses_expected_4",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 12,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.1312
+          },
+          "gf2": null,
+          "instance": "tseitin_12_random3sat",
+          "n_vars": 18,
+          "resources": {
+            "discovery_steps": 93,
+            "dpll_nodes": 12,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 48
+          },
+          "semantics_preserved": false
+        },
+        {
+          "affine_detected": false,
+          "cnf_clauses": 56,
+          "discovery_reason": "support_(0, 1, 6)_has_1_clauses_expected_4",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 7,
+            "sat": true,
+            "status": "SOLVED",
+            "wall_ms": 0.1179
+          },
+          "gf2": null,
+          "instance": "tseitin_14_random3sat",
+          "n_vars": 21,
+          "resources": {
+            "discovery_steps": 111,
+            "dpll_nodes": 7,
+            "gf2_row_xor_ops": null,
+            "transform_clauses": 56
+          },
+          "semantics_preserved": false
+        }
+      ],
+      "positive_family": [
+        {
+          "affine_detected": true,
+          "cnf_clauses": 24,
+          "discovery_reason": "exact_affine_clause_blocks",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 31,
+            "sat": false,
+            "status": "SOLVED",
+            "wall_ms": 0.1858
+          },
+          "gf2": {
+            "equation_count": 6,
+            "rank": 5,
+            "row_xor_ops": 6,
+            "sat": false
+          },
+          "instance": "tseitin_6",
+          "n_vars": 9,
+          "resources": {
+            "discovery_steps": 30,
+            "dpll_nodes": 31,
+            "gf2_row_xor_ops": 6,
+            "transform_clauses": 24
+          },
+          "semantics_preserved": true
+        },
+        {
+          "affine_detected": true,
+          "cnf_clauses": 32,
+          "discovery_reason": "exact_affine_clause_blocks",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 63,
+            "sat": false,
+            "status": "SOLVED",
+            "wall_ms": 0.4538
+          },
+          "gf2": {
+            "equation_count": 8,
+            "rank": 7,
+            "row_xor_ops": 8,
+            "sat": false
+          },
+          "instance": "tseitin_8",
+          "n_vars": 12,
+          "resources": {
+            "discovery_steps": 40,
+            "dpll_nodes": 63,
+            "gf2_row_xor_ops": 8,
+            "transform_clauses": 32
+          },
+          "semantics_preserved": true
+        },
+        {
+          "affine_detected": true,
+          "cnf_clauses": 40,
+          "discovery_reason": "exact_affine_clause_blocks",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 127,
+            "sat": false,
+            "status": "SOLVED",
+            "wall_ms": 1.0946
+          },
+          "gf2": {
+            "equation_count": 10,
+            "rank": 9,
+            "row_xor_ops": 10,
+            "sat": false
+          },
+          "instance": "tseitin_10",
+          "n_vars": 15,
+          "resources": {
+            "discovery_steps": 50,
+            "dpll_nodes": 127,
+            "gf2_row_xor_ops": 10,
+            "transform_clauses": 40
+          },
+          "semantics_preserved": true
+        },
+        {
+          "affine_detected": true,
+          "cnf_clauses": 48,
+          "discovery_reason": "exact_affine_clause_blocks",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 255,
+            "sat": false,
+            "status": "SOLVED",
+            "wall_ms": 2.5501
+          },
+          "gf2": {
+            "equation_count": 12,
+            "rank": 11,
+            "row_xor_ops": 12,
+            "sat": false
+          },
+          "instance": "tseitin_12",
+          "n_vars": 18,
+          "resources": {
+            "discovery_steps": 60,
+            "dpll_nodes": 255,
+            "gf2_row_xor_ops": 12,
+            "transform_clauses": 48
+          },
+          "semantics_preserved": true
+        },
+        {
+          "affine_detected": true,
+          "cnf_clauses": 56,
+          "discovery_reason": "exact_affine_clause_blocks",
+          "dpll": {
+            "node_cap": 250000,
+            "nodes": 511,
+            "sat": false,
+            "status": "SOLVED",
+            "wall_ms": 6.2548
+          },
+          "gf2": {
+            "equation_count": 14,
+            "rank": 13,
+            "row_xor_ops": 14,
+            "sat": false
+          },
+          "instance": "tseitin_14",
+          "n_vars": 21,
+          "resources": {
+            "discovery_steps": 70,
+            "dpll_nodes": 511,
+            "gf2_row_xor_ops": 14,
+            "transform_clauses": 56
+          },
+          "semantics_preserved": true
+        }
+      ],
+      "question": "can a raw CNF be lifted to affine structure without losing semantics?",
+      "summary": {
+        "negative_count": 10,
+        "negative_rejected": true,
+        "positive_count": 5,
+        "positive_detected": true,
+        "positive_semantics_preserved": true,
+        "positive_solver_work_reduced": true
+      }
+    },
+    "B_future_quotient": {
+      "cases": [
+        {
+          "dead_future_class_present": true,
+          "dead_histories": 240,
+          "exact_future_classes": 2,
+          "history_to_future_class_ratio": 128.0,
+          "kind": "dense_redundant",
+          "live_future_classes": 1,
+          "n_weights": 16,
+          "prefix_histories": 256,
+          "projections": {
+            "full_residual": {
+              "ambiguous_groups": 0,
+              "exact_for_future": true,
+              "projected_states": 31
+            },
+            "mod16": {
+              "ambiguous_groups": 0,
+              "exact_for_future": true,
+              "projected_states": 16
+            },
+            "mod3": {
+              "ambiguous_groups": 1,
+              "exact_for_future": false,
+              "projected_states": 3
+            },
+            "mod5": {
+              "ambiguous_groups": 1,
+              "exact_for_future": false,
+              "projected_states": 5
+            },
+            "parity": {
+              "ambiguous_groups": 1,
+              "exact_for_future": false,
+              "projected_states": 2
+            },
+            "sign": {
+              "ambiguous_groups": 1,
+              "exact_for_future": false,
+              "projected_states": 1
+            }
+          },
+          "resources": {
+            "full_state_count": 31,
+            "prefix_histories": 256,
+            "suffix_distinct_sums": 31
+          },
+          "split": 8,
+          "target": 255,
+          "unique_full_residuals": 31
+        },
+        {
+          "dead_future_class_present": true,
+          "dead_histories": 255,
+          "exact_future_classes": 2,
+          "history_to_future_class_ratio": 128.0,
+          "kind": "superincreasing",
+          "live_future_classes": 1,
+          "n_weights": 16,
+          "prefix_histories": 256,
+          "projections": {
+            "full_residual": {
+              "ambiguous_groups": 0,
+              "exact_for_future": true,
+              "projected_states": 256
+            },
+            "mod16": {
+              "ambiguous_groups": 1,
+              "exact_for_future": false,
+              "projected_states": 16
+            },
+            "mod3": {
+              "ambiguous_groups": 1,
+              "exact_for_future": false,
+              "projected_states": 3
+            },
+            "mod5": {
+              "ambiguous_groups": 1,
+              "exact_for_future": false,
+              "projected_states": 5
+            },
+            "parity": {
+              "ambiguous_groups": 1,
+              "exact_for_future": false,
+              "projected_states": 2
+            },
+            "sign": {
+              "ambiguous_groups": 1,
+              "exact_for_future": false,
+              "projected_states": 1
+            }
+          },
+          "resources": {
+            "full_state_count": 256,
+            "prefix_histories": 256,
+            "suffix_distinct_sums": 256
+          },
+          "split": 8,
+          "target": 32767,
+          "unique_full_residuals": 256
+        }
+      ],
+      "interpretation": "full residual is a candidate future-sufficient state only for the stated suffix query class",
+      "question": "does a compressed state preserve the future query class?",
+      "summary": {
+        "dense_coarse_projection_rejected": true,
+        "dense_full_residual_is_exact": true,
+        "dense_has_exact_compression": true,
+        "superincreasing_has_no_collapse": true
+      }
+    },
+    "C_pi_local_negative": {
+      "interpretation": "a negative result for pi is a control, not evidence that pi has no nonlocal structure",
+      "question": "does pi expose a useful held-out local digit rule?",
+      "rows": {
+        "pi": {
+          "baseline_accuracy": 0.116667,
+          "context_size": 2,
+          "contexts_seen": 100,
+          "digits": 1200,
+          "heldout_gain": -0.014583,
+          "local_accuracy": 0.102083,
+          "test_digits": 480,
+          "train_digits": 720
+        },
+        "planted_local": {
+          "baseline_accuracy": 0.1,
+          "context_size": 2,
+          "contexts_seen": 10,
+          "digits": 1200,
+          "heldout_gain": 0.9,
+          "local_accuracy": 1.0,
+          "test_digits": 480,
+          "train_digits": 720
+        },
+        "random": {
+          "baseline_accuracy": 0.0875,
+          "context_size": 2,
+          "contexts_seen": 100,
+          "digits": 1200,
+          "heldout_gain": -0.002083,
+          "local_accuracy": 0.085417,
+          "test_digits": 480,
+          "train_digits": 720
+        },
+        "shuffled_pi": {
+          "baseline_accuracy": 0.089583,
+          "context_size": 2,
+          "contexts_seen": 100,
+          "digits": 1200,
+          "heldout_gain": -0.016667,
+          "local_accuracy": 0.072917,
+          "test_digits": 480,
+          "train_digits": 720
+        }
+      },
+      "summary": {
+        "pi_is_not_stronger_than_random": true,
+        "pi_is_not_stronger_than_shuffled": true,
+        "planted_rule_detected": true
+      }
+    }
+  },
+  "gate": {
+    "accepted_frontier_modified": false,
+    "decision": "KEEP-SPECULATIVE",
+    "main_modified": false,
+    "next": "freeze parameters, add held-out instances, and rerun from a clean checkout before any promotion",
+    "phase5_started": false
+  },
+  "observability_contract": {
+    "mandatory_fields": [
+      "before",
+      "intervention",
+      "after",
+      "provenance"
+    ],
+    "optional_fields": [
+      "resources"
+    ],
+    "records": [
+      {
+        "after": {
+          "scope": "candidate_representation",
+          "state_digest": "769d97ec9bd3ef8a3a299575aa1c86240086ae1601b59542a84d3979cffc192d"
+        },
+        "before": {
+          "scope": "raw_instance",
+          "state_digest": "ed6f57c0439e0500741708633c3e61c516eb97b0855cb42676ad847e95c9d965"
+        },
+        "intervention": {
+          "event_digest": "5a067c195ce1fbb6",
+          "kind": "opaque_representation_lift"
+        },
+        "provenance": {
+          "field_audit": {
+            "after": {
+              "DERIVATION": "candidate solver/state summary",
+              "LOSS": "full payload remains recoverable from generator",
+              "PROVENANCE": "module",
+              "RAW_SOURCE": "candidate result",
+              "RESIDUE": {
+                "payload_digest": "5a067c195ce1fbb6bf4374c67a7160cc321694da23a3081e876c5b5f5dc9593d"
+              }
+            },
+            "before": {
+              "DERIVATION": "canonical raw instance",
+              "LOSS": "none",
+              "PROVENANCE": "module",
+              "RAW_SOURCE": "deterministic_generator",
+              "RESIDUE": {
+                "payload_digest": "5a067c195ce1fbb6bf4374c67a7160cc321694da23a3081e876c5b5f5dc9593d"
+              }
+            },
+            "intervention": {
+              "DERIVATION": "opaque lift token",
+              "LOSS": "semantic label withheld",
+              "PROVENANCE": "module",
+              "RAW_SOURCE": "audit protocol",
+              "RESIDUE": {
+                "payload_digest": "5a067c195ce1fbb6bf4374c67a7160cc321694da23a3081e876c5b5f5dc9593d"
+              }
+            },
+            "provenance": {
+              "DERIVATION": "deterministic run",
+              "LOSS": "wall-clock is machine-dependent",
+              "PROVENANCE": "parent commit 059574f",
+              "RAW_SOURCE": "repository-owned generator",
+              "RESIDUE": {
+                "protocol": "speculative-order-dimensions-lift-audit-v0"
+              }
+            }
+          },
+          "source_ref": "generated://A_affine_lift",
+          "source_system": "MAT-SI-PiPi-independent-audit"
+        },
+        "residue": {
+          "candidate": true,
+          "certificate": "see family result",
+          "evidence_against": [],
+          "evidence_for": [],
+          "fallback": "retain raw representation"
+        },
+        "resources": {
+          "dimensions": {
+            "discovery_steps": {
+              "status": "MEASURED"
+            },
+            "solver_units": {
+              "status": "MEASURED"
+            },
+            "transform_units": {
+              "status": "MEASURED"
+            }
+          },
+          "scalar_collapsed": false
+        }
+      },
+      {
+        "after": {
+          "scope": "candidate_representation",
+          "state_digest": "b88eaaf47a4d0d21c80c7bb6cdebf6783abc18c27b82f420cf7266f84309f857"
+        },
+        "before": {
+          "scope": "raw_instance",
+          "state_digest": "fb5c64a0db07ddd47e575cb428eb728dbe8007b74ca99e51c356d271749af6b8"
+        },
+        "intervention": {
+          "event_digest": "bd206154abc04a26",
+          "kind": "opaque_representation_lift"
+        },
+        "provenance": {
+          "field_audit": {
+            "after": {
+              "DERIVATION": "candidate solver/state summary",
+              "LOSS": "full payload remains recoverable from generator",
+              "PROVENANCE": "module",
+              "RAW_SOURCE": "candidate result",
+              "RESIDUE": {
+                "payload_digest": "bd206154abc04a26c6648758f01018439e5f9f9d2c92abe4281f1205b98c714f"
+              }
+            },
+            "before": {
+              "DERIVATION": "canonical raw instance",
+              "LOSS": "none",
+              "PROVENANCE": "module",
+              "RAW_SOURCE": "deterministic_generator",
+              "RESIDUE": {
+                "payload_digest": "bd206154abc04a26c6648758f01018439e5f9f9d2c92abe4281f1205b98c714f"
+              }
+            },
+            "intervention": {
+              "DERIVATION": "opaque lift token",
+              "LOSS": "semantic label withheld",
+              "PROVENANCE": "module",
+              "RAW_SOURCE": "audit protocol",
+              "RESIDUE": {
+                "payload_digest": "bd206154abc04a26c6648758f01018439e5f9f9d2c92abe4281f1205b98c714f"
+              }
+            },
+            "provenance": {
+              "DERIVATION": "deterministic run",
+              "LOSS": "wall-clock is machine-dependent",
+              "PROVENANCE": "parent commit 059574f",
+              "RAW_SOURCE": "repository-owned generator",
+              "RESIDUE": {
+                "protocol": "speculative-order-dimensions-lift-audit-v0"
+              }
+            }
+          },
+          "source_ref": "generated://B_future_quotient",
+          "source_system": "MAT-SI-PiPi-independent-audit"
+        },
+        "residue": {
+          "candidate": true,
+          "certificate": "see family result",
+          "evidence_against": [],
+          "evidence_for": [],
+          "fallback": "retain raw representation"
+        },
+        "resources": {
+          "dimensions": {
+            "discovery_steps": {
+              "status": "MEASURED"
+            },
+            "solver_units": {
+              "status": "MEASURED"
+            },
+            "transform_units": {
+              "status": "MEASURED"
+            }
+          },
+          "scalar_collapsed": false
+        }
+      },
+      {
+        "after": {
+          "scope": "candidate_representation",
+          "state_digest": "6091139b1073c40f2cdbfc061eda03e706328717aa71275339150a1a9ec446d3"
+        },
+        "before": {
+          "scope": "raw_instance",
+          "state_digest": "81493bfb191140cd1461ffe6be0a64e765703e6bc30ae89f299aeb13a0f652c9"
+        },
+        "intervention": {
+          "event_digest": "6794a570d1ab5f65",
+          "kind": "opaque_representation_lift"
+        },
+        "provenance": {
+          "field_audit": {
+            "after": {
+              "DERIVATION": "candidate solver/state summary",
+              "LOSS": "full payload remains recoverable from generator",
+              "PROVENANCE": "module",
+              "RAW_SOURCE": "candidate result",
+              "RESIDUE": {
+                "payload_digest": "6794a570d1ab5f65889e4cb620a2bd649e430eca7dbafae0874f20f5699fdf9d"
+              }
+            },
+            "before": {
+              "DERIVATION": "canonical raw instance",
+              "LOSS": "none",
+              "PROVENANCE": "module",
+              "RAW_SOURCE": "deterministic_generator",
+              "RESIDUE": {
+                "payload_digest": "6794a570d1ab5f65889e4cb620a2bd649e430eca7dbafae0874f20f5699fdf9d"
+              }
+            },
+            "intervention": {
+              "DERIVATION": "opaque lift token",
+              "LOSS": "semantic label withheld",
+              "PROVENANCE": "module",
+              "RAW_SOURCE": "audit protocol",
+              "RESIDUE": {
+                "payload_digest": "6794a570d1ab5f65889e4cb620a2bd649e430eca7dbafae0874f20f5699fdf9d"
+              }
+            },
+            "provenance": {
+              "DERIVATION": "deterministic run",
+              "LOSS": "wall-clock is machine-dependent",
+              "PROVENANCE": "parent commit 059574f",
+              "RAW_SOURCE": "repository-owned generator",
+              "RESIDUE": {
+                "protocol": "speculative-order-dimensions-lift-audit-v0"
+              }
+            }
+          },
+          "source_ref": "generated://C_pi_local_negative",
+          "source_system": "MAT-SI-PiPi-independent-audit"
+        },
+        "residue": {
+          "candidate": true,
+          "certificate": "see family result",
+          "evidence_against": [],
+          "evidence_for": [],
+          "fallback": "retain raw representation"
+        },
+        "resources": {
+          "dimensions": {
+            "discovery_steps": {
+              "status": "MEASURED"
+            },
+            "solver_units": {
+              "status": "MEASURED"
+            },
+            "transform_units": {
+              "status": "MEASURED"
+            }
+          },
+          "scalar_collapsed": false
+        }
+      }
+    ]
+  },
+  "parent_commit": "059574f",
+  "protocol": "speculative-order-dimensions-lift-audit-v0",
+  "scope": "speculative evidence; does not modify accepted MAT-SI phase state"
+}

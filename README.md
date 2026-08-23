@@ -139,6 +139,21 @@ python -m matsi.minimum_observability --json-out results/phase4c-minimum-observa
 See `docs/phase4c-minimum-observability.md` for the falsifying pairs, source mappings,
 residue audits, instrumentation boundary, and gate decision. Phase 5 has not begun.
 
+## Speculative PiPi-derived audit
+
+The `research/order-dimensions` branch contains a bounded, speculative reproduction
+of the PiPi handoff. It tests affine representation discovery, future-sufficient
+residuals, and a negative local-predictor control on generated pi digits. It keeps
+discovery, transform, solver, state, and fidelity measurements separate and does not
+change the accepted MAT-SI frontier or start Phase 5:
+
+```text
+$env:PYTHONPATH="src"
+python -m matsi.order_dimensions --json-out results/order-dimensions-lift-audit.json
+```
+
+See `docs/order-dimensions-lift-audit.md` for the scope and stopping conditions.
+
 ## CODEINE v0
 
 CODEINE v0 is the first local product using the Phase 4C observation contract. It
