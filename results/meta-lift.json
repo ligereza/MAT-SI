@@ -1,0 +1,4158 @@
+{
+  "blind_input_contract": {
+    "selector_does_not_receive": [
+      "family",
+      "difficulty",
+      "expected_candidate",
+      "audit_case_name"
+    ],
+    "selector_receives": [
+      "variables",
+      "relations",
+      "linear_target",
+      "cardinality_target",
+      "future_queries"
+    ],
+    "surface_variants": [
+      "variable renaming",
+      "constraint reorder",
+      "redundancy",
+      "equivalent serialization",
+      "harmless metadata"
+    ]
+  },
+  "candidate_contract": [
+    "applicability_probe",
+    "discovery_cost",
+    "transform_cost",
+    "representation",
+    "solver",
+    "resource_vector",
+    "certificate",
+    "fallback"
+  ],
+  "candidate_library": [
+    "RAW_SEARCH",
+    "GF2_LIFT",
+    "HORN",
+    "DUAL_HORN",
+    "2SAT",
+    "VARIABLE_ELIMINATION",
+    "FUTURE_EQUIVALENCE_REFINEMENT",
+    "SUBSET_SUM_DP",
+    "MITM",
+    "CARDINALITY_LIFT",
+    "CLUSTER/LATTICE"
+  ],
+  "cases": [
+    {
+      "adversarial_audit": {
+        "adversarial": false,
+        "expected_candidates_posthoc_only": [
+          "GF2_LIFT"
+        ],
+        "fallback_rescue": false,
+        "false_lift": false,
+        "missed_lift": false,
+        "wasted_discovery_ops": 57
+      },
+      "case": "blind_affine",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 60,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 8,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "f786fddb19c39a2db136a331660a2a045aba2d59d6b9242ef3594b206ef151b6",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "0b8400a68f567c57f58cd277c448b9e22ee1b25a19b35a50ffa56e662ca97ee7"
+            },
+            "checks": 48,
+            "exact_count": 8,
+            "exact_count_match_raw": true,
+            "memory_proxy": 32,
+            "operations": 64,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 32,
+              "solve_ops": 64,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 0.0965
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "certificate": {
+              "candidate": "GF2_LIFT",
+              "inconsistent": false,
+              "kind": "gf2_row_reduction",
+              "rank": 2,
+              "raw_input_digest": "0b8400a68f567c57f58cd277c448b9e22ee1b25a19b35a50ffa56e662ca97ee7"
+            },
+            "checks": 2,
+            "exact_count": 8,
+            "exact_count_match_raw": true,
+            "memory_proxy": 2,
+            "operations": 50,
+            "representation": "linear equations over GF(2)",
+            "resource_vector": {
+              "discovery_ops": 8,
+              "memory_proxy": 2,
+              "solve_ops": 50,
+              "transform_ops": 2
+            },
+            "solver": "Gaussian elimination",
+            "wall_ms": 0.0
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "certificate": {
+              "candidate": "VARIABLE_ELIMINATION",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "f786fddb19c39a2db136a331660a2a045aba2d59d6b9242ef3594b206ef151b6",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "0b8400a68f567c57f58cd277c448b9e22ee1b25a19b35a50ffa56e662ca97ee7"
+            },
+            "checks": 48,
+            "exact_count": 8,
+            "exact_count_match_raw": true,
+            "memory_proxy": 8,
+            "operations": 64,
+            "representation": "explicit factor scopes",
+            "resource_vector": {
+              "discovery_ops": 11,
+              "memory_proxy": 8,
+              "solve_ops": 64,
+              "transform_ops": 16
+            },
+            "solver": "factor elimination",
+            "wall_ms": 0.0953
+          }
+        ],
+        "best_representation_after_the_fact": "GF2_LIFT",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 8,
+          "memory_proxy": 2,
+          "solve_ops": 50,
+          "transform_ops": 2
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH",
+          "GF2_LIFT"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "relations": [
+          {
+            "allowed": [
+              "000",
+              "011",
+              "101",
+              "110"
+            ],
+            "scope": [
+              "x0",
+              "x1",
+              "x2"
+            ]
+          },
+          {
+            "allowed": [
+              "001",
+              "010",
+              "100",
+              "111"
+            ],
+            "scope": [
+              "x1",
+              "x3",
+              "x4"
+            ]
+          }
+        ],
+        "variables": [
+          "x0",
+          "x1",
+          "x2",
+          "x3",
+          "x4"
+        ]
+      },
+      "raw_input_digest": "0b8400a68f567c57f58cd277c448b9e22ee1b25a19b35a50ffa56e662ca97ee7",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": false,
+        "pareto_gap": {
+          "discovery_ops": 57,
+          "memory_proxy": 0,
+          "solve_ops": 0,
+          "transform_ops": 2
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "GF2_LIFT",
+        "certificate": {
+          "candidate": "GF2_LIFT",
+          "inconsistent": false,
+          "kind": "gf2_row_reduction",
+          "rank": 2,
+          "raw_input_digest": "0b8400a68f567c57f58cd277c448b9e22ee1b25a19b35a50ffa56e662ca97ee7"
+        },
+        "checks": 2,
+        "exact_count": 8,
+        "exact_count_match_raw": true,
+        "memory_proxy": 2,
+        "operations": 50,
+        "representation": "linear equations over GF(2)",
+        "resource_vector": {
+          "discovery_ops": 58,
+          "memory_proxy": 2,
+          "solve_ops": 50,
+          "transform_ops": 2
+        },
+        "solver": "Gaussian elimination",
+        "wall_ms": 0.0
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 2
+              },
+              "score": 0.01538462,
+              "solve_estimate": 64,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 65
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": true,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 8,
+              "evidence": {
+                "parity_equations": 2
+              },
+              "score": 0.05,
+              "solve_estimate": 10,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 20
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "HORN",
+              "discovery_cost": 5,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 7,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 14
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 5,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 7,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 14
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": false,
+              "candidate": "2SAT",
+              "discovery_cost": 5,
+              "evidence": {
+                "binary_three_row_relations": false
+              },
+              "score": 0.0,
+              "solve_estimate": 10,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 17
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": true,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 11,
+              "evidence": {
+                "maximum_relation_scope": 3
+              },
+              "score": 0.01492537,
+              "solve_estimate": 40,
+              "transform_cost": 16
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 67
+          },
+          {
+            "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+            "probe": {
+              "applicable": false,
+              "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+              "discovery_cost": 4,
+              "evidence": {
+                "future_query_count": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 0,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 7
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "probe": {
+              "applicable": false,
+              "candidate": "SUBSET_SUM_DP",
+              "discovery_cost": 9,
+              "evidence": {
+                "target": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 5,
+              "transform_cost": 5
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 19
+          },
+          {
+            "candidate": "MITM",
+            "probe": {
+              "applicable": false,
+              "candidate": "MITM",
+              "discovery_cost": 10,
+              "evidence": {
+                "variable_count": 5
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 5
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 23
+          },
+          {
+            "candidate": "CARDINALITY_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "CARDINALITY_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "target_present": false
+              },
+              "score": 0.0,
+              "solve_estimate": 5,
+              "transform_cost": 1
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "CLUSTER/LATTICE",
+            "probe": {
+              "applicable": false,
+              "candidate": "CLUSTER/LATTICE",
+              "discovery_cost": 8,
+              "evidence": {
+                "pairwise_graph_relation_shape": false
+              },
+              "score": 0.0,
+              "solve_estimate": 10,
+              "transform_cost": 16
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "SWITCH",
+          "FREEZE"
+        ],
+        "discovery_budget": 60,
+        "discovery_cost_total": 58,
+        "fallback_estimate": 64,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "GF2_LIFT",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "GF2_LIFT",
+          "discovery_cost": 8,
+          "evidence": {
+            "parity_equations": 2
+          },
+          "score": 0.05,
+          "solve_estimate": 10,
+          "transform_cost": 2
+        },
+        "stop_reason": "candidate_library_exhausted_under_budget",
+        "wall_ms": 0.5037
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 58,
+          "exact_count": 8,
+          "selected_candidate": "GF2_LIFT",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 58,
+          "exact_count": 8,
+          "selected_candidate": "GF2_LIFT",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    },
+    {
+      "adversarial_audit": {
+        "adversarial": false,
+        "expected_candidates_posthoc_only": [
+          "HORN"
+        ],
+        "fallback_rescue": false,
+        "false_lift": false,
+        "missed_lift": false,
+        "wasted_discovery_ops": 33
+      },
+      "case": "blind_horn",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 60,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 10,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "2c929fc4b43bbd4b96e01c4dbb87565a237fb68e500120545887946295b0b9b3",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "cbf54851a39f2e6529a9bd45f349322911e8ee7ecc5dabf468d3fa166266b50b"
+            },
+            "checks": 30,
+            "exact_count": 10,
+            "exact_count_match_raw": true,
+            "memory_proxy": 16,
+            "operations": 32,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 16,
+              "solve_ops": 32,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 0.055
+          },
+          {
+            "candidate": "HORN",
+            "certificate": {
+              "candidate": "HORN",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "2c929fc4b43bbd4b96e01c4dbb87565a237fb68e500120545887946295b0b9b3",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "cbf54851a39f2e6529a9bd45f349322911e8ee7ecc5dabf468d3fa166266b50b"
+            },
+            "checks": 30,
+            "exact_count": 10,
+            "exact_count_match_raw": true,
+            "memory_proxy": 8,
+            "operations": 32,
+            "representation": "Horn implication closure",
+            "resource_vector": {
+              "discovery_ops": 5,
+              "memory_proxy": 8,
+              "solve_ops": 32,
+              "transform_ops": 2
+            },
+            "solver": "Horn solver",
+            "wall_ms": 0.0554
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "certificate": {
+              "candidate": "VARIABLE_ELIMINATION",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "2c929fc4b43bbd4b96e01c4dbb87565a237fb68e500120545887946295b0b9b3",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "cbf54851a39f2e6529a9bd45f349322911e8ee7ecc5dabf468d3fa166266b50b"
+            },
+            "checks": 30,
+            "exact_count": 10,
+            "exact_count_match_raw": true,
+            "memory_proxy": 8,
+            "operations": 32,
+            "representation": "explicit factor scopes",
+            "resource_vector": {
+              "discovery_ops": 10,
+              "memory_proxy": 8,
+              "solve_ops": 32,
+              "transform_ops": 12
+            },
+            "solver": "factor elimination",
+            "wall_ms": 0.0557
+          }
+        ],
+        "best_representation_after_the_fact": "HORN",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 5,
+          "memory_proxy": 8,
+          "solve_ops": 32,
+          "transform_ops": 2
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH",
+          "HORN"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "relations": [
+          {
+            "allowed": [
+              "000",
+              "001",
+              "010",
+              "011",
+              "101",
+              "110",
+              "111"
+            ],
+            "scope": [
+              "x0",
+              "x1",
+              "x2"
+            ]
+          },
+          {
+            "allowed": [
+              "00",
+              "01",
+              "11"
+            ],
+            "scope": [
+              "x1",
+              "x3"
+            ]
+          }
+        ],
+        "variables": [
+          "x0",
+          "x1",
+          "x2",
+          "x3"
+        ]
+      },
+      "raw_input_digest": "cbf54851a39f2e6529a9bd45f349322911e8ee7ecc5dabf468d3fa166266b50b",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": false,
+        "pareto_gap": {
+          "discovery_ops": 33,
+          "memory_proxy": 0,
+          "solve_ops": 0,
+          "transform_ops": 2
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "HORN",
+        "certificate": {
+          "candidate": "HORN",
+          "kind": "generic_factor_elimination_proxy",
+          "raw_certificate": {
+            "digest": "2c929fc4b43bbd4b96e01c4dbb87565a237fb68e500120545887946295b0b9b3",
+            "kind": "raw_assignment_enumeration"
+          },
+          "raw_input_digest": "cbf54851a39f2e6529a9bd45f349322911e8ee7ecc5dabf468d3fa166266b50b"
+        },
+        "checks": 30,
+        "exact_count": 10,
+        "exact_count_match_raw": true,
+        "memory_proxy": 8,
+        "operations": 32,
+        "representation": "Horn implication closure",
+        "resource_vector": {
+          "discovery_ops": 34,
+          "memory_proxy": 8,
+          "solve_ops": 32,
+          "transform_ops": 2
+        },
+        "solver": "Horn solver",
+        "wall_ms": 0.0604
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 2
+              },
+              "score": 0.03030303,
+              "solve_estimate": 32,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 33
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 8,
+              "evidence": {
+                "parity_equations": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 9
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": true,
+              "candidate": "HORN",
+              "discovery_cost": 5,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": true
+              },
+              "score": 0.07692308,
+              "solve_estimate": 6,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 5,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": true
+              },
+              "score": 0.0,
+              "solve_estimate": 6,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": false,
+              "candidate": "2SAT",
+              "discovery_cost": 5,
+              "evidence": {
+                "binary_three_row_relations": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 15
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": true,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 10,
+              "evidence": {
+                "maximum_relation_scope": 3
+              },
+              "score": 0.01851852,
+              "solve_estimate": 32,
+              "transform_cost": 12
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 54
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "SWITCH",
+          "FREEZE"
+        ],
+        "discovery_budget": 60,
+        "discovery_cost_total": 34,
+        "fallback_estimate": 32,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "HORN",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "HORN",
+          "discovery_cost": 5,
+          "evidence": {
+            "one_forbidden_tuple_per_relation": true
+          },
+          "score": 0.07692308,
+          "solve_estimate": 6,
+          "transform_cost": 2
+        },
+        "stop_reason": "knowledge_acquisition_cost_reached_fallback_estimate",
+        "wall_ms": 0.3044
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 34,
+          "exact_count": 10,
+          "selected_candidate": "HORN",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 34,
+          "exact_count": 10,
+          "selected_candidate": "HORN",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    },
+    {
+      "adversarial_audit": {
+        "adversarial": false,
+        "expected_candidates_posthoc_only": [
+          "DUAL_HORN"
+        ],
+        "fallback_rescue": false,
+        "false_lift": false,
+        "missed_lift": false,
+        "wasted_discovery_ops": 33
+      },
+      "case": "blind_dual_horn",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 60,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 10,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "2c929fc4b43bbd4b96e01c4dbb87565a237fb68e500120545887946295b0b9b3",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "554b1b0e777067be5592709efd8ec9d7b59085aba27b45e650ac7299c859ee26"
+            },
+            "checks": 30,
+            "exact_count": 10,
+            "exact_count_match_raw": true,
+            "memory_proxy": 16,
+            "operations": 32,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 16,
+              "solve_ops": 32,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 0.073
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "certificate": {
+              "candidate": "DUAL_HORN",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "2c929fc4b43bbd4b96e01c4dbb87565a237fb68e500120545887946295b0b9b3",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "554b1b0e777067be5592709efd8ec9d7b59085aba27b45e650ac7299c859ee26"
+            },
+            "checks": 30,
+            "exact_count": 10,
+            "exact_count_match_raw": true,
+            "memory_proxy": 8,
+            "operations": 32,
+            "representation": "dual-Horn implication closure",
+            "resource_vector": {
+              "discovery_ops": 5,
+              "memory_proxy": 8,
+              "solve_ops": 32,
+              "transform_ops": 2
+            },
+            "solver": "dual-Horn solver",
+            "wall_ms": 0.0558
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "certificate": {
+              "candidate": "VARIABLE_ELIMINATION",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "2c929fc4b43bbd4b96e01c4dbb87565a237fb68e500120545887946295b0b9b3",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "554b1b0e777067be5592709efd8ec9d7b59085aba27b45e650ac7299c859ee26"
+            },
+            "checks": 30,
+            "exact_count": 10,
+            "exact_count_match_raw": true,
+            "memory_proxy": 8,
+            "operations": 32,
+            "representation": "explicit factor scopes",
+            "resource_vector": {
+              "discovery_ops": 10,
+              "memory_proxy": 8,
+              "solve_ops": 32,
+              "transform_ops": 12
+            },
+            "solver": "factor elimination",
+            "wall_ms": 0.0562
+          }
+        ],
+        "best_representation_after_the_fact": "DUAL_HORN",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 5,
+          "memory_proxy": 8,
+          "solve_ops": 32,
+          "transform_ops": 2
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH",
+          "DUAL_HORN"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "relations": [
+          {
+            "allowed": [
+              "000",
+              "001",
+              "010",
+              "100",
+              "101",
+              "110",
+              "111"
+            ],
+            "scope": [
+              "x0",
+              "x1",
+              "x2"
+            ]
+          },
+          {
+            "allowed": [
+              "00",
+              "10",
+              "11"
+            ],
+            "scope": [
+              "x1",
+              "x3"
+            ]
+          }
+        ],
+        "variables": [
+          "x0",
+          "x1",
+          "x2",
+          "x3"
+        ]
+      },
+      "raw_input_digest": "554b1b0e777067be5592709efd8ec9d7b59085aba27b45e650ac7299c859ee26",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": false,
+        "pareto_gap": {
+          "discovery_ops": 33,
+          "memory_proxy": 0,
+          "solve_ops": 0,
+          "transform_ops": 2
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "DUAL_HORN",
+        "certificate": {
+          "candidate": "DUAL_HORN",
+          "kind": "generic_factor_elimination_proxy",
+          "raw_certificate": {
+            "digest": "2c929fc4b43bbd4b96e01c4dbb87565a237fb68e500120545887946295b0b9b3",
+            "kind": "raw_assignment_enumeration"
+          },
+          "raw_input_digest": "554b1b0e777067be5592709efd8ec9d7b59085aba27b45e650ac7299c859ee26"
+        },
+        "checks": 30,
+        "exact_count": 10,
+        "exact_count_match_raw": true,
+        "memory_proxy": 8,
+        "operations": 32,
+        "representation": "dual-Horn implication closure",
+        "resource_vector": {
+          "discovery_ops": 34,
+          "memory_proxy": 8,
+          "solve_ops": 32,
+          "transform_ops": 2
+        },
+        "solver": "dual-Horn solver",
+        "wall_ms": 0.0599
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 2
+              },
+              "score": 0.03030303,
+              "solve_estimate": 32,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 33
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 8,
+              "evidence": {
+                "parity_equations": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 9
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "HORN",
+              "discovery_cost": 5,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": true
+              },
+              "score": 0.0,
+              "solve_estimate": 6,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": true,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 5,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": true
+              },
+              "score": 0.07692308,
+              "solve_estimate": 6,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": false,
+              "candidate": "2SAT",
+              "discovery_cost": 5,
+              "evidence": {
+                "binary_three_row_relations": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 15
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": true,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 10,
+              "evidence": {
+                "maximum_relation_scope": 3
+              },
+              "score": 0.01851852,
+              "solve_estimate": 32,
+              "transform_cost": 12
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 54
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "SWITCH",
+          "FREEZE"
+        ],
+        "discovery_budget": 60,
+        "discovery_cost_total": 34,
+        "fallback_estimate": 32,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "DUAL_HORN",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "DUAL_HORN",
+          "discovery_cost": 5,
+          "evidence": {
+            "one_forbidden_tuple_per_relation": true
+          },
+          "score": 0.07692308,
+          "solve_estimate": 6,
+          "transform_cost": 2
+        },
+        "stop_reason": "knowledge_acquisition_cost_reached_fallback_estimate",
+        "wall_ms": 0.2913
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 34,
+          "exact_count": 10,
+          "selected_candidate": "DUAL_HORN",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 34,
+          "exact_count": 10,
+          "selected_candidate": "DUAL_HORN",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    },
+    {
+      "adversarial_audit": {
+        "adversarial": false,
+        "expected_candidates_posthoc_only": [
+          "2SAT"
+        ],
+        "fallback_rescue": false,
+        "false_lift": false,
+        "missed_lift": false,
+        "wasted_discovery_ops": 56
+      },
+      "case": "blind_2sat",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 60,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 15,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "6c2e346a04f03dcb3c6f597f0f9f588da8de81c5f70d82d461e6270b2297c8ca",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "a565c2c0a72241a623e2de4d60cfe99ace4e7f97843ddb12a61aef04a9b404d1"
+            },
+            "checks": 76,
+            "exact_count": 15,
+            "exact_count_match_raw": true,
+            "memory_proxy": 32,
+            "operations": 96,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 32,
+              "solve_ops": 96,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 0.1118
+          },
+          {
+            "candidate": "2SAT",
+            "certificate": {
+              "candidate": "2SAT",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "6c2e346a04f03dcb3c6f597f0f9f588da8de81c5f70d82d461e6270b2297c8ca",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "a565c2c0a72241a623e2de4d60cfe99ace4e7f97843ddb12a61aef04a9b404d1"
+            },
+            "checks": 76,
+            "exact_count": 15,
+            "exact_count_match_raw": true,
+            "memory_proxy": 4,
+            "operations": 96,
+            "representation": "implication graph",
+            "resource_vector": {
+              "discovery_ops": 6,
+              "memory_proxy": 4,
+              "solve_ops": 96,
+              "transform_ops": 3
+            },
+            "solver": "2-SAT solver",
+            "wall_ms": 0.1127
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "certificate": {
+              "candidate": "VARIABLE_ELIMINATION",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "6c2e346a04f03dcb3c6f597f0f9f588da8de81c5f70d82d461e6270b2297c8ca",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "a565c2c0a72241a623e2de4d60cfe99ace4e7f97843ddb12a61aef04a9b404d1"
+            },
+            "checks": 76,
+            "exact_count": 15,
+            "exact_count_match_raw": true,
+            "memory_proxy": 4,
+            "operations": 96,
+            "representation": "explicit factor scopes",
+            "resource_vector": {
+              "discovery_ops": 11,
+              "memory_proxy": 4,
+              "solve_ops": 96,
+              "transform_ops": 12
+            },
+            "solver": "factor elimination",
+            "wall_ms": 0.1114
+          }
+        ],
+        "best_representation_after_the_fact": "2SAT",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 6,
+          "memory_proxy": 4,
+          "solve_ops": 96,
+          "transform_ops": 3
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH",
+          "2SAT"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "relations": [
+          {
+            "allowed": [
+              "00",
+              "01",
+              "11"
+            ],
+            "scope": [
+              "x0",
+              "x1"
+            ]
+          },
+          {
+            "allowed": [
+              "01",
+              "10",
+              "11"
+            ],
+            "scope": [
+              "x1",
+              "x2"
+            ]
+          },
+          {
+            "allowed": [
+              "00",
+              "01",
+              "10"
+            ],
+            "scope": [
+              "x3",
+              "x4"
+            ]
+          }
+        ],
+        "variables": [
+          "x0",
+          "x1",
+          "x2",
+          "x3",
+          "x4"
+        ]
+      },
+      "raw_input_digest": "a565c2c0a72241a623e2de4d60cfe99ace4e7f97843ddb12a61aef04a9b404d1",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": false,
+        "pareto_gap": {
+          "discovery_ops": 56,
+          "memory_proxy": 0,
+          "solve_ops": 0,
+          "transform_ops": 3
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "2SAT",
+        "certificate": {
+          "candidate": "2SAT",
+          "kind": "generic_factor_elimination_proxy",
+          "raw_certificate": {
+            "digest": "6c2e346a04f03dcb3c6f597f0f9f588da8de81c5f70d82d461e6270b2297c8ca",
+            "kind": "raw_assignment_enumeration"
+          },
+          "raw_input_digest": "a565c2c0a72241a623e2de4d60cfe99ace4e7f97843ddb12a61aef04a9b404d1"
+        },
+        "checks": 76,
+        "exact_count": 15,
+        "exact_count_match_raw": true,
+        "memory_proxy": 4,
+        "operations": 96,
+        "representation": "implication graph",
+        "resource_vector": {
+          "discovery_ops": 57,
+          "memory_proxy": 4,
+          "solve_ops": 96,
+          "transform_ops": 3
+        },
+        "solver": "2-SAT solver",
+        "wall_ms": 0.1175
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 3
+              },
+              "score": 0.01030928,
+              "solve_estimate": 96,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 97
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 10,
+              "evidence": {
+                "parity_equations": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 11
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "HORN",
+              "discovery_cost": 6,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": true
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 17
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 6,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": true
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 17
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": true,
+              "candidate": "2SAT",
+              "discovery_cost": 6,
+              "evidence": {
+                "binary_three_row_relations": true
+              },
+              "score": 0.04166667,
+              "solve_estimate": 15,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 24
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": true,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 11,
+              "evidence": {
+                "maximum_relation_scope": 2
+              },
+              "score": 0.02325581,
+              "solve_estimate": 20,
+              "transform_cost": 12
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 43
+          },
+          {
+            "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+            "probe": {
+              "applicable": false,
+              "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+              "discovery_cost": 4,
+              "evidence": {
+                "future_query_count": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 0,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 7
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "probe": {
+              "applicable": false,
+              "candidate": "SUBSET_SUM_DP",
+              "discovery_cost": 9,
+              "evidence": {
+                "target": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 5,
+              "transform_cost": 5
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 19
+          },
+          {
+            "candidate": "MITM",
+            "probe": {
+              "applicable": false,
+              "candidate": "MITM",
+              "discovery_cost": 10,
+              "evidence": {
+                "variable_count": 5
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 5
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "CARDINALITY_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "CARDINALITY_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "target_present": false
+              },
+              "score": 0.0,
+              "solve_estimate": 5,
+              "transform_cost": 1
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 10
+          },
+          {
+            "candidate": "CLUSTER/LATTICE",
+            "probe": {
+              "applicable": false,
+              "candidate": "CLUSTER/LATTICE",
+              "discovery_cost": 9,
+              "evidence": {
+                "pairwise_graph_relation_shape": false
+              },
+              "score": 0.0,
+              "solve_estimate": 15,
+              "transform_cost": 12
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "SWITCH",
+          "FREEZE"
+        ],
+        "discovery_budget": 60,
+        "discovery_cost_total": 57,
+        "fallback_estimate": 96,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "2SAT",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "2SAT",
+          "discovery_cost": 6,
+          "evidence": {
+            "binary_three_row_relations": true
+          },
+          "score": 0.04166667,
+          "solve_estimate": 15,
+          "transform_cost": 3
+        },
+        "stop_reason": "candidate_library_exhausted_under_budget",
+        "wall_ms": 0.3927
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 57,
+          "exact_count": 15,
+          "selected_candidate": "2SAT",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 57,
+          "exact_count": 15,
+          "selected_candidate": "2SAT",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    },
+    {
+      "adversarial_audit": {
+        "adversarial": false,
+        "expected_candidates_posthoc_only": [
+          "MITM",
+          "SUBSET_SUM_DP"
+        ],
+        "fallback_rescue": false,
+        "false_lift": false,
+        "missed_lift": false,
+        "wasted_discovery_ops": 57
+      },
+      "case": "blind_subset_sum",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 60,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 4,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "d77c16dd2bda81c7cfa05669702925a880cdd44b4d4990bc3a15c12186cc51cc",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "a515ca47d0246456de5397b627be6862b528d70c8888a9ada5ba55fc50aba457"
+            },
+            "checks": 0,
+            "exact_count": 4,
+            "exact_count_match_raw": true,
+            "memory_proxy": 256,
+            "operations": 256,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 256,
+              "solve_ops": 256,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 0.678
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "certificate": {
+              "candidate": "SUBSET_SUM_DP",
+              "kind": "subset_sum_dynamic_program",
+              "raw_input_digest": "a515ca47d0246456de5397b627be6862b528d70c8888a9ada5ba55fc50aba457",
+              "target": 24
+            },
+            "checks": 8,
+            "exact_count": 4,
+            "exact_count_match_raw": true,
+            "memory_proxy": 25,
+            "operations": 200,
+            "representation": "target-indexed dynamic program",
+            "resource_vector": {
+              "discovery_ops": 12,
+              "memory_proxy": 25,
+              "solve_ops": 200,
+              "transform_ops": 8
+            },
+            "solver": "subset-sum DP",
+            "wall_ms": 0.0
+          },
+          {
+            "candidate": "MITM",
+            "certificate": {
+              "candidate": "MITM",
+              "kind": "meet_in_the_middle",
+              "raw_input_digest": "a515ca47d0246456de5397b627be6862b528d70c8888a9ada5ba55fc50aba457",
+              "split": 4
+            },
+            "checks": 16,
+            "exact_count": 4,
+            "exact_count_match_raw": true,
+            "memory_proxy": 31,
+            "operations": 31,
+            "representation": "two-half sum table",
+            "resource_vector": {
+              "discovery_ops": 13,
+              "memory_proxy": 31,
+              "solve_ops": 31,
+              "transform_ops": 8
+            },
+            "solver": "meet-in-the-middle",
+            "wall_ms": 0.0
+          }
+        ],
+        "best_representation_after_the_fact": "MITM",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 13,
+          "memory_proxy": 31,
+          "solve_ops": 31,
+          "transform_ops": 8
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH",
+          "SUBSET_SUM_DP",
+          "MITM"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "linear_target": {
+          "coefficients": {
+            "x0": 3,
+            "x1": 5,
+            "x2": 7,
+            "x3": 9,
+            "x4": 11,
+            "x5": 13,
+            "x6": 17,
+            "x7": 19
+          },
+          "target": 24
+        },
+        "relations": [],
+        "variables": [
+          "x0",
+          "x1",
+          "x2",
+          "x3",
+          "x4",
+          "x5",
+          "x6",
+          "x7"
+        ]
+      },
+      "raw_input_digest": "a515ca47d0246456de5397b627be6862b528d70c8888a9ada5ba55fc50aba457",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": false,
+        "pareto_gap": {
+          "discovery_ops": 57,
+          "memory_proxy": 6,
+          "solve_ops": 0,
+          "transform_ops": 8
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "MITM",
+        "certificate": {
+          "candidate": "MITM",
+          "kind": "meet_in_the_middle",
+          "raw_input_digest": "a515ca47d0246456de5397b627be6862b528d70c8888a9ada5ba55fc50aba457",
+          "split": 4
+        },
+        "checks": 16,
+        "exact_count": 4,
+        "exact_count_match_raw": true,
+        "memory_proxy": 31,
+        "operations": 31,
+        "representation": "two-half sum table",
+        "resource_vector": {
+          "discovery_ops": 58,
+          "memory_proxy": 31,
+          "solve_ops": 31,
+          "transform_ops": 8
+        },
+        "solver": "meet-in-the-middle",
+        "wall_ms": 0.0
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 0
+              },
+              "score": 0.00389105,
+              "solve_estimate": 256,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 257
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "parity_equations": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 5
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "HORN",
+              "discovery_cost": 3,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 11
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 3,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 11
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": false,
+              "candidate": "2SAT",
+              "discovery_cost": 3,
+              "evidence": {
+                "binary_three_row_relations": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 11
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": false,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 5,
+              "evidence": {
+                "maximum_relation_scope": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+            "probe": {
+              "applicable": false,
+              "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+              "discovery_cost": 4,
+              "evidence": {
+                "future_query_count": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 0,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 7
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "probe": {
+              "applicable": true,
+              "candidate": "SUBSET_SUM_DP",
+              "discovery_cost": 12,
+              "evidence": {
+                "target": 24
+              },
+              "score": 0.00454545,
+              "solve_estimate": 200,
+              "transform_cost": 8
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 220
+          },
+          {
+            "candidate": "MITM",
+            "probe": {
+              "applicable": true,
+              "candidate": "MITM",
+              "discovery_cost": 13,
+              "evidence": {
+                "variable_count": 8
+              },
+              "score": 0.02702703,
+              "solve_estimate": 16,
+              "transform_cost": 8
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 37
+          },
+          {
+            "candidate": "CARDINALITY_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "CARDINALITY_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "target_present": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 1
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "CLUSTER/LATTICE",
+            "probe": {
+              "applicable": false,
+              "candidate": "CLUSTER/LATTICE",
+              "discovery_cost": 6,
+              "evidence": {
+                "pairwise_graph_relation_shape": false
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 7
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "SWITCH",
+          "SWITCH",
+          "FREEZE"
+        ],
+        "discovery_budget": 60,
+        "discovery_cost_total": 58,
+        "fallback_estimate": 256,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "MITM",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "MITM",
+          "discovery_cost": 13,
+          "evidence": {
+            "variable_count": 8
+          },
+          "score": 0.02702703,
+          "solve_estimate": 16,
+          "transform_cost": 8
+        },
+        "stop_reason": "candidate_library_exhausted_under_budget",
+        "wall_ms": 0.0528
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 58,
+          "exact_count": 4,
+          "selected_candidate": "MITM",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 58,
+          "exact_count": 4,
+          "selected_candidate": "MITM",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    },
+    {
+      "adversarial_audit": {
+        "adversarial": false,
+        "expected_candidates_posthoc_only": [
+          "CARDINALITY_LIFT"
+        ],
+        "fallback_rescue": false,
+        "false_lift": false,
+        "missed_lift": false,
+        "wasted_discovery_ops": 55
+      },
+      "case": "blind_cardinality",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 60,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 120,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "0cb27edacd1283314abef6480537e82a7b1acd949d5e66b0c6e2a5578b31ea5b",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "97f47213e0f518f2674cdd7fce9315cf8fca5e1e3790ef88fdc9d42123f8c3fc"
+            },
+            "checks": 0,
+            "exact_count": 120,
+            "exact_count_match_raw": true,
+            "memory_proxy": 1024,
+            "operations": 1024,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 1024,
+              "solve_ops": 1024,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 1.3487
+          },
+          {
+            "candidate": "CARDINALITY_LIFT",
+            "certificate": {
+              "candidate": "CARDINALITY_LIFT",
+              "kind": "cardinality_binomial",
+              "raw_input_digest": "97f47213e0f518f2674cdd7fce9315cf8fca5e1e3790ef88fdc9d42123f8c3fc",
+              "target": 3
+            },
+            "checks": 1,
+            "exact_count": 120,
+            "exact_count_match_raw": true,
+            "memory_proxy": 11,
+            "operations": 10,
+            "representation": "cardinality polynomial",
+            "resource_vector": {
+              "discovery_ops": 4,
+              "memory_proxy": 11,
+              "solve_ops": 10,
+              "transform_ops": 1
+            },
+            "solver": "binomial count",
+            "wall_ms": 0.0
+          }
+        ],
+        "best_representation_after_the_fact": "CARDINALITY_LIFT",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 4,
+          "memory_proxy": 11,
+          "solve_ops": 10,
+          "transform_ops": 1
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH",
+          "CARDINALITY_LIFT"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "cardinality_target": 3,
+        "relations": [],
+        "variables": [
+          "x0",
+          "x1",
+          "x2",
+          "x3",
+          "x4",
+          "x5",
+          "x6",
+          "x7",
+          "x8",
+          "x9"
+        ]
+      },
+      "raw_input_digest": "97f47213e0f518f2674cdd7fce9315cf8fca5e1e3790ef88fdc9d42123f8c3fc",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": false,
+        "pareto_gap": {
+          "discovery_ops": 55,
+          "memory_proxy": 0,
+          "solve_ops": 0,
+          "transform_ops": 1
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "CARDINALITY_LIFT",
+        "certificate": {
+          "candidate": "CARDINALITY_LIFT",
+          "kind": "cardinality_binomial",
+          "raw_input_digest": "97f47213e0f518f2674cdd7fce9315cf8fca5e1e3790ef88fdc9d42123f8c3fc",
+          "target": 3
+        },
+        "checks": 1,
+        "exact_count": 120,
+        "exact_count_match_raw": true,
+        "memory_proxy": 11,
+        "operations": 10,
+        "representation": "cardinality polynomial",
+        "resource_vector": {
+          "discovery_ops": 56,
+          "memory_proxy": 11,
+          "solve_ops": 10,
+          "transform_ops": 1
+        },
+        "solver": "binomial count",
+        "wall_ms": 0.0
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 0
+              },
+              "score": 0.00097561,
+              "solve_estimate": 1024,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 1025
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "parity_equations": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 5
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "HORN",
+              "discovery_cost": 3,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 10,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 3,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 10,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": false,
+              "candidate": "2SAT",
+              "discovery_cost": 3,
+              "evidence": {
+                "binary_three_row_relations": false
+              },
+              "score": 0.0,
+              "solve_estimate": 10,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": false,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 5,
+              "evidence": {
+                "maximum_relation_scope": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 10,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 15
+          },
+          {
+            "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+            "probe": {
+              "applicable": false,
+              "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+              "discovery_cost": 4,
+              "evidence": {
+                "future_query_count": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 0,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 7
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "probe": {
+              "applicable": false,
+              "candidate": "SUBSET_SUM_DP",
+              "discovery_cost": 14,
+              "evidence": {
+                "target": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 10,
+              "transform_cost": 10
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 34
+          },
+          {
+            "candidate": "MITM",
+            "probe": {
+              "applicable": false,
+              "candidate": "MITM",
+              "discovery_cost": 15,
+              "evidence": {
+                "variable_count": 10
+              },
+              "score": 0.0,
+              "solve_estimate": 32,
+              "transform_cost": 10
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 57
+          },
+          {
+            "candidate": "CARDINALITY_LIFT",
+            "probe": {
+              "applicable": true,
+              "candidate": "CARDINALITY_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "target_present": true
+              },
+              "score": 0.06666667,
+              "solve_estimate": 10,
+              "transform_cost": 1
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 15
+          },
+          {
+            "candidate": "CLUSTER/LATTICE",
+            "probe": {
+              "applicable": false,
+              "candidate": "CLUSTER/LATTICE",
+              "discovery_cost": 6,
+              "evidence": {
+                "pairwise_graph_relation_shape": false
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "SWITCH",
+          "FREEZE"
+        ],
+        "discovery_budget": 60,
+        "discovery_cost_total": 56,
+        "fallback_estimate": 1024,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "CARDINALITY_LIFT",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "CARDINALITY_LIFT",
+          "discovery_cost": 4,
+          "evidence": {
+            "target_present": true
+          },
+          "score": 0.06666667,
+          "solve_estimate": 10,
+          "transform_cost": 1
+        },
+        "stop_reason": "candidate_library_exhausted_under_budget",
+        "wall_ms": 0.0557
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 56,
+          "exact_count": 120,
+          "selected_candidate": "CARDINALITY_LIFT",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 56,
+          "exact_count": 120,
+          "selected_candidate": "CARDINALITY_LIFT",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    },
+    {
+      "adversarial_audit": {
+        "adversarial": true,
+        "expected_candidates_posthoc_only": [
+          "CLUSTER/LATTICE",
+          "VARIABLE_ELIMINATION"
+        ],
+        "fallback_rescue": false,
+        "false_lift": true,
+        "missed_lift": true,
+        "wasted_discovery_ops": 59
+      },
+      "case": "adversarial_low_width_graph",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 60,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 13,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "6554dca5beb7b2202e54755be68a65421deb07c63d3f8426ecdde995fa065b1a",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "af38d069f8087e5becee9c238301b96775f08dd794bb460bd8d1b5afc78cea83"
+            },
+            "checks": 92,
+            "exact_count": 13,
+            "exact_count_match_raw": true,
+            "memory_proxy": 32,
+            "operations": 128,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 32,
+              "solve_ops": 128,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 0.1278
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "certificate": {
+              "candidate": "DUAL_HORN",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "6554dca5beb7b2202e54755be68a65421deb07c63d3f8426ecdde995fa065b1a",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "af38d069f8087e5becee9c238301b96775f08dd794bb460bd8d1b5afc78cea83"
+            },
+            "checks": 92,
+            "exact_count": 13,
+            "exact_count_match_raw": true,
+            "memory_proxy": 4,
+            "operations": 128,
+            "representation": "dual-Horn implication closure",
+            "resource_vector": {
+              "discovery_ops": 7,
+              "memory_proxy": 4,
+              "solve_ops": 128,
+              "transform_ops": 4
+            },
+            "solver": "dual-Horn solver",
+            "wall_ms": 0.1239
+          },
+          {
+            "candidate": "2SAT",
+            "certificate": {
+              "candidate": "2SAT",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "6554dca5beb7b2202e54755be68a65421deb07c63d3f8426ecdde995fa065b1a",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "af38d069f8087e5becee9c238301b96775f08dd794bb460bd8d1b5afc78cea83"
+            },
+            "checks": 92,
+            "exact_count": 13,
+            "exact_count_match_raw": true,
+            "memory_proxy": 4,
+            "operations": 128,
+            "representation": "implication graph",
+            "resource_vector": {
+              "discovery_ops": 7,
+              "memory_proxy": 4,
+              "solve_ops": 128,
+              "transform_ops": 4
+            },
+            "solver": "2-SAT solver",
+            "wall_ms": 0.1451
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "certificate": {
+              "candidate": "VARIABLE_ELIMINATION",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "6554dca5beb7b2202e54755be68a65421deb07c63d3f8426ecdde995fa065b1a",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "af38d069f8087e5becee9c238301b96775f08dd794bb460bd8d1b5afc78cea83"
+            },
+            "checks": 92,
+            "exact_count": 13,
+            "exact_count_match_raw": true,
+            "memory_proxy": 4,
+            "operations": 128,
+            "representation": "explicit factor scopes",
+            "resource_vector": {
+              "discovery_ops": 13,
+              "memory_proxy": 4,
+              "solve_ops": 128,
+              "transform_ops": 16
+            },
+            "solver": "factor elimination",
+            "wall_ms": 0.1238
+          },
+          {
+            "candidate": "CLUSTER/LATTICE",
+            "certificate": {
+              "candidate": "CLUSTER/LATTICE",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "6554dca5beb7b2202e54755be68a65421deb07c63d3f8426ecdde995fa065b1a",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "af38d069f8087e5becee9c238301b96775f08dd794bb460bd8d1b5afc78cea83"
+            },
+            "checks": 92,
+            "exact_count": 13,
+            "exact_count_match_raw": true,
+            "memory_proxy": 4,
+            "operations": 128,
+            "representation": "pairwise cluster graph",
+            "resource_vector": {
+              "discovery_ops": 10,
+              "memory_proxy": 4,
+              "solve_ops": 128,
+              "transform_ops": 16
+            },
+            "solver": "cluster elimination",
+            "wall_ms": 0.1217
+          }
+        ],
+        "best_representation_after_the_fact": "DUAL_HORN",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 7,
+          "memory_proxy": 4,
+          "solve_ops": 128,
+          "transform_ops": 4
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH",
+          "DUAL_HORN",
+          "2SAT"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "relations": [
+          {
+            "allowed": [
+              "00",
+              "01",
+              "10"
+            ],
+            "scope": [
+              "x0",
+              "x1"
+            ]
+          },
+          {
+            "allowed": [
+              "00",
+              "01",
+              "10"
+            ],
+            "scope": [
+              "x1",
+              "x2"
+            ]
+          },
+          {
+            "allowed": [
+              "00",
+              "01",
+              "10"
+            ],
+            "scope": [
+              "x2",
+              "x3"
+            ]
+          },
+          {
+            "allowed": [
+              "00",
+              "01",
+              "10"
+            ],
+            "scope": [
+              "x3",
+              "x4"
+            ]
+          }
+        ],
+        "variables": [
+          "x0",
+          "x1",
+          "x2",
+          "x3",
+          "x4"
+        ]
+      },
+      "raw_input_digest": "af38d069f8087e5becee9c238301b96775f08dd794bb460bd8d1b5afc78cea83",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": true,
+        "pareto_gap": {
+          "discovery_ops": 59,
+          "memory_proxy": 0,
+          "solve_ops": 0,
+          "transform_ops": 4
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "DUAL_HORN",
+        "certificate": {
+          "candidate": "DUAL_HORN",
+          "kind": "generic_factor_elimination_proxy",
+          "raw_certificate": {
+            "digest": "6554dca5beb7b2202e54755be68a65421deb07c63d3f8426ecdde995fa065b1a",
+            "kind": "raw_assignment_enumeration"
+          },
+          "raw_input_digest": "af38d069f8087e5becee9c238301b96775f08dd794bb460bd8d1b5afc78cea83"
+        },
+        "checks": 92,
+        "exact_count": 13,
+        "exact_count_match_raw": true,
+        "memory_proxy": 4,
+        "operations": 128,
+        "representation": "dual-Horn implication closure",
+        "resource_vector": {
+          "discovery_ops": 60,
+          "memory_proxy": 4,
+          "solve_ops": 128,
+          "transform_ops": 4
+        },
+        "solver": "dual-Horn solver",
+        "wall_ms": 0.1325
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 4
+              },
+              "score": 0.00775194,
+              "solve_estimate": 128,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 129
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 12,
+              "evidence": {
+                "parity_equations": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 13
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "HORN",
+              "discovery_cost": 7,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": true
+              },
+              "score": 0.0,
+              "solve_estimate": 9,
+              "transform_cost": 4
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 20
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": true,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 7,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": true
+              },
+              "score": 0.05,
+              "solve_estimate": 9,
+              "transform_cost": 4
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 20
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": true,
+              "candidate": "2SAT",
+              "discovery_cost": 7,
+              "evidence": {
+                "binary_three_row_relations": true
+              },
+              "score": 0.03225806,
+              "solve_estimate": 20,
+              "transform_cost": 4
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 31
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": true,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 13,
+              "evidence": {
+                "maximum_relation_scope": 2
+              },
+              "score": 0.02040816,
+              "solve_estimate": 20,
+              "transform_cost": 16
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 49
+          },
+          {
+            "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+            "probe": {
+              "applicable": false,
+              "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+              "discovery_cost": 4,
+              "evidence": {
+                "future_query_count": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 0,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 7
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "probe": {
+              "applicable": false,
+              "candidate": "SUBSET_SUM_DP",
+              "discovery_cost": 9,
+              "evidence": {
+                "target": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 5,
+              "transform_cost": 5
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 19
+          },
+          {
+            "candidate": "MITM",
+            "probe": {
+              "applicable": false,
+              "candidate": "MITM",
+              "discovery_cost": 10,
+              "evidence": {
+                "variable_count": 5
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 5
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "CARDINALITY_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "CARDINALITY_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "target_present": false
+              },
+              "score": 0.0,
+              "solve_estimate": 5,
+              "transform_cost": 1
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "CLUSTER/LATTICE",
+            "probe": {
+              "applicable": true,
+              "candidate": "CLUSTER/LATTICE",
+              "discovery_cost": 10,
+              "evidence": {
+                "pairwise_graph_relation_shape": true
+              },
+              "score": 0.02173913,
+              "solve_estimate": 20,
+              "transform_cost": 16
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "SWITCH",
+          "FREEZE"
+        ],
+        "discovery_budget": 60,
+        "discovery_cost_total": 60,
+        "fallback_estimate": 128,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "DUAL_HORN",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "DUAL_HORN",
+          "discovery_cost": 7,
+          "evidence": {
+            "one_forbidden_tuple_per_relation": true
+          },
+          "score": 0.05,
+          "solve_estimate": 9,
+          "transform_cost": 4
+        },
+        "stop_reason": "candidate_library_exhausted_under_budget",
+        "wall_ms": 0.5194
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 60,
+          "exact_count": 13,
+          "selected_candidate": "DUAL_HORN",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 60,
+          "exact_count": 13,
+          "selected_candidate": "DUAL_HORN",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    },
+    {
+      "adversarial_audit": {
+        "adversarial": true,
+        "expected_candidates_posthoc_only": [],
+        "fallback_rescue": false,
+        "false_lift": false,
+        "missed_lift": false,
+        "wasted_discovery_ops": 57
+      },
+      "case": "adversarial_perturbed_affine",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 60,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 14,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "e1942f7576ff79466b409ff3faeb1efd1feffc4a5b1c06b48a86c1a79e395c89",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "3ece6b161448e180b480ca1e2c5154932e957526a15067a2afdaa4b43249e06b"
+            },
+            "checks": 48,
+            "exact_count": 14,
+            "exact_count_match_raw": true,
+            "memory_proxy": 32,
+            "operations": 64,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 32,
+              "solve_ops": 64,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 0.0961
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "certificate": {
+              "candidate": "VARIABLE_ELIMINATION",
+              "kind": "generic_factor_elimination_proxy",
+              "raw_certificate": {
+                "digest": "e1942f7576ff79466b409ff3faeb1efd1feffc4a5b1c06b48a86c1a79e395c89",
+                "kind": "raw_assignment_enumeration"
+              },
+              "raw_input_digest": "3ece6b161448e180b480ca1e2c5154932e957526a15067a2afdaa4b43249e06b"
+            },
+            "checks": 48,
+            "exact_count": 14,
+            "exact_count_match_raw": true,
+            "memory_proxy": 8,
+            "operations": 64,
+            "representation": "explicit factor scopes",
+            "resource_vector": {
+              "discovery_ops": 11,
+              "memory_proxy": 8,
+              "solve_ops": 64,
+              "transform_ops": 16
+            },
+            "solver": "factor elimination",
+            "wall_ms": 0.0926
+          }
+        ],
+        "best_representation_after_the_fact": "RAW_SEARCH",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 1,
+          "memory_proxy": 32,
+          "solve_ops": 64,
+          "transform_ops": 0
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH",
+          "VARIABLE_ELIMINATION"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "relations": [
+          {
+            "allowed": [
+              "000",
+              "011",
+              "101",
+              "110"
+            ],
+            "scope": [
+              "x0",
+              "x1",
+              "x2"
+            ]
+          },
+          {
+            "allowed": [
+              "001",
+              "010",
+              "011",
+              "100",
+              "101",
+              "110",
+              "111"
+            ],
+            "scope": [
+              "x1",
+              "x2",
+              "x3"
+            ]
+          }
+        ],
+        "variables": [
+          "x0",
+          "x1",
+          "x2",
+          "x3",
+          "x4"
+        ]
+      },
+      "raw_input_digest": "3ece6b161448e180b480ca1e2c5154932e957526a15067a2afdaa4b43249e06b",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": false,
+        "pareto_gap": {
+          "discovery_ops": 57,
+          "memory_proxy": 24,
+          "solve_ops": 0,
+          "transform_ops": 0
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "RAW_SEARCH",
+        "certificate": {
+          "candidate": "RAW_SEARCH",
+          "digest": "e1942f7576ff79466b409ff3faeb1efd1feffc4a5b1c06b48a86c1a79e395c89",
+          "kind": "raw_assignment_enumeration",
+          "raw_input_digest": "3ece6b161448e180b480ca1e2c5154932e957526a15067a2afdaa4b43249e06b"
+        },
+        "checks": 48,
+        "exact_count": 14,
+        "exact_count_match_raw": true,
+        "memory_proxy": 32,
+        "operations": 64,
+        "representation": "raw assignments",
+        "resource_vector": {
+          "discovery_ops": 58,
+          "memory_proxy": 32,
+          "solve_ops": 64,
+          "transform_ops": 0
+        },
+        "solver": "enumeration",
+        "wall_ms": 0.0969
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 2
+              },
+              "score": 0.01538462,
+              "solve_estimate": 64,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 65
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 8,
+              "evidence": {
+                "parity_equations": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 9
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "HORN",
+              "discovery_cost": 5,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 7,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 14
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 5,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 7,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 14
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": false,
+              "candidate": "2SAT",
+              "discovery_cost": 5,
+              "evidence": {
+                "binary_three_row_relations": false
+              },
+              "score": 0.0,
+              "solve_estimate": 10,
+              "transform_cost": 2
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 17
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": true,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 11,
+              "evidence": {
+                "maximum_relation_scope": 3
+              },
+              "score": 0.01492537,
+              "solve_estimate": 40,
+              "transform_cost": 16
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 67
+          },
+          {
+            "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+            "probe": {
+              "applicable": false,
+              "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+              "discovery_cost": 4,
+              "evidence": {
+                "future_query_count": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 0,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 7
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "probe": {
+              "applicable": false,
+              "candidate": "SUBSET_SUM_DP",
+              "discovery_cost": 9,
+              "evidence": {
+                "target": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 5,
+              "transform_cost": 5
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 19
+          },
+          {
+            "candidate": "MITM",
+            "probe": {
+              "applicable": false,
+              "candidate": "MITM",
+              "discovery_cost": 10,
+              "evidence": {
+                "variable_count": 5
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 5
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 23
+          },
+          {
+            "candidate": "CARDINALITY_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "CARDINALITY_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "target_present": false
+              },
+              "score": 0.0,
+              "solve_estimate": 5,
+              "transform_cost": 1
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "CLUSTER/LATTICE",
+            "probe": {
+              "applicable": false,
+              "candidate": "CLUSTER/LATTICE",
+              "discovery_cost": 8,
+              "evidence": {
+                "pairwise_graph_relation_shape": false
+              },
+              "score": 0.0,
+              "solve_estimate": 10,
+              "transform_cost": 16
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "FREEZE"
+        ],
+        "discovery_budget": 60,
+        "discovery_cost_total": 58,
+        "fallback_estimate": 64,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "RAW_SEARCH",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "RAW_SEARCH",
+          "discovery_cost": 1,
+          "evidence": {
+            "blind_default": true,
+            "unique_relation_count": 2
+          },
+          "score": 0.01538462,
+          "solve_estimate": 64,
+          "transform_cost": 0
+        },
+        "stop_reason": "candidate_library_exhausted_under_budget",
+        "wall_ms": 0.2916
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 58,
+          "exact_count": 14,
+          "selected_candidate": "RAW_SEARCH",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 58,
+          "exact_count": 14,
+          "selected_candidate": "RAW_SEARCH",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    },
+    {
+      "adversarial_audit": {
+        "adversarial": true,
+        "expected_candidates_posthoc_only": [
+          "MITM",
+          "SUBSET_SUM_DP"
+        ],
+        "fallback_rescue": false,
+        "false_lift": false,
+        "missed_lift": true,
+        "wasted_discovery_ops": 7
+      },
+      "case": "tight_budget_subset",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 8,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 7,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "4e97446a78685095f81f2a1fb5412c8b35a96bc3e3f057eee2b4dd1f4f87ad59",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "3a0049deb5b0c67c17f6c77143d56b6665e6bfa346c98632e78c80e075655b76"
+            },
+            "checks": 0,
+            "exact_count": 7,
+            "exact_count_match_raw": true,
+            "memory_proxy": 256,
+            "operations": 256,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 256,
+              "solve_ops": 256,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 0.7249
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "certificate": {
+              "candidate": "SUBSET_SUM_DP",
+              "kind": "subset_sum_dynamic_program",
+              "raw_input_digest": "3a0049deb5b0c67c17f6c77143d56b6665e6bfa346c98632e78c80e075655b76",
+              "target": 30
+            },
+            "checks": 8,
+            "exact_count": 7,
+            "exact_count_match_raw": true,
+            "memory_proxy": 31,
+            "operations": 248,
+            "representation": "target-indexed dynamic program",
+            "resource_vector": {
+              "discovery_ops": 12,
+              "memory_proxy": 31,
+              "solve_ops": 248,
+              "transform_ops": 8
+            },
+            "solver": "subset-sum DP",
+            "wall_ms": 0.0
+          },
+          {
+            "candidate": "MITM",
+            "certificate": {
+              "candidate": "MITM",
+              "kind": "meet_in_the_middle",
+              "raw_input_digest": "3a0049deb5b0c67c17f6c77143d56b6665e6bfa346c98632e78c80e075655b76",
+              "split": 4
+            },
+            "checks": 16,
+            "exact_count": 7,
+            "exact_count_match_raw": true,
+            "memory_proxy": 31,
+            "operations": 31,
+            "representation": "two-half sum table",
+            "resource_vector": {
+              "discovery_ops": 13,
+              "memory_proxy": 31,
+              "solve_ops": 31,
+              "transform_ops": 8
+            },
+            "solver": "meet-in-the-middle",
+            "wall_ms": 0.0
+          }
+        ],
+        "best_representation_after_the_fact": "MITM",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 13,
+          "memory_proxy": 31,
+          "solve_ops": 31,
+          "transform_ops": 8
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH",
+          "SUBSET_SUM_DP",
+          "MITM"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "linear_target": {
+          "coefficients": {
+            "x0": 2,
+            "x1": 4,
+            "x2": 7,
+            "x3": 11,
+            "x4": 13,
+            "x5": 17,
+            "x6": 19,
+            "x7": 23
+          },
+          "target": 30
+        },
+        "relations": [],
+        "variables": [
+          "x0",
+          "x1",
+          "x2",
+          "x3",
+          "x4",
+          "x5",
+          "x6",
+          "x7"
+        ]
+      },
+      "raw_input_digest": "3a0049deb5b0c67c17f6c77143d56b6665e6bfa346c98632e78c80e075655b76",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": false,
+        "pareto_gap": {
+          "discovery_ops": 7,
+          "memory_proxy": 225,
+          "solve_ops": 225,
+          "transform_ops": 0
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "RAW_SEARCH",
+        "certificate": {
+          "candidate": "RAW_SEARCH",
+          "digest": "4e97446a78685095f81f2a1fb5412c8b35a96bc3e3f057eee2b4dd1f4f87ad59",
+          "kind": "raw_assignment_enumeration",
+          "raw_input_digest": "3a0049deb5b0c67c17f6c77143d56b6665e6bfa346c98632e78c80e075655b76"
+        },
+        "checks": 0,
+        "exact_count": 7,
+        "exact_count_match_raw": true,
+        "memory_proxy": 256,
+        "operations": 256,
+        "representation": "raw assignments",
+        "resource_vector": {
+          "discovery_ops": 8,
+          "memory_proxy": 256,
+          "solve_ops": 256,
+          "transform_ops": 0
+        },
+        "solver": "enumeration",
+        "wall_ms": 0.6882
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 0
+              },
+              "score": 0.00389105,
+              "solve_estimate": 256,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 257
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "parity_equations": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 5
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "HORN",
+              "discovery_cost": 3,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 11
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 3,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 0
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": false,
+              "candidate": "2SAT",
+              "discovery_cost": 3,
+              "evidence": {
+                "binary_three_row_relations": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 0
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": false,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 5,
+              "evidence": {
+                "maximum_relation_scope": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 0
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+            "probe": {
+              "applicable": false,
+              "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+              "discovery_cost": 4,
+              "evidence": {
+                "future_query_count": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 0,
+              "transform_cost": 3
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "probe": {
+              "applicable": true,
+              "candidate": "SUBSET_SUM_DP",
+              "discovery_cost": 12,
+              "evidence": {
+                "target": 30
+              },
+              "score": 0.00373134,
+              "solve_estimate": 248,
+              "transform_cost": 8
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "MITM",
+            "probe": {
+              "applicable": true,
+              "candidate": "MITM",
+              "discovery_cost": 13,
+              "evidence": {
+                "variable_count": 8
+              },
+              "score": 0.02702703,
+              "solve_estimate": 16,
+              "transform_cost": 8
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "CARDINALITY_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "CARDINALITY_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "target_present": false
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 1
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          },
+          {
+            "candidate": "CLUSTER/LATTICE",
+            "probe": {
+              "applicable": false,
+              "candidate": "CLUSTER/LATTICE",
+              "discovery_cost": 6,
+              "evidence": {
+                "pairwise_graph_relation_shape": false
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "reason": "discovery_budget_remaining_too_small",
+            "status": "ABORT_CANDIDATE"
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "FREEZE"
+        ],
+        "discovery_budget": 8,
+        "discovery_cost_total": 8,
+        "fallback_estimate": 256,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "RAW_SEARCH",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "RAW_SEARCH",
+          "discovery_cost": 1,
+          "evidence": {
+            "blind_default": true,
+            "unique_relation_count": 0
+          },
+          "score": 0.00389105,
+          "solve_estimate": 256,
+          "transform_cost": 0
+        },
+        "stop_reason": "candidate_library_exhausted_under_budget",
+        "wall_ms": 0.0477
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 8,
+          "exact_count": 7,
+          "selected_candidate": "RAW_SEARCH",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 8,
+          "exact_count": 7,
+          "selected_candidate": "RAW_SEARCH",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    },
+    {
+      "adversarial_audit": {
+        "adversarial": false,
+        "expected_candidates_posthoc_only": [
+          "FUTURE_EQUIVALENCE_REFINEMENT"
+        ],
+        "fallback_rescue": false,
+        "false_lift": false,
+        "missed_lift": false,
+        "wasted_discovery_ops": 53
+      },
+      "case": "blind_future_queries",
+      "decision_boundary": {
+        "knowledge_acquisition_stop_rule_visible": true,
+        "oracle_used_for_selection": false,
+        "selected_solver_can_change_order": false,
+        "selection_frozen_before_posthoc": true
+      },
+      "discovery_budget": 60,
+      "fallback": {
+        "fallback_candidate": "RAW_SEARCH",
+        "fallback_exact_count": 64,
+        "fallback_rescue": false
+      },
+      "metrics_policy": {
+        "machine_dependent_fields": [
+          "wall_ms"
+        ],
+        "resource_vector": true,
+        "scalar_universal_claim": false
+      },
+      "posthoc_oracle": {
+        "all_methods": [
+          {
+            "candidate": "RAW_SEARCH",
+            "certificate": {
+              "candidate": "RAW_SEARCH",
+              "digest": "be468837b69eba70f63ba59723827d9934b7be68d26f2d31abd89777dc8df371",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "8bc7099f17625c79862768c0eef1e1caecbc842e1e52227c65248933916876ad"
+            },
+            "checks": 0,
+            "exact_count": 64,
+            "exact_count_match_raw": true,
+            "memory_proxy": 64,
+            "operations": 64,
+            "representation": "raw assignments",
+            "resource_vector": {
+              "discovery_ops": 1,
+              "memory_proxy": 64,
+              "solve_ops": 64,
+              "transform_ops": 0
+            },
+            "solver": "enumeration",
+            "wall_ms": 0.06
+          },
+          {
+            "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+            "certificate": {
+              "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+              "digest": "be468837b69eba70f63ba59723827d9934b7be68d26f2d31abd89777dc8df371",
+              "kind": "raw_assignment_enumeration",
+              "raw_input_digest": "8bc7099f17625c79862768c0eef1e1caecbc842e1e52227c65248933916876ad"
+            },
+            "checks": 0,
+            "exact_count": 64,
+            "exact_count_match_raw": true,
+            "memory_proxy": 64,
+            "operations": 64,
+            "representation": "query-signature partition",
+            "resource_vector": {
+              "discovery_ops": 4,
+              "memory_proxy": 64,
+              "solve_ops": 64,
+              "transform_ops": 3
+            },
+            "solver": "future refinement",
+            "wall_ms": 0.0585
+          }
+        ],
+        "best_representation_after_the_fact": "RAW_SEARCH",
+        "best_resource_vector_after_the_fact": {
+          "discovery_ops": 1,
+          "memory_proxy": 64,
+          "solve_ops": 64,
+          "transform_ops": 0
+        },
+        "oracle_used_for_selection": false,
+        "pareto_frontier": [
+          "RAW_SEARCH"
+        ],
+        "posthoc_policy": "minimum sum of displayed resource vector; frontier retained"
+      },
+      "raw_input": {
+        "future_queries": [
+          {
+            "probe": 0
+          },
+          {
+            "probe": 1
+          },
+          {
+            "probe": 2
+          }
+        ],
+        "relations": [],
+        "variables": [
+          "h0",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5"
+        ]
+      },
+      "raw_input_digest": "8bc7099f17625c79862768c0eef1e1caecbc842e1e52227c65248933916876ad",
+      "regret": {
+        "comparable_vector_fields": [
+          "discovery_ops",
+          "transform_ops",
+          "solve_ops",
+          "memory_proxy"
+        ],
+        "dominated": true,
+        "pareto_gap": {
+          "discovery_ops": 53,
+          "memory_proxy": 0,
+          "solve_ops": 0,
+          "transform_ops": 3
+        },
+        "scalar_is_only_posthoc_policy": true
+      },
+      "selected": {
+        "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+        "certificate": {
+          "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+          "digest": "be468837b69eba70f63ba59723827d9934b7be68d26f2d31abd89777dc8df371",
+          "kind": "raw_assignment_enumeration",
+          "raw_input_digest": "8bc7099f17625c79862768c0eef1e1caecbc842e1e52227c65248933916876ad"
+        },
+        "checks": 0,
+        "exact_count": 64,
+        "exact_count_match_raw": true,
+        "memory_proxy": 64,
+        "operations": 64,
+        "representation": "query-signature partition",
+        "resource_vector": {
+          "discovery_ops": 54,
+          "memory_proxy": 64,
+          "solve_ops": 64,
+          "transform_ops": 3
+        },
+        "solver": "future refinement",
+        "wall_ms": 0.0657
+      },
+      "selection": {
+        "candidate_records": [
+          {
+            "candidate": "RAW_SEARCH",
+            "probe": {
+              "applicable": true,
+              "candidate": "RAW_SEARCH",
+              "discovery_cost": 1,
+              "evidence": {
+                "blind_default": true,
+                "unique_relation_count": 0
+              },
+              "score": 0.01538462,
+              "solve_estimate": 64,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 65
+          },
+          {
+            "candidate": "GF2_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "GF2_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "parity_equations": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 5
+          },
+          {
+            "candidate": "HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "HORN",
+              "discovery_cost": 3,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 6,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 9
+          },
+          {
+            "candidate": "DUAL_HORN",
+            "probe": {
+              "applicable": false,
+              "candidate": "DUAL_HORN",
+              "discovery_cost": 3,
+              "evidence": {
+                "one_forbidden_tuple_per_relation": false
+              },
+              "score": 0.0,
+              "solve_estimate": 6,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 9
+          },
+          {
+            "candidate": "2SAT",
+            "probe": {
+              "applicable": false,
+              "candidate": "2SAT",
+              "discovery_cost": 3,
+              "evidence": {
+                "binary_three_row_relations": false
+              },
+              "score": 0.0,
+              "solve_estimate": 6,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 9
+          },
+          {
+            "candidate": "VARIABLE_ELIMINATION",
+            "probe": {
+              "applicable": false,
+              "candidate": "VARIABLE_ELIMINATION",
+              "discovery_cost": 5,
+              "evidence": {
+                "maximum_relation_scope": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 6,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 11
+          },
+          {
+            "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+            "probe": {
+              "applicable": true,
+              "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+              "discovery_cost": 4,
+              "evidence": {
+                "future_query_count": 3
+              },
+              "score": 0.04,
+              "solve_estimate": 18,
+              "transform_cost": 3
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 25
+          },
+          {
+            "candidate": "SUBSET_SUM_DP",
+            "probe": {
+              "applicable": false,
+              "candidate": "SUBSET_SUM_DP",
+              "discovery_cost": 10,
+              "evidence": {
+                "target": 0
+              },
+              "score": 0.0,
+              "solve_estimate": 6,
+              "transform_cost": 6
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 22
+          },
+          {
+            "candidate": "MITM",
+            "probe": {
+              "applicable": false,
+              "candidate": "MITM",
+              "discovery_cost": 11,
+              "evidence": {
+                "variable_count": 6
+              },
+              "score": 0.0,
+              "solve_estimate": 8,
+              "transform_cost": 6
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 25
+          },
+          {
+            "candidate": "CARDINALITY_LIFT",
+            "probe": {
+              "applicable": false,
+              "candidate": "CARDINALITY_LIFT",
+              "discovery_cost": 4,
+              "evidence": {
+                "target_present": false
+              },
+              "score": 0.0,
+              "solve_estimate": 6,
+              "transform_cost": 1
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 11
+          },
+          {
+            "candidate": "CLUSTER/LATTICE",
+            "probe": {
+              "applicable": false,
+              "candidate": "CLUSTER/LATTICE",
+              "discovery_cost": 6,
+              "evidence": {
+                "pairwise_graph_relation_shape": false
+              },
+              "score": 0.0,
+              "solve_estimate": 1,
+              "transform_cost": 0
+            },
+            "status": "PROBED",
+            "total_predicted_operations": 7
+          }
+        ],
+        "decision": "FREEZE",
+        "decision_transitions": [
+          "CONTINUE",
+          "SWITCH",
+          "FREEZE"
+        ],
+        "discovery_budget": 60,
+        "discovery_cost_total": 54,
+        "fallback_estimate": 64,
+        "oracle_used_for_selection": false,
+        "selected_candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+        "selected_probe": {
+          "applicable": true,
+          "candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+          "discovery_cost": 4,
+          "evidence": {
+            "future_query_count": 3
+          },
+          "score": 0.04,
+          "solve_estimate": 18,
+          "transform_cost": 3
+        },
+        "stop_reason": "candidate_library_exhausted_under_budget",
+        "wall_ms": 0.0467
+      },
+      "surface_robust": true,
+      "surface_variants": [
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 54,
+          "exact_count": 64,
+          "selected_candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+          "selection_oracle_used": false,
+          "surface": "variable_renaming_and_scope_reversal"
+        },
+        {
+          "decision": "FREEZE",
+          "discovery_cost_total": 54,
+          "exact_count": 64,
+          "selected_candidate": "FUTURE_EQUIVALENCE_REFINEMENT",
+          "selection_oracle_used": false,
+          "surface": "constraint_reorder_redundancy_metadata"
+        }
+      ]
+    }
+  ],
+  "gate": {
+    "correct_specialized_selection_claimed": false,
+    "fallback_cost_bounded": true,
+    "false_lifts_preserved": true,
+    "hardcoded_if_else_claimed": false,
+    "negative_result": "features and candidate probes can cost enough to dominate a small raw solve; see discovery vectors",
+    "oracle_not_used_for_selection": true,
+    "status": "SURVIVES_WITH_LIMITATIONS",
+    "surface_robustness_required_not_assumed": true
+  },
+  "metrics_policy": {
+    "deterministic_fields": [
+      "raw_input",
+      "selected candidate",
+      "probe records",
+      "resource counts",
+      "exact counts",
+      "surface decisions"
+    ],
+    "machine_dependent_fields": [
+      "wall_ms"
+    ],
+    "posthoc_oracle_fields": [
+      "posthoc_oracle",
+      "regret",
+      "expected_candidates_posthoc_only"
+    ],
+    "posthoc_scalar_policy_explicit": true,
+    "resource_vector": true,
+    "scalar_universal_claim": false
+  },
+  "parent_commit": "4325a71",
+  "protocol": "pipi-45-autonomous-representation-discovery-v0",
+  "scope": "PiPi-45 blind meta-lift from PiPi-44; prior results frozen",
+  "scope_declarations": {
+    "codeine_modified": false,
+    "main_modified": false,
+    "phase5_started": false,
+    "pipi_42_modified": false,
+    "pipi_43_modified": false,
+    "pipi_44_modified": false,
+    "pr_opened": false
+  },
+  "selection_policy": {
+    "budgeted": true,
+    "knowledge_acquisition_stop": "stop when spent discovery operations reach fallback estimate or budget blocks candidates",
+    "oracle_used_for_selection": false,
+    "policy": "among probed applicable candidates, minimize explicit predicted discovery+transform+solve operations; retain vector",
+    "states": [
+      "CONTINUE",
+      "SWITCH",
+      "FREEZE",
+      "STOP_NO_GAIN",
+      "UNKNOWN"
+    ]
+  },
+  "summary": {
+    "case_count": 10,
+    "dominated_selected_cases": 2,
+    "fallback_rescue_cases": 0,
+    "false_lift_cases": 1,
+    "missed_lift_cases": 2,
+    "oracle_selection_violations": 0,
+    "selected_candidates": {
+      "adversarial_low_width_graph": "DUAL_HORN",
+      "adversarial_perturbed_affine": "RAW_SEARCH",
+      "blind_2sat": "2SAT",
+      "blind_affine": "GF2_LIFT",
+      "blind_cardinality": "CARDINALITY_LIFT",
+      "blind_dual_horn": "DUAL_HORN",
+      "blind_future_queries": "FUTURE_EQUIVALENCE_REFINEMENT",
+      "blind_horn": "HORN",
+      "blind_subset_sum": "MITM",
+      "tight_budget_subset": "RAW_SEARCH"
+    },
+    "surface_robust_cases": 10,
+    "wasted_discovery_ops": 467
+  }
+}
