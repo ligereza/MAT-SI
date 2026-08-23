@@ -1,0 +1,5707 @@
+{
+  "cases": [
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 64,
+        "representation_bytes": 183
+      },
+      "case": "automaton_small_11",
+      "class_assignment_bytes": 439,
+      "counterexamples_found": 1,
+      "decision_after_oracle": "STOP_NO_GAIN",
+      "decision_before_oracle": "STOP_NO_GAIN",
+      "discovered_class_count": 4,
+      "discovery_audit": [
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "0531cd33af86bd48284760fb7d17b6bbe53a067f2d8e79d6bff04fc314a5bddb",
+            "classes_after": 2,
+            "classes_before": 1,
+            "distinguished_history_count": 64,
+            "probe": 1,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    4,
+                    6,
+                    7,
+                    9,
+                    11,
+                    16,
+                    18,
+                    28,
+                    36,
+                    37,
+                    44,
+                    48,
+                    51,
+                    53,
+                    56,
+                    58
+                  ],
+                  "1": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5,
+                    8,
+                    10,
+                    12,
+                    13,
+                    14,
+                    15,
+                    17,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    45,
+                    46,
+                    47,
+                    49,
+                    50,
+                    52,
+                    54,
+                    55,
+                    57,
+                    59,
+                    60,
+                    61,
+                    62,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 1,
+          "selected_probe": 1,
+          "selection_audit": [
+            {
+              "classes_if_selected": 2,
+              "probe": 1,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 2,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 4,
+              "split_gain_if_selected": 1
+            }
+          ]
+        },
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "4e03ae0c26ada4507a2d8406dbd7cb57e6e6ca29f92f1235ec7b6b221f7780bb",
+            "classes_after": 3,
+            "classes_before": 2,
+            "distinguished_history_count": 48,
+            "probe": 2,
+            "split_details": [
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    1,
+                    2,
+                    5,
+                    10,
+                    12,
+                    14,
+                    15,
+                    19,
+                    21,
+                    22,
+                    23,
+                    25,
+                    26,
+                    29,
+                    30,
+                    32,
+                    33,
+                    35,
+                    41,
+                    45,
+                    46,
+                    47,
+                    49,
+                    50,
+                    52,
+                    54,
+                    55,
+                    57,
+                    59,
+                    61,
+                    62,
+                    63
+                  ],
+                  "1": [
+                    0,
+                    3,
+                    8,
+                    13,
+                    17,
+                    20,
+                    24,
+                    27,
+                    31,
+                    34,
+                    38,
+                    39,
+                    40,
+                    42,
+                    43,
+                    60
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 2,
+          "selected_probe": 2,
+          "selection_audit": [
+            {
+              "classes_if_selected": 3,
+              "probe": 2,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 4,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 3,
+              "probe": 6,
+              "split_gain_if_selected": 1
+            }
+          ]
+        }
+      ],
+      "discovery_queries": 384,
+      "discovery_queries_per_valid_history_merge": 6.4,
+      "discovery_runtime": {
+        "discovery_ms": 0.1497,
+        "machine_dependent": true,
+        "total_refinement_ms": 0.5137,
+        "validation_ms": 0.0579
+      },
+      "discovery_validation_queries_per_valid_history_merge": 9.6,
+      "fallback": {
+        "kind": "raw_history",
+        "query_budget": 576,
+        "representation": "retain complete history records"
+      },
+      "false_merge_groups": 0,
+      "false_merge_pairs": 0,
+      "false_split_groups": 1,
+      "false_split_pairs": 256,
+      "family": "A_small_quotient",
+      "frozen_assignment_digest": "cd41809bf303de3becd287477e49a0e4e95855840eb68de5a4c061580e5c8710",
+      "frozen_parameters_digest": "b22200b402467f74d36f4eda1b8ec041f36f289a80d5ab607dcbb5a1f74cd97a",
+      "frozen_parameters_digest_before_sealed_holdout": "b22200b402467f74d36f4eda1b8ec041f36f289a80d5ab607dcbb5a1f74cd97a",
+      "ground_truth_class_count": 4,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 0,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 768,
+        "probe_count": 12,
+        "signature_entries": 64
+      },
+      "oracle_queries_per_discovery_validation_query": 1.333333,
+      "oracle_query_count": 768,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "RECOVERED_QUOTIENT",
+      "parameters_digest_after_sealed_holdout": "b22200b402467f74d36f4eda1b8ec041f36f289a80d5ab607dcbb5a1f74cd97a",
+      "peak_candidate_class_count": 4,
+      "peak_state_count": 4,
+      "phase_calls": {
+        "DISCOVERY": 384,
+        "GROUND_TRUTH/ORACLE": 768,
+        "SEALED_HOLDOUT": 192,
+        "VALIDATION": 192
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.0,
+        "rejected_merges": 0
+      },
+      "query_runtime": {
+        "discovery_ms": 0.033,
+        "machine_dependent": true,
+        "oracle_ms": 0.0549,
+        "sealed_holdout_ms": 0.0151,
+        "validation_ms": 0.0144
+      },
+      "raw_history_count": 64,
+      "raw_input_digest": "360eb324d68f1cdf6e77756e42bbaf8eab4287ae98e3f392f070d48badad7075",
+      "refinement_rounds": 3,
+      "representation_bytes": 439,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 1,
+        "false_split_pairs": 256,
+        "pair_denominator": 2016,
+        "pair_error": 0.126984,
+        "rejected_merges": 0
+      },
+      "sealed_holdout_queries": 192,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [
+        1,
+        1,
+        1
+      ],
+      "stop_reason": "fallback_query_budget_reached",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 6,
+        "max_validation_probe_evaluations": 3,
+        "selection_batch_size": 3,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 2
+      },
+      "stop_state": "STOP_NO_GAIN",
+      "valid_history_merges": 60,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "cd41809bf303de3becd287477e49a0e4e95855840eb68de5a4c061580e5c8710",
+            "classes_after": 4,
+            "classes_before": 3,
+            "distinguished_history_count": 32,
+            "probe": 0,
+            "split_details": [
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    2,
+                    5,
+                    19,
+                    23,
+                    30,
+                    33,
+                    35,
+                    45,
+                    47,
+                    49,
+                    50,
+                    54,
+                    57,
+                    59,
+                    61,
+                    63
+                  ],
+                  "1": [
+                    1,
+                    10,
+                    12,
+                    14,
+                    15,
+                    21,
+                    22,
+                    25,
+                    26,
+                    29,
+                    32,
+                    41,
+                    46,
+                    52,
+                    55,
+                    62
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 3,
+          "validation_index": 1,
+          "validation_streak_without_split": 0
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "cd41809bf303de3becd287477e49a0e4e95855840eb68de5a4c061580e5c8710",
+            "classes_after": 4,
+            "classes_before": 4,
+            "distinguished_history_count": 0,
+            "probe": 3,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 3,
+          "validation_index": 2,
+          "validation_streak_without_split": 1
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "cd41809bf303de3becd287477e49a0e4e95855840eb68de5a4c061580e5c8710",
+            "classes_after": 4,
+            "classes_before": 4,
+            "distinguished_history_count": 0,
+            "probe": 11,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 3,
+          "validation_index": 3,
+          "validation_streak_without_split": 2
+        }
+      ],
+      "validation_queries": 192
+    },
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 64,
+        "representation_bytes": 183
+      },
+      "case": "automaton_small_17",
+      "class_assignment_bytes": 439,
+      "counterexamples_found": 1,
+      "decision_after_oracle": "STOP_NO_GAIN",
+      "decision_before_oracle": "STOP_NO_GAIN",
+      "discovered_class_count": 4,
+      "discovery_audit": [
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "fdfd3cb6248f728f709d59c4b56122ee3ab4b78ac036cb4ce31c6dc23459316e",
+            "classes_after": 2,
+            "classes_before": 1,
+            "distinguished_history_count": 64,
+            "probe": 4,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5,
+                    6,
+                    7,
+                    8,
+                    11,
+                    12,
+                    14,
+                    15,
+                    16,
+                    17,
+                    19,
+                    21,
+                    23,
+                    25,
+                    26,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    44,
+                    45,
+                    46,
+                    48,
+                    50,
+                    51,
+                    52,
+                    53,
+                    54,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    62,
+                    63
+                  ],
+                  "1": [
+                    4,
+                    9,
+                    10,
+                    13,
+                    18,
+                    20,
+                    22,
+                    24,
+                    27,
+                    34,
+                    35,
+                    43,
+                    47,
+                    49,
+                    55,
+                    61
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 1,
+          "selected_probe": 4,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 1,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 4,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 5,
+              "split_gain_if_selected": 1
+            }
+          ]
+        },
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "d4a5d9f37368b9919f3d8f3ea8c79c988835b63bce330b506189aba991addbad",
+            "classes_after": 3,
+            "classes_before": 2,
+            "distinguished_history_count": 48,
+            "probe": 5,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    5,
+                    7,
+                    11,
+                    19,
+                    23,
+                    29,
+                    31,
+                    38,
+                    44,
+                    45,
+                    46,
+                    50,
+                    51,
+                    58,
+                    60,
+                    62
+                  ],
+                  "1": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    6,
+                    8,
+                    12,
+                    14,
+                    15,
+                    16,
+                    17,
+                    21,
+                    25,
+                    26,
+                    28,
+                    30,
+                    32,
+                    33,
+                    36,
+                    37,
+                    39,
+                    40,
+                    41,
+                    42,
+                    48,
+                    52,
+                    53,
+                    54,
+                    56,
+                    57,
+                    59,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 2,
+          "selected_probe": 5,
+          "selection_audit": [
+            {
+              "classes_if_selected": 2,
+              "probe": 1,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 3,
+              "probe": 5,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 6,
+              "split_gain_if_selected": 0
+            }
+          ]
+        }
+      ],
+      "discovery_queries": 384,
+      "discovery_queries_per_valid_history_merge": 6.4,
+      "discovery_runtime": {
+        "discovery_ms": 0.1338,
+        "machine_dependent": true,
+        "total_refinement_ms": 0.3809,
+        "validation_ms": 0.0563
+      },
+      "discovery_validation_queries_per_valid_history_merge": 9.6,
+      "fallback": {
+        "kind": "raw_history",
+        "query_budget": 576,
+        "representation": "retain complete history records"
+      },
+      "false_merge_groups": 0,
+      "false_merge_pairs": 0,
+      "false_split_groups": 1,
+      "false_split_pairs": 256,
+      "family": "A_small_quotient",
+      "frozen_assignment_digest": "5ebe8be286dea30c3da2c5f17be276b9eb481eaf63356b48bd00b107ad85cbfa",
+      "frozen_parameters_digest": "1698bff1f748b91d22902b500c1bf3088a7cf916533f84fcdb98c9872248108b",
+      "frozen_parameters_digest_before_sealed_holdout": "1698bff1f748b91d22902b500c1bf3088a7cf916533f84fcdb98c9872248108b",
+      "ground_truth_class_count": 4,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 0,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 768,
+        "probe_count": 12,
+        "signature_entries": 64
+      },
+      "oracle_queries_per_discovery_validation_query": 1.333333,
+      "oracle_query_count": 768,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "RECOVERED_QUOTIENT",
+      "parameters_digest_after_sealed_holdout": "1698bff1f748b91d22902b500c1bf3088a7cf916533f84fcdb98c9872248108b",
+      "peak_candidate_class_count": 4,
+      "peak_state_count": 4,
+      "phase_calls": {
+        "DISCOVERY": 384,
+        "GROUND_TRUTH/ORACLE": 768,
+        "SEALED_HOLDOUT": 192,
+        "VALIDATION": 192
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.0,
+        "rejected_merges": 0
+      },
+      "query_runtime": {
+        "discovery_ms": 0.0309,
+        "machine_dependent": true,
+        "oracle_ms": 0.0527,
+        "sealed_holdout_ms": 0.0144,
+        "validation_ms": 0.0134
+      },
+      "raw_history_count": 64,
+      "raw_input_digest": "5fdfd08a487b02f99fbc92aa9363f4565680300aeffd379e9d988b823b8cb7ab",
+      "refinement_rounds": 3,
+      "representation_bytes": 439,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 1,
+        "false_split_pairs": 256,
+        "pair_denominator": 2016,
+        "pair_error": 0.126984,
+        "rejected_merges": 0
+      },
+      "sealed_holdout_queries": 192,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [
+        1,
+        1,
+        1
+      ],
+      "stop_reason": "fallback_query_budget_reached",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 6,
+        "max_validation_probe_evaluations": 3,
+        "selection_batch_size": 3,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 2
+      },
+      "stop_state": "STOP_NO_GAIN",
+      "valid_history_merges": 60,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "d4a5d9f37368b9919f3d8f3ea8c79c988835b63bce330b506189aba991addbad",
+            "classes_after": 3,
+            "classes_before": 3,
+            "distinguished_history_count": 0,
+            "probe": 0,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 2,
+          "validation_index": 1,
+          "validation_streak_without_split": 1
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "5ebe8be286dea30c3da2c5f17be276b9eb481eaf63356b48bd00b107ad85cbfa",
+            "classes_after": 4,
+            "classes_before": 3,
+            "distinguished_history_count": 32,
+            "probe": 2,
+            "split_details": [
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    1,
+                    3,
+                    6,
+                    15,
+                    16,
+                    21,
+                    28,
+                    30,
+                    33,
+                    37,
+                    40,
+                    41,
+                    52,
+                    53,
+                    54
+                  ],
+                  "1": [
+                    2,
+                    8,
+                    12,
+                    14,
+                    17,
+                    25,
+                    26,
+                    32,
+                    36,
+                    39,
+                    42,
+                    48,
+                    56,
+                    57,
+                    59,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 3,
+          "validation_index": 2,
+          "validation_streak_without_split": 0
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "5ebe8be286dea30c3da2c5f17be276b9eb481eaf63356b48bd00b107ad85cbfa",
+            "classes_after": 4,
+            "classes_before": 4,
+            "distinguished_history_count": 0,
+            "probe": 3,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 3,
+          "validation_index": 3,
+          "validation_streak_without_split": 1
+        }
+      ],
+      "validation_queries": 192
+    },
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 64,
+        "representation_bytes": 183
+      },
+      "case": "automaton_small_23",
+      "class_assignment_bytes": 439,
+      "counterexamples_found": 0,
+      "decision_after_oracle": "FREEZE",
+      "decision_before_oracle": "FREEZE",
+      "discovered_class_count": 4,
+      "discovery_audit": [
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "9d099afbcb02e7ffc3c4fcab645a719c59d734dbe39a97ccaeaae7a32178254b",
+            "classes_after": 2,
+            "classes_before": 1,
+            "distinguished_history_count": 64,
+            "probe": 5,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    1,
+                    2,
+                    4,
+                    5,
+                    6,
+                    7,
+                    9,
+                    13,
+                    15,
+                    17,
+                    18,
+                    20,
+                    22,
+                    24,
+                    27,
+                    29,
+                    31,
+                    40,
+                    41,
+                    45,
+                    46,
+                    49,
+                    50,
+                    51,
+                    54,
+                    56,
+                    58,
+                    59,
+                    60,
+                    61,
+                    62
+                  ],
+                  "1": [
+                    3,
+                    8,
+                    10,
+                    11,
+                    12,
+                    14,
+                    16,
+                    19,
+                    21,
+                    23,
+                    25,
+                    26,
+                    28,
+                    30,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    42,
+                    43,
+                    44,
+                    47,
+                    48,
+                    52,
+                    53,
+                    55,
+                    57,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 1,
+          "selected_probe": 5,
+          "selection_audit": [
+            {
+              "classes_if_selected": 2,
+              "probe": 5,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 7,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 8,
+              "split_gain_if_selected": 1
+            }
+          ]
+        },
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "eff13fc36d4787d02b4615427600f6615dc8e8993260420bb7b6ef741b854adb",
+            "classes_after": 4,
+            "classes_before": 2,
+            "distinguished_history_count": 64,
+            "probe": 8,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    2,
+                    6,
+                    7,
+                    13,
+                    20,
+                    22,
+                    24,
+                    27,
+                    40,
+                    46,
+                    49,
+                    54,
+                    58,
+                    59,
+                    61
+                  ],
+                  "1": [
+                    1,
+                    4,
+                    5,
+                    9,
+                    15,
+                    17,
+                    18,
+                    29,
+                    31,
+                    41,
+                    45,
+                    50,
+                    51,
+                    56,
+                    60,
+                    62
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    10,
+                    14,
+                    16,
+                    19,
+                    23,
+                    26,
+                    28,
+                    33,
+                    34,
+                    35,
+                    36,
+                    38,
+                    39,
+                    43,
+                    53,
+                    57
+                  ],
+                  "1": [
+                    3,
+                    8,
+                    11,
+                    12,
+                    21,
+                    25,
+                    30,
+                    32,
+                    37,
+                    42,
+                    44,
+                    47,
+                    48,
+                    52,
+                    55,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 2
+          },
+          "round": 2,
+          "selected_probe": 8,
+          "selection_audit": [
+            {
+              "classes_if_selected": 3,
+              "probe": 7,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 4,
+              "probe": 8,
+              "split_gain_if_selected": 2
+            },
+            {
+              "classes_if_selected": 4,
+              "probe": 9,
+              "split_gain_if_selected": 2
+            }
+          ]
+        }
+      ],
+      "discovery_queries": 384,
+      "discovery_queries_per_valid_history_merge": 6.4,
+      "discovery_runtime": {
+        "discovery_ms": 0.1402,
+        "machine_dependent": true,
+        "total_refinement_ms": 0.3302,
+        "validation_ms": 0.0376
+      },
+      "discovery_validation_queries_per_valid_history_merge": 8.533333,
+      "fallback": {
+        "kind": "raw_history",
+        "query_budget": 576,
+        "representation": "retain complete history records"
+      },
+      "false_merge_groups": 0,
+      "false_merge_pairs": 0,
+      "false_split_groups": 0,
+      "false_split_pairs": 0,
+      "family": "A_small_quotient",
+      "frozen_assignment_digest": "eff13fc36d4787d02b4615427600f6615dc8e8993260420bb7b6ef741b854adb",
+      "frozen_parameters_digest": "9ea2a63d226c84d1a9c4911b4c2da28b43dfb0b8e8153051e3a2c386368ae05c",
+      "frozen_parameters_digest_before_sealed_holdout": "9ea2a63d226c84d1a9c4911b4c2da28b43dfb0b8e8153051e3a2c386368ae05c",
+      "ground_truth_class_count": 4,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 0,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 768,
+        "probe_count": 12,
+        "signature_entries": 64
+      },
+      "oracle_queries_per_discovery_validation_query": 1.5,
+      "oracle_query_count": 768,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "RECOVERED_QUOTIENT",
+      "parameters_digest_after_sealed_holdout": "9ea2a63d226c84d1a9c4911b4c2da28b43dfb0b8e8153051e3a2c386368ae05c",
+      "peak_candidate_class_count": 4,
+      "peak_state_count": 4,
+      "phase_calls": {
+        "DISCOVERY": 384,
+        "GROUND_TRUTH/ORACLE": 768,
+        "SEALED_HOLDOUT": 192,
+        "VALIDATION": 128
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.0,
+        "rejected_merges": 0
+      },
+      "query_runtime": {
+        "discovery_ms": 0.0291,
+        "machine_dependent": true,
+        "oracle_ms": 0.0551,
+        "sealed_holdout_ms": 0.0151,
+        "validation_ms": 0.0099
+      },
+      "raw_history_count": 64,
+      "raw_input_digest": "07e7c7db344bf52c1a19fc906883b17b96e80662d988177bae05b27b6d3a5357",
+      "refinement_rounds": 2,
+      "representation_bytes": 439,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.0,
+        "rejected_merges": 0
+      },
+      "sealed_holdout_queries": 192,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [
+        1,
+        2
+      ],
+      "stop_reason": "validation_patience_without_new_split",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 6,
+        "max_validation_probe_evaluations": 3,
+        "selection_batch_size": 3,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 2
+      },
+      "stop_state": "FREEZE",
+      "valid_history_merges": 60,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "eff13fc36d4787d02b4615427600f6615dc8e8993260420bb7b6ef741b854adb",
+            "classes_after": 4,
+            "classes_before": 4,
+            "distinguished_history_count": 0,
+            "probe": 2,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 2,
+          "validation_index": 1,
+          "validation_streak_without_split": 1
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "eff13fc36d4787d02b4615427600f6615dc8e8993260420bb7b6ef741b854adb",
+            "classes_after": 4,
+            "classes_before": 4,
+            "distinguished_history_count": 0,
+            "probe": 3,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 2,
+          "validation_index": 2,
+          "validation_streak_without_split": 2
+        }
+      ],
+      "validation_queries": 128
+    },
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 64,
+        "representation_bytes": 183
+      },
+      "case": "quotient_4",
+      "class_assignment_bytes": 439,
+      "counterexamples_found": 1,
+      "decision_after_oracle": "STOP_NO_GAIN",
+      "decision_before_oracle": "STOP_NO_GAIN",
+      "discovered_class_count": 4,
+      "discovery_audit": [
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "1429d12cbb2079e624a092edf1797edd4930de4f77643b06faa3731dfdc408e4",
+            "classes_after": 2,
+            "classes_before": 1,
+            "distinguished_history_count": 64,
+            "probe": 1,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    4,
+                    5,
+                    10,
+                    14,
+                    16,
+                    19,
+                    26,
+                    29,
+                    34,
+                    40,
+                    46,
+                    48,
+                    52,
+                    58,
+                    61,
+                    62
+                  ],
+                  "1": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    6,
+                    7,
+                    8,
+                    9,
+                    11,
+                    12,
+                    13,
+                    15,
+                    17,
+                    18,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    27,
+                    28,
+                    30,
+                    31,
+                    32,
+                    33,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    47,
+                    49,
+                    50,
+                    51,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57,
+                    59,
+                    60,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 1,
+          "selected_probe": 1,
+          "selection_audit": [
+            {
+              "classes_if_selected": 2,
+              "probe": 1,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 5,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 6,
+              "split_gain_if_selected": 1
+            }
+          ]
+        },
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "13bb661919b7d2853e5e0bc36c131aaa9e343a8ea6c6ce6f8528c992b06f14bc",
+            "classes_after": 3,
+            "classes_before": 2,
+            "distinguished_history_count": 48,
+            "probe": 5,
+            "split_details": [
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    2,
+                    3,
+                    6,
+                    8,
+                    9,
+                    11,
+                    12,
+                    13,
+                    15,
+                    17,
+                    18,
+                    20,
+                    23,
+                    24,
+                    27,
+                    28,
+                    33,
+                    35,
+                    37,
+                    39,
+                    43,
+                    44,
+                    49,
+                    50,
+                    51,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57,
+                    59,
+                    60
+                  ],
+                  "1": [
+                    0,
+                    1,
+                    7,
+                    21,
+                    22,
+                    25,
+                    30,
+                    31,
+                    32,
+                    36,
+                    38,
+                    41,
+                    42,
+                    45,
+                    47,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 2,
+          "selected_probe": 5,
+          "selection_audit": [
+            {
+              "classes_if_selected": 3,
+              "probe": 5,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 3,
+              "probe": 6,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 3,
+              "probe": 7,
+              "split_gain_if_selected": 1
+            }
+          ]
+        }
+      ],
+      "discovery_queries": 384,
+      "discovery_queries_per_valid_history_merge": 6.4,
+      "discovery_runtime": {
+        "discovery_ms": 0.1304,
+        "machine_dependent": true,
+        "total_refinement_ms": 0.3625,
+        "validation_ms": 0.0554
+      },
+      "discovery_validation_queries_per_valid_history_merge": 9.6,
+      "fallback": {
+        "kind": "raw_history",
+        "query_budget": 576,
+        "representation": "retain complete history records"
+      },
+      "false_merge_groups": 0,
+      "false_merge_pairs": 0,
+      "false_split_groups": 0,
+      "false_split_pairs": 0,
+      "family": "B_same_history_different_quotient",
+      "frozen_assignment_digest": "9631eb272255f8b0f0fd1ae74367d161e60da46f3097b3f6567adb6d861e0cd8",
+      "frozen_parameters_digest": "0168c3a686b525ae706dd419e043464f8c6556d6b441eb23b51f3b111fd4ee33",
+      "frozen_parameters_digest_before_sealed_holdout": "0168c3a686b525ae706dd419e043464f8c6556d6b441eb23b51f3b111fd4ee33",
+      "ground_truth_class_count": 4,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 0,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 768,
+        "probe_count": 12,
+        "signature_entries": 64
+      },
+      "oracle_queries_per_discovery_validation_query": 1.333333,
+      "oracle_query_count": 768,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "RECOVERED_QUOTIENT",
+      "parameters_digest_after_sealed_holdout": "0168c3a686b525ae706dd419e043464f8c6556d6b441eb23b51f3b111fd4ee33",
+      "peak_candidate_class_count": 4,
+      "peak_state_count": 4,
+      "phase_calls": {
+        "DISCOVERY": 384,
+        "GROUND_TRUTH/ORACLE": 768,
+        "SEALED_HOLDOUT": 192,
+        "VALIDATION": 192
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.0,
+        "rejected_merges": 0
+      },
+      "query_runtime": {
+        "discovery_ms": 0.029,
+        "machine_dependent": true,
+        "oracle_ms": 0.0545,
+        "sealed_holdout_ms": 0.0145,
+        "validation_ms": 0.0147
+      },
+      "raw_history_count": 64,
+      "raw_input_digest": "60be5564f54541ca0acad5ba68d25c3d1ab4bc339cdcaa26c2cc1e0b027ea1a3",
+      "refinement_rounds": 3,
+      "representation_bytes": 439,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.0,
+        "rejected_merges": 0
+      },
+      "sealed_holdout_queries": 192,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [
+        1,
+        1,
+        1
+      ],
+      "stop_reason": "fallback_query_budget_reached",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 6,
+        "max_validation_probe_evaluations": 3,
+        "selection_batch_size": 3,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 2
+      },
+      "stop_state": "STOP_NO_GAIN",
+      "valid_history_merges": 60,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "9631eb272255f8b0f0fd1ae74367d161e60da46f3097b3f6567adb6d861e0cd8",
+            "classes_after": 4,
+            "classes_before": 3,
+            "distinguished_history_count": 32,
+            "probe": 2,
+            "split_details": [
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    2,
+                    3,
+                    8,
+                    9,
+                    11,
+                    13,
+                    17,
+                    18,
+                    20,
+                    23,
+                    50,
+                    53,
+                    54,
+                    56,
+                    59,
+                    60
+                  ],
+                  "1": [
+                    6,
+                    12,
+                    15,
+                    24,
+                    27,
+                    28,
+                    33,
+                    35,
+                    37,
+                    39,
+                    43,
+                    44,
+                    49,
+                    51,
+                    55,
+                    57
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 3,
+          "validation_index": 1,
+          "validation_streak_without_split": 0
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "9631eb272255f8b0f0fd1ae74367d161e60da46f3097b3f6567adb6d861e0cd8",
+            "classes_after": 4,
+            "classes_before": 4,
+            "distinguished_history_count": 0,
+            "probe": 3,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 3,
+          "validation_index": 2,
+          "validation_streak_without_split": 1
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "9631eb272255f8b0f0fd1ae74367d161e60da46f3097b3f6567adb6d861e0cd8",
+            "classes_after": 4,
+            "classes_before": 4,
+            "distinguished_history_count": 0,
+            "probe": 9,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 3,
+          "validation_index": 3,
+          "validation_streak_without_split": 2
+        }
+      ],
+      "validation_queries": 192
+    },
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 64,
+        "representation_bytes": 183
+      },
+      "case": "quotient_16",
+      "class_assignment_bytes": 463,
+      "counterexamples_found": 11,
+      "decision_after_oracle": "STOP_NO_GAIN",
+      "decision_before_oracle": "STOP_NO_GAIN",
+      "discovered_class_count": 15,
+      "discovery_audit": [
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "8d145ee0602e3d6fe8cd4d44e430fb5b285646c00956d8b207dab05091e2281b",
+            "classes_after": 2,
+            "classes_before": 1,
+            "distinguished_history_count": 64,
+            "probe": 1,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    11,
+                    13,
+                    16,
+                    17,
+                    19,
+                    20,
+                    21,
+                    24,
+                    25,
+                    27,
+                    29,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    37,
+                    38,
+                    39,
+                    40,
+                    43,
+                    44,
+                    45,
+                    46,
+                    50,
+                    51,
+                    52,
+                    53,
+                    55,
+                    57,
+                    58,
+                    62,
+                    63
+                  ],
+                  "1": [
+                    7,
+                    8,
+                    9,
+                    10,
+                    12,
+                    14,
+                    15,
+                    18,
+                    22,
+                    23,
+                    26,
+                    28,
+                    30,
+                    36,
+                    41,
+                    42,
+                    47,
+                    48,
+                    49,
+                    54,
+                    56,
+                    59,
+                    60,
+                    61
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 1,
+          "selected_probe": 1,
+          "selection_audit": [
+            {
+              "classes_if_selected": 2,
+              "probe": 1,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 2,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 3,
+              "split_gain_if_selected": 1
+            }
+          ]
+        },
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "37a5776a6b5d78e4b52be6848939c39a2b8b900844d4296826f1941144d08922",
+            "classes_after": 4,
+            "classes_before": 2,
+            "distinguished_history_count": 64,
+            "probe": 2,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    1,
+                    5,
+                    16,
+                    17,
+                    20,
+                    21,
+                    29,
+                    32,
+                    34,
+                    35,
+                    39,
+                    40,
+                    50,
+                    51,
+                    55,
+                    63
+                  ],
+                  "1": [
+                    0,
+                    2,
+                    3,
+                    4,
+                    6,
+                    11,
+                    13,
+                    19,
+                    24,
+                    25,
+                    27,
+                    31,
+                    33,
+                    37,
+                    38,
+                    43,
+                    44,
+                    45,
+                    46,
+                    52,
+                    53,
+                    57,
+                    58,
+                    62
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    8,
+                    9,
+                    10,
+                    12,
+                    14,
+                    15,
+                    22,
+                    23,
+                    36,
+                    41,
+                    48,
+                    60
+                  ],
+                  "1": [
+                    7,
+                    18,
+                    26,
+                    28,
+                    30,
+                    42,
+                    47,
+                    49,
+                    54,
+                    56,
+                    59,
+                    61
+                  ]
+                }
+              }
+            ],
+            "split_groups": 2
+          },
+          "round": 2,
+          "selected_probe": 2,
+          "selection_audit": [
+            {
+              "classes_if_selected": 4,
+              "probe": 2,
+              "split_gain_if_selected": 2
+            },
+            {
+              "classes_if_selected": 4,
+              "probe": 3,
+              "split_gain_if_selected": 2
+            },
+            {
+              "classes_if_selected": 4,
+              "probe": 5,
+              "split_gain_if_selected": 2
+            }
+          ]
+        }
+      ],
+      "discovery_queries": 384,
+      "discovery_queries_per_valid_history_merge": 8.930233,
+      "discovery_runtime": {
+        "discovery_ms": 0.1309,
+        "machine_dependent": true,
+        "total_refinement_ms": 0.3973,
+        "validation_ms": 0.0553
+      },
+      "discovery_validation_queries_per_valid_history_merge": 13.395349,
+      "fallback": {
+        "kind": "raw_history",
+        "query_budget": 576,
+        "representation": "retain complete history records"
+      },
+      "false_merge_groups": 1,
+      "false_merge_pairs": 16,
+      "false_split_groups": 5,
+      "false_split_pairs": 288,
+      "family": "B_same_history_different_quotient",
+      "frozen_assignment_digest": "5d8318cd0c07cd5f82d16105685a2064cb6c7c56aeafee9e30b1dd95c329f4b1",
+      "frozen_parameters_digest": "63831ce8a8a791d322fa268eb0f756e5dcfe4f4f52696485dba1c8ce54b1ebfa",
+      "frozen_parameters_digest_before_sealed_holdout": "63831ce8a8a791d322fa268eb0f756e5dcfe4f4f52696485dba1c8ce54b1ebfa",
+      "ground_truth_class_count": 16,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 6,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 768,
+        "probe_count": 12,
+        "signature_entries": 64
+      },
+      "oracle_queries_per_discovery_validation_query": 1.333333,
+      "oracle_query_count": 768,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "PARTIAL_OR_UNRESOLVED_RECOVERY",
+      "parameters_digest_after_sealed_holdout": "63831ce8a8a791d322fa268eb0f756e5dcfe4f4f52696485dba1c8ce54b1ebfa",
+      "peak_candidate_class_count": 15,
+      "peak_state_count": 15,
+      "phase_calls": {
+        "DISCOVERY": 384,
+        "GROUND_TRUTH/ORACLE": 768,
+        "SEALED_HOLDOUT": 192,
+        "VALIDATION": 192
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 1,
+        "false_merge_pairs": 16,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.007937,
+        "rejected_merges": 6
+      },
+      "query_runtime": {
+        "discovery_ms": 0.0286,
+        "machine_dependent": true,
+        "oracle_ms": 0.0542,
+        "sealed_holdout_ms": 0.0142,
+        "validation_ms": 0.0145
+      },
+      "raw_history_count": 64,
+      "raw_input_digest": "ff3075b71642ad59080f082363dfd40bc455c262fc03db03dec1a899f6b48332",
+      "refinement_rounds": 5,
+      "representation_bytes": 463,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 1,
+        "false_merge_pairs": 16,
+        "false_split_groups": 5,
+        "false_split_pairs": 288,
+        "pair_denominator": 2016,
+        "pair_error": 0.150794,
+        "rejected_merges": 6
+      },
+      "sealed_holdout_queries": 192,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [
+        1,
+        2,
+        4,
+        5,
+        2
+      ],
+      "stop_reason": "fallback_query_budget_reached",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 6,
+        "max_validation_probe_evaluations": 3,
+        "selection_batch_size": 3,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 2
+      },
+      "stop_state": "STOP_NO_GAIN",
+      "valid_history_merges": 43,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "93a78dd6d9df59a1dce04858e4bea4609b2ed5e6ec1c32870d765f0ce9cf7b85",
+            "classes_after": 8,
+            "classes_before": 4,
+            "distinguished_history_count": 64,
+            "probe": 0,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    5,
+                    16,
+                    17,
+                    21,
+                    29,
+                    32,
+                    35,
+                    40
+                  ],
+                  "1": [
+                    1,
+                    20,
+                    34,
+                    39,
+                    50,
+                    51,
+                    55,
+                    63
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    2,
+                    3,
+                    6,
+                    11,
+                    27,
+                    31,
+                    33,
+                    38,
+                    44,
+                    45,
+                    46,
+                    62
+                  ],
+                  "1": [
+                    0,
+                    4,
+                    13,
+                    19,
+                    24,
+                    25,
+                    37,
+                    43,
+                    52,
+                    53,
+                    57,
+                    58
+                  ]
+                }
+              },
+              {
+                "class_before": 2,
+                "histories_by_response": {
+                  "0": [
+                    8,
+                    12,
+                    36,
+                    48
+                  ],
+                  "1": [
+                    9,
+                    10,
+                    14,
+                    15,
+                    22,
+                    23,
+                    41,
+                    60
+                  ]
+                }
+              },
+              {
+                "class_before": 3,
+                "histories_by_response": {
+                  "0": [
+                    7,
+                    26,
+                    42,
+                    61
+                  ],
+                  "1": [
+                    18,
+                    28,
+                    30,
+                    47,
+                    49,
+                    54,
+                    56,
+                    59
+                  ]
+                }
+              }
+            ],
+            "split_groups": 4
+          },
+          "round": 3,
+          "validation_index": 1,
+          "validation_streak_without_split": 0
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "9cc87f8ea3e8fcceedfc777dc71444a5f83e781ec8f644c8480e692309b79732",
+            "classes_after": 13,
+            "classes_before": 8,
+            "distinguished_history_count": 48,
+            "probe": 7,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    5,
+                    17,
+                    29,
+                    32
+                  ],
+                  "1": [
+                    16,
+                    21,
+                    35,
+                    40
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    39,
+                    50,
+                    51,
+                    55
+                  ],
+                  "1": [
+                    1,
+                    20,
+                    34,
+                    63
+                  ]
+                }
+              },
+              {
+                "class_before": 2,
+                "histories_by_response": {
+                  "0": [
+                    2,
+                    3,
+                    6,
+                    11,
+                    33,
+                    38,
+                    44,
+                    45
+                  ],
+                  "1": [
+                    27,
+                    31,
+                    46,
+                    62
+                  ]
+                }
+              },
+              {
+                "class_before": 3,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    19,
+                    24,
+                    25,
+                    37,
+                    43,
+                    53,
+                    58
+                  ],
+                  "1": [
+                    4,
+                    13,
+                    52,
+                    57
+                  ]
+                }
+              },
+              {
+                "class_before": 7,
+                "histories_by_response": {
+                  "0": [
+                    28,
+                    47,
+                    49,
+                    59
+                  ],
+                  "1": [
+                    18,
+                    30,
+                    54,
+                    56
+                  ]
+                }
+              }
+            ],
+            "split_groups": 5
+          },
+          "round": 4,
+          "validation_index": 2,
+          "validation_streak_without_split": 0
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "5d8318cd0c07cd5f82d16105685a2064cb6c7c56aeafee9e30b1dd95c329f4b1",
+            "classes_after": 15,
+            "classes_before": 13,
+            "distinguished_history_count": 16,
+            "probe": 11,
+            "split_details": [
+              {
+                "class_before": 4,
+                "histories_by_response": {
+                  "0": [
+                    33,
+                    38,
+                    44,
+                    45
+                  ],
+                  "1": [
+                    2,
+                    3,
+                    6,
+                    11
+                  ]
+                }
+              },
+              {
+                "class_before": 6,
+                "histories_by_response": {
+                  "0": [
+                    19,
+                    25,
+                    37,
+                    53
+                  ],
+                  "1": [
+                    0,
+                    24,
+                    43,
+                    58
+                  ]
+                }
+              }
+            ],
+            "split_groups": 2
+          },
+          "round": 5,
+          "validation_index": 3,
+          "validation_streak_without_split": 0
+        }
+      ],
+      "validation_queries": 192
+    },
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 64,
+        "representation_bytes": 183
+      },
+      "case": "quotient_56",
+      "class_assignment_bytes": 471,
+      "counterexamples_found": 23,
+      "decision_after_oracle": "STOP_NO_GAIN",
+      "decision_before_oracle": "STOP_NO_GAIN",
+      "discovered_class_count": 27,
+      "discovery_audit": [
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "323ff190a6d8679ee358c2667f54be8fcc7e767a9e249b8a48744c22d41f1ee1",
+            "classes_after": 2,
+            "classes_before": 1,
+            "distinguished_history_count": 64,
+            "probe": 1,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    2,
+                    3,
+                    4,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    13,
+                    15,
+                    17,
+                    18,
+                    19,
+                    21,
+                    23,
+                    24,
+                    26,
+                    27,
+                    28,
+                    29,
+                    31,
+                    32,
+                    37,
+                    39,
+                    42,
+                    43,
+                    44,
+                    46,
+                    48,
+                    50,
+                    51,
+                    54,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    62
+                  ],
+                  "1": [
+                    1,
+                    5,
+                    11,
+                    12,
+                    14,
+                    16,
+                    20,
+                    22,
+                    25,
+                    30,
+                    33,
+                    34,
+                    35,
+                    36,
+                    38,
+                    40,
+                    41,
+                    45,
+                    47,
+                    49,
+                    52,
+                    53,
+                    55,
+                    61,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 1,
+          "selected_probe": 1,
+          "selection_audit": [
+            {
+              "classes_if_selected": 2,
+              "probe": 1,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 2,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 4,
+              "split_gain_if_selected": 1
+            }
+          ]
+        },
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "9df502ef4e4b9ea3084e644a9903d945497980863610d2abe1f26d8b1f8df8af",
+            "classes_after": 4,
+            "classes_before": 2,
+            "distinguished_history_count": 64,
+            "probe": 2,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    7,
+                    8,
+                    13,
+                    21,
+                    24,
+                    31,
+                    37,
+                    39,
+                    42,
+                    44,
+                    48,
+                    50,
+                    51,
+                    56,
+                    59
+                  ],
+                  "1": [
+                    0,
+                    2,
+                    3,
+                    4,
+                    6,
+                    9,
+                    10,
+                    15,
+                    17,
+                    18,
+                    19,
+                    23,
+                    26,
+                    27,
+                    28,
+                    29,
+                    32,
+                    43,
+                    46,
+                    54,
+                    57,
+                    58,
+                    60,
+                    62
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    1,
+                    12,
+                    14,
+                    22,
+                    25,
+                    33,
+                    45,
+                    47,
+                    49,
+                    53
+                  ],
+                  "1": [
+                    5,
+                    11,
+                    16,
+                    20,
+                    30,
+                    34,
+                    35,
+                    36,
+                    38,
+                    40,
+                    41,
+                    52,
+                    55,
+                    61,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 2
+          },
+          "round": 2,
+          "selected_probe": 2,
+          "selection_audit": [
+            {
+              "classes_if_selected": 4,
+              "probe": 2,
+              "split_gain_if_selected": 2
+            },
+            {
+              "classes_if_selected": 4,
+              "probe": 4,
+              "split_gain_if_selected": 2
+            },
+            {
+              "classes_if_selected": 4,
+              "probe": 5,
+              "split_gain_if_selected": 2
+            }
+          ]
+        }
+      ],
+      "discovery_queries": 384,
+      "discovery_queries_per_valid_history_merge": 14.222222,
+      "discovery_runtime": {
+        "discovery_ms": 0.1336,
+        "machine_dependent": true,
+        "total_refinement_ms": 0.565,
+        "validation_ms": 0.0717
+      },
+      "discovery_validation_queries_per_valid_history_merge": 21.333333,
+      "fallback": {
+        "kind": "raw_history",
+        "query_budget": 576,
+        "representation": "retain complete history records"
+      },
+      "false_merge_groups": 16,
+      "false_merge_pairs": 58,
+      "false_split_groups": 8,
+      "false_split_pairs": 225,
+      "family": "B_same_history_different_quotient",
+      "frozen_assignment_digest": "2e16d2cb383c48423e29b1de9fa3fdd2461b8fac7eb642616ad5ea845357618e",
+      "frozen_parameters_digest": "77d8308e532d456fea208b56fc4fc1608e604c59ef0cb2ca24f925a90d610a3d",
+      "frozen_parameters_digest_before_sealed_holdout": "77d8308e532d456fea208b56fc4fc1608e604c59ef0cb2ca24f925a90d610a3d",
+      "ground_truth_class_count": 56,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 10,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 768,
+        "probe_count": 12,
+        "signature_entries": 64
+      },
+      "oracle_queries_per_discovery_validation_query": 1.333333,
+      "oracle_query_count": 768,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "PARTIAL_OR_UNRESOLVED_RECOVERY",
+      "parameters_digest_after_sealed_holdout": "77d8308e532d456fea208b56fc4fc1608e604c59ef0cb2ca24f925a90d610a3d",
+      "peak_candidate_class_count": 27,
+      "peak_state_count": 27,
+      "phase_calls": {
+        "DISCOVERY": 384,
+        "GROUND_TRUTH/ORACLE": 768,
+        "SEALED_HOLDOUT": 192,
+        "VALIDATION": 192
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 16,
+        "false_merge_pairs": 61,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.030258,
+        "rejected_merges": 7
+      },
+      "query_runtime": {
+        "discovery_ms": 0.0309,
+        "machine_dependent": true,
+        "oracle_ms": 0.0686,
+        "sealed_holdout_ms": 0.04,
+        "validation_ms": 0.0152
+      },
+      "raw_history_count": 64,
+      "raw_input_digest": "413493749ad8cd8473309e8225fc68b4c9496e53b9d17ef08bef52da57203f58",
+      "refinement_rounds": 5,
+      "representation_bytes": 471,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 16,
+        "false_merge_pairs": 58,
+        "false_split_groups": 8,
+        "false_split_pairs": 225,
+        "pair_denominator": 2016,
+        "pair_error": 0.140377,
+        "rejected_merges": 10
+      },
+      "sealed_holdout_queries": 192,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [
+        1,
+        2,
+        4,
+        8,
+        11
+      ],
+      "stop_reason": "fallback_query_budget_reached",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 6,
+        "max_validation_probe_evaluations": 3,
+        "selection_batch_size": 3,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 2
+      },
+      "stop_state": "STOP_NO_GAIN",
+      "valid_history_merges": 27,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "949d3965e9ce263bb6386bb955803276cd20ae121f54097806dffb2e6f73995a",
+            "classes_after": 8,
+            "classes_before": 4,
+            "distinguished_history_count": 64,
+            "probe": 0,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    13,
+                    31,
+                    44,
+                    50,
+                    56,
+                    59
+                  ],
+                  "1": [
+                    7,
+                    8,
+                    21,
+                    24,
+                    37,
+                    39,
+                    42,
+                    48,
+                    51
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    2,
+                    3,
+                    6,
+                    9,
+                    10,
+                    17,
+                    18,
+                    27,
+                    29,
+                    32,
+                    46,
+                    54,
+                    57,
+                    58,
+                    60,
+                    62
+                  ],
+                  "1": [
+                    4,
+                    15,
+                    19,
+                    23,
+                    26,
+                    28,
+                    43
+                  ]
+                }
+              },
+              {
+                "class_before": 2,
+                "histories_by_response": {
+                  "0": [
+                    1,
+                    22,
+                    47,
+                    49
+                  ],
+                  "1": [
+                    12,
+                    14,
+                    25,
+                    33,
+                    45,
+                    53
+                  ]
+                }
+              },
+              {
+                "class_before": 3,
+                "histories_by_response": {
+                  "0": [
+                    5,
+                    16,
+                    20,
+                    34,
+                    35,
+                    36,
+                    41,
+                    55,
+                    61
+                  ],
+                  "1": [
+                    11,
+                    30,
+                    38,
+                    40,
+                    52,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 4
+          },
+          "round": 3,
+          "validation_index": 1,
+          "validation_streak_without_split": 0
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "dd3ffc1d22a6632847ae752f9bcd92e3c033d938775dead237efd6ea425cb2ba",
+            "classes_after": 16,
+            "classes_before": 8,
+            "distinguished_history_count": 64,
+            "probe": 3,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    13,
+                    31,
+                    50,
+                    59
+                  ],
+                  "1": [
+                    44,
+                    56
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    7,
+                    24,
+                    39,
+                    48
+                  ],
+                  "1": [
+                    8,
+                    21,
+                    37,
+                    42,
+                    51
+                  ]
+                }
+              },
+              {
+                "class_before": 2,
+                "histories_by_response": {
+                  "0": [
+                    2,
+                    6,
+                    9,
+                    10,
+                    18,
+                    29,
+                    32,
+                    54,
+                    57,
+                    60
+                  ],
+                  "1": [
+                    0,
+                    3,
+                    17,
+                    27,
+                    46,
+                    58,
+                    62
+                  ]
+                }
+              },
+              {
+                "class_before": 3,
+                "histories_by_response": {
+                  "0": [
+                    15,
+                    26
+                  ],
+                  "1": [
+                    4,
+                    19,
+                    23,
+                    28,
+                    43
+                  ]
+                }
+              },
+              {
+                "class_before": 4,
+                "histories_by_response": {
+                  "0": [
+                    49
+                  ],
+                  "1": [
+                    1,
+                    22,
+                    47
+                  ]
+                }
+              },
+              {
+                "class_before": 5,
+                "histories_by_response": {
+                  "0": [
+                    12,
+                    14,
+                    33
+                  ],
+                  "1": [
+                    25,
+                    45,
+                    53
+                  ]
+                }
+              },
+              {
+                "class_before": 6,
+                "histories_by_response": {
+                  "0": [
+                    5,
+                    16,
+                    34,
+                    36,
+                    55
+                  ],
+                  "1": [
+                    20,
+                    35,
+                    41,
+                    61
+                  ]
+                }
+              },
+              {
+                "class_before": 7,
+                "histories_by_response": {
+                  "0": [
+                    11,
+                    38,
+                    40,
+                    52,
+                    63
+                  ],
+                  "1": [
+                    30
+                  ]
+                }
+              }
+            ],
+            "split_groups": 8
+          },
+          "round": 4,
+          "validation_index": 2,
+          "validation_streak_without_split": 0
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "2e16d2cb383c48423e29b1de9fa3fdd2461b8fac7eb642616ad5ea845357618e",
+            "classes_after": 27,
+            "classes_before": 16,
+            "distinguished_history_count": 54,
+            "probe": 10,
+            "split_details": [
+              {
+                "class_before": 2,
+                "histories_by_response": {
+                  "0": [
+                    48
+                  ],
+                  "1": [
+                    7,
+                    24,
+                    39
+                  ]
+                }
+              },
+              {
+                "class_before": 3,
+                "histories_by_response": {
+                  "0": [
+                    21
+                  ],
+                  "1": [
+                    8,
+                    37,
+                    42,
+                    51
+                  ]
+                }
+              },
+              {
+                "class_before": 4,
+                "histories_by_response": {
+                  "0": [
+                    2,
+                    9,
+                    10,
+                    29,
+                    32,
+                    54
+                  ],
+                  "1": [
+                    6,
+                    18,
+                    57,
+                    60
+                  ]
+                }
+              },
+              {
+                "class_before": 5,
+                "histories_by_response": {
+                  "0": [
+                    27,
+                    46,
+                    58,
+                    62
+                  ],
+                  "1": [
+                    0,
+                    3,
+                    17
+                  ]
+                }
+              },
+              {
+                "class_before": 7,
+                "histories_by_response": {
+                  "0": [
+                    23
+                  ],
+                  "1": [
+                    4,
+                    19,
+                    28,
+                    43
+                  ]
+                }
+              },
+              {
+                "class_before": 9,
+                "histories_by_response": {
+                  "0": [
+                    22,
+                    47
+                  ],
+                  "1": [
+                    1
+                  ]
+                }
+              },
+              {
+                "class_before": 10,
+                "histories_by_response": {
+                  "0": [
+                    12,
+                    14
+                  ],
+                  "1": [
+                    33
+                  ]
+                }
+              },
+              {
+                "class_before": 11,
+                "histories_by_response": {
+                  "0": [
+                    45
+                  ],
+                  "1": [
+                    25,
+                    53
+                  ]
+                }
+              },
+              {
+                "class_before": 12,
+                "histories_by_response": {
+                  "0": [
+                    36
+                  ],
+                  "1": [
+                    5,
+                    16,
+                    34,
+                    55
+                  ]
+                }
+              },
+              {
+                "class_before": 13,
+                "histories_by_response": {
+                  "0": [
+                    20,
+                    35,
+                    41
+                  ],
+                  "1": [
+                    61
+                  ]
+                }
+              },
+              {
+                "class_before": 14,
+                "histories_by_response": {
+                  "0": [
+                    38,
+                    52
+                  ],
+                  "1": [
+                    11,
+                    40,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 11
+          },
+          "round": 5,
+          "validation_index": 3,
+          "validation_streak_without_split": 0
+        }
+      ],
+      "validation_queries": 192
+    },
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 256,
+        "representation_bytes": 915
+      },
+      "baseline_sampled_future_queries": {
+        "baseline_raw_cost": {
+          "future_queries": null,
+          "history_records": 256,
+          "representation_bytes": 915
+        },
+        "class_assignment_bytes": 1939,
+        "counterexamples_found": 0,
+        "discovered_class_count": 1,
+        "discovery_queries": 4096,
+        "discovery_queries_per_valid_history_merge": 4096.0,
+        "discovery_runtime": null,
+        "discovery_validation_queries_per_valid_history_merge": 4096.0,
+        "fallback": {
+          "kind": "baseline_sampled_future_queries",
+          "query_budget": 16384,
+          "representation": "c99cfd1 sampled_future_queries baseline"
+        },
+        "false_merge_groups": 1,
+        "false_merge_pairs": 3840,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "ground_truth_class_count": 2,
+        "merges_rejected_in_sealed_holdout": 254,
+        "method": "sampled_future_queries_baseline_c99fd1",
+        "oracle_construction_cost": {
+          "future_query_evaluations": 65536,
+          "probe_count": 256,
+          "signature_entries": 256
+        },
+        "oracle_queries_per_discovery_validation_query": 16.0,
+        "oracle_query_count": 65536,
+        "oracle_used_during_discovery": false,
+        "outcome_label": "PARTIAL_OR_UNRESOLVED_RECOVERY",
+        "peak_candidate_class_count": 1,
+        "peak_state_count": 1,
+        "posthoc_oracle_comparison": {
+          "false_merge_groups": 1,
+          "false_merge_pairs": 3840,
+          "false_split_groups": 0,
+          "false_split_pairs": 0,
+          "pair_denominator": 32640,
+          "pair_error": 0.117647,
+          "rejected_merges": 254
+        },
+        "query_runtime": {
+          "discovery_ms": 0.6216,
+          "machine_dependent": true,
+          "oracle_ms": 6.9753,
+          "sealed_holdout_ms": 3.555
+        },
+        "raw_history_count": 256,
+        "refinement_rounds": 0,
+        "representation_bytes": 1939,
+        "sampled_probe_ids": [
+          12,
+          13,
+          14,
+          61,
+          67,
+          79,
+          80,
+          94,
+          140,
+          164,
+          194,
+          199,
+          212,
+          240,
+          243,
+          252
+        ],
+        "scope": "baseline only; oracle fields are post-hoc",
+        "sealed_holdout_error": {
+          "false_merge_groups": 1,
+          "false_merge_pairs": 3840,
+          "false_split_groups": 0,
+          "false_split_pairs": 0,
+          "pair_denominator": 32640,
+          "pair_error": 0.117647,
+          "rejected_merges": 254
+        },
+        "sealed_holdout_probe_ids": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          10,
+          15,
+          16,
+          17,
+          18,
+          20,
+          21,
+          22,
+          25,
+          26,
+          28,
+          29,
+          30,
+          35,
+          36,
+          37,
+          39,
+          40,
+          41,
+          42,
+          46,
+          47,
+          48,
+          49,
+          50,
+          52,
+          53,
+          57,
+          58,
+          59,
+          60,
+          63,
+          64,
+          65,
+          66,
+          68,
+          69,
+          70,
+          73,
+          74,
+          75,
+          77,
+          82,
+          83,
+          86,
+          88,
+          89,
+          90,
+          92,
+          95,
+          96,
+          99,
+          100,
+          101,
+          103,
+          104,
+          106,
+          107,
+          109,
+          110,
+          113,
+          114,
+          115,
+          117,
+          119,
+          120,
+          121,
+          123,
+          124,
+          127,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          139,
+          144,
+          145,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          163,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          181,
+          182,
+          183,
+          185,
+          188,
+          190,
+          192,
+          195,
+          197,
+          200,
+          206,
+          208,
+          210,
+          213,
+          214,
+          217,
+          221,
+          223,
+          224,
+          225,
+          230,
+          231,
+          232,
+          233,
+          234,
+          238,
+          239,
+          244,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          253,
+          255
+        ],
+        "sealed_holdout_queries": 37632,
+        "splits_per_round": [],
+        "stop_state": "FROZEN_BASELINE",
+        "valid_history_merges": 1,
+        "validation_queries": 0
+      },
+      "case": "dense_redundant",
+      "class_assignment_bytes": 1939,
+      "counterexamples_found": 0,
+      "decision_after_oracle": "FREEZE",
+      "decision_before_oracle": "FREEZE",
+      "discovered_class_count": 2,
+      "discovery_audit": [
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 7,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 7,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 8,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 11,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 13,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 23,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 24,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 31,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 32,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 34,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 34,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 38,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 54,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 56,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 71,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 76,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 84,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 91,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 93,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 93,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 98,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 108,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 111,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 116,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 122,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 125,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 143,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "d02b8393bbf28fd93e7ae0876bf38737d9168aa865f7c9e116c195255eec8174",
+            "classes_after": 2,
+            "classes_before": 1,
+            "distinguished_history_count": 256,
+            "probe": 149,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51,
+                    52,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    61,
+                    62,
+                    63,
+                    64,
+                    65,
+                    66,
+                    67,
+                    68,
+                    69,
+                    70,
+                    71,
+                    72,
+                    73,
+                    74,
+                    75,
+                    76,
+                    77,
+                    78,
+                    79,
+                    80,
+                    81,
+                    82,
+                    83,
+                    84,
+                    87,
+                    88,
+                    91,
+                    92,
+                    93,
+                    94,
+                    95,
+                    96,
+                    97,
+                    98,
+                    99,
+                    100,
+                    103,
+                    104,
+                    107,
+                    108,
+                    109,
+                    110,
+                    111,
+                    112,
+                    113,
+                    114,
+                    115,
+                    116,
+                    117,
+                    118,
+                    119,
+                    120,
+                    121,
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133,
+                    134,
+                    135,
+                    136,
+                    137,
+                    138,
+                    139,
+                    140,
+                    141,
+                    142,
+                    143,
+                    144,
+                    145,
+                    146,
+                    147,
+                    148,
+                    151,
+                    152,
+                    155,
+                    156,
+                    157,
+                    158,
+                    159,
+                    160,
+                    161,
+                    162,
+                    163,
+                    164,
+                    167,
+                    168,
+                    171,
+                    172,
+                    173,
+                    174,
+                    175,
+                    176,
+                    177,
+                    178,
+                    179,
+                    180,
+                    181,
+                    182,
+                    183,
+                    184,
+                    185,
+                    186,
+                    187,
+                    188,
+                    189,
+                    190,
+                    191,
+                    192,
+                    193,
+                    194,
+                    195,
+                    196,
+                    197,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    204,
+                    205,
+                    206,
+                    207,
+                    208,
+                    209,
+                    210,
+                    211,
+                    212,
+                    213,
+                    214,
+                    215,
+                    216,
+                    217,
+                    218,
+                    219,
+                    220,
+                    221,
+                    222,
+                    223,
+                    224,
+                    225,
+                    226,
+                    227,
+                    228,
+                    229,
+                    230,
+                    231,
+                    232,
+                    233,
+                    234,
+                    235,
+                    236,
+                    237,
+                    238,
+                    239,
+                    240,
+                    241,
+                    242,
+                    243,
+                    244,
+                    245,
+                    246,
+                    247,
+                    248,
+                    249,
+                    250,
+                    251,
+                    252,
+                    253,
+                    254,
+                    255
+                  ],
+                  "1": [
+                    85,
+                    86,
+                    89,
+                    90,
+                    101,
+                    102,
+                    105,
+                    106,
+                    149,
+                    150,
+                    153,
+                    154,
+                    165,
+                    166,
+                    169,
+                    170
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 1,
+          "selected_probe": 149,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 146,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 148,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 149,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 150,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 151,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 162,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 165,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 180,
+              "split_gain_if_selected": 0
+            }
+          ]
+        },
+        {
+          "classes_after": 2,
+          "classes_before": 2,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 2,
+          "selected_probe": 146,
+          "selection_audit": [
+            {
+              "classes_if_selected": 2,
+              "probe": 146,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 148,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 150,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 151,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 162,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 165,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 180,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 184,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "classes_after": 2,
+          "classes_before": 2,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 2,
+          "selected_probe": 186,
+          "selection_audit": [
+            {
+              "classes_if_selected": 2,
+              "probe": 186,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 187,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 189,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 201,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 202,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 203,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 207,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 211,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        }
+      ],
+      "discovery_queries": 12288,
+      "discovery_queries_per_valid_history_merge": 48.377953,
+      "discovery_runtime": {
+        "discovery_ms": 5.1464,
+        "machine_dependent": true,
+        "total_refinement_ms": 5.8129,
+        "validation_ms": 0.1694
+      },
+      "discovery_validation_queries_per_valid_history_merge": 50.393701,
+      "fallback": {
+        "kind": "baseline_sampled_future_queries",
+        "query_budget": 16384,
+        "representation": "c99cfd1 sampled_future_queries baseline"
+      },
+      "false_merge_groups": 0,
+      "false_merge_pairs": 0,
+      "false_split_groups": 0,
+      "false_split_pairs": 0,
+      "family": "C_subset_sum",
+      "frozen_assignment_digest": "d02b8393bbf28fd93e7ae0876bf38737d9168aa865f7c9e116c195255eec8174",
+      "frozen_parameters_digest": "06ff3f514c35d996deb5280251e85f4763cd081cf28652ddc14950a46b4cafa1",
+      "frozen_parameters_digest_before_sealed_holdout": "06ff3f514c35d996deb5280251e85f4763cd081cf28652ddc14950a46b4cafa1",
+      "ground_truth_class_count": 2,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 0,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 65536,
+        "probe_count": 256,
+        "signature_entries": 256
+      },
+      "oracle_queries_per_discovery_validation_query": 5.12,
+      "oracle_query_count": 65536,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "RECOVERED_QUOTIENT",
+      "parameters_digest_after_sealed_holdout": "06ff3f514c35d996deb5280251e85f4763cd081cf28652ddc14950a46b4cafa1",
+      "peak_candidate_class_count": 2,
+      "peak_state_count": 2,
+      "phase_calls": {
+        "DISCOVERY": 12288,
+        "GROUND_TRUTH/ORACLE": 65536,
+        "SEALED_HOLDOUT": 40960,
+        "VALIDATION": 512
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 32640,
+        "pair_error": 0.0,
+        "rejected_merges": 0
+      },
+      "query_runtime": {
+        "discovery_ms": 1.9699,
+        "machine_dependent": true,
+        "oracle_ms": 5.6183,
+        "sealed_holdout_ms": 3.8913,
+        "validation_ms": 0.0652
+      },
+      "raw_history_count": 256,
+      "raw_input_digest": "e68ebe697b7db655381be75930fa822a26c5282460813a569430df052002fae3",
+      "refinement_rounds": 1,
+      "representation_bytes": 1939,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 0,
+        "false_merge_pairs": 0,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 32640,
+        "pair_error": 0.0,
+        "rejected_merges": 0
+      },
+      "sealed_holdout_queries": 40960,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [
+        1
+      ],
+      "stop_reason": "validation_patience_without_new_split",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 48,
+        "max_validation_probe_evaluations": 16,
+        "selection_batch_size": 8,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 2
+      },
+      "stop_state": "FREEZE",
+      "valid_history_merges": 254,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "d02b8393bbf28fd93e7ae0876bf38737d9168aa865f7c9e116c195255eec8174",
+            "classes_after": 2,
+            "classes_before": 2,
+            "distinguished_history_count": 0,
+            "probe": 3,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 1,
+          "validation_index": 1,
+          "validation_streak_without_split": 1
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "d02b8393bbf28fd93e7ae0876bf38737d9168aa865f7c9e116c195255eec8174",
+            "classes_after": 2,
+            "classes_before": 2,
+            "distinguished_history_count": 0,
+            "probe": 9,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 1,
+          "validation_index": 2,
+          "validation_streak_without_split": 2
+        }
+      ],
+      "validation_queries": 512
+    },
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 256,
+        "representation_bytes": 915
+      },
+      "baseline_sampled_future_queries": {
+        "baseline_raw_cost": {
+          "future_queries": null,
+          "history_records": 256,
+          "representation_bytes": 915
+        },
+        "class_assignment_bytes": 1939,
+        "counterexamples_found": 0,
+        "discovered_class_count": 1,
+        "discovery_queries": 4096,
+        "discovery_queries_per_valid_history_merge": 4096.0,
+        "discovery_runtime": null,
+        "discovery_validation_queries_per_valid_history_merge": 4096.0,
+        "fallback": {
+          "kind": "baseline_sampled_future_queries",
+          "query_budget": 16384,
+          "representation": "c99cfd1 sampled_future_queries baseline"
+        },
+        "false_merge_groups": 1,
+        "false_merge_pairs": 255,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "ground_truth_class_count": 2,
+        "merges_rejected_in_sealed_holdout": 254,
+        "method": "sampled_future_queries_baseline_c99fd1",
+        "oracle_construction_cost": {
+          "future_query_evaluations": 65536,
+          "probe_count": 256,
+          "signature_entries": 256
+        },
+        "oracle_queries_per_discovery_validation_query": 16.0,
+        "oracle_query_count": 65536,
+        "oracle_used_during_discovery": false,
+        "outcome_label": "PARTIAL_OR_UNRESOLVED_RECOVERY",
+        "peak_candidate_class_count": 1,
+        "peak_state_count": 1,
+        "posthoc_oracle_comparison": {
+          "false_merge_groups": 1,
+          "false_merge_pairs": 255,
+          "false_split_groups": 0,
+          "false_split_pairs": 0,
+          "pair_denominator": 32640,
+          "pair_error": 0.007812,
+          "rejected_merges": 254
+        },
+        "query_runtime": {
+          "discovery_ms": 0.5436,
+          "machine_dependent": true,
+          "oracle_ms": 5.6295,
+          "sealed_holdout_ms": 3.9284
+        },
+        "raw_history_count": 256,
+        "refinement_rounds": 0,
+        "representation_bytes": 1939,
+        "sampled_probe_ids": [
+          12,
+          13,
+          14,
+          61,
+          67,
+          79,
+          80,
+          94,
+          140,
+          164,
+          194,
+          199,
+          212,
+          240,
+          243,
+          252
+        ],
+        "scope": "baseline only; oracle fields are post-hoc",
+        "sealed_holdout_error": {
+          "false_merge_groups": 1,
+          "false_merge_pairs": 255,
+          "false_split_groups": 0,
+          "false_split_pairs": 0,
+          "pair_denominator": 32640,
+          "pair_error": 0.007812,
+          "rejected_merges": 254
+        },
+        "sealed_holdout_probe_ids": [
+          0,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          16,
+          17,
+          19,
+          20,
+          22,
+          23,
+          26,
+          28,
+          29,
+          31,
+          35,
+          36,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          55,
+          58,
+          59,
+          60,
+          62,
+          63,
+          65,
+          68,
+          70,
+          71,
+          72,
+          73,
+          75,
+          77,
+          81,
+          82,
+          85,
+          86,
+          87,
+          91,
+          92,
+          93,
+          95,
+          96,
+          98,
+          99,
+          105,
+          107,
+          108,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          120,
+          122,
+          123,
+          126,
+          127,
+          128,
+          130,
+          133,
+          136,
+          137,
+          138,
+          139,
+          141,
+          142,
+          145,
+          146,
+          147,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          161,
+          162,
+          163,
+          167,
+          168,
+          169,
+          170,
+          173,
+          174,
+          176,
+          178,
+          180,
+          181,
+          182,
+          183,
+          184,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          196,
+          198,
+          201,
+          202,
+          205,
+          209,
+          211,
+          213,
+          215,
+          216,
+          220,
+          221,
+          224,
+          225,
+          229,
+          230,
+          231,
+          234,
+          235,
+          236,
+          237,
+          238,
+          241,
+          245,
+          246,
+          247,
+          248,
+          249,
+          253,
+          255
+        ],
+        "sealed_holdout_queries": 38400,
+        "splits_per_round": [],
+        "stop_state": "FROZEN_BASELINE",
+        "valid_history_merges": 1,
+        "validation_queries": 0
+      },
+      "case": "superincreasing",
+      "class_assignment_bytes": 1939,
+      "counterexamples_found": 0,
+      "decision_after_oracle": "FREEZE",
+      "decision_before_oracle": "FREEZE",
+      "discovered_class_count": 1,
+      "discovery_audit": [
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 11,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 11,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 18,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 21,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 25,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 27,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 32,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 37,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 44,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 53,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 53,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 54,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 56,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 57,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 69,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 74,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 89,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 102,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 103,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 103,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 110,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 118,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 121,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 124,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 129,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 131,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 132,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 134,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 134,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 135,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 140,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 144,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 158,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 166,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 172,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 175,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 195,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 195,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 197,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 200,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 203,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 204,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 206,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 207,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 208,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 210,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 210,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 217,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 219,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 226,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 227,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 242,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 251,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 252,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        }
+      ],
+      "discovery_queries": 12288,
+      "discovery_queries_per_valid_history_merge": 12288.0,
+      "discovery_runtime": {
+        "discovery_ms": 5.1824,
+        "machine_dependent": true,
+        "total_refinement_ms": 5.8282,
+        "validation_ms": 0.2004
+      },
+      "discovery_validation_queries_per_valid_history_merge": 12800.0,
+      "fallback": {
+        "kind": "baseline_sampled_future_queries",
+        "query_budget": 16384,
+        "representation": "c99cfd1 sampled_future_queries baseline"
+      },
+      "false_merge_groups": 1,
+      "false_merge_pairs": 255,
+      "false_split_groups": 0,
+      "false_split_pairs": 0,
+      "family": "C_subset_sum",
+      "frozen_assignment_digest": "7be5ad8b0892482cde318783b0e4f2b7d4cefe29bf8c5eb0001c416e4e6d16ac",
+      "frozen_parameters_digest": "fc88dfc6935a6993238ab4329c5b4bb29aaa2fedd091fd7399012fb094d8732e",
+      "frozen_parameters_digest_before_sealed_holdout": "fc88dfc6935a6993238ab4329c5b4bb29aaa2fedd091fd7399012fb094d8732e",
+      "ground_truth_class_count": 2,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 254,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 65536,
+        "probe_count": 256,
+        "signature_entries": 256
+      },
+      "oracle_queries_per_discovery_validation_query": 5.12,
+      "oracle_query_count": 65536,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "PARTIAL_OR_UNRESOLVED_RECOVERY",
+      "parameters_digest_after_sealed_holdout": "fc88dfc6935a6993238ab4329c5b4bb29aaa2fedd091fd7399012fb094d8732e",
+      "peak_candidate_class_count": 1,
+      "peak_state_count": 1,
+      "phase_calls": {
+        "DISCOVERY": 12288,
+        "GROUND_TRUTH/ORACLE": 65536,
+        "SEALED_HOLDOUT": 40960,
+        "VALIDATION": 512
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 1,
+        "false_merge_pairs": 255,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 32640,
+        "pair_error": 0.007812,
+        "rejected_merges": 254
+      },
+      "query_runtime": {
+        "discovery_ms": 1.8886,
+        "machine_dependent": true,
+        "oracle_ms": 6.1302,
+        "sealed_holdout_ms": 3.6474,
+        "validation_ms": 0.0685
+      },
+      "raw_history_count": 256,
+      "raw_input_digest": "226301d895d495c06af6d097989719cf830926f68e352e8e9d868270b1baabff",
+      "refinement_rounds": 0,
+      "representation_bytes": 1939,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 1,
+        "false_merge_pairs": 255,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 32640,
+        "pair_error": 0.007812,
+        "rejected_merges": 254
+      },
+      "sealed_holdout_queries": 40960,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [],
+      "stop_reason": "validation_patience_without_new_split",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 48,
+        "max_validation_probe_evaluations": 16,
+        "selection_batch_size": 8,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 2
+      },
+      "stop_state": "FREEZE",
+      "valid_history_merges": 1,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "7be5ad8b0892482cde318783b0e4f2b7d4cefe29bf8c5eb0001c416e4e6d16ac",
+            "classes_after": 1,
+            "classes_before": 1,
+            "distinguished_history_count": 0,
+            "probe": 1,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 0,
+          "validation_index": 1,
+          "validation_streak_without_split": 1
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "7be5ad8b0892482cde318783b0e4f2b7d4cefe29bf8c5eb0001c416e4e6d16ac",
+            "classes_after": 1,
+            "classes_before": 1,
+            "distinguished_history_count": 0,
+            "probe": 5,
+            "split_details": [],
+            "split_groups": 0
+          },
+          "round": 0,
+          "validation_index": 2,
+          "validation_streak_without_split": 2
+        }
+      ],
+      "validation_queries": 512
+    },
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 64,
+        "representation_bytes": 183
+      },
+      "case": "almost_every_history_distinct",
+      "class_assignment_bytes": 483,
+      "counterexamples_found": 25,
+      "decision_after_oracle": "STOP_NO_GAIN",
+      "decision_before_oracle": "STOP_NO_GAIN",
+      "discovered_class_count": 29,
+      "discovery_audit": [
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "54d1a49ee55011a63764e4d0ff2941281936a6d8fba3ae45e761e3501b8e5438",
+            "classes_after": 2,
+            "classes_before": 1,
+            "distinguished_history_count": 64,
+            "probe": 1,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    2,
+                    4,
+                    6,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    17,
+                    21,
+                    22,
+                    23,
+                    25,
+                    27,
+                    30,
+                    32,
+                    34,
+                    35,
+                    36,
+                    40,
+                    42,
+                    45,
+                    46,
+                    48,
+                    49,
+                    50,
+                    54,
+                    55,
+                    56,
+                    57,
+                    59
+                  ],
+                  "1": [
+                    1,
+                    3,
+                    5,
+                    7,
+                    8,
+                    16,
+                    18,
+                    19,
+                    20,
+                    24,
+                    26,
+                    28,
+                    29,
+                    31,
+                    33,
+                    37,
+                    38,
+                    39,
+                    41,
+                    43,
+                    44,
+                    47,
+                    51,
+                    52,
+                    53,
+                    58,
+                    60,
+                    61,
+                    62,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 1,
+          "selected_probe": 1,
+          "selection_audit": [
+            {
+              "classes_if_selected": 2,
+              "probe": 1,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 2,
+              "split_gain_if_selected": 1
+            },
+            {
+              "classes_if_selected": 2,
+              "probe": 3,
+              "split_gain_if_selected": 1
+            }
+          ]
+        },
+        {
+          "phase": "DISCOVERY",
+          "refinement": {
+            "assignment_digest": "1819591ecbd607e1df702cb2fabaac12fb00f519786d48df3a4970fcee2373f9",
+            "classes_after": 4,
+            "classes_before": 2,
+            "distinguished_history_count": 64,
+            "probe": 2,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    2,
+                    6,
+                    9,
+                    11,
+                    17,
+                    27,
+                    32,
+                    42,
+                    45,
+                    48,
+                    50,
+                    55,
+                    56
+                  ],
+                  "1": [
+                    0,
+                    4,
+                    10,
+                    12,
+                    13,
+                    14,
+                    15,
+                    21,
+                    22,
+                    23,
+                    25,
+                    30,
+                    34,
+                    35,
+                    36,
+                    40,
+                    46,
+                    49,
+                    54,
+                    57,
+                    59
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    1,
+                    5,
+                    7,
+                    16,
+                    19,
+                    20,
+                    24,
+                    31,
+                    39,
+                    41,
+                    44,
+                    52,
+                    61,
+                    62,
+                    63
+                  ],
+                  "1": [
+                    3,
+                    8,
+                    18,
+                    26,
+                    28,
+                    29,
+                    33,
+                    37,
+                    38,
+                    43,
+                    47,
+                    51,
+                    53,
+                    58,
+                    60
+                  ]
+                }
+              }
+            ],
+            "split_groups": 2
+          },
+          "round": 2,
+          "selected_probe": 2,
+          "selection_audit": [
+            {
+              "classes_if_selected": 4,
+              "probe": 2,
+              "split_gain_if_selected": 2
+            },
+            {
+              "classes_if_selected": 4,
+              "probe": 3,
+              "split_gain_if_selected": 2
+            },
+            {
+              "classes_if_selected": 4,
+              "probe": 9,
+              "split_gain_if_selected": 2
+            }
+          ]
+        }
+      ],
+      "discovery_queries": 384,
+      "discovery_queries_per_valid_history_merge": 13.241379,
+      "discovery_runtime": {
+        "discovery_ms": 0.1428,
+        "machine_dependent": true,
+        "total_refinement_ms": 0.4986,
+        "validation_ms": 0.0568
+      },
+      "discovery_validation_queries_per_valid_history_merge": 19.862069,
+      "fallback": {
+        "kind": "raw_history",
+        "query_budget": 576,
+        "representation": "retain complete history records"
+      },
+      "false_merge_groups": 16,
+      "false_merge_pairs": 48,
+      "false_split_groups": 8,
+      "false_split_pairs": 274,
+      "family": "D_near_maximal",
+      "frozen_assignment_digest": "37c168050d0b32d5c4e3d56fbd4e28a6a549f2a6e91431415c2a987066c4ab66",
+      "frozen_parameters_digest": "7d8220675710e217f1e764dd6c8b5f01dddfe55f0f24a409ba641b8be9ecf72e",
+      "frozen_parameters_digest_before_sealed_holdout": "7d8220675710e217f1e764dd6c8b5f01dddfe55f0f24a409ba641b8be9ecf72e",
+      "ground_truth_class_count": 64,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 6,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 768,
+        "probe_count": 12,
+        "signature_entries": 64
+      },
+      "oracle_queries_per_discovery_validation_query": 1.333333,
+      "oracle_query_count": 768,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "NO_USEFUL_COMPRESSION",
+      "parameters_digest_after_sealed_holdout": "7d8220675710e217f1e764dd6c8b5f01dddfe55f0f24a409ba641b8be9ecf72e",
+      "peak_candidate_class_count": 29,
+      "peak_state_count": 29,
+      "phase_calls": {
+        "DISCOVERY": 384,
+        "GROUND_TRUTH/ORACLE": 768,
+        "SEALED_HOLDOUT": 192,
+        "VALIDATION": 192
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 18,
+        "false_merge_pairs": 59,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.029266,
+        "rejected_merges": 0
+      },
+      "query_runtime": {
+        "discovery_ms": 0.0311,
+        "machine_dependent": true,
+        "oracle_ms": 0.0579,
+        "sealed_holdout_ms": 0.0322,
+        "validation_ms": 0.0145
+      },
+      "raw_history_count": 64,
+      "raw_input_digest": "1d85fa6e9c35395f35afc021feb38f4f00cb071f2da309d7825c95abcfe6ae17",
+      "refinement_rounds": 5,
+      "representation_bytes": 483,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 16,
+        "false_merge_pairs": 48,
+        "false_split_groups": 8,
+        "false_split_pairs": 274,
+        "pair_denominator": 2016,
+        "pair_error": 0.159722,
+        "rejected_merges": 6
+      },
+      "sealed_holdout_queries": 192,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [
+        1,
+        2,
+        4,
+        8,
+        13
+      ],
+      "stop_reason": "fallback_query_budget_reached",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 6,
+        "max_validation_probe_evaluations": 3,
+        "selection_batch_size": 3,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 2
+      },
+      "stop_state": "STOP_NO_GAIN",
+      "valid_history_merges": 29,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "cafde8674f4437f7e3ef3f05228e99246318d3b7a50f0679585de56549f0b0b2",
+            "classes_after": 8,
+            "classes_before": 4,
+            "distinguished_history_count": 64,
+            "probe": 6,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    32,
+                    42,
+                    48,
+                    56
+                  ],
+                  "1": [
+                    2,
+                    6,
+                    9,
+                    11,
+                    17,
+                    27,
+                    45,
+                    50,
+                    55
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    4,
+                    10,
+                    12,
+                    13,
+                    49,
+                    57,
+                    59
+                  ],
+                  "1": [
+                    0,
+                    14,
+                    15,
+                    21,
+                    22,
+                    23,
+                    25,
+                    30,
+                    34,
+                    35,
+                    36,
+                    40,
+                    46,
+                    54
+                  ]
+                }
+              },
+              {
+                "class_before": 2,
+                "histories_by_response": {
+                  "0": [
+                    1,
+                    16,
+                    20,
+                    39,
+                    41,
+                    52,
+                    63
+                  ],
+                  "1": [
+                    5,
+                    7,
+                    19,
+                    24,
+                    31,
+                    44,
+                    61,
+                    62
+                  ]
+                }
+              },
+              {
+                "class_before": 3,
+                "histories_by_response": {
+                  "0": [
+                    3,
+                    18,
+                    29,
+                    33,
+                    38,
+                    53
+                  ],
+                  "1": [
+                    8,
+                    26,
+                    28,
+                    37,
+                    43,
+                    47,
+                    51,
+                    58,
+                    60
+                  ]
+                }
+              }
+            ],
+            "split_groups": 4
+          },
+          "round": 3,
+          "validation_index": 1,
+          "validation_streak_without_split": 0
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "e3e568045c291ebe24bbb329e546a38dab43470f6fb422d3a18967789d636d64",
+            "classes_after": 16,
+            "classes_before": 8,
+            "distinguished_history_count": 64,
+            "probe": 7,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    32,
+                    56
+                  ],
+                  "1": [
+                    42,
+                    48
+                  ]
+                }
+              },
+              {
+                "class_before": 1,
+                "histories_by_response": {
+                  "0": [
+                    9,
+                    11,
+                    27,
+                    55
+                  ],
+                  "1": [
+                    2,
+                    6,
+                    17,
+                    45,
+                    50
+                  ]
+                }
+              },
+              {
+                "class_before": 2,
+                "histories_by_response": {
+                  "0": [
+                    10,
+                    59
+                  ],
+                  "1": [
+                    4,
+                    12,
+                    13,
+                    49,
+                    57
+                  ]
+                }
+              },
+              {
+                "class_before": 3,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    14,
+                    21,
+                    22,
+                    23,
+                    30,
+                    36,
+                    40,
+                    54
+                  ],
+                  "1": [
+                    15,
+                    25,
+                    34,
+                    35,
+                    46
+                  ]
+                }
+              },
+              {
+                "class_before": 4,
+                "histories_by_response": {
+                  "0": [
+                    39,
+                    52
+                  ],
+                  "1": [
+                    1,
+                    16,
+                    20,
+                    41,
+                    63
+                  ]
+                }
+              },
+              {
+                "class_before": 5,
+                "histories_by_response": {
+                  "0": [
+                    5,
+                    19,
+                    24,
+                    61,
+                    62
+                  ],
+                  "1": [
+                    7,
+                    31,
+                    44
+                  ]
+                }
+              },
+              {
+                "class_before": 6,
+                "histories_by_response": {
+                  "0": [
+                    29,
+                    38
+                  ],
+                  "1": [
+                    3,
+                    18,
+                    33,
+                    53
+                  ]
+                }
+              },
+              {
+                "class_before": 7,
+                "histories_by_response": {
+                  "0": [
+                    28,
+                    43,
+                    51,
+                    58
+                  ],
+                  "1": [
+                    8,
+                    26,
+                    37,
+                    47,
+                    60
+                  ]
+                }
+              }
+            ],
+            "split_groups": 8
+          },
+          "round": 4,
+          "validation_index": 2,
+          "validation_streak_without_split": 0
+        },
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "37c168050d0b32d5c4e3d56fbd4e28a6a549f2a6e91431415c2a987066c4ab66",
+            "classes_after": 29,
+            "classes_before": 16,
+            "distinguished_history_count": 58,
+            "probe": 8,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    32
+                  ],
+                  "1": [
+                    56
+                  ]
+                }
+              },
+              {
+                "class_before": 2,
+                "histories_by_response": {
+                  "0": [
+                    9,
+                    11,
+                    55
+                  ],
+                  "1": [
+                    27
+                  ]
+                }
+              },
+              {
+                "class_before": 3,
+                "histories_by_response": {
+                  "0": [
+                    2,
+                    6,
+                    50
+                  ],
+                  "1": [
+                    17,
+                    45
+                  ]
+                }
+              },
+              {
+                "class_before": 5,
+                "histories_by_response": {
+                  "0": [
+                    12,
+                    13,
+                    49,
+                    57
+                  ],
+                  "1": [
+                    4
+                  ]
+                }
+              },
+              {
+                "class_before": 6,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    21,
+                    23,
+                    54
+                  ],
+                  "1": [
+                    14,
+                    22,
+                    30,
+                    36,
+                    40
+                  ]
+                }
+              },
+              {
+                "class_before": 7,
+                "histories_by_response": {
+                  "0": [
+                    34
+                  ],
+                  "1": [
+                    15,
+                    25,
+                    35,
+                    46
+                  ]
+                }
+              },
+              {
+                "class_before": 8,
+                "histories_by_response": {
+                  "0": [
+                    39
+                  ],
+                  "1": [
+                    52
+                  ]
+                }
+              },
+              {
+                "class_before": 9,
+                "histories_by_response": {
+                  "0": [
+                    20,
+                    41,
+                    63
+                  ],
+                  "1": [
+                    1,
+                    16
+                  ]
+                }
+              },
+              {
+                "class_before": 10,
+                "histories_by_response": {
+                  "0": [
+                    24,
+                    61,
+                    62
+                  ],
+                  "1": [
+                    5,
+                    19
+                  ]
+                }
+              },
+              {
+                "class_before": 11,
+                "histories_by_response": {
+                  "0": [
+                    31,
+                    44
+                  ],
+                  "1": [
+                    7
+                  ]
+                }
+              },
+              {
+                "class_before": 13,
+                "histories_by_response": {
+                  "0": [
+                    3,
+                    33,
+                    53
+                  ],
+                  "1": [
+                    18
+                  ]
+                }
+              },
+              {
+                "class_before": 14,
+                "histories_by_response": {
+                  "0": [
+                    28
+                  ],
+                  "1": [
+                    43,
+                    51,
+                    58
+                  ]
+                }
+              },
+              {
+                "class_before": 15,
+                "histories_by_response": {
+                  "0": [
+                    8
+                  ],
+                  "1": [
+                    26,
+                    37,
+                    47,
+                    60
+                  ]
+                }
+              }
+            ],
+            "split_groups": 13
+          },
+          "round": 5,
+          "validation_index": 3,
+          "validation_streak_without_split": 0
+        }
+      ],
+      "validation_queries": 192
+    },
+    {
+      "baseline_raw_cost": {
+        "future_queries": null,
+        "history_records": 64,
+        "representation_bytes": 183
+      },
+      "case": "cheap_probes_hide_later_difference",
+      "class_assignment_bytes": 439,
+      "counterexamples_found": 1,
+      "decision_after_oracle": "FREEZE",
+      "decision_before_oracle": "FREEZE",
+      "discovered_class_count": 4,
+      "discovery_audit": [
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 0,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 0,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 1,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        },
+        {
+          "classes_after": 1,
+          "classes_before": 1,
+          "note": "all remaining discovery probes failed to distinguish current classes",
+          "phase": "DISCOVERY",
+          "round": 1,
+          "selected_probe": 2,
+          "selection_audit": [
+            {
+              "classes_if_selected": 1,
+              "probe": 2,
+              "split_gain_if_selected": 0
+            },
+            {
+              "classes_if_selected": 1,
+              "probe": 3,
+              "split_gain_if_selected": 0
+            }
+          ],
+          "split_gain": 0
+        }
+      ],
+      "discovery_queries": 256,
+      "discovery_queries_per_valid_history_merge": 4.266667,
+      "discovery_runtime": {
+        "discovery_ms": 0.2069,
+        "machine_dependent": true,
+        "total_refinement_ms": 0.3113,
+        "validation_ms": 0.0189
+      },
+      "discovery_validation_queries_per_valid_history_merge": 5.333333,
+      "fallback": {
+        "kind": "raw_history",
+        "query_budget": 384,
+        "representation": "retain complete history records"
+      },
+      "false_merge_groups": 4,
+      "false_merge_pairs": 480,
+      "false_split_groups": 0,
+      "false_split_pairs": 0,
+      "family": "E_deceptive",
+      "frozen_assignment_digest": "1cbf1c13a99013ef0620b046ff9bbe354372d6c4df4deb3e87aa1e07d5bf3f34",
+      "frozen_parameters_digest": "ec2cd012f75001c4dd8252355b55ca259e3e915e4113a4858a8038fb98e1914f",
+      "frozen_parameters_digest_before_sealed_holdout": "ec2cd012f75001c4dd8252355b55ca259e3e915e4113a4858a8038fb98e1914f",
+      "ground_truth_class_count": 64,
+      "ground_truth_used_for_decision": false,
+      "merges_rejected_in_sealed_holdout": 0,
+      "oracle_construction_cost": {
+        "future_query_evaluations": 768,
+        "probe_count": 12,
+        "signature_entries": 64
+      },
+      "oracle_queries_per_discovery_validation_query": 2.4,
+      "oracle_query_count": 768,
+      "oracle_used_during_discovery": false,
+      "outcome_label": "DECEPTIVE_FALSE_MERGE_REMAINS",
+      "parameters_digest_after_sealed_holdout": "ec2cd012f75001c4dd8252355b55ca259e3e915e4113a4858a8038fb98e1914f",
+      "peak_candidate_class_count": 4,
+      "peak_state_count": 4,
+      "phase_calls": {
+        "DISCOVERY": 256,
+        "GROUND_TRUTH/ORACLE": 768,
+        "SEALED_HOLDOUT": 448,
+        "VALIDATION": 64
+      },
+      "phase_sequence": [
+        "DISCOVERY",
+        "VALIDATION",
+        "SEALED_HOLDOUT",
+        "GROUND_TRUTH/ORACLE"
+      ],
+      "posthoc_oracle_comparison": {
+        "false_merge_groups": 4,
+        "false_merge_pairs": 480,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.238095,
+        "rejected_merges": 0
+      },
+      "query_runtime": {
+        "discovery_ms": 0.0225,
+        "machine_dependent": true,
+        "oracle_ms": 0.0548,
+        "sealed_holdout_ms": 0.0318,
+        "validation_ms": 0.0046
+      },
+      "raw_history_count": 64,
+      "raw_input_digest": "f28749c7360ef0442b466ecd6bc2ef7bfed85fc6b9f2677658f143141ecbaa5d",
+      "refinement_rounds": 1,
+      "representation_bytes": 439,
+      "resource_policy": {
+        "heterogeneous_units_kept_separate": true,
+        "lift_gain_declared": false,
+        "scalar_collapsed": false
+      },
+      "sealed_holdout_error": {
+        "false_merge_groups": 4,
+        "false_merge_pairs": 480,
+        "false_split_groups": 0,
+        "false_split_pairs": 0,
+        "pair_denominator": 2016,
+        "pair_error": 0.238095,
+        "rejected_merges": 0
+      },
+      "sealed_holdout_queries": 448,
+      "sealed_holdout_touched_before_freeze": false,
+      "splits_per_round": [
+        1
+      ],
+      "stop_reason": "validation_budget_exhausted",
+      "stop_rule": {
+        "max_discovery_probe_evaluations": 4,
+        "max_validation_probe_evaluations": 1,
+        "selection_batch_size": 2,
+        "stop_if_candidate_classes_reach_history_count": true,
+        "validation_patience": 1
+      },
+      "stop_state": "FREEZE",
+      "valid_history_merges": 60,
+      "validation_audit": [
+        {
+          "phase": "VALIDATION",
+          "refinement": {
+            "assignment_digest": "1cbf1c13a99013ef0620b046ff9bbe354372d6c4df4deb3e87aa1e07d5bf3f34",
+            "classes_after": 4,
+            "classes_before": 1,
+            "distinguished_history_count": 64,
+            "probe": 4,
+            "split_details": [
+              {
+                "class_before": 0,
+                "histories_by_response": {
+                  "0": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                  ],
+                  "1": [
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31
+                  ],
+                  "2": [
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47
+                  ],
+                  "3": [
+                    48,
+                    49,
+                    50,
+                    51,
+                    52,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    61,
+                    62,
+                    63
+                  ]
+                }
+              }
+            ],
+            "split_groups": 1
+          },
+          "round": 1,
+          "validation_index": 1,
+          "validation_streak_without_split": 0
+        }
+      ],
+      "validation_queries": 64
+    }
+  ],
+  "evidence_levels": {
+    "DISCOVERY": "adaptive probes may split candidate classes",
+    "GROUND_TRUTH_ORACLE": "post-hoc exhaustive audit only; cannot change any decision",
+    "SEALED_HOLDOUT": "post-freeze audit only; cannot change state or parameters",
+    "VALIDATION_COUNTEREXAMPLE": "separate probes may refine before freeze"
+  },
+  "metrics_policy": {
+    "lift_gain_declared": false,
+    "machine_dependent_fields": [
+      "query_runtime",
+      "discovery_runtime"
+    ],
+    "posthoc_oracle_fields": [
+      "ground_truth_class_count",
+      "oracle_query_count",
+      "oracle_construction_cost",
+      "posthoc_oracle_comparison"
+    ],
+    "resource_vector": true,
+    "unknown_values_are_null": true
+  },
+  "parent_commit": "c99cfd1",
+  "preregistered_prediction": {
+    "status": "PREREGISTERED_BEFORE_RESULTS",
+    "text": "Small future quotients should be discoverable with fewer queries than exhaustive future enumeration; near-maximal quotients should not yield useful compression; deceptive families should show early false merges that validation can reduce before sealed holdout. If these fail, degrade the hypothesis."
+  },
+  "protocol": "pipi-42-future-equivalence-discovery-v0",
+  "scope": "PiPi-42 research branch; c99cfd1 audit v0 remains unchanged",
+  "scope_declarations": {
+    "main_modified": false,
+    "note": "branch-scope declarations, not empirical results",
+    "phase5_started": false,
+    "pr_not_opened": true
+  },
+  "summary": {
+    "baseline_false_merge_cases": 2,
+    "case_count": 10,
+    "no_useful_compression_cases": 1,
+    "oracle_not_much_more_expensive_cases": 7,
+    "outcome_labels": {
+      "DECEPTIVE_FALSE_MERGE_REMAINS": 1,
+      "NO_USEFUL_COMPRESSION": 1,
+      "PARTIAL_OR_UNRESOLVED_RECOVERY": 3,
+      "RECOVERED_QUOTIENT": 5
+    },
+    "refinement_false_merge_cases": 5,
+    "stop_states": {
+      "FREEZE": 4,
+      "STOP_NO_GAIN": 6
+    }
+  }
+}
