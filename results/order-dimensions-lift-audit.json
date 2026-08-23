@@ -1,7 +1,12 @@
 {
   "families": {
     "A_affine_lift": {
-      "interpretation": "candidate representation only; solver-work vectors are not collapsed into one cost scalar",
+      "evidence_digests": {
+        "raw_inputs": "ea941b5264b77322eceb80baed061f6173833bba4b221d0368b9f8ae5355cdf6",
+        "results": "740c07d6a889ba908f502f0bd2026ea160c6c92b596f1f367c98c25c3b67a19c",
+        "transforms": "569e626f1a37e30bb18de41d14703079fd8e119d8b1c8c7726648eec09b8e8b6"
+      },
+      "interpretation": "candidate representation only; resource dimensions remain a vector and no Lift Gain is declared",
       "negative_controls": [
         {
           "affine_detected": false,
@@ -12,18 +17,22 @@
             "nodes": 5,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.0369
+            "wall_ms": 0.0377
           },
           "gf2": null,
           "instance": "tseitin_6_perturbed",
           "n_vars": 9,
+          "raw_instance_digest": "4f9a3df4ced717e39d72298ba0ac8147b5c5357514935d32d3605a1f53f96754",
           "resources": {
             "discovery_steps": 30,
             "dpll_nodes": 5,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 24
+            "transform_clauses": 24,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "1887a570f88729cc2b40ba4ec208411fcaec9a9e9c1cab1230fd1a9ec88a15c4",
+          "semantics_preserved": false,
+          "transform_digest": "1ba3565ef52331f0053410cf080b9a7a901bd2cb1d6af64bb33611d36a662375"
         },
         {
           "affine_detected": false,
@@ -34,18 +43,22 @@
             "nodes": 6,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.0549
+            "wall_ms": 0.056
           },
           "gf2": null,
           "instance": "tseitin_8_perturbed",
           "n_vars": 12,
+          "raw_instance_digest": "5f004f3e808bb8b465fad4c708aeccd4e66e85b8a4fbaf34f3e1ab533a027da9",
           "resources": {
             "discovery_steps": 40,
             "dpll_nodes": 6,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 32
+            "transform_clauses": 32,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "90d3e9c944f76b52d166b0039abfbb722a88a70f49b3296e46b9c540b81de05f",
+          "semantics_preserved": false,
+          "transform_digest": "1ba3565ef52331f0053410cf080b9a7a901bd2cb1d6af64bb33611d36a662375"
         },
         {
           "affine_detected": false,
@@ -56,18 +69,22 @@
             "nodes": 7,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.0785
+            "wall_ms": 0.079
           },
           "gf2": null,
           "instance": "tseitin_10_perturbed",
           "n_vars": 15,
+          "raw_instance_digest": "389e3835745d879af02d36a3fed88ba4aba73f5203de60d96efda1c27cb1e83f",
           "resources": {
             "discovery_steps": 50,
             "dpll_nodes": 7,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 40
+            "transform_clauses": 40,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "a2a624ef03d7e5ce7587890bacd80b2e9133b2374544d9d099c65f8119acfd37",
+          "semantics_preserved": false,
+          "transform_digest": "1ba3565ef52331f0053410cf080b9a7a901bd2cb1d6af64bb33611d36a662375"
         },
         {
           "affine_detected": false,
@@ -78,18 +95,22 @@
             "nodes": 8,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.136
+            "wall_ms": 0.1092
           },
           "gf2": null,
           "instance": "tseitin_12_perturbed",
           "n_vars": 18,
+          "raw_instance_digest": "875df5904f10994e87b90a47fc77a9e238f5aa7aa45e4173b0790b8851af9b69",
           "resources": {
             "discovery_steps": 60,
             "dpll_nodes": 8,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 48
+            "transform_clauses": 48,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "0585a39d64436fe600c6e35def17829a9037a13072e069ed6c573fa86e9a73c2",
+          "semantics_preserved": false,
+          "transform_digest": "1ba3565ef52331f0053410cf080b9a7a901bd2cb1d6af64bb33611d36a662375"
         },
         {
           "affine_detected": false,
@@ -100,18 +121,22 @@
             "nodes": 9,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.1536
+            "wall_ms": 0.1375
           },
           "gf2": null,
           "instance": "tseitin_14_perturbed",
           "n_vars": 21,
+          "raw_instance_digest": "49f373e7ba087631b72331d110c9a053272e73d827fbc0837e2e6cf8cd465cd3",
           "resources": {
             "discovery_steps": 70,
             "dpll_nodes": 9,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 56
+            "transform_clauses": 56,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "ab385fb4883e423b7845cd36800a1e4d86477b0c51aa975c737c19c50a86efe3",
+          "semantics_preserved": false,
+          "transform_digest": "1ba3565ef52331f0053410cf080b9a7a901bd2cb1d6af64bb33611d36a662375"
         },
         {
           "affine_detected": false,
@@ -122,18 +147,22 @@
             "nodes": 6,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.0584
+            "wall_ms": 0.0383
           },
           "gf2": null,
           "instance": "tseitin_6_random3sat",
           "n_vars": 9,
+          "raw_instance_digest": "e5bc2576bfa2c5cf7f409c785232ec0746584565498d48bb6aa6bc8542a14a81",
           "resources": {
             "discovery_steps": 46,
             "dpll_nodes": 6,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 24
+            "transform_clauses": 24,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "90d3e9c944f76b52d166b0039abfbb722a88a70f49b3296e46b9c540b81de05f",
+          "semantics_preserved": false,
+          "transform_digest": "df61693a31b374c5da3800338fc3ac891dc796a5ff00710381df3c39b5e42712"
         },
         {
           "affine_detected": false,
@@ -144,18 +173,22 @@
             "nodes": 8,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.0635
+            "wall_ms": 0.0579
           },
           "gf2": null,
           "instance": "tseitin_8_random3sat",
           "n_vars": 12,
+          "raw_instance_digest": "ad6cdf201c27b3011d48e768660477d1fdbed3e2dbb250362bd5314d763646e8",
           "resources": {
             "discovery_steps": 62,
             "dpll_nodes": 8,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 32
+            "transform_clauses": 32,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "0585a39d64436fe600c6e35def17829a9037a13072e069ed6c573fa86e9a73c2",
+          "semantics_preserved": false,
+          "transform_digest": "5ec572e36ca2d8b096a4aef942678a55cee6d5132595055462e276c2051db1dc"
         },
         {
           "affine_detected": false,
@@ -166,18 +199,22 @@
             "nodes": 9,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.1342
+            "wall_ms": 0.0807
           },
           "gf2": null,
           "instance": "tseitin_10_random3sat",
           "n_vars": 15,
+          "raw_instance_digest": "af99fa265a6dc319fd207fde030e6563b366c0065977dd0b0d86504e31af07ad",
           "resources": {
             "discovery_steps": 76,
             "dpll_nodes": 9,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 40
+            "transform_clauses": 40,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "ab385fb4883e423b7845cd36800a1e4d86477b0c51aa975c737c19c50a86efe3",
+          "semantics_preserved": false,
+          "transform_digest": "c9ae8fe8047d985dc4a554a283610b316464736b32398b0125a0923fde7403e3"
         },
         {
           "affine_detected": false,
@@ -188,18 +225,22 @@
             "nodes": 12,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.1312
+            "wall_ms": 0.1301
           },
           "gf2": null,
           "instance": "tseitin_12_random3sat",
           "n_vars": 18,
+          "raw_instance_digest": "bf5d44830acf1c7329e3e260d37811b8ff21cc890e80b2b8729e288bd895dd19",
           "resources": {
             "discovery_steps": 93,
             "dpll_nodes": 12,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 48
+            "transform_clauses": 48,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "9d61c2babd4feba6e59fdd9b369b529f91ac55094517b554d866e33959d33925",
+          "semantics_preserved": false,
+          "transform_digest": "92f1fae1b347012e3cffeba2dcb4dad5786fc66f2e5b22bc394d6eb7f64a354a"
         },
         {
           "affine_detected": false,
@@ -210,18 +251,22 @@
             "nodes": 7,
             "sat": true,
             "status": "SOLVED",
-            "wall_ms": 0.1179
+            "wall_ms": 0.1168
           },
           "gf2": null,
           "instance": "tseitin_14_random3sat",
           "n_vars": 21,
+          "raw_instance_digest": "d35c0ea4b2dc6782b6fea8746df60ed571c38e530f56a122ba768e2276b154f8",
           "resources": {
             "discovery_steps": 111,
             "dpll_nodes": 7,
             "gf2_row_xor_ops": null,
-            "transform_clauses": 56
+            "transform_clauses": 56,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": false
+          "result_digest": "a2a624ef03d7e5ce7587890bacd80b2e9133b2374544d9d099c65f8119acfd37",
+          "semantics_preserved": false,
+          "transform_digest": "a5301fc44671717afa30c0d4b9fb740357be270ee4e3648f66b2da9c8b586d18"
         }
       ],
       "positive_family": [
@@ -234,7 +279,7 @@
             "nodes": 31,
             "sat": false,
             "status": "SOLVED",
-            "wall_ms": 0.1858
+            "wall_ms": 0.1781
           },
           "gf2": {
             "equation_count": 6,
@@ -244,13 +289,17 @@
           },
           "instance": "tseitin_6",
           "n_vars": 9,
+          "raw_instance_digest": "ccbb57d885fd0dbbf6ff510a1d940d689bf9890b739e1b891351d81be1b974c3",
           "resources": {
             "discovery_steps": 30,
             "dpll_nodes": 31,
             "gf2_row_xor_ops": 6,
-            "transform_clauses": 24
+            "transform_clauses": 24,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": true
+          "result_digest": "b81e2d1c1b9fddf97e891dbb7d81d360ea1db98465cd3246e783d9b1d965284a",
+          "semantics_preserved": true,
+          "transform_digest": "3513f4d1036e49c9304dc902c245ff1df83a8bb255e326a8a5f79333b731c665"
         },
         {
           "affine_detected": true,
@@ -261,7 +310,7 @@
             "nodes": 63,
             "sat": false,
             "status": "SOLVED",
-            "wall_ms": 0.4538
+            "wall_ms": 0.536
           },
           "gf2": {
             "equation_count": 8,
@@ -271,13 +320,17 @@
           },
           "instance": "tseitin_8",
           "n_vars": 12,
+          "raw_instance_digest": "d52d93988f5f229704b1b43771d8579e3df8d8d901ddcdb3bd45d44e207c1054",
           "resources": {
             "discovery_steps": 40,
             "dpll_nodes": 63,
             "gf2_row_xor_ops": 8,
-            "transform_clauses": 32
+            "transform_clauses": 32,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": true
+          "result_digest": "1fe15bdbce78500cd0539f5482afc044f8f71036b821d62f5d30cdf37dac33a9",
+          "semantics_preserved": true,
+          "transform_digest": "d8802f87e6edce23dff03b9ac364c67d35107e696f8b4814c23269a63a6701b5"
         },
         {
           "affine_detected": true,
@@ -288,7 +341,7 @@
             "nodes": 127,
             "sat": false,
             "status": "SOLVED",
-            "wall_ms": 1.0946
+            "wall_ms": 1.0612
           },
           "gf2": {
             "equation_count": 10,
@@ -298,13 +351,17 @@
           },
           "instance": "tseitin_10",
           "n_vars": 15,
+          "raw_instance_digest": "510dffcc93e68162c37aaff3c9daa7115becbb875d6fb701983888df69d1ca7e",
           "resources": {
             "discovery_steps": 50,
             "dpll_nodes": 127,
             "gf2_row_xor_ops": 10,
-            "transform_clauses": 40
+            "transform_clauses": 40,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": true
+          "result_digest": "828779672deca945cf98f98ae24ec52c6f4baf09b059a8306a56b708b4376a75",
+          "semantics_preserved": true,
+          "transform_digest": "b84ae6cdd09d934774982425dd6ebab46f37c05c500db719f5a5263cb9d4948f"
         },
         {
           "affine_detected": true,
@@ -315,7 +372,7 @@
             "nodes": 255,
             "sat": false,
             "status": "SOLVED",
-            "wall_ms": 2.5501
+            "wall_ms": 2.5645
           },
           "gf2": {
             "equation_count": 12,
@@ -325,13 +382,17 @@
           },
           "instance": "tseitin_12",
           "n_vars": 18,
+          "raw_instance_digest": "cc2496d2a2b429c0a4513d5a2cf82335ff1c5a82c266de9795fc1ec62a537869",
           "resources": {
             "discovery_steps": 60,
             "dpll_nodes": 255,
             "gf2_row_xor_ops": 12,
-            "transform_clauses": 48
+            "transform_clauses": 48,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": true
+          "result_digest": "32ea26172e9758216f5a31ea3a82a144b0109e8803572abb3c5e9207866907c2",
+          "semantics_preserved": true,
+          "transform_digest": "c20dad80711fd3cb3ba9f05b5aa0fcab14decd3acdf1b0adc5afe07d559db16b"
         },
         {
           "affine_detected": true,
@@ -342,7 +403,7 @@
             "nodes": 511,
             "sat": false,
             "status": "SOLVED",
-            "wall_ms": 6.2548
+            "wall_ms": 7.9879
           },
           "gf2": {
             "equation_count": 14,
@@ -352,35 +413,103 @@
           },
           "instance": "tseitin_14",
           "n_vars": 21,
+          "raw_instance_digest": "2cb84bd6366da93184ea30d5a3c7a7e0e3c92d7355849df83fbe58bc8fdb5787",
           "resources": {
             "discovery_steps": 70,
             "dpll_nodes": 511,
             "gf2_row_xor_ops": 14,
-            "transform_clauses": 56
+            "transform_clauses": 56,
+            "wall_ms_is_machine_dependent": true
           },
-          "semantics_preserved": true
+          "result_digest": "a684a22aa2116cf422a303a11823a7c6db3d3b66ef9bcaadd2de56d21e0cf8cd",
+          "semantics_preserved": true,
+          "transform_digest": "4dfc805f27b7729c7861cfe9f7ba9a9466713010029094d51acf8fe92d456190"
         }
       ],
       "question": "can a raw CNF be lifted to affine structure without losing semantics?",
+      "resource_comparison": {
+        "reason": "DPLL nodes and GF2 row-xor operations are different units; no solver-work reduction or Lift Gain is declared",
+        "status": "NOT_CLAIMED",
+        "vector_fields": [
+          "discovery_steps",
+          "transform_clauses",
+          "dpll_nodes",
+          "gf2_row_xor_ops",
+          "wall_ms"
+        ]
+      },
       "summary": {
         "negative_count": 10,
         "negative_rejected": true,
         "positive_count": 5,
         "positive_detected": true,
-        "positive_semantics_preserved": true,
-        "positive_solver_work_reduced": true
+        "positive_semantics_preserved": true
       }
     },
     "B_future_quotient": {
       "cases": [
         {
+          "approximate_discovery": {
+            "approximate_future_classes": 1,
+            "approximate_history_collapse": 255,
+            "discovery_cost": {
+              "heldout_validation_queries": 240,
+              "prefix_query_evaluations": 4096,
+              "sampled_future_queries": 16,
+              "suffix_weight_additions": 128
+            },
+            "heldout_false_merge_groups": 1,
+            "heldout_query_count": 240,
+            "method": "sampled_future_queries",
+            "oracle_used_for_discovery": false,
+            "parameters_frozen_before_heldout": true,
+            "sample_count": 16,
+            "sampled_masks": [
+              12,
+              13,
+              14,
+              61,
+              67,
+              79,
+              80,
+              94,
+              140,
+              164,
+              194,
+              199,
+              212,
+              240,
+              243,
+              252
+            ]
+          },
           "dead_future_class_present": true,
           "dead_histories": 240,
           "exact_future_classes": 2,
+          "future_equivalence_collapse": {
+            "collapsed_histories": 254,
+            "dead_history_collapse": 239,
+            "definition": "histories merged by the explicit future-query oracle, including dead futures",
+            "metrics_are_not_additive_with_residual_collision": true,
+            "oracle_exact_classes": 2
+          },
           "history_to_future_class_ratio": 128.0,
           "kind": "dense_redundant",
           "live_future_classes": 1,
+          "live_histories": 16,
+          "live_unique_residuals": 1,
           "n_weights": 16,
+          "oracle": {
+            "cost_paid_before_quotient": {
+              "suffix_sum_state_count": 31,
+              "suffix_weight_additions": 2048
+            },
+            "definition": "enumerate all suffix subset sums, then group exact future behaviours",
+            "label": "GROUND_TRUTH/ORACLE",
+            "suffix_masks_enumerated": 256,
+            "suffix_sum_states": 31,
+            "used_for_candidate_discovery": false
+          },
           "prefix_histories": 256,
           "projections": {
             "full_residual": {
@@ -414,8 +543,14 @@
               "projected_states": 1
             }
           },
+          "residual_collision": {
+            "collision_histories": 225,
+            "definition": "prefix histories sharing one exact residual",
+            "unique_residuals": 31
+          },
           "resources": {
             "full_state_count": 31,
+            "oracle_suffix_enumeration": 256,
             "prefix_histories": 256,
             "suffix_distinct_sums": 31
           },
@@ -424,13 +559,67 @@
           "unique_full_residuals": 31
         },
         {
+          "approximate_discovery": {
+            "approximate_future_classes": 1,
+            "approximate_history_collapse": 255,
+            "discovery_cost": {
+              "heldout_validation_queries": 240,
+              "prefix_query_evaluations": 4096,
+              "sampled_future_queries": 16,
+              "suffix_weight_additions": 128
+            },
+            "heldout_false_merge_groups": 1,
+            "heldout_query_count": 240,
+            "method": "sampled_future_queries",
+            "oracle_used_for_discovery": false,
+            "parameters_frozen_before_heldout": true,
+            "sample_count": 16,
+            "sampled_masks": [
+              12,
+              13,
+              14,
+              61,
+              67,
+              79,
+              80,
+              94,
+              140,
+              164,
+              194,
+              199,
+              212,
+              240,
+              243,
+              252
+            ]
+          },
           "dead_future_class_present": true,
           "dead_histories": 255,
           "exact_future_classes": 2,
+          "future_equivalence_collapse": {
+            "collapsed_histories": 254,
+            "dead_history_collapse": 254,
+            "definition": "histories merged by the explicit future-query oracle, including dead futures",
+            "metrics_are_not_additive_with_residual_collision": true,
+            "oracle_exact_classes": 2
+          },
           "history_to_future_class_ratio": 128.0,
           "kind": "superincreasing",
           "live_future_classes": 1,
+          "live_histories": 1,
+          "live_unique_residuals": 1,
           "n_weights": 16,
+          "oracle": {
+            "cost_paid_before_quotient": {
+              "suffix_sum_state_count": 256,
+              "suffix_weight_additions": 2048
+            },
+            "definition": "enumerate all suffix subset sums, then group exact future behaviours",
+            "label": "GROUND_TRUTH/ORACLE",
+            "suffix_masks_enumerated": 256,
+            "suffix_sum_states": 256,
+            "used_for_candidate_discovery": false
+          },
           "prefix_histories": 256,
           "projections": {
             "full_residual": {
@@ -464,8 +653,14 @@
               "projected_states": 1
             }
           },
+          "residual_collision": {
+            "collision_histories": 0,
+            "definition": "prefix histories sharing one exact residual",
+            "unique_residuals": 256
+          },
           "resources": {
             "full_state_count": 256,
+            "oracle_suffix_enumeration": 256,
             "prefix_histories": 256,
             "suffix_distinct_sums": 256
           },
@@ -474,17 +669,206 @@
           "unique_full_residuals": 256
         }
       ],
-      "interpretation": "full residual is a candidate future-sufficient state only for the stated suffix query class",
+      "evidence_digests": {
+        "oracle_transform": "cb93f169ec0034bd87b962d13ec5a4977a43c9c8c1f860aa829c4cb8b56e45ac",
+        "raw_inputs": "4dd116b839323a8b63ce3d72c603f80e89a704578afaf99cd48d95e195022b0d",
+        "results": "e9f36751c3137ecd754db33816ed9f7efae1dbe5af215e724407d3d1cbda58f0"
+      },
+      "interpretation": "the suffix-sum quotient is GROUND_TRUTH/ORACLE; approximate discovery is separately charged and held out",
       "question": "does a compressed state preserve the future query class?",
       "summary": {
+        "approximate_discovery_without_oracle": true,
         "dense_coarse_projection_rejected": true,
         "dense_full_residual_is_exact": true,
         "dense_has_exact_compression": true,
-        "superincreasing_has_no_collapse": true
+        "superincreasing_has_dead_future_collapse": true,
+        "superincreasing_has_no_residual_collision": true
       }
     },
     "C_pi_local_negative": {
-      "interpretation": "a negative result for pi is a control, not evidence that pi has no nonlocal structure",
+      "evidence_digests": {
+        "raw_inputs": "b462a49d2929d91609b47dfd2e82ad64d0c85605534172ba462d63df81433309",
+        "results": "41c60ded72d61b5674d231b23b6645c113751600a9d3c1c0acaa6f1ed766b475",
+        "transform": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75"
+      },
+      "interpretation": "pi/null comparisons are descriptive until a statistical test is frozen; planted structure is a smoke control",
+      "null_replicates": {
+        "random": [
+          {
+            "baseline_accuracy": 0.0875,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": -0.002083,
+            "input_digest": "4de8edb109b95f59c679f59440ea3993ddba024dfc235fc8a5f19f2eed552ac4",
+            "local_accuracy": 0.085417,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "e37d6c63a48ae745a9f4dac98ab5ef336383df31e312b91e81c55f437414a6db",
+            "seed": 20260823,
+            "test_digits": 480,
+            "train_digits": 720
+          },
+          {
+            "baseline_accuracy": 0.125,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": -0.04375,
+            "input_digest": "2ba7abca69fef6d56936098699e1f3a942d6512f078477683f00928ada91e58a",
+            "local_accuracy": 0.08125,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "aa7d456ad05aff9205dda8876fe02100ca9ab05b8b6e43d9e4c36ae0cc6492fa",
+            "seed": 20260824,
+            "test_digits": 480,
+            "train_digits": 720
+          },
+          {
+            "baseline_accuracy": 0.091667,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": 0.022917,
+            "input_digest": "2ac1eed00716f96788b6efd704c57cd0894d9aff73a13e117e8c3bab196a374e",
+            "local_accuracy": 0.114583,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "7fd1e3abb27822bfc0625a4d87458544c04e266e239a66826224a9b103e10e0c",
+            "seed": 20260825,
+            "test_digits": 480,
+            "train_digits": 720
+          },
+          {
+            "baseline_accuracy": 0.110417,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": -0.0125,
+            "input_digest": "90bdc071afa7add3dc742b6de593300dd3fa4a9fd81fd8ee69c3d6cd6ea679dd",
+            "local_accuracy": 0.097917,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "6f2eb73978b972b7173b4c85c2c86ac78fb346c9696c1fd1f0cf13f5714e2a1f",
+            "seed": 20260826,
+            "test_digits": 480,
+            "train_digits": 720
+          },
+          {
+            "baseline_accuracy": 0.09375,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": 0.016667,
+            "input_digest": "63453cafd2d8a4c930160b1375526c03446639d4744c3e7f5cab602d3ce431d9",
+            "local_accuracy": 0.110417,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "b075f5cc1db114e80be6bba131e42ea2a8a4be513ef824a03bb7d3bc8f978011",
+            "seed": 20260827,
+            "test_digits": 480,
+            "train_digits": 720
+          }
+        ],
+        "shuffled_pi": [
+          {
+            "baseline_accuracy": 0.089583,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": -0.016667,
+            "input_digest": "462ac39a95ce3256c6d656baa10d7776cc0fd2a5f2dcd6e4c28308c31b9e1eb7",
+            "local_accuracy": 0.072917,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "af1fc6f6aaae5d2ca7d30f01cd77aeba099266b6eb1be1313560855b8d8fc361",
+            "seed": 20260823,
+            "test_digits": 480,
+            "train_digits": 720
+          },
+          {
+            "baseline_accuracy": 0.102083,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": 0.014583,
+            "input_digest": "62f9b66daad287849b78c8f7cfed0f251067b1627775e710bd833604d25ff54d",
+            "local_accuracy": 0.116667,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "62782b2227c4bf9f5f1b70d891faf4ad8e8f857d3b31d341ca49cbb6c2978035",
+            "seed": 20260824,
+            "test_digits": 480,
+            "train_digits": 720
+          },
+          {
+            "baseline_accuracy": 0.114583,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": 0.010417,
+            "input_digest": "ad78577d47cc26ffaf676226bd5412a26fbcc5d404ddc39129579f36369de582",
+            "local_accuracy": 0.125,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "7e3ab22103ab2db832b82349c36a4e4d804ac3c735e9885194d33022a180406f",
+            "seed": 20260825,
+            "test_digits": 480,
+            "train_digits": 720
+          },
+          {
+            "baseline_accuracy": 0.116667,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": 0.00625,
+            "input_digest": "5163dd9eceb798d9cee39ad856ada280e6e8afa1fa7e3d5273b901ba925cb324",
+            "local_accuracy": 0.122917,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "1dc10605dde0e02746ca5b89514d769ba75a9e811fe23e21c28609888a88e97e",
+            "seed": 20260826,
+            "test_digits": 480,
+            "train_digits": 720
+          },
+          {
+            "baseline_accuracy": 0.085417,
+            "context_size": 2,
+            "contexts_seen": 100,
+            "digits": 1200,
+            "heldout_gain": 0.0,
+            "input_digest": "e38358e3fd7f08edce73f2325cbef1c332fd95b6cc748fc380f8afae0bb5c560",
+            "local_accuracy": 0.085417,
+            "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+            "result_digest": "50d648cf23fd3843b5a3362ab05f6e3c69d32762235b757097928c0533e75c04",
+            "seed": 20260827,
+            "test_digits": 480,
+            "train_digits": 720
+          }
+        ]
+      },
+      "parameter_freeze": {
+        "frozen_before_heldout": true,
+        "parameters": {
+          "context_size": 2,
+          "digits": 1200,
+          "heldout_rule": "fit context counts on train prefix; evaluate once on the untouched suffix",
+          "random_null_seeds": [
+            20260823,
+            20260824,
+            20260825,
+            20260826,
+            20260827
+          ],
+          "shuffled_null_seeds": [
+            20260823,
+            20260824,
+            20260825,
+            20260826,
+            20260827
+          ],
+          "train_fraction": 0.6
+        },
+        "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+        "phase_order": [
+          "freeze_parameters",
+          "materialize_inputs",
+          "split_train_heldout",
+          "fit_on_train_only",
+          "evaluate_heldout"
+        ]
+      },
       "question": "does pi expose a useful held-out local digit rule?",
       "rows": {
         "pi": {
@@ -493,7 +877,10 @@
           "contexts_seen": 100,
           "digits": 1200,
           "heldout_gain": -0.014583,
+          "input_digest": "659bd70c2a2ac7987079c169673dae73b812394be0bdbf53eb713c010836458b",
           "local_accuracy": 0.102083,
+          "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+          "result_digest": "6795478a729aebd7784ae93865b0c01a9cbac93b399a4da84d13cc2a30b03e08",
           "test_digits": 480,
           "train_digits": 720
         },
@@ -503,7 +890,10 @@
           "contexts_seen": 10,
           "digits": 1200,
           "heldout_gain": 0.9,
+          "input_digest": "e7a5cac2e78299ec227d60910f82ea8582598dfd0dea8b53fb41c38dea12aeef",
           "local_accuracy": 1.0,
+          "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+          "result_digest": "575c74da3810ee099e8127b89371d50fc369053b567c86f51e7664ac21fad256",
           "test_digits": 480,
           "train_digits": 720
         },
@@ -513,7 +903,10 @@
           "contexts_seen": 100,
           "digits": 1200,
           "heldout_gain": -0.002083,
+          "input_digest": "4de8edb109b95f59c679f59440ea3993ddba024dfc235fc8a5f19f2eed552ac4",
           "local_accuracy": 0.085417,
+          "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+          "result_digest": "e37d6c63a48ae745a9f4dac98ab5ef336383df31e312b91e81c55f437414a6db",
           "test_digits": 480,
           "train_digits": 720
         },
@@ -523,24 +916,28 @@
           "contexts_seen": 100,
           "digits": 1200,
           "heldout_gain": -0.016667,
+          "input_digest": "462ac39a95ce3256c6d656baa10d7776cc0fd2a5f2dcd6e4c28308c31b9e1eb7",
           "local_accuracy": 0.072917,
+          "parameters_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75",
+          "result_digest": "af1fc6f6aaae5d2ca7d30f01cd77aeba099266b6eb1be1313560855b8d8fc361",
           "test_digits": 480,
           "train_digits": 720
         }
       },
       "summary": {
-        "pi_is_not_stronger_than_random": true,
-        "pi_is_not_stronger_than_shuffled": true,
-        "planted_rule_detected": true
+        "comparison_status": "DESCRIPTIVE_ONLY_UNTIL_PREREGISTERED_TEST",
+        "pi_heldout_gain": -0.014583,
+        "pi_percentile_against_random_null": 0.2,
+        "pi_percentile_against_shuffled_null": 0.2,
+        "planted_rule_detected": true,
+        "random_null_count": 5,
+        "shuffled_null_count": 5
       }
     }
   },
   "gate": {
-    "accepted_frontier_modified": false,
     "decision": "KEEP-SPECULATIVE",
-    "main_modified": false,
-    "next": "freeze parameters, add held-out instances, and rerun from a clean checkout before any promotion",
-    "phase5_started": false
+    "next": "freeze parameters, add held-out instances, and rerun from a clean checkout before any promotion"
   },
   "observability_contract": {
     "mandatory_fields": [
@@ -552,47 +949,49 @@
     "optional_fields": [
       "resources"
     ],
+    "record_kind": "derived_audit_record",
     "records": [
       {
         "after": {
-          "scope": "candidate_representation",
-          "state_digest": "769d97ec9bd3ef8a3a299575aa1c86240086ae1601b59542a84d3979cffc192d"
+          "scope": "derived_candidate_result",
+          "state_digest": "740c07d6a889ba908f502f0bd2026ea160c6c92b596f1f367c98c25c3b67a19c"
         },
         "before": {
-          "scope": "raw_instance",
-          "state_digest": "ed6f57c0439e0500741708633c3e61c516eb97b0855cb42676ad847e95c9d965"
+          "scope": "generated_raw_instance",
+          "state_digest": "ea941b5264b77322eceb80baed061f6173833bba4b221d0368b9f8ae5355cdf6"
         },
         "intervention": {
-          "event_digest": "5a067c195ce1fbb6",
+          "event_digest": "569e626f1a37e30b",
           "kind": "opaque_representation_lift"
         },
+        "kind": "derived_audit_record",
         "provenance": {
           "field_audit": {
             "after": {
-              "DERIVATION": "candidate solver/state summary",
-              "LOSS": "full payload remains recoverable from generator",
+              "DERIVATION": "digest of the actual family result",
+              "LOSS": "result details remain in the family artifact",
               "PROVENANCE": "module",
               "RAW_SOURCE": "candidate result",
               "RESIDUE": {
-                "payload_digest": "5a067c195ce1fbb6bf4374c67a7160cc321694da23a3081e876c5b5f5dc9593d"
+                "result_digest": "740c07d6a889ba908f502f0bd2026ea160c6c92b596f1f367c98c25c3b67a19c"
               }
             },
             "before": {
-              "DERIVATION": "canonical raw instance",
-              "LOSS": "none",
+              "DERIVATION": "digest of generated raw instances",
+              "LOSS": "raw payload is represented by its digest in this derived record",
               "PROVENANCE": "module",
-              "RAW_SOURCE": "deterministic_generator",
+              "RAW_SOURCE": "deterministic raw generator",
               "RESIDUE": {
-                "payload_digest": "5a067c195ce1fbb6bf4374c67a7160cc321694da23a3081e876c5b5f5dc9593d"
+                "raw_input_digest": "ea941b5264b77322eceb80baed061f6173833bba4b221d0368b9f8ae5355cdf6"
               }
             },
             "intervention": {
-              "DERIVATION": "opaque lift token",
+              "DERIVATION": "digest of the actual transform/discovery output",
               "LOSS": "semantic label withheld",
               "PROVENANCE": "module",
-              "RAW_SOURCE": "audit protocol",
+              "RAW_SOURCE": "audit transform",
               "RESIDUE": {
-                "payload_digest": "5a067c195ce1fbb6bf4374c67a7160cc321694da23a3081e876c5b5f5dc9593d"
+                "transform_digest": "569e626f1a37e30bb18de41d14703079fd8e119d8b1c8c7726648eec09b8e8b6"
               }
             },
             "provenance": {
@@ -605,7 +1004,8 @@
               }
             }
           },
-          "source_ref": "generated://A_affine_lift",
+          "record_kind": "derived_audit_record",
+          "source_ref": "generated://A_affine_lift/derived-audit-record",
           "source_system": "MAT-SI-PiPi-independent-audit"
         },
         "residue": {
@@ -632,44 +1032,45 @@
       },
       {
         "after": {
-          "scope": "candidate_representation",
-          "state_digest": "b88eaaf47a4d0d21c80c7bb6cdebf6783abc18c27b82f420cf7266f84309f857"
+          "scope": "derived_candidate_result",
+          "state_digest": "e9f36751c3137ecd754db33816ed9f7efae1dbe5af215e724407d3d1cbda58f0"
         },
         "before": {
-          "scope": "raw_instance",
-          "state_digest": "fb5c64a0db07ddd47e575cb428eb728dbe8007b74ca99e51c356d271749af6b8"
+          "scope": "generated_raw_instance",
+          "state_digest": "4dd116b839323a8b63ce3d72c603f80e89a704578afaf99cd48d95e195022b0d"
         },
         "intervention": {
-          "event_digest": "bd206154abc04a26",
+          "event_digest": "cb93f169ec0034bd",
           "kind": "opaque_representation_lift"
         },
+        "kind": "derived_audit_record",
         "provenance": {
           "field_audit": {
             "after": {
-              "DERIVATION": "candidate solver/state summary",
-              "LOSS": "full payload remains recoverable from generator",
+              "DERIVATION": "digest of the actual family result",
+              "LOSS": "result details remain in the family artifact",
               "PROVENANCE": "module",
               "RAW_SOURCE": "candidate result",
               "RESIDUE": {
-                "payload_digest": "bd206154abc04a26c6648758f01018439e5f9f9d2c92abe4281f1205b98c714f"
+                "result_digest": "e9f36751c3137ecd754db33816ed9f7efae1dbe5af215e724407d3d1cbda58f0"
               }
             },
             "before": {
-              "DERIVATION": "canonical raw instance",
-              "LOSS": "none",
+              "DERIVATION": "digest of generated raw instances",
+              "LOSS": "raw payload is represented by its digest in this derived record",
               "PROVENANCE": "module",
-              "RAW_SOURCE": "deterministic_generator",
+              "RAW_SOURCE": "deterministic raw generator",
               "RESIDUE": {
-                "payload_digest": "bd206154abc04a26c6648758f01018439e5f9f9d2c92abe4281f1205b98c714f"
+                "raw_input_digest": "4dd116b839323a8b63ce3d72c603f80e89a704578afaf99cd48d95e195022b0d"
               }
             },
             "intervention": {
-              "DERIVATION": "opaque lift token",
+              "DERIVATION": "digest of the actual transform/discovery output",
               "LOSS": "semantic label withheld",
               "PROVENANCE": "module",
-              "RAW_SOURCE": "audit protocol",
+              "RAW_SOURCE": "audit transform",
               "RESIDUE": {
-                "payload_digest": "bd206154abc04a26c6648758f01018439e5f9f9d2c92abe4281f1205b98c714f"
+                "transform_digest": "cb93f169ec0034bd87b962d13ec5a4977a43c9c8c1f860aa829c4cb8b56e45ac"
               }
             },
             "provenance": {
@@ -682,7 +1083,8 @@
               }
             }
           },
-          "source_ref": "generated://B_future_quotient",
+          "record_kind": "derived_audit_record",
+          "source_ref": "generated://B_future_quotient/derived-audit-record",
           "source_system": "MAT-SI-PiPi-independent-audit"
         },
         "residue": {
@@ -709,44 +1111,45 @@
       },
       {
         "after": {
-          "scope": "candidate_representation",
-          "state_digest": "6091139b1073c40f2cdbfc061eda03e706328717aa71275339150a1a9ec446d3"
+          "scope": "derived_candidate_result",
+          "state_digest": "41c60ded72d61b5674d231b23b6645c113751600a9d3c1c0acaa6f1ed766b475"
         },
         "before": {
-          "scope": "raw_instance",
-          "state_digest": "81493bfb191140cd1461ffe6be0a64e765703e6bc30ae89f299aeb13a0f652c9"
+          "scope": "generated_raw_instance",
+          "state_digest": "b462a49d2929d91609b47dfd2e82ad64d0c85605534172ba462d63df81433309"
         },
         "intervention": {
-          "event_digest": "6794a570d1ab5f65",
+          "event_digest": "caef1edb76fdaf04",
           "kind": "opaque_representation_lift"
         },
+        "kind": "derived_audit_record",
         "provenance": {
           "field_audit": {
             "after": {
-              "DERIVATION": "candidate solver/state summary",
-              "LOSS": "full payload remains recoverable from generator",
+              "DERIVATION": "digest of the actual family result",
+              "LOSS": "result details remain in the family artifact",
               "PROVENANCE": "module",
               "RAW_SOURCE": "candidate result",
               "RESIDUE": {
-                "payload_digest": "6794a570d1ab5f65889e4cb620a2bd649e430eca7dbafae0874f20f5699fdf9d"
+                "result_digest": "41c60ded72d61b5674d231b23b6645c113751600a9d3c1c0acaa6f1ed766b475"
               }
             },
             "before": {
-              "DERIVATION": "canonical raw instance",
-              "LOSS": "none",
+              "DERIVATION": "digest of generated raw instances",
+              "LOSS": "raw payload is represented by its digest in this derived record",
               "PROVENANCE": "module",
-              "RAW_SOURCE": "deterministic_generator",
+              "RAW_SOURCE": "deterministic raw generator",
               "RESIDUE": {
-                "payload_digest": "6794a570d1ab5f65889e4cb620a2bd649e430eca7dbafae0874f20f5699fdf9d"
+                "raw_input_digest": "b462a49d2929d91609b47dfd2e82ad64d0c85605534172ba462d63df81433309"
               }
             },
             "intervention": {
-              "DERIVATION": "opaque lift token",
+              "DERIVATION": "digest of the actual transform/discovery output",
               "LOSS": "semantic label withheld",
               "PROVENANCE": "module",
-              "RAW_SOURCE": "audit protocol",
+              "RAW_SOURCE": "audit transform",
               "RESIDUE": {
-                "payload_digest": "6794a570d1ab5f65889e4cb620a2bd649e430eca7dbafae0874f20f5699fdf9d"
+                "transform_digest": "caef1edb76fdaf041ea548b5304f4f05d9762fc116a3bcc0633d51da069eea75"
               }
             },
             "provenance": {
@@ -759,7 +1162,8 @@
               }
             }
           },
-          "source_ref": "generated://C_pi_local_negative",
+          "record_kind": "derived_audit_record",
+          "source_ref": "generated://C_pi_local_negative/derived-audit-record",
           "source_system": "MAT-SI-PiPi-independent-audit"
         },
         "residue": {
@@ -788,5 +1192,11 @@
   },
   "parent_commit": "059574f",
   "protocol": "speculative-order-dimensions-lift-audit-v0",
-  "scope": "speculative evidence; does not modify accepted MAT-SI phase state"
+  "scope": "speculative evidence; does not modify accepted MAT-SI phase state",
+  "scope_declarations": {
+    "accepted_frontier_modified": false,
+    "main_modified": false,
+    "note": "branch-scope declarations, not empirical results and not used as test evidence",
+    "phase5_started": false
+  }
 }

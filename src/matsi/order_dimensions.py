@@ -29,7 +29,6 @@ import random
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from decimal import Decimal, localcontext
-from itertools import combinations
 from pathlib import Path
 from time import perf_counter
 from typing import Any, Iterable
@@ -342,6 +341,27 @@ def _affine_row(instance: AffineInstance) -> dict[str, Any]:
     semantics_preserved = (
         gf2 is not None and dpll["sat"] is not None and gf2["sat"] == dpll["sat"]
     )
+    raw_instance_digest = _digest(
+        {
+            "name": instance.name,
+            "n_vars": instance.n_vars,
+            "clauses": instance.clauses,
+        }
+    )
+    transform_digest = _digest(
+        {
+            "affine_detected": discovery["detected"],
+            "discovery_reason": discovery["reason"],
+            "equations": discovery["equations"],
+        }
+    )
+    result_digest = _digest(
+        {
+            "dpll": {key: value for key, value in dpll.items() if key != "wall_ms"},
+            "gf2": gf2,
+            "semantics_preserved": semantics_preserved,
+        }
+    )
     return {
         "instance": instance.name,
         "n_vars": instance.n_vars,
@@ -351,11 +371,15 @@ def _affine_row(instance: AffineInstance) -> dict[str, Any]:
         "semantics_preserved": semantics_preserved,
         "dpll": dpll,
         "gf2": gf2,
+        "raw_instance_digest": raw_instance_digest,
+        "transform_digest": transform_digest,
+        "result_digest": result_digest,
         "resources": {
             "discovery_steps": discovery["discovery_steps"],
             "transform_clauses": len(instance.clauses),
             "dpll_nodes": dpll["nodes"],
             "gf2_row_xor_ops": gf2["row_xor_ops"] if gf2 else None,
+            "wall_ms_is_machine_dependent": True,
         },
     }
 
@@ -374,15 +398,26 @@ def run_affine_audit() -> dict[str, Any]:
             "positive_count": len(positive_rows),
             "positive_detected": all(row["affine_detected"] for row in positive_rows),
             "positive_semantics_preserved": all(row["semantics_preserved"] for row in positive_rows),
-            "positive_solver_work_reduced": all(
-                row["gf2"] is not None
-                and row["gf2"]["row_xor_ops"] < row["dpll"]["nodes"]
-                for row in positive_rows
-            ),
             "negative_count": len(negative_rows),
             "negative_rejected": all(not row["affine_detected"] for row in negative_rows),
         },
-        "interpretation": "candidate representation only; solver-work vectors are not collapsed into one cost scalar",
+        "resource_comparison": {
+            "status": "NOT_CLAIMED",
+            "reason": "DPLL nodes and GF2 row-xor operations are different units; no solver-work reduction or Lift Gain is declared",
+            "vector_fields": [
+                "discovery_steps",
+                "transform_clauses",
+                "dpll_nodes",
+                "gf2_row_xor_ops",
+                "wall_ms",
+            ],
+        },
+        "evidence_digests": {
+            "raw_inputs": _digest([row["raw_instance_digest"] for row in positive_rows + negative_rows]),
+            "transforms": _digest([row["transform_digest"] for row in positive_rows + negative_rows]),
+            "results": _digest([row["result_digest"] for row in positive_rows + negative_rows]),
+        },
+        "interpretation": "candidate representation only; resource dimensions remain a vector and no Lift Gain is declared",
     }
 
 
@@ -416,6 +451,67 @@ def _projection_value(projection: str, residual: int) -> Any:
     raise ValueError(f"unknown projection: {projection}")
 
 
+def _discover_approximate_quotient(
+    prefix_residuals: list[int], suffix: tuple[int, ...], sample_count: int = 16, seed: int = 4242
+) -> dict[str, Any]:
+    """Attempt to discover future classes from sampled suffix queries only.
+
+    This function deliberately does not build ``suffix_sums``. Each sampled mask
+    is one black-box future query: can this exact suffix action complete the
+    residual? The remaining masks are held out and used only to falsify sampled
+    equivalence classes. The exhaustive suffix oracle is therefore not part of
+    candidate discovery, while its validation cost remains visible.
+    """
+
+    all_masks = list(range(1 << len(suffix)))
+    rng = random.Random(seed)
+    sampled_masks = sorted(rng.sample(all_masks, min(sample_count, len(all_masks))))
+    sampled_set = set(sampled_masks)
+    heldout_masks = [mask for mask in all_masks if mask not in sampled_set]
+
+    def suffix_sum(mask: int) -> int:
+        return sum(suffix[index] for index in range(len(suffix)) if mask & (1 << index))
+
+    sampled_sums = [suffix_sum(mask) for mask in sampled_masks]
+    heldout_sums = [suffix_sum(mask) for mask in heldout_masks]
+    signatures: dict[int, tuple[bool, ...]] = {
+        residual: tuple(residual == value for value in sampled_sums)
+        for residual in sorted(set(prefix_residuals))
+    }
+    groups: dict[tuple[bool, ...], set[int]] = defaultdict(set)
+    for residual in prefix_residuals:
+        groups[signatures[residual]].add(residual)
+
+    heldout_signatures = {
+        residual: tuple(residual == value for value in heldout_sums)
+        for residual in sorted(set(prefix_residuals))
+    }
+    false_merge_groups = sum(
+        1
+        for residuals in groups.values()
+        if len({heldout_signatures[residual] for residual in residuals}) > 1
+    )
+    return {
+        "method": "sampled_future_queries",
+        "oracle_used_for_discovery": False,
+        "sample_count": len(sampled_masks),
+        "sampled_masks": sampled_masks,
+        "heldout_query_count": len(heldout_masks),
+        "approximate_future_classes": len(groups),
+        "approximate_history_collapse": len(prefix_residuals) - len({
+            signature for signature in (signatures[residual] for residual in prefix_residuals)
+        }),
+        "heldout_false_merge_groups": false_merge_groups,
+        "discovery_cost": {
+            "sampled_future_queries": len(sampled_masks),
+            "suffix_weight_additions": len(sampled_masks) * len(suffix),
+            "prefix_query_evaluations": len(prefix_residuals) * len(sampled_masks),
+            "heldout_validation_queries": len(heldout_masks),
+        },
+        "parameters_frozen_before_heldout": True,
+    }
+
+
 def _subset_case(
     kind: str, weights: tuple[int, ...], split: int, target: int
 ) -> dict[str, Any]:
@@ -426,6 +522,10 @@ def _subset_case(
     future_classes = {_future_class(residual, suffix_sums) for residual in prefix_residuals}
     live = [value for value in future_classes if value[0] == "live"]
     dead_histories = sum(1 for residual in prefix_residuals if residual not in suffix_sums)
+    unique_residuals = set(prefix_residuals)
+    live_residuals = {residual for residual in prefix_residuals if residual in suffix_sums}
+    residual_collision_histories = len(prefix_residuals) - len(unique_residuals)
+    dead_history_collapse = max(dead_histories - 1, 0)
     projections: dict[str, dict[str, Any]] = {}
     for projection in ("full_residual", "sign", "parity", "mod3", "mod5", "mod16"):
         groups: dict[Any, set[tuple[str, int | None]]] = defaultdict(set)
@@ -444,17 +544,44 @@ def _subset_case(
         "split": split,
         "target": target,
         "prefix_histories": len(prefix_residuals),
-        "unique_full_residuals": len(set(prefix_residuals)),
+        "unique_full_residuals": len(unique_residuals),
         "live_future_classes": len(live),
+        "live_histories": sum(1 for residual in prefix_residuals if residual in suffix_sums),
+        "live_unique_residuals": len(live_residuals),
         "dead_histories": dead_histories,
         "dead_future_class_present": dead_histories > 0,
         "exact_future_classes": exact_classes,
         "history_to_future_class_ratio": round(len(prefix_residuals) / exact_classes, 6),
+        "residual_collision": {
+            "unique_residuals": len(unique_residuals),
+            "collision_histories": residual_collision_histories,
+            "definition": "prefix histories sharing one exact residual",
+        },
+        "future_equivalence_collapse": {
+            "oracle_exact_classes": exact_classes,
+            "collapsed_histories": len(prefix_residuals) - exact_classes,
+            "dead_history_collapse": dead_history_collapse,
+            "metrics_are_not_additive_with_residual_collision": True,
+            "definition": "histories merged by the explicit future-query oracle, including dead futures",
+        },
+        "oracle": {
+            "label": "GROUND_TRUTH/ORACLE",
+            "definition": "enumerate all suffix subset sums, then group exact future behaviours",
+            "suffix_masks_enumerated": 1 << len(suffix),
+            "suffix_sum_states": len(suffix_sums),
+            "cost_paid_before_quotient": {
+                "suffix_weight_additions": (1 << len(suffix)) * len(suffix),
+                "suffix_sum_state_count": len(suffix_sums),
+            },
+            "used_for_candidate_discovery": False,
+        },
+        "approximate_discovery": _discover_approximate_quotient(prefix_residuals, suffix),
         "projections": projections,
         "resources": {
             "prefix_histories": len(prefix_residuals),
             "suffix_distinct_sums": len(suffix_sums),
-            "full_state_count": len(set(prefix_residuals)),
+            "full_state_count": len(unique_residuals),
+            "oracle_suffix_enumeration": 1 << len(suffix),
         },
     }
 
@@ -478,9 +605,29 @@ def run_future_quotient_audit() -> dict[str, Any]:
                 for key, value in dense_case["projections"].items()
                 if key != "full_residual"
             ),
-            "superincreasing_has_no_collapse": super_case["unique_full_residuals"] == super_case["prefix_histories"],
+            "superincreasing_has_no_residual_collision": super_case["unique_full_residuals"] == super_case["prefix_histories"],
+            "superincreasing_has_dead_future_collapse": super_case["future_equivalence_collapse"]["dead_history_collapse"] > 0,
+            "approximate_discovery_without_oracle": all(
+                not case["approximate_discovery"]["oracle_used_for_discovery"]
+                and case["approximate_discovery"]["discovery_cost"]["sampled_future_queries"] > 0
+                for case in cases
+            ),
         },
-        "interpretation": "full residual is a candidate future-sufficient state only for the stated suffix query class",
+        "evidence_digests": {
+            "raw_inputs": _digest([
+                {"kind": case["kind"], "n_weights": case["n_weights"], "split": case["split"], "target": case["target"]}
+                for case in cases
+            ]),
+            "oracle_transform": _digest([
+                {"oracle": case["oracle"], "future_equivalence_collapse": case["future_equivalence_collapse"]}
+                for case in cases
+            ]),
+            "results": _digest([
+                {"projections": case["projections"], "approximate_discovery": case["approximate_discovery"]}
+                for case in cases
+            ]),
+        },
+        "interpretation": "the suffix-sum quotient is GROUND_TRUTH/ORACLE; approximate discovery is separately charged and held out",
     }
 
 
@@ -554,41 +701,118 @@ def _local_prediction(digits: str, train_fraction: float = 0.6, context_size: in
 
 def run_digit_negative_control() -> dict[str, Any]:
     count = 1200
-    pi = _pi_digits(count)
-    random_digits = _random_digits(count, seed=20260823)
-    shuffled_pi = _shuffled_digits(pi, seed=20260823)
-    planted = _planted_digits(count)
-    rows = {
-        "pi": _local_prediction(pi),
-        "random": _local_prediction(random_digits),
-        "shuffled_pi": _local_prediction(shuffled_pi),
-        "planted_local": _local_prediction(planted),
+    train_fraction = 0.6
+    context_size = 2
+    random_null_seeds = (20260823, 20260824, 20260825, 20260826, 20260827)
+    shuffled_null_seeds = (20260823, 20260824, 20260825, 20260826, 20260827)
+    frozen_parameters = {
+        "digits": count,
+        "train_fraction": train_fraction,
+        "context_size": context_size,
+        "random_null_seeds": list(random_null_seeds),
+        "shuffled_null_seeds": list(shuffled_null_seeds),
+        "heldout_rule": "fit context counts on train prefix; evaluate once on the untouched suffix",
     }
+    pi = _pi_digits(count)
+    random_digits = _random_digits(count, seed=random_null_seeds[0])
+    shuffled_pi = _shuffled_digits(pi, seed=shuffled_null_seeds[0])
+    planted = _planted_digits(count)
+    parameters_digest = _digest(frozen_parameters)
+
+    def prediction_row(digits: str) -> dict[str, Any]:
+        prediction = _local_prediction(digits, train_fraction, context_size)
+        prediction["input_digest"] = _digest(digits)
+        prediction["parameters_digest"] = parameters_digest
+        prediction["result_digest"] = _digest(prediction)
+        return prediction
+
+    rows = {
+        "pi": prediction_row(pi),
+        "random": prediction_row(random_digits),
+        "shuffled_pi": prediction_row(shuffled_pi),
+        "planted_local": prediction_row(planted),
+    }
+    random_null_replicates = [
+        {"seed": seed, **prediction_row(_random_digits(count, seed))}
+        for seed in random_null_seeds
+    ]
+    shuffled_null_replicates = [
+        {"seed": seed, **prediction_row(_shuffled_digits(pi, seed))}
+        for seed in shuffled_null_seeds
+    ]
+
+    def percentile(value: float, null_rows: list[dict[str, Any]]) -> float:
+        gains = [row["heldout_gain"] for row in null_rows]
+        return round(sum(gain <= value for gain in gains) / len(gains), 6)
+
     return {
         "question": "does pi expose a useful held-out local digit rule?",
-        "rows": rows,
-        "summary": {
-            "pi_is_not_stronger_than_random": rows["pi"]["heldout_gain"] <= rows["random"]["heldout_gain"] + 0.02,
-            "pi_is_not_stronger_than_shuffled": rows["pi"]["heldout_gain"] <= rows["shuffled_pi"]["heldout_gain"] + 0.02,
-            "planted_rule_detected": rows["planted_local"]["heldout_gain"] > rows["pi"]["heldout_gain"] + 0.2,
+        "parameter_freeze": {
+            "frozen_before_heldout": True,
+            "parameters": frozen_parameters,
+            "parameters_digest": parameters_digest,
+            "phase_order": [
+                "freeze_parameters",
+                "materialize_inputs",
+                "split_train_heldout",
+                "fit_on_train_only",
+                "evaluate_heldout",
+            ],
         },
-        "interpretation": "a negative result for pi is a control, not evidence that pi has no nonlocal structure",
+        "rows": rows,
+        "null_replicates": {
+            "random": random_null_replicates,
+            "shuffled_pi": shuffled_null_replicates,
+        },
+        "summary": {
+            "comparison_status": "DESCRIPTIVE_ONLY_UNTIL_PREREGISTERED_TEST",
+            "pi_heldout_gain": rows["pi"]["heldout_gain"],
+            "random_null_count": len(random_null_replicates),
+            "shuffled_null_count": len(shuffled_null_replicates),
+            "pi_percentile_against_random_null": percentile(rows["pi"]["heldout_gain"], random_null_replicates),
+            "pi_percentile_against_shuffled_null": percentile(rows["pi"]["heldout_gain"], shuffled_null_replicates),
+            "planted_rule_detected": rows["planted_local"]["local_accuracy"] == 1.0,
+        },
+        "evidence_digests": {
+            "raw_inputs": _digest({
+                "pi": rows["pi"]["input_digest"],
+                "random_nulls": [row["input_digest"] for row in random_null_replicates],
+                "shuffled_nulls": [row["input_digest"] for row in shuffled_null_replicates],
+                "planted": rows["planted_local"]["input_digest"],
+            }),
+            "transform": parameters_digest,
+            "results": _digest({
+                "pi": rows["pi"]["result_digest"],
+                "random_nulls": [row["result_digest"] for row in random_null_replicates],
+                "shuffled_nulls": [row["result_digest"] for row in shuffled_null_replicates],
+                "planted": rows["planted_local"]["result_digest"],
+            }),
+        },
+        "interpretation": "pi/null comparisons are descriptive until a statistical test is frozen; planted structure is a smoke control",
     }
 
 
-def _observability_record(family: str, payload: dict[str, Any]) -> dict[str, Any]:
-    digest = _digest(payload)
+def _observability_record(
+    family: str,
+    raw_input_digest: str,
+    transform_digest: str,
+    result_digest: str,
+) -> dict[str, Any]:
+    """Emit a derived audit record, not a claim of an observed domain snapshot."""
+
     return {
-        "before": {"state_digest": _digest({"family": family, "phase": "raw"}), "scope": "raw_instance"},
-        "intervention": {"event_digest": digest[:16], "kind": "opaque_representation_lift"},
-        "after": {"state_digest": _digest({"family": family, "phase": "candidate", "payload": payload}), "scope": "candidate_representation"},
+        "kind": "derived_audit_record",
+        "before": {"state_digest": raw_input_digest, "scope": "generated_raw_instance"},
+        "intervention": {"event_digest": transform_digest[:16], "kind": "opaque_representation_lift"},
+        "after": {"state_digest": result_digest, "scope": "derived_candidate_result"},
         "provenance": {
             "source_system": "MAT-SI-PiPi-independent-audit",
-            "source_ref": f"generated://{family}",
+            "source_ref": f"generated://{family}/derived-audit-record",
+            "record_kind": "derived_audit_record",
             "field_audit": {
-                "before": {"RAW_SOURCE": "deterministic_generator", "DERIVATION": "canonical raw instance", "LOSS": "none", "RESIDUE": {"payload_digest": digest}, "PROVENANCE": "module"},
-                "intervention": {"RAW_SOURCE": "audit protocol", "DERIVATION": "opaque lift token", "LOSS": "semantic label withheld", "RESIDUE": {"payload_digest": digest}, "PROVENANCE": "module"},
-                "after": {"RAW_SOURCE": "candidate result", "DERIVATION": "candidate solver/state summary", "LOSS": "full payload remains recoverable from generator", "RESIDUE": {"payload_digest": digest}, "PROVENANCE": "module"},
+                "before": {"RAW_SOURCE": "deterministic raw generator", "DERIVATION": "digest of generated raw instances", "LOSS": "raw payload is represented by its digest in this derived record", "RESIDUE": {"raw_input_digest": raw_input_digest}, "PROVENANCE": "module"},
+                "intervention": {"RAW_SOURCE": "audit transform", "DERIVATION": "digest of the actual transform/discovery output", "LOSS": "semantic label withheld", "RESIDUE": {"transform_digest": transform_digest}, "PROVENANCE": "module"},
+                "after": {"RAW_SOURCE": "candidate result", "DERIVATION": "digest of the actual family result", "LOSS": "result details remain in the family artifact", "RESIDUE": {"result_digest": result_digest}, "PROVENANCE": "module"},
                 "provenance": {"RAW_SOURCE": "repository-owned generator", "DERIVATION": "deterministic run", "LOSS": "wall-clock is machine-dependent", "RESIDUE": {"protocol": PROTOCOL}, "PROVENANCE": "parent commit " + PARENT_COMMIT},
             },
         },
@@ -610,20 +834,39 @@ def run_order_dimension_audit() -> dict[str, Any]:
         "scope": "speculative evidence; does not modify accepted MAT-SI phase state",
         "families": {"A_affine_lift": affine, "B_future_quotient": quotient, "C_pi_local_negative": digits},
         "observability_contract": {
+            "record_kind": "derived_audit_record",
             "mandatory_fields": ["before", "intervention", "after", "provenance"],
             "optional_fields": ["resources"],
             "records": [
-                _observability_record("A_affine_lift", affine["summary"]),
-                _observability_record("B_future_quotient", quotient["summary"]),
-                _observability_record("C_pi_local_negative", digits["summary"]),
+                _observability_record(
+                    "A_affine_lift",
+                    affine["evidence_digests"]["raw_inputs"],
+                    affine["evidence_digests"]["transforms"],
+                    affine["evidence_digests"]["results"],
+                ),
+                _observability_record(
+                    "B_future_quotient",
+                    quotient["evidence_digests"]["raw_inputs"],
+                    quotient["evidence_digests"]["oracle_transform"],
+                    quotient["evidence_digests"]["results"],
+                ),
+                _observability_record(
+                    "C_pi_local_negative",
+                    digits["evidence_digests"]["raw_inputs"],
+                    digits["evidence_digests"]["transform"],
+                    digits["evidence_digests"]["results"],
+                ),
             ],
         },
         "gate": {
             "decision": "KEEP-SPECULATIVE",
-            "phase5_started": False,
-            "accepted_frontier_modified": False,
-            "main_modified": False,
             "next": "freeze parameters, add held-out instances, and rerun from a clean checkout before any promotion",
+        },
+        "scope_declarations": {
+            "main_modified": False,
+            "accepted_frontier_modified": False,
+            "phase5_started": False,
+            "note": "branch-scope declarations, not empirical results and not used as test evidence",
         },
     }
 
