@@ -1,0 +1,511 @@
+{
+  "common_metrics": [
+    "raw candidate space",
+    "classical query complexity",
+    "quantum query complexity",
+    "structure known before query",
+    "structure revealed per query",
+    "independent constraints gained",
+    "remaining candidate classes after each observation",
+    "representation/postprocessing resources",
+    "memory/state resources",
+    "success probability",
+    "repetitions and amplification",
+    "oracle construction cost"
+  ],
+  "controls": [
+    {
+      "actual_category_posthoc": "QUADRATIC-LIKE",
+      "case": "grover_n16",
+      "classical": {
+        "candidate_secret_space_after_each_observation": [
+          15,
+          14,
+          13,
+          12,
+          11,
+          10,
+          9,
+          8,
+          7,
+          1
+        ],
+        "independent_constraints_gained": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "memory_proxy": 16,
+        "postprocessing_operations": 10,
+        "query_complexity_observed_target": 10,
+        "query_complexity_worst_case": 16,
+        "repetitions": 1,
+        "representation_postprocessing": "candidate list",
+        "structure_known_before_query": "only black-box marked predicate",
+        "structure_revealed_per_query": "one candidate tested; no global relation",
+        "success_probability": 1.0
+      },
+      "family": "UNSTRUCTURED_SEARCH",
+      "machine_dependent_fields": [
+        "wall_ms"
+      ],
+      "oracle_construction_cost": {
+        "entries": 16,
+        "gate_circuit_proxy": "NOT_MEASURED",
+        "model": "enumerated ideal oracle truth-table entries",
+        "used_as_query_count": false
+      },
+      "order_profile": {
+        "D_discovery_operations": 1,
+        "H_raw_candidate_space": 16,
+        "I_independent_constraints_per_query": [
+          0,
+          0,
+          0
+        ],
+        "K_profitable_refinement_depth": 3,
+        "M_observation_description_bytes": 1,
+        "Q_after_first_observation": 16,
+        "S_postprocessing_operations": 1,
+        "W_observation_structure_width": 0,
+        "X_transform_operations": 0,
+        "first_observation_candidate_ratio": 1.0,
+        "quantum_query_ratio_to_classical": 0.3
+      },
+      "prediction": {
+        "actual_category_posthoc": "QUADRATIC-LIKE",
+        "category": "QUADRATIC-LIKE",
+        "computed_before_actual_category_reveal": true,
+        "correct": true,
+        "heldout": false,
+        "rule_digest": "3572b6e15d3d0d9740e92af82d9ebad3e00fe1c36e2ae7c03d836903b083a4a6"
+      },
+      "quantum": {
+        "candidate_secret_space_after_each_observation": [
+          16,
+          16,
+          16
+        ],
+        "independent_constraints_gained": [
+          0,
+          0,
+          0
+        ],
+        "memory_proxy": 16,
+        "oracle_construction_cost": {
+          "entries": 16,
+          "gate_circuit_proxy": "NOT_MEASURED",
+          "model": "enumerated ideal oracle truth-table entries",
+          "used_as_query_count": false
+        },
+        "postprocessing_operations": 1,
+        "query_complexity_ideal": 3,
+        "repetitions": 1,
+        "representation_postprocessing": "amplitude vector; measurement at end",
+        "state_dimension": 16,
+        "structure_known_before_query": "black-box phase/oracle marking one target",
+        "structure_revealed_per_query": "amplitude amplification; no classical candidate constraint",
+        "success_amplification_queries": 3,
+        "success_probability": 0.9613189697265625
+      },
+      "raw_candidate_space": 16,
+      "wall_ms": 0.0
+    },
+    {
+      "actual_category_posthoc": "LINEAR_GLOBAL_CALIBRATION",
+      "case": "bernstein_vazirani_n4",
+      "classical": {
+        "candidate_secret_space_after_each_observation": [
+          8,
+          4,
+          2,
+          1
+        ],
+        "independent_constraints_gained": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "memory_proxy": 4,
+        "postprocessing_operations": 4,
+        "query_complexity_observed": 4,
+        "query_complexity_worst_case": 4,
+        "repetitions": 1,
+        "representation_postprocessing": "bit vector",
+        "structure_known_before_query": "linear Boolean phase promised",
+        "structure_revealed_per_query": "one basis-bit parity observation",
+        "success_probability": 1.0
+      },
+      "family": "BERNSTEIN_VAZIRANI_CALIBRATION",
+      "machine_dependent_fields": [
+        "wall_ms"
+      ],
+      "oracle_construction_cost": {
+        "entries": 16,
+        "gate_circuit_proxy": "NOT_MEASURED",
+        "model": "enumerated ideal oracle truth-table entries",
+        "used_as_query_count": false
+      },
+      "order_profile": {
+        "D_discovery_operations": 1,
+        "H_raw_candidate_space": 16,
+        "I_independent_constraints_per_query": [
+          4
+        ],
+        "K_profitable_refinement_depth": 1,
+        "M_observation_description_bytes": 4,
+        "Q_after_first_observation": 1,
+        "S_postprocessing_operations": 4,
+        "W_observation_structure_width": 4,
+        "X_transform_operations": 4,
+        "first_observation_candidate_ratio": 0.0625,
+        "quantum_query_ratio_to_classical": 0.25
+      },
+      "prediction": {
+        "actual_category_posthoc": "LINEAR_GLOBAL_CALIBRATION",
+        "category": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP",
+        "computed_before_actual_category_reveal": true,
+        "correct": false,
+        "heldout": false,
+        "rule_digest": "3572b6e15d3d0d9740e92af82d9ebad3e00fe1c36e2ae7c03d836903b083a4a6"
+      },
+      "quantum": {
+        "candidate_secret_space_after_each_observation": [
+          1
+        ],
+        "independent_constraints_gained": [
+          4
+        ],
+        "measurement": "1001",
+        "memory_proxy": 16,
+        "oracle_construction_cost": {
+          "entries": 16,
+          "gate_circuit_proxy": "NOT_MEASURED",
+          "model": "enumerated ideal oracle truth-table entries",
+          "used_as_query_count": false
+        },
+        "postprocessing_operations": 4,
+        "postprocessing_representation": "direct bit vector",
+        "query_complexity_ideal": 1,
+        "repetitions": 1,
+        "state_dimension": 16,
+        "structure_known_before_query": "linear Boolean phase promised",
+        "structure_revealed_per_query": "n-bit global parity vector",
+        "success_amplification_queries": 1,
+        "success_probability": 1.0
+      },
+      "raw_candidate_space": 16,
+      "wall_ms": 0.0
+    },
+    {
+      "actual_category_posthoc": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP",
+      "case": "simon_n4",
+      "classical": {
+        "candidate_secret_space_after_each_observation": [
+          15,
+          14,
+          12,
+          12,
+          1
+        ],
+        "independent_constraints_gained": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "memory_proxy": 20,
+        "postprocessing_operations": 75,
+        "query_complexity_observed_collision": 5,
+        "query_complexity_worst_case": 16,
+        "repetitions": 1,
+        "representation_postprocessing": "collision table and secret consistency set",
+        "structure_known_before_query": "hidden XOR period promised but secret unknown",
+        "structure_revealed_per_query": "function value; collision needed for direct secret recovery",
+        "success_probability": 1.0
+      },
+      "family": "SIMON_HIDDEN_XOR",
+      "machine_dependent_fields": [
+        "wall_ms"
+      ],
+      "oracle_construction_cost": {
+        "entries": 16,
+        "gate_circuit_proxy": "NOT_MEASURED",
+        "model": "enumerated ideal oracle truth-table entries",
+        "used_as_query_count": false
+      },
+      "order_profile": {
+        "D_discovery_operations": 1,
+        "H_raw_candidate_space": 15,
+        "I_independent_constraints_per_query": [
+          1,
+          1,
+          1
+        ],
+        "K_profitable_refinement_depth": 3,
+        "M_observation_description_bytes": 4,
+        "Q_after_first_observation": 7,
+        "S_postprocessing_operations": 64,
+        "W_observation_structure_width": 4,
+        "X_transform_operations": 4,
+        "first_observation_candidate_ratio": 0.4666666666666667,
+        "quantum_query_ratio_to_classical": 0.6
+      },
+      "prediction": {
+        "actual_category_posthoc": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP",
+        "category": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP",
+        "computed_before_actual_category_reveal": true,
+        "correct": true,
+        "heldout": true,
+        "rule_digest": "3572b6e15d3d0d9740e92af82d9ebad3e00fe1c36e2ae7c03d836903b083a4a6"
+      },
+      "quantum": {
+        "candidate_secret_space_after_each_observation": [
+          7,
+          3,
+          1
+        ],
+        "constraint_equations": [
+          "dot(2, secret)=0 mod 2",
+          "dot(5, secret)=0 mod 2",
+          "dot(8, secret)=0 mod 2"
+        ],
+        "independent_constraints_gained": [
+          1,
+          1,
+          1
+        ],
+        "measurements": [
+          2,
+          5,
+          8
+        ],
+        "memory_proxy": 4,
+        "oracle_construction_cost": {
+          "entries": 16,
+          "gate_circuit_proxy": "NOT_MEASURED",
+          "model": "enumerated ideal oracle truth-table entries",
+          "used_as_query_count": false
+        },
+        "postprocessing_operations": 64,
+        "postprocessing_representation": "GF2 row reduction",
+        "query_complexity_ideal": 3,
+        "repetitions": 3,
+        "state_dimension": 16,
+        "structure_known_before_query": "hidden XOR structure promised",
+        "structure_revealed_per_query": "one homogeneous GF2 constraint y\u00b7s=0",
+        "success_amplification_queries": 3,
+        "success_probability": 1.0
+      },
+      "raw_candidate_space": 15,
+      "wall_ms": 0.0
+    },
+    {
+      "actual_category_posthoc": "NO_SIGNIFICANT_STRUCTURAL SPEEDUP",
+      "case": "period_finding_n16",
+      "classical": {
+        "candidate_secret_space_after_each_observation": [
+          3,
+          3,
+          2,
+          2,
+          1
+        ],
+        "independent_constraints_gained": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "memory_proxy": 3,
+        "postprocessing_operations": 15,
+        "query_complexity_observed_period_identification": 5,
+        "query_complexity_worst_case": 16,
+        "repetitions": 1,
+        "representation_postprocessing": "period consistency table",
+        "structure_known_before_query": "periodic function promise; period unknown",
+        "structure_revealed_per_query": "function value; short prefix may leave periods tied",
+        "success_probability": 1.0
+      },
+      "family": "TOY_PERIOD_FINDING",
+      "machine_dependent_fields": [
+        "wall_ms"
+      ],
+      "oracle_construction_cost": {
+        "entries": 16,
+        "gate_circuit_proxy": "NOT_MEASURED",
+        "model": "enumerated ideal oracle truth-table entries",
+        "used_as_query_count": false
+      },
+      "order_profile": {
+        "D_discovery_operations": 1,
+        "H_raw_candidate_space": 3,
+        "I_independent_constraints_per_query": [
+          1
+        ],
+        "K_profitable_refinement_depth": 1,
+        "M_observation_description_bytes": 1,
+        "Q_after_first_observation": 1,
+        "S_postprocessing_operations": 16,
+        "W_observation_structure_width": 4,
+        "X_transform_operations": 1,
+        "first_observation_candidate_ratio": 0.3333333333333333,
+        "quantum_query_ratio_to_classical": 0.2
+      },
+      "prediction": {
+        "actual_category_posthoc": "NO_SIGNIFICANT_STRUCTURAL SPEEDUP",
+        "category": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP",
+        "computed_before_actual_category_reveal": true,
+        "correct": false,
+        "heldout": true,
+        "rule_digest": "3572b6e15d3d0d9740e92af82d9ebad3e00fe1c36e2ae7c03d836903b083a4a6"
+      },
+      "quantum": {
+        "candidate_secret_space_after_each_observation": [
+          1
+        ],
+        "fourier_sample": 4,
+        "independent_constraints_gained": [
+          1
+        ],
+        "memory_proxy": 16,
+        "oracle_construction_cost": {
+          "entries": 16,
+          "gate_circuit_proxy": "NOT_MEASURED",
+          "model": "enumerated ideal oracle truth-table entries",
+          "used_as_query_count": false
+        },
+        "postprocessing_operations": 16,
+        "postprocessing_representation": "continued-fraction/rational reconstruction proxy",
+        "query_complexity_ideal": 1,
+        "repetitions": 1,
+        "state_dimension": 16,
+        "structure_known_before_query": "periodic oracle promise",
+        "structure_revealed_per_query": "ideal Fourier sample and rational denominator",
+        "success_amplification_queries": 1,
+        "success_probability": 1.0
+      },
+      "raw_candidate_space": 3,
+      "wall_ms": 0.0
+    }
+  ],
+  "metrics_policy": {
+    "deterministic_fields": [
+      "candidate traces",
+      "constraint ranks",
+      "query counts",
+      "state dimensions",
+      "oracle table entries"
+    ],
+    "machine_dependent_fields": [
+      "wall_ms"
+    ],
+    "not_measured_fields": [
+      "full gate/circuit proxy",
+      "hardware runtime"
+    ],
+    "posthoc_fields": [
+      "actual_category_posthoc",
+      "prediction.correct",
+      "prediction_protocol.heldout_accuracy"
+    ],
+    "resource_vector": true,
+    "scalar_universal_claim": false
+  },
+  "model_boundary": {
+    "full_gate_circuit_cost": "NOT_MEASURED",
+    "idealized_oracle_model": true,
+    "oracle_construction_is_reported": true,
+    "quantum_hardware": false,
+    "scalar_speedup_claim": false
+  },
+  "negative_controls": {
+    "bv_is_calibration_not_heldout_evidence": true,
+    "grover_has_no_global_candidate_constraint": true,
+    "period_postprocessing_mismatch_preserved": true,
+    "simon_collision_vs_global_constraint_is_separate": true
+  },
+  "optional_tensor_bridge": {
+    "reason": "full gate/interactions were not measured; no tensor conclusion is licensed",
+    "status": "NOT_RUN"
+  },
+  "order_profile_mapping": {
+    "D": "pre-query discovery operations",
+    "H": "raw candidate/secret space",
+    "I": "independent constraints gained per query",
+    "K": "refinement depth until useful candidate restriction",
+    "M": "exact observation description bytes",
+    "Q": "candidate classes after an observation",
+    "S": "classical postprocessing operations",
+    "W": "observation/global-constraint width proxy",
+    "X": "transform operations",
+    "not_a_final_definition": true
+  },
+  "parent_commit": "81be791",
+  "prediction_protocol": {
+    "heldout_accuracy": 0.5,
+    "heldout_controls": [
+      "period_finding_n16",
+      "simon_n4"
+    ],
+    "heldout_results": [
+      {
+        "actual": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP",
+        "case": "simon_n4",
+        "correct": true,
+        "prediction": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP"
+      },
+      {
+        "actual": "NO_SIGNIFICANT_STRUCTURAL SPEEDUP",
+        "case": "period_finding_n16",
+        "correct": false,
+        "prediction": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP"
+      }
+    ],
+    "interpretation": "one held-out structural prediction succeeds and the toy period control exposes a mismatch; no general predictor is claimed",
+    "labels_revealed_after_prediction": true,
+    "predictions": {
+      "bernstein_vazirani_n4": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP",
+      "grover_n16": "QUADRATIC-LIKE",
+      "period_finding_n16": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP",
+      "simon_n4": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP"
+    },
+    "rule": {
+      "elif": "quantum_query_ratio_to_classical <= 0.5",
+      "heldout": [
+        "simon_n4",
+        "period_finding_n16"
+      ],
+      "if": "first_observation_candidate_ratio <= 0.5 and independent_constraints_gained >= 1",
+      "otherwise": "NO_SIGNIFICANT_STRUCTURAL SPEEDUP",
+      "status": "PREREGISTERED_BEFORE_HELDOUT_LABELS",
+      "then": "EXPONENTIAL/STRUCTURAL QUERY SPEEDUP",
+      "then_else": "QUADRATIC-LIKE"
+    },
+    "training_controls": [
+      "bernstein_vazirani_n4",
+      "grover_n16"
+    ]
+  },
+  "protocol": "pipi-46-quantum-order-stress-v0",
+  "scope": "PiPi-46 idealized quantum query stress; no hardware, no full gate simulator",
+  "scope_declarations": {
+    "main_modified": false,
+    "phase5_started": false,
+    "pipi_42_modified": false,
+    "pipi_43_modified": false,
+    "pipi_44_modified": false,
+    "pipi_45_modified": false,
+    "pr_opened": false
+  }
+}
