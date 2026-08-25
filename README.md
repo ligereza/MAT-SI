@@ -216,3 +216,11 @@ The deterministic checks run with:
 $env:PYTHONPATH="src"
 python -m unittest tests.test_vizz_geometry -v
 ```
+
+## Applied implementation exercises
+
+The recent mathematical orientations for FARMAKSIA/VIZZ, SVG/Blender, and the
+MAK Linux/Windows handoff are consolidated as implementation exercises in
+`docs/applied-implementation-exercises.md`. They define the coordinate models,
+invariants, algorithms, pseudocode, acceptance criteria, and falsification cases;
+they do not claim completed integrations or benchmark results.
