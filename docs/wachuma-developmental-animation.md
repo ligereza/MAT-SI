@@ -64,6 +64,41 @@ Fuentes de partida:
 
 ## 3. Costillas como historia de nacimientos
 
+### Primario apical frente a secundario axilar
+
+La extensión del tallo principal tiene una sola fuente primaria: el meristemo
+apical del brote (`SAM`). En una idealización temporal:
+
+```text
+H(t) = H0 + integral_0^t v_SAM(tau) d tau
+tau_k <= t  iff  el primordio k ha sido iniciado
+```
+
+La base permanece como referencia material y el nuevo tejido se incorpora en la
+corona. Para un primordio ya iniciado, una ley mínima de advección es:
+
+```text
+age_k(t) = clamp((t - tau_k) / (T - tau_k))
+z_k(t) = H(t) [s_apex - Delta(age_k)]
+```
+
+`H(t)` puede cambiar por cultivo; `Delta` representa expansión subapical y no
+una animación de un cactus adulto escalado globalmente. Las costillas y areolas
+son la memoria material de esa producción apical.
+
+Una rama es otro meristemo, pero no es crecimiento primario del tronco. Sólo
+puede crearse si existe una areola `a_k` cuyo estado sea `vegetative` y si una
+condición de liberación secundaria está presente:
+
+```text
+create_child(a_k) iff
+  a_k in A and state(a_k) == vegetative and release(a_k, E, H) == true
+```
+
+La dominancia apical y la liberación de yemas tienen respaldo general en
+Cactaceae y en biología de brotes; `release`, sus umbrales y sus pesos son
+parámetros de política hasta que existan series temporales del mismo clon.
+
 Cada nuevo primordio/areola recibe una identidad al nacer:
 
 ```text
@@ -113,6 +148,48 @@ El primer término da la elevación tenue de la areola; el segundo, desplazado
 ligeramente hacia el ápice, representa la depresión transversal visible encima
 de ella. Ambos desaparecen de manera suave en el polo apical para evitar una
 singularidad de estrella.
+
+### Controles de sección, pulpa y espinas
+
+Los controles visuales deben corresponder a parámetros explícitos, no a una
+deformación arbitraria del mesh horneado. Para un módulo `u in [-1,1]`, sea
+`c(u)=cos(pi u)` la diferencia crest-valle y `rho in [0,1]` el redondeo interno:
+
+```text
+p_rho(u) = 1 + alpha c(u) + 0.18 rho alpha [1 - c(u)]
+```
+
+El término de control es cero en la cresta y eleva progresivamente el fondo del
+valle. Así `rho=0` conserva la sección base y `rho=1` suaviza el perfil sin
+eliminar las costillas, cambiar `n` ni romper la identificación de los valles
+compartidos. `rho` es una decisión geométrica calibrable; no es una medición
+histológica.
+
+La referencia SVG tampoco se proyecta como una pegatina sobre el tallo. Se
+extrae su estructura cromática radial y se aplica a la banda interior:
+
+```text
+q(r) = clamp(r / r_core, 0, 1)
+P(r) = (1 - gamma) B + gamma lerp(P_light, P_mid, P_dark; q(r))
+```
+
+`P_light` representa la pulpa verde clara central, `P_mid` la transición y
+`P_dark` la pulpa exterior más oscura; `gamma` controla el contraste. `r_core`
+y `gamma` son controles de representación, mientras que el SVG es sólo la
+provenance visual de esa paleta y no una autoridad anatómica 3D.
+
+Para las espinas, el abanico de cada areola conserva sus slots y sólo escala
+la longitud generada:
+
+```text
+d_jk = normalize(cos(alpha_k) N_j + sin(alpha_k) T_j + v_jk e_z)
+L_jk = spine_scale L0 activity_j age_factor_j lambda_k
+```
+
+El parámetro `spine_scale` modifica el alcance común y no crea/elimina
+espinas. Los valores `alpha_k`, `lambda_k` y el número de slots siguen siendo
+hipótesis del perfil hasta ser comparados con fotografías longitudinales del
+mismo ejemplar o clon.
 
 ## 4. Tres escalas temporales
 
