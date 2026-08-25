@@ -200,3 +200,19 @@ PYTHONPATH=src python -m matsi.baseline_audit --json-out results/phase4a-baselin
 See `docs/reproducible-evidence.md` for the four locked failures, the corrected
 same-population baseline, and the evidence that remains non-reproducible without
 private sources.
+
+## VIZZ multi-monitor geometry integration
+
+MAT-SI now contains a dependency-free geometry kernel for the FARMAKSIA/VIZZ
+integration. It maps a calibrated 3-D gaze ray to independently posed physical
+monitor planes and returns the monitor-local point, viewing distance, and
+dioptric demand. It does not implement camera calibration, eye tracking,
+machine learning, prescription inference, or clinical correction.
+
+See `docs/vizz-multimonitor-integration.md` and `src/matsi/vizz_geometry.py`.
+The deterministic checks run with:
+
+```text
+$env:PYTHONPATH="src"
+python -m unittest tests.test_vizz_geometry -v
+```
