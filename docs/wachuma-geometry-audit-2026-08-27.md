@@ -1,6 +1,6 @@
 # WACHUMA — Geometry Nodes Audit and MAT-SI Handoff
 
-**Date:** 2026-08-27  
+**Date:** 2026-08-27
 **Status:** blocking audit; implementation claims must be downgraded until the
 listed gaps are repaired and re-tested.
 
