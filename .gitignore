@@ -4,3 +4,8 @@ __pycache__/
 artifacts/
 *.log
 corpus/local-source-map.json
+
+# PREDICAR third-party papers and source archives stay local; the manifest and
+# fetch script are the reproducible project boundary.
+resources/predicar/papers/*.pdf
+resources/predicar/source/*.zip

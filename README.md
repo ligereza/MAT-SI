@@ -185,3 +185,13 @@ PYTHONPATH=src python -m matsi.baseline_audit --json-out results/phase4a-baselin
 See `docs/reproducible-evidence.md` for the four locked failures, the corrected
 same-population baseline, and the evidence that remains non-reproducible without
 private sources.
+
+## PREDICAR preparation
+
+The `PREDICAR` branch prepares a domain-neutral finite-set probabilistic
+forecasting laboratory. Its initial fixture is parameterized as `N=25, K=14`,
+but it does not name or depend on a particular application domain. The protocol,
+six research-area adapters, resource manifest, and inert Python contracts are in
+`docs/predicar/`, `src/predicar/`, `corpus/predicar/`, and
+`references/predicar/`. This preparation has not started model fitting,
+forecasting, scoring, or dataset analysis.

@@ -1,0 +1,149 @@
+{
+  "manifest": "predicar-resource-manifest-v0",
+  "status": "curated_for_download",
+  "download_policy": {
+    "download_now": ["papers", "small_source_kits"],
+    "do_not_download_now": ["large_datasets", "private_sources", "video", "biological_raw_data"],
+    "reason": "Preparation only; no model execution or data analysis starts here."
+  },
+  "resources": [
+    {
+      "id": "RFS-GLMB-2018",
+      "area_id": "rfs_tracking",
+      "kind": "paper",
+      "title": "A Multi-Scan Labeled Random Finite Set Model for Multi-object State Estimation",
+      "url": "https://arxiv.org/pdf/1805.10038",
+      "local_path": "resources/predicar/papers/rfs-glmb-multi-scan.pdf",
+      "license_note": "Paper access and reuse follow the publisher/arXiv terms.",
+      "status": "downloaded"
+    },
+    {
+      "id": "STONE-SOUP",
+      "area_id": "rfs_tracking",
+      "kind": "source_kit",
+      "title": "Stone Soup tracking framework",
+      "url": "https://github.com/dstl/Stone-Soup/archive/refs/heads/main.zip",
+      "local_path": "resources/predicar/source/stone-soup-main.zip",
+      "license_note": "MIT according to the project repository; verify included notices.",
+      "status": "downloaded"
+    },
+    {
+      "id": "MOTCHALLENGE",
+      "area_id": "rfs_tracking",
+      "kind": "dataset_catalog",
+      "title": "MOTChallenge data catalog",
+      "url": "https://motchallenge.net/data/TAO_Challenge/",
+      "local_path": null,
+      "license_note": "Do not mirror data automatically; inspect dataset-specific terms first.",
+      "status": "catalog_only"
+    },
+    {
+      "id": "NEURAL-ME-2017",
+      "area_id": "neural_population",
+      "kind": "paper",
+      "title": "Random versus maximum entropy models of neural population activity",
+      "url": "https://arxiv.org/pdf/1612.02807",
+      "local_path": "resources/predicar/papers/neural-maximum-entropy.pdf",
+      "license_note": "Paper access and reuse follow APS terms.",
+      "status": "downloaded",
+      "canonical_reference": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.95.042321"
+    },
+    {
+      "id": "NEURO-ALLEN-SDK",
+      "area_id": "neural_population",
+      "kind": "source_kit",
+      "title": "AllenSDK",
+      "url": "https://github.com/AllenInstitute/AllenSDK/archive/refs/heads/master.zip",
+      "local_path": "resources/predicar/source/allensdk-master.zip",
+      "license_note": "Verify repository and dataset terms before redistribution.",
+      "status": "downloaded_optional_large_kit"
+    },
+    {
+      "id": "ISING-FIXED-MAGNETIZATION-2021",
+      "area_id": "statistical_physics",
+      "kind": "paper",
+      "title": "Computational thresholds for the fixed-magnetization Ising model",
+      "url": "https://arxiv.org/pdf/2111.03033",
+      "local_path": "resources/predicar/papers/fixed-magnetization-ising.pdf",
+      "license_note": "Paper access and reuse follow arXiv terms.",
+      "status": "downloaded"
+    },
+    {
+      "id": "AFF3CT",
+      "area_id": "error_correcting",
+      "kind": "source_kit",
+      "title": "AFF3CT forward error correction toolbox",
+      "url": "https://github.com/aff3ct/aff3ct/archive/refs/heads/master.zip",
+      "local_path": "resources/predicar/source/aff3ct-master.zip",
+      "license_note": "MIT according to the project website; verify included notices.",
+      "status": "downloaded"
+    },
+    {
+      "id": "LDPC-DOCS",
+      "area_id": "error_correcting",
+      "kind": "documentation",
+      "title": "LDPC decoding documentation",
+      "url": "https://software.roffe.eu/ldpc/",
+      "local_path": null,
+      "license_note": "Use as external documentation; no local mirror required.",
+      "status": "catalog_only"
+    },
+    {
+      "id": "HAWKES-REVIEW-2025",
+      "area_id": "point_processes",
+      "kind": "paper",
+      "title": "Deep Spatiotemporal Point Processes: Advances and New Directions",
+      "url": "https://doi.org/10.1146/annurev-statistics-042324-040052",
+      "local_path": null,
+      "license_note": "External review page; do not bypass access controls.",
+      "status": "catalog_only"
+    },
+    {
+      "id": "HAWKES-STOCHASTIC-2016",
+      "area_id": "point_processes",
+      "kind": "paper",
+      "title": "Hawkes Processes with Stochastic Excitations",
+      "url": "https://proceedings.mlr.press/v48/leea16.pdf",
+      "local_path": "resources/predicar/papers/hawkes-stochastic-excitations.pdf",
+      "license_note": "Proceedings paper; preserve citation and license notices.",
+      "status": "downloaded",
+      "download_alias": "http://proceedings.mlr.press/v48/leea16.pdf"
+    },
+    {
+      "id": "OR-TOOLS-CP-SAT",
+      "area_id": "constraint_programming",
+      "kind": "source_kit",
+      "title": "Google OR-Tools CP-SAT source",
+      "url": "https://github.com/google/or-tools/archive/refs/heads/stable.zip",
+      "local_path": "resources/predicar/source/or-tools-stable.zip",
+      "license_note": "Verify bundled third-party notices before redistribution.",
+      "status": "downloaded"
+    },
+    {
+      "id": "WMC-2022",
+      "area_id": "constraint_programming",
+      "kind": "paper",
+      "title": "Weighted Model Counting in the Two Variable Fragments",
+      "url": "https://countinglogic.github.io/files/wmc_aaai_2022.pdf",
+      "local_path": "resources/predicar/papers/weighted-model-counting.pdf",
+      "license_note": "Paper access and reuse follow the conference/authors terms.",
+      "status": "downloaded"
+    }
+  ],
+  "optional_datasets": [
+    {
+      "id": "ALLEN-BRAIN-OBSERVATORY",
+      "area_id": "neural_population",
+      "url": "https://alleninstitute.github.io/AllenSDK/index.html",
+      "status": "not_downloaded",
+      "reason": "large raw data; use only after protocol gate P1"
+    },
+    {
+      "id": "NASA-PROGNOSTICS",
+      "area_id": "optional_transfer",
+      "url": "https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/",
+      "status": "not_downloaded",
+      "reason": "optional continuous-state transfer, not required for the 14/25 core"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "protocol": "predicar-v0",
+  "status": "prepared_not_started",
+  "purpose": "domain-neutral finite-set probabilistic forecasting",
+  "spec": {
+    "universe_size": 25,
+    "cardinality": 14,
+    "state_encoding": "binary_mask",
+    "support_policy": "exact_cardinality_only"
+  },
+  "models": [
+    "uniform_exact",
+    "conditional_cardinality",
+    "pairwise_gibbs",
+    "finite_set_bayes",
+    "noisy_channel",
+    "memory_kernel",
+    "constraint_weighted",
+    "complex_amplitude"
+  ],
+  "scores": [
+    "set_log_score",
+    "marginal_brier",
+    "calibration_error",
+    "posterior_entropy",
+    "compute_cost"
+  ],
+  "placebos": [
+    "temporal_shuffle",
+    "label_permutation",
+    "history_cutoff_shuffle",
+    "random_parameter_placebo"
+  ],
+  "fold_policy": "expanding_window_future_only",
+  "seed_policy": "explicit_and_recorded",
+  "data_policy": "manifests_first_no_external_dataset_by_default",
+  "execution": {
+    "started": false,
+    "fit_performed": false,
+    "forecast_performed": false,
+    "scores_computed": false
+  }
+}

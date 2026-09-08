@@ -1,0 +1,9 @@
+# PREDICAR core intentionally has no runtime dependency beyond Python.
+# Install only after the protocol gate P1 is approved.
+numpy>=1.26,<3
+scipy>=1.13,<2
+pytest>=8,<9
+# Optional external adapters, to be evaluated separately:
+# stonesoup
+# allensdk
+# ortools
